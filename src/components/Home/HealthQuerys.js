@@ -39,9 +39,9 @@ const HealthQuerys = () => {
   return (
     <>
       <section id="health-queries">
-        <div class="midbox-inner  wiki-mk">
-          <div class="queries-head">
-            <div class="querieshead-left">
+        <div className="midbox-inner  wiki-mk">
+          <div className="queries-head">
+            <div className="querieshead-left">
               <h2>Get answers to Health Queries</h2>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -49,23 +49,23 @@ const HealthQuerys = () => {
                 quis nostrud exercitation ullamco laboris nisi ut aliquip
               </p>
             </div>
-            <div class="querieshead-right">
-              <a href="#" class="queries-ask">
+            <div className="querieshead-right">
+              <a href="#" className="queries-ask">
                 Ask FREE Question{" "}
                 <img src="images/2023/01/arrow-w.png" alt="" />
               </a>
             </div>
           </div>
 
-          <div class="healthcare-professionals">
-            <div class="professionals animation-element slide-up">
-              <div class="professionals-box">
+          <div className="healthcare-professionals">
+            <div className="professionals animation-element slide-up">
+              <div className="professionals-box">
                 <img src="images/2023/01/icon-m.png" alt="" />
-                <div class="question-box">
+                <div className="question-box">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
                   sed purus consectetur, interdum felis in?{" "}
                 </div>
-                <div class="question-ans">
+                <div className="question-ans">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
                   sed purus consectetur, interdum felis in, auctor ligula. Lorem
                   ipsum dolor sit amet, consectetur adipiscing elit. Donec sed
@@ -74,14 +74,14 @@ const HealthQuerys = () => {
               </div>
             </div>
 
-            <div class="professionals animation-element slide-up">
-              <div class="professionals-box">
+            <div className="professionals animation-element slide-up">
+              <div className="professionals-box">
                 <img src="images/2023/01/icon-m.png" alt="" />
-                <div class="question-box">
+                <div className="question-box">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
                   sed purus consectetur, interdum felis in?{" "}
                 </div>
-                <div class="question-ans">
+                <div className="question-ans">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
                   sed purus consectetur, interdum felis in, auctor ligula. Lorem
                   ipsum dolor sit amet, consectetur adipiscing elit. Donec sed
@@ -90,14 +90,14 @@ const HealthQuerys = () => {
               </div>
             </div>
 
-            <div class="professionals animation-element slide-up">
-              <div class="professionals-box">
+            <div className="professionals animation-element slide-up">
+              <div className="professionals-box">
                 <img src="images/2023/01/icon-m.png" alt="" />
-                <div class="question-box">
+                <div className="question-box">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
                   sed purus consectetur, interdum felis in?{" "}
                 </div>
-                <div class="question-ans">
+                <div className="question-ans">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
                   sed purus consectetur, interdum felis in, auctor ligula. Lorem
                   ipsum dolor sit amet, consectetur adipiscing elit. Donec sed
@@ -106,14 +106,14 @@ const HealthQuerys = () => {
               </div>
             </div>
 
-            <div class="professionals animation-element slide-up">
-              <div class="professionals-box">
+            <div className="professionals animation-element slide-up">
+              <div className="professionals-box">
                 <img src="images/2023/01/icon-m.png" alt="" />
-                <div class="question-box">
+                <div className="question-box">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
                   sed purus consectetur, interdum felis in?{" "}
                 </div>
-                <div class="question-ans">
+                <div className="question-ans">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
                   sed purus consectetur, interdum felis in, auctor ligula. Lorem
                   ipsum dolor sit amet, consectetur adipiscing elit. Donec sed
@@ -123,7 +123,7 @@ const HealthQuerys = () => {
             </div>
           </div>
 
-          <div class="question-opinion">
+          <div className="question-opinion">
             <h2>Have any questions? </h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -133,10 +133,10 @@ const HealthQuerys = () => {
             </p>
           </div>
 
-          <div class="questions-form">
-            <div class="homeform-left">
-              <div class="home-form">
-                <div class="inputbox">
+          <div className="questions-form">
+            <div className="homeform-left">
+              <div className="home-form">
+                <div className="inputbox">
                   <label>Name</label>
                   <input
                     type="text"
@@ -148,8 +148,8 @@ const HealthQuerys = () => {
                 </div>
               </div>
 
-              <div class="home-form">
-                <div class="inputbox1">
+              <div className="home-form">
+                <div className="inputbox1">
                   <label>Age</label>
                   <input
                     type="text"
@@ -159,7 +159,7 @@ const HealthQuerys = () => {
                     
                   />
                 </div>
-                <div class="inputbox1">
+                <div className="inputbox1">
                   <label>Gender</label>
                   <input
                     type="text"
@@ -171,11 +171,11 @@ const HealthQuerys = () => {
                 </div>
               </div>
 
-              <div class="home-form">
-                <div class="homequery">
+              <div className="home-form">
+                <div className="homequery">
                   <label>Your Query</label>
                   <textarea
-                    class="magbox"
+                    className="magbox"
                     type="textarea"
                     name="query"
                     placeholder=""
@@ -184,17 +184,17 @@ const HealthQuerys = () => {
                 </div>
               </div>
 
-              <div class="home-form">
-                <button type="submit" name="en" class="home-button">
+              <div className="home-form">
+                <button type="submit" name="en" className="home-button">
                   {" "}
                   Submit Now <img src="images/2023/01/arrow-c.png" alt="" />
                 </button>
               </div>
             </div>
-            <div class="homeform-right">
+            <div className="homeform-right">
               <img src="images/2023/01/home-q.jpg" alt="" />
 
-              <div class="home-drbox">
+              <div className="home-drbox">
                 <h4>We value your Privacy</h4>
 
                 <ul>

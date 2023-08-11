@@ -4,7 +4,7 @@ const WorldMap = () => {
   return (
     <>
       <section id="home-contact">
-        <div class="midbox-inner  wiki-mk">
+        <div className="midbox-inner  wiki-mk">
           <h2>Sorry, does all this scare you?</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -19,7 +19,7 @@ const WorldMap = () => {
       </section>
 
       <section id="world-map">
-        <div class="midbox-inner  wiki-mk">
+        <div className="midbox-inner  wiki-mk">
           <img src="images/2023/01/world-map.gif" alt="" />
           <h2>
             Trusted by happy clients in <span>10+ Countries</span>

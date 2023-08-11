@@ -25,7 +25,7 @@ const Testimonials = () => {
   return (
     <>
       <section id="home-testimonials">
-        <div class="midbox-inner  wiki-mk">
+        <div className="midbox-inner  wiki-mk">
           <h2>
             Lorem ipsum sit elitconsec diusmod <span>Testimonials</span>
           </h2>
@@ -34,16 +34,16 @@ const Testimonials = () => {
             consectetur
           </p>
 
-          <div class="owl-slider">
+          <div className="owl-slider">
             <div id="testimonials">
               <Carousel responsive={responsive} arrows={false} infinite={true} autoPlay autoPlaySpeed={2000}>
-                <div class="item" style={{marginRight:"20px"}}>
-                  <div class="testimonials-item">
+                <div className="item" style={{marginRight:"20px"}}>
+                  <div className="testimonials-item">
                     <img src="images/2023/01/08/1.jpg" />
 
-                    <div class="testimonials-text">
+                    <div className="testimonials-text">
                       <h3>Lorem ipsum dolor sit amet</h3>
-                      <div class="testimonials-dd">
+                      <div className="testimonials-dd">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore Ut enim ad
                         minim veniam, quis nostrud exercitation ullamco laboris
@@ -54,13 +54,13 @@ const Testimonials = () => {
                   </div>
                 </div>
 
-                <div class="item"style={{marginRight:"20px"}}>
-                  <div class="testimonials-item">
+                <div className="item"style={{marginRight:"20px"}}>
+                  <div className="testimonials-item">
                     <img src="images/2023/01/08/1.jpg" />
 
-                    <div class="testimonials-text">
+                    <div className="testimonials-text">
                       <h3>Lorem ipsum dolor sit amet</h3>
-                      <div class="testimonials-dd">
+                      <div className="testimonials-dd">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore Ut enim ad
                         minim veniam, quis nostrud exercitation ullamco laboris
@@ -71,13 +71,13 @@ const Testimonials = () => {
                   </div>
                 </div>
 
-                <div class="item"style={{marginRight:"20px"}}>
-                  <div class="testimonials-item">
+                <div className="item"style={{marginRight:"20px"}}>
+                  <div className="testimonials-item">
                     <img src="images/2023/01/08/1.jpg" />
 
-                    <div class="testimonials-text">
+                    <div className="testimonials-text">
                       <h3>Lorem ipsum dolor sit amet</h3>
-                      <div class="testimonials-dd">
+                      <div className="testimonials-dd">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore Ut enim ad
                         minim veniam, quis nostrud exercitation ullamco laboris

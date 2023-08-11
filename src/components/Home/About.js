@@ -4,9 +4,9 @@ const About = () => {
   return (
     <>
       <section id="home-about">
-        <div class="midbox-inner  wiki-mk">
-          <div class="homeabout-box">
-            <div class="homeabout-left">
+        <div className="midbox-inner  wiki-mk">
+          <div className="homeabout-box">
+            <div className="homeabout-left">
               <h2>
                 We push the limits of what's possible for{" "}
                 <span>our patients</span>
@@ -23,10 +23,10 @@ const About = () => {
                 <img src="images/2023/01/arrow-c.png" alt="" />
               </a>
             </div>
-            <div class="homeabout-right">
-              <div class="about-showbox">
+            <div className="homeabout-right">
+              <div className="about-showbox">
                 <img src="images/2023/01/09/1.jpg" />
-                <div class="about-med">
+                <div className="about-med">
                   <h3>Clinical Excellence</h3>
                   <p>
                     We strive to convert distant medical possibilities to
