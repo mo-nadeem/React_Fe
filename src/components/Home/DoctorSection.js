@@ -1,6 +1,7 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { FaLongArrowAltLeft } from "react-icons/fa";
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -22,6 +23,19 @@ const responsive = {
 };
 
 const DoctorSection = () => {
+  const CustomRightArrow = ({ onClick }) => (
+    <div className="custom-arrow right-arrow" onClick={onClick}>
+      <i>
+        <FaLongArrowAltLeft />
+      </i>
+    </div>
+  );
+
+  const CustomLeftArrow = ({ onClick }) => (
+    <div className="custom-arrow left-arrow" onClick={onClick}>
+      <i className="fas fa-chevron-left"></i>
+    </div>
+  );
   return (
     <>
       <section id="doctors-section">
@@ -44,6 +58,8 @@ const DoctorSection = () => {
                 infinite={true}
                 autoPlay={true}
                 autoPlaySpeed={2000}
+                customRightArrow={<CustomRightArrow />}
+                customLeftArrow={<CustomLeftArrow />}
               >
                 <div class="item" style={{ marginRight: "20px" }}>
                   <div class="doctors-item">

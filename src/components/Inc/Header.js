@@ -4,6 +4,7 @@ import arrow from "../../assests/images/2023/01/arrow-c.png";
 import { GoChevronDown } from "react-icons/go";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchHome } from "../../Api/action/HomeAction";
+import { Link } from "react-router-dom";
 const Header = () => {
   const dispatch = useDispatch();
 
@@ -65,119 +66,92 @@ const Header = () => {
     <>
       <header className="header" id="header-id">
         <div className="headerTertiary">
-          <a href="index.html" target="_self" className="logo-d">
+          <Link to="/" target="_self" className="logo-d">
             {" "}
             <img src={logo} alt="Brand Logo" />
-          </a>
+          </Link>
           <div className="topnav-right page-header">
             <nav>
               <div className="top-menu-wrapper">
                 <ul className="top-menu">
                   <li className="has-dropdown" style={{ display: "block" }}>
-                    <a href="">
+                    <Link to="/category">
                       Treatments
                       <i>
                         <GoChevronDown style={{ fontSize: "22px" }} />
                       </i>
-                    </a>
+                    </Link>
                     <ul className="sub-menu">
-                      <li className="dropdown">
-                        <a href="#" className="dropbtn">
-                          Organ Transplantation{" "}
-                        </a>{" "}
-                      </li>
-                      <li className="dropdown">
-                        <a href="#" className="dropbtn">
-                          Neuromodulation{" "}
-                        </a>{" "}
-                      </li>
-                      <li className="dropdown">
-                        <a href="#" className="dropbtn">
-                          Cancer Treatment
-                        </a>{" "}
-                      </li>
-                      <li className="dropdown">
-                        <a href="#" className="dropbtn">
-                          Cardiac Surgery{" "}
-                        </a>{" "}
-                      </li>
+                      {speciality &&
+                        speciality.map((e) => (
+                          <li className="dropdown" key={e.id}>
+                            <Link
+                              to={`/speciality/${e.slug}/${e.country}`}
+                              className="dropbtn"
+                            >
+                              {e.menu_name}
+                            </Link>{" "}
+                          </li>
+                        ))}
                     </ul>
                   </li>
                   <li className="has-dropdown" style={{ display: "block" }}>
-                    <a href="">
+                    <Link href="">
                       Hospitals
                       <i>
                         <GoChevronDown style={{ fontSize: "22px" }} />
                       </i>
-                    </a>
+                    </Link>
                     <ul className="sub-menu">
-                      <li className="dropdown">
-                        <a href="#" className="dropbtn">
-                          Organ Transplantation{" "}
-                        </a>{" "}
-                      </li>
-                      <li className="dropdown">
-                        <a href="#" className="dropbtn">
-                          Neuromodulation{" "}
-                        </a>{" "}
-                      </li>
-                      <li className="dropdown">
-                        <a href="#" className="dropbtn">
-                          Cancer Treatment
-                        </a>{" "}
-                      </li>
-                      <li className="dropdown">
-                        <a href="#" className="dropbtn">
-                          Cardiac Surgery{" "}
-                        </a>{" "}
-                      </li>
+                      {speciality &&
+                        speciality.map((e) => (
+                          <li className="dropdown" key={e.id}>
+                            <Link
+                              to={`/hospitals/speciality/${e.slug}/${e.country}`}
+                              className="dropbtn"
+                            >
+                              {e.name} Hospitals
+                            </Link>{" "}
+                          </li>
+                        ))}
                     </ul>
                   </li>
 
                   <li className="has-dropdown" style={{ display: "block" }}>
-                    <a href="">
+                    <Link href="">
                       Doctors
                       <i>
                         <GoChevronDown style={{ fontSize: "22px" }} />
                       </i>
-                    </a>
+                    </Link>
                     <ul className="sub-menu">
-                      <li className="dropdown">
-                        <a href="#" className="dropbtn">
-                          Organ Transplantation{" "}
-                        </a>{" "}
-                      </li>
-                      <li className="dropdown">
-                        <a href="#" className="dropbtn">
-                          Neuromodulation{" "}
-                        </a>{" "}
-                      </li>
-                      <li className="dropdown">
-                        <a href="#" className="dropbtn">
-                          Cancer Treatment
-                        </a>{" "}
-                      </li>
-                      <li className="dropdown">
-                        <a href="#" className="dropbtn">
-                          Cardiac Surgery{" "}
-                        </a>{" "}
-                      </li>
+                      {speciality &&
+                        speciality.map((e) => (
+                          <li className="dropdown" key={e.id}>
+                            <Link
+                              to={`/hospitals/speciality/${e.slug}/${e.country}`}
+                              className="dropbtn"
+                            >
+                              {e.name} Doctors
+                            </Link>{" "}
+                          </li>
+                        ))}
                     </ul>
                   </li>
                   <li>
-                    <a href="#">Blogs</a>
+                    <Link href="#">Blogs</Link>
                   </li>
                   <li>
-                    <a href="#"> Q&A </a>
+                    <Link href="#"> Q&A </Link>
                   </li>
                 </ul>
               </div>
             </nav>
           </div>
           <div className="navbar__buttons">
-            <a className="navbar__buttons-login" href="#">
+            <Link className="navbar__buttons-login" href="#">
               Log In
-            </a>
+            </Link>
             <div className="most-recent">
               <select className="jdgm-sort-dropdown" aria-label="Sort dropdown">
                 <option value="select-language">Select Language</option>
@@ -188,18 +162,18 @@ const Header = () => {
               </select>
             </div>
 
-            <a className="qsk-question" href="#">
+            <Link className="qsk-question" href="#">
               Ask FREE Question <img src={arrow} alt="" />
-            </a>
+            </Link>
           </div>
         </div>
 
         <div className="headerSecondry">
           <div className="header-inner wiki-mk">
-            <a href="index.html" target="_self" className="logo-m">
+            <Link href="index.html" target="_self" className="logo-m">
               {" "}
               <img src={logo} alt="Brand Logo" />
-            </a>
+            </Link>
 
             <nav className="navbar">
               <span className="open-menu" onClick={toggleOffcanvas}>
@@ -228,101 +202,101 @@ const Header = () => {
                   </li>
 
                   <li className="menu-item has-collapsible">
-                    <a href="#" onClick={handleCollapsibleClick}>
+                    <Link href="#" onClick={handleCollapsibleClick}>
                       Treatments
                       <i style={{ marginLeft: "10rem" }}>
                         <GoChevronDown style={{ fontSize: "22px" }} />
                       </i>
-                    </a>
+                    </Link>
                     <ul className="menu-child">
                       <li className="menu-child-item">
-                        <a href="#">Organ Transplantation </a>
+                        <Link href="#">Organ Transplantation </Link>
                       </li>
                       <li className="menu-child-item">
-                        <a href="#">Neuromodulation </a>
+                        <Link href="#">Neuromodulation </Link>
                       </li>
                       <li className="menu-child-item">
-                        <a href="#">Cancer Treatment </a>
+                        <Link href="#">Cancer Treatment </Link>
                       </li>
                       <li className="menu-child-item">
-                        <a href="#">Cardiac Surgery </a>
+                        <Link href="#">Cardiac Surgery </Link>
                       </li>
                     </ul>
                   </li>
                   <li className="menu-item has-collapsible">
-                    <a href="#" onClick={handleCollapsibleClick}>
+                    <Link href="#" onClick={handleCollapsibleClick}>
                       Hospitals
                       <i style={{ marginLeft: "11rem" }}>
                         <GoChevronDown style={{ fontSize: "22px" }} />
                       </i>
-                    </a>
+                    </Link>
                     <ul className="menu-child">
                       <li className="menu-child-item">
-                        <a href="#">Organ Transplantation </a>
+                        <Link href="#">Organ Transplantation </Link>
                       </li>
                       <li className="menu-child-item">
-                        <a href="#">Neuromodulation </a>
+                        <Link href="#">Neuromodulation </Link>
                       </li>
                       <li className="menu-child-item">
-                        <a href="#">Cancer Treatment </a>
+                        <Link href="#">Cancer Treatment </Link>
                       </li>
                       <li className="menu-child-item">
-                        <a href="#">Cardiac Surgery </a>
+                        <Link href="#">Cardiac Surgery </Link>
                       </li>
                     </ul>
                   </li>
                   <li className="menu-item has-collapsible">
-                    <a href="#" onClick={handleCollapsibleClick}>
+                    <Link href="#" onClick={handleCollapsibleClick}>
                       Doctors
                       <i style={{ marginLeft: "11.5rem" }}>
                         <GoChevronDown style={{ fontSize: "22px" }} />
                       </i>
-                    </a>
+                    </Link>
                     <ul className="menu-child">
                       <li className="menu-child-item">
-                        <a href="#">Organ Transplantation </a>
+                        <Link href="#">Organ Transplantation </Link>
                       </li>
                       <li className="menu-child-item">
-                        <a href="#">Neuromodulation </a>
+                        <Link href="#">Neuromodulation </Link>
                       </li>
                       <li className="menu-child-item">
-                        <a href="#">Cancer Treatment </a>
+                        <Link href="#">Cancer Treatment </Link>
                       </li>
                       <li className="menu-child-item">
-                        <a href="#">Cardiac Surgery </a>
+                        <Link href="#">Cardiac Surgery </Link>
                       </li>
                     </ul>
                   </li>
                   <li className="menu-item has-collapsible">
-                    <a href="#">Testimonials</a>
+                    <Link href="#">Testimonials</Link>
                   </li>
                   <li className="menu-item has-collapsible">
-                    <a href="#">Book an Appointment</a>
+                    <Link href="#">Book an Appointment</Link>
                   </li>
                   <li className="menu-item" style={{ background: "#ff6800" }}>
-                    <a className="menu-link" style={{ color: "#fff" }}>
+                    <Link className="menu-link" style={{ color: "#fff" }}>
                       Quick info
-                    </a>
+                    </Link>
                   </li>
                   <li className="menu-item">
-                    <a href="careers.html" className="submenu-link">
+                    <Link href="careers.html" className="submenu-link">
                       Careers
-                    </a>
+                    </Link>
                   </li>
                   <li className="menu-item">
-                    <a href="#" className="submenu-link">
+                    <Link href="#" className="submenu-link">
                       News & Events
-                    </a>
+                    </Link>
                   </li>
                   <li className="menu-item">
-                    <a href="#" className="submenu-link">
+                    <Link href="#" className="submenu-link">
                       Blog
-                    </a>
+                    </Link>
                   </li>
                   <li className="menu-item">
-                    <a href="#" className="submenu-link">
+                    <Link href="#" className="submenu-link">
                       Contact Us
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
