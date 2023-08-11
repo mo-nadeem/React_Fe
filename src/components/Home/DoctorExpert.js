@@ -22,24 +22,7 @@ const responsiveHospital = {
 };
 
 const DoctorExpert = () => {
-      // scroll
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
-  const handleScroll = () => {
-    const header = document.getElementById("header-id");
-    const sticky = header.offsetTop;
-
-    if (window.pageYOffset > sticky) {
-      header.classList.add("sticky");
-    } else {
-      header.classList.remove("sticky");
-    }
-  };
   return (
     <>
       <section id="expert-section">

@@ -1,4 +1,10 @@
 import React from "react";
+import { CgFacebook } from "react-icons/cg";
+import {
+  AiOutlineTwitter,
+  AiFillYoutube,
+  AiOutlineInstagram,
+} from "react-icons/ai";
 
 const Footer = () => {
   return (
@@ -209,22 +215,22 @@ const Footer = () => {
               <ul>
                 <li>
                   <a href="#" target="_black">
-                    <i class="fab fa-facebook-f"></i>
+                    <CgFacebook style={{ fontSize: "20px" }} />
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_black">
-                    <i class="fab fa-twitter"></i>
+                    <AiOutlineTwitter style={{ fontSize: "20px" }} />
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_black">
-                    <i class="fab fa-youtube"></i>
+                    <AiFillYoutube style={{ fontSize: "20px" }} />
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_black">
-                    <i class="fab fa-instagram"></i>
+                    <AiOutlineInstagram style={{ fontSize: "20px" }} />
                   </a>
                 </li>
               </ul>

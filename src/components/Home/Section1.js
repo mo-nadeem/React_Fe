@@ -17,7 +17,7 @@ const Section1 = () => {
 
           <video
             id="bgVideo1"
-            autoplay
+            autoPlay
             loop
             muted
             poster="https://wgrowth.partners/wwpl/ibshospital_site/images/slider1.jpg"

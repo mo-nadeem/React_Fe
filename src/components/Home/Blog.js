@@ -59,7 +59,7 @@ const Blog = () => {
                     arrows={false}
                     itemClass="carousel-item"
                   >
-                    <div className="carousel-item" style={{width:"357px" }}>
+                    <div className="carousel-item">
                       <div className="blog-item">
                         <img src="images/2023/01/10/1.jpg" />
                         <h4>Lorem ipsum dolor sit amet</h4>
@@ -89,7 +89,7 @@ const Blog = () => {
                       </div>
                     </div>
 
-                    <div className="carousel-item" style={{width:"357px" }}>
+                    <div className="carousel-item">
                       <div className="blog-item">
                         <img src="images/2023/01/10/1.jpg" />
                         <h4>Lorem ipsum dolor sit amet</h4>
@@ -119,7 +119,7 @@ const Blog = () => {
                       </div>
                     </div>
 
-                    <div className="carousel-item" style={{width:"357px" }}>
+                    <div className="carousel-item">
                       <div className="blog-item">
                         <img src="images/2023/01/10/1.jpg" />
                         <h4>Lorem ipsum dolor sit amet</h4>
@@ -149,7 +149,7 @@ const Blog = () => {
                       </div>
                     </div>
 
-                    <div className="carousel-item" style={{width:"357px" }}>
+                    <div className="carousel-item">
                       <div className="blog-item">
                         <img src="images/2023/01/10/1.jpg" />
                         <h4>Lorem ipsum dolor sit amet</h4>

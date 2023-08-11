@@ -319,7 +319,7 @@ const HealthPackage = () => {
                   autoPlay={true}
                   autoPlaySpeed={2000}
                 >
-                  <div className="item">
+                  <div className="item" style={{ marginRight: "20px" }}>
                     <div className="packages-item">
                       <img src="images/2023/01/07/03/1.jpg" />
                       <div className="packages-text">
@@ -342,7 +342,7 @@ const HealthPackage = () => {
                     </div>
                   </div>
 
-                  <div className="item">
+                  <div className="item" style={{ marginRight: "20px" }}>
                     <div className="packages-item">
                       <img src="images/2023/01/07/03/2.jpg" />
                       <div className="packages-text">
@@ -365,7 +365,7 @@ const HealthPackage = () => {
                     </div>
                   </div>
 
-                  <div className="item">
+                  <div className="item" style={{ marginRight: "20px" }}>
                     <div className="packages-item">
                       <img src="images/2023/01/07/03/3.jpg" />
                       <div className="packages-text">
@@ -388,7 +388,7 @@ const HealthPackage = () => {
                     </div>
                   </div>
 
-                  <div className="item">
+                  <div className="item" style={{ marginRight: "20px" }}>
                     <div className="packages-item">
                       <img src="images/2023/01/07/02/2.jpg" />
                       <div className="packages-text">
@@ -433,7 +433,7 @@ const HealthPackage = () => {
                   autoPlay={true}
                   autoPlaySpeed={2000}
                 >
-                  <div className="item">
+                  <div className="item" style={{ marginRight: "20px" }}>
                     <div className="packages-item">
                       <img src="images/2023/01/07/04/1.jpg" />
                       <div className="packages-text">
@@ -456,7 +456,7 @@ const HealthPackage = () => {
                     </div>
                   </div>
 
-                  <div className="item">
+                  <div className="item" style={{ marginRight: "20px" }}>
                     <div className="packages-item">
                       <img src="images/2023/01/07/04/2.jpg" />
                       <div className="packages-text">
@@ -479,7 +479,7 @@ const HealthPackage = () => {
                     </div>
                   </div>
 
-                  <div className="item">
+                  <div className="item" style={{ marginRight: "20px" }}>
                     <div className="packages-item">
                       <img src="images/2023/01/07/04/3.jpg" />
                       <div className="packages-text">
@@ -502,7 +502,7 @@ const HealthPackage = () => {
                     </div>
                   </div>
 
-                  <div className="item">
+                  <div className="item" style={{ marginRight: "20px" }}>
                     <div className="packages-item">
                       <img src="images/2023/01/07/04/2.jpg" />
                       <div className="packages-text">

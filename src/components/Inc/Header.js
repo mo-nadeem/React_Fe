@@ -1,9 +1,66 @@
-import React from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import logo from "../../assests/images/2023/01/logo.png";
-import arrow from "../../assests/images/2023/01/arrow-c.png"
+import arrow from "../../assests/images/2023/01/arrow-c.png";
 import { GoChevronDown } from "react-icons/go";
-
+import { useDispatch, useSelector } from "react-redux";
+import { fetchHome } from "../../Api/action/HomeAction";
 const Header = () => {
+  const dispatch = useDispatch();
+
+  const {
+    hospital,
+    speciality,
+    doctor,
+    treatment,
+    headerFooter,
+    navigationheader,
+  } = useSelector((state) => state.data);
+
+  const fetchHomedata = useCallback(() => {
+    dispatch(fetchHome());
+  }, [dispatch]);
+
+  useEffect(() => {
+    fetchHomedata();
+  }, [fetchHomedata]);
+
+  // scroll
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleScroll = () => {
+    const header = document.getElementById("header-id");
+    const sticky = header.offsetTop;
+
+    if (window.pageYOffset > sticky) {
+      header.classList.add("sticky");
+    } else {
+      header.classList.remove("sticky");
+    }
+  };
+
+  // FOR OFFCANVA
+  const [isOffcanvas, setIsOffcanvas] = useState(false);
+
+  const toggleOffcanvas = () => {
+    setIsOffcanvas((prevIsOffcanvas) => !prevIsOffcanvas);
+  };
+  const handleCollapsibleClick = (event) => {
+    const clickedCollapsible = event.target.closest(".has-collapsible");
+    const allCollapsibles = document.querySelectorAll(".has-collapsible");
+
+    allCollapsibles.forEach((collapsible) => {
+      if (collapsible !== clickedCollapsible) {
+        collapsible.classList.remove("active");
+      }
+    });
+
+    clickedCollapsible.classList.toggle("active");
+  };
   return (
     <>
       <header className="header" id="header-id">
@@ -145,17 +202,17 @@ const Header = () => {
             </a>
 
             <nav className="navbar">
-              <span className="open-menu">
+              <span className="open-menu" onClick={toggleOffcanvas}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="16">
                   <g fill="#444444" fill-rule="evenodd">
                     <path d="M0 0h24v2H0zM0 7h24v2H0zM0 14h24v2H0z" />
                   </g>
                 </svg>
               </span>
-              <div className="menu-wrapper">
+              <div className={`menu-wrapper${isOffcanvas ? " offcanvas" : ""}`}>
                 <ul className="menu">
                   <li className="menu-block">
-                    <span className="close-menu">
+                    <span className="close-menu" onClick={toggleOffcanvas}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="20"
@@ -171,8 +228,11 @@ const Header = () => {
                   </li>
 
                   <li className="menu-item has-collapsible">
-                    <a href="#">
-                      <span></span> Treatments
+                    <a href="#" onClick={handleCollapsibleClick}>
+                      Treatments
+                      <i style={{ marginLeft: "10rem" }}>
+                        <GoChevronDown style={{ fontSize: "22px" }} />
+                      </i>
                     </a>
                     <ul className="menu-child">
                       <li className="menu-child-item">
@@ -190,8 +250,11 @@ const Header = () => {
                     </ul>
                   </li>
                   <li className="menu-item has-collapsible">
-                    <a href="#">
-                      <span></span> Hospitals
+                    <a href="#" onClick={handleCollapsibleClick}>
+                      Hospitals
+                      <i style={{ marginLeft: "11rem" }}>
+                        <GoChevronDown style={{ fontSize: "22px" }} />
+                      </i>
                     </a>
                     <ul className="menu-child">
                       <li className="menu-child-item">
@@ -209,8 +272,11 @@ const Header = () => {
                     </ul>
                   </li>
                   <li className="menu-item has-collapsible">
-                    <a href="#">
-                      <span></span> Doctors
+                    <a href="#" onClick={handleCollapsibleClick}>
+                      Doctors
+                      <i style={{ marginLeft: "11.5rem" }}>
+                        <GoChevronDown style={{ fontSize: "22px" }} />
+                      </i>
                     </a>
                     <ul className="menu-child">
                       <li className="menu-child-item">
