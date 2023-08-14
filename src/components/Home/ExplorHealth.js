@@ -63,6 +63,7 @@ const ExplorHealth = () => {
               <button
                 className={`tablinks ${activeTab === "wiki-1" ? "active" : ""}`}
                 onMouseOver={() => handleTabChange("wiki-1")}
+                style={{ display: activeTab === "wiki-1" ? "none" : "block" }}
               >
                 Dental{" "}
                 <img src="images/2023/01/treatments-arrow.png" alt="Arrow" />

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect, useCallback } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchHome } from "../../Api/action/HomeAction";
 
 const responsive = {
   superLargeDesktop: {
@@ -23,10 +25,21 @@ const responsive = {
 };
 
 const DoctorSection = () => {
+  const dispatch = useDispatch();
+
+  const { doctor } = useSelector((state) => state.data);
+
+  const fetchHomedata = useCallback(() => {
+    dispatch(fetchHome());
+  }, [dispatch]);
+
+  useEffect(() => {
+    fetchHomedata();
+  }, [fetchHomedata]);
   return (
     <>
       <section id="doctors-section">
-        <div class="midbox-inner  wiki-mk">
+        <div className="midbox-inner  wiki-mk">
           <h2>
             Doctors lorem ipsum <span>dolor</span>
           </h2>
@@ -37,7 +50,7 @@ const DoctorSection = () => {
             con Duis aute irure
           </p>
 
-          <div class="owl-slider">
+          <div className="owl-slider">
             <div id="doctors-list">
               <Carousel
                 responsive={responsive}
@@ -46,85 +59,96 @@ const DoctorSection = () => {
                 autoPlay={true}
                 autoPlaySpeed={2000}
               >
-                <div class="item" style={{ marginRight: "20px" }}>
-                  <div class="doctors-item">
-                    <img src="images/2023/01/06/1.jpg" />
-                  </div>
-                  <div class="doctors-text">
-                    <h3>Doctor Name </h3>
-                    <div class="doctors-sub">Lorem ipsum dolor sit amet</div>
-                    <div class="doctors-bio">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore Ut enim ad
-                      minim veniam, quis nostrud exercitation ullamco laboris
-                      nisi ut aliquip
+                {doctor.map((e) => (
+                  <div
+                    className="item"
+                    style={{ marginRight: "20px" }}
+                    key={e.id}
+                  >
+                    <div className="doctors-item">
+                      <img src={`${process.env.REACT_APP_BASE_URL}/doctor/${e.image}`} />
                     </div>
-                    <a href="#" class="contact-now">
-                      Contact Now{" "}
-                      <img src="images/2023/01/arrow-c.png" alt="" />
-                    </a>
+                    <div className="doctors-text">
+                      <h3>
+                        {e.prefix}
+                        {e.first_name}
+                        {e.last_name}{" "}
+                      </h3>
+                      <div className="doctors-sub">{e.designation}</div>
+                      {/* <div className="doctors-bio">{e.short_description}</div> */}
+                      <div
+                        className="doctors-bio"
+                        dangerouslySetInnerHTML={{
+                          __html: e.short_description,
+                        }}
+                      />
+                      <a href="#" className="contact-now">
+                        Contact Now{" "}
+                        <img src="images/2023/01/arrow-c.png" alt="" />
+                      </a>
+                    </div>
                   </div>
-                </div>
+                ))}
 
-                <div class="item" style={{ marginRight: "20px" }}>
-                  <div class="doctors-item">
+                {/* <div className="item" style={{ marginRight: "20px" }}>
+                  <div className="doctors-item">
                     <img src="images/2023/01/06/2.jpg" />
                   </div>
-                  <div class="doctors-text">
+                  <div className="doctors-text">
                     <h3>Doctor Name </h3>
-                    <div class="doctors-sub">Lorem ipsum dolor sit amet</div>
-                    <div class="doctors-bio">
+                    <div className="doctors-sub">Lorem ipsum dolor sit amet</div>
+                    <div className="doctors-bio">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor incididunt ut labore Ut enim ad
                       minim veniam, quis nostrud exercitation ullamco laboris
                       nisi ut aliquip
                     </div>
-                    <a href="#" class="contact-now">
+                    <a href="#" className="contact-now">
                       Contact Now{" "}
                       <img src="images/2023/01/arrow-c.png" alt="" />
                     </a>
                   </div>
                 </div>
 
-                <div class="item" style={{ marginRight: "20px" }}>
-                  <div class="doctors-item">
+                <div className="item" style={{ marginRight: "20px" }}>
+                  <div className="doctors-item">
                     <img src="images/2023/01/06/3.jpg" />
                   </div>
-                  <div class="doctors-text">
+                  <div className="doctors-text">
                     <h3>Doctor Name </h3>
-                    <div class="doctors-sub">Lorem ipsum dolor sit amet</div>
-                    <div class="doctors-bio">
+                    <div className="doctors-sub">Lorem ipsum dolor sit amet</div>
+                    <div className="doctors-bio">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor incididunt ut labore Ut enim ad
                       minim veniam, quis nostrud exercitation ullamco laboris
                       nisi ut aliquip
                     </div>
-                    <a href="#" class="contact-now">
+                    <a href="#" className="contact-now">
                       Contact Now{" "}
                       <img src="images/2023/01/arrow-c.png" alt="" />
                     </a>
                   </div>
                 </div>
 
-                <div class="item" style={{ marginRight: "20px" }}>
-                  <div class="doctors-item">
+                <div className="item" style={{ marginRight: "20px" }}>
+                  <div className="doctors-item">
                     <img src="images/2023/01/06/2.jpg" />
                   </div>
-                  <div class="doctors-text">
+                  <div className="doctors-text">
                     <h3>Doctor Name </h3>
-                    <div class="doctors-sub">Lorem ipsum dolor sit amet</div>
-                    <div class="doctors-bio">
+                    <div className="doctors-sub">Lorem ipsum dolor sit amet</div>
+                    <div className="doctors-bio">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor incididunt ut labore Ut enim ad
                       minim veniam, quis nostrud exercitation ullamco laboris
                       nisi ut aliquip
                     </div>
-                    <a href="#" class="contact-now">
+                    <a href="#" className="contact-now">
                       Contact Now{" "}
                       <img src="images/2023/01/arrow-c.png" alt="" />
                     </a>
                   </div>
-                </div>
+                </div> */}
               </Carousel>
             </div>
           </div>

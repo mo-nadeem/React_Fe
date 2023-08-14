@@ -1,6 +1,29 @@
-import React from "react";
+import React, { useEffect, useCallback, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchHome } from "../../Api/action/HomeAction";
 
 const FAQ = () => {
+  const dispatch = useDispatch();
+
+  const { faq } = useSelector((state) => state.data);
+
+  const fetchHomedata = useCallback(() => {
+    dispatch(fetchHome());
+  }, [dispatch]);
+
+  useEffect(() => {
+    fetchHomedata();
+  }, [fetchHomedata]);
+
+  const [activeQuestion, setActiveQuestion] = useState(null);
+
+  const handleQuestionClick = (index) => {
+    if (activeQuestion === index) {
+      setActiveQuestion(null);
+    } else {
+      setActiveQuestion(index);
+    }
+  };
   return (
     <>
       <section id="faqs-home">
@@ -8,22 +31,32 @@ const FAQ = () => {
           <h2>
             Frequently asked <span>questions</span>
           </h2>
+          {faq &&
+            faq.map((e, index) => (
+              <div
+                key={e.id}
+                className={`question ${
+                  activeQuestion === index ? "active" : ""
+                }`}
+                onClick={() => handleQuestionClick(index)}
+              >
+                <h5> Q. {e.short_description}</h5>
+                <div
+                  className={`arrow ${
+                    activeQuestion === index ? "arrow-active" : ""
+                  }`}
+                ></div>
+                {activeQuestion === index && (
+                  <div className="answer" style={{ display: "block" }}>
+                    <div
+                      dangerouslySetInnerHTML={{ __html: e.long_description }}
+                    />
+                  </div>
+                )}
+              </div>
+            ))}
 
-          <div className="question">
-            <h5>What exactly is Medflick and how does it function?</h5>
-            <div className="arrow"></div>
-            <div className="answer">
-              <p>
-                Medflick is a website committed to giving trustworthy medical
-                information. It provides a diverse range of healthcare content
-                from respected experts in a variety of medical sectors. Users
-                can quickly access this content and connect with healthcare
-                specialists and other users via interactive forums.{" "}
-              </p>
-            </div>
-          </div>
-
-          <div className="question">
+          {/* <div className="question">
             <h5>Is Medflick's medical information reliable?</h5>
             <div className="arrow"></div>
             <div className="answer">
@@ -77,7 +110,7 @@ const FAQ = () => {
                 auctor ligula. Lorem ipsum dolor sit amet.{" "}
               </p>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
     </>

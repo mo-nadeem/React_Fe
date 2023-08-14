@@ -8,14 +8,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const dispatch = useDispatch();
 
-  const {
-    hospital,
-    speciality,
-    doctor,
-    treatment,
-    headerFooter,
-    navigationheader,
-  } = useSelector((state) => state.data);
+  const { speciality } = useSelector((state) => state.data);
 
   const fetchHomedata = useCallback(() => {
     dispatch(fetchHome());

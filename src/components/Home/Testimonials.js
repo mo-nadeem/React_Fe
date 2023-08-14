@@ -9,7 +9,7 @@ const responsive = {
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 1.4  ,
+    items: 1.4,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
@@ -36,8 +36,14 @@ const Testimonials = () => {
 
           <div className="owl-slider">
             <div id="testimonials">
-              <Carousel responsive={responsive} arrows={false} infinite={true} autoPlay autoPlaySpeed={2000}>
-                <div className="item" style={{marginRight:"20px"}}>
+              <Carousel
+                responsive={responsive}
+                arrows={false}
+                infinite={true}
+                autoPlay
+                autoPlaySpeed={2000}
+              >
+                <div className="item" style={{ marginRight: "20px" }}>
                   <div className="testimonials-item">
                     <img src="images/2023/01/08/1.jpg" />
 
@@ -54,7 +60,7 @@ const Testimonials = () => {
                   </div>
                 </div>
 
-                <div className="item"style={{marginRight:"20px"}}>
+                <div className="item" style={{ marginRight: "20px" }}>
                   <div className="testimonials-item">
                     <img src="images/2023/01/08/1.jpg" />
 
@@ -71,7 +77,7 @@ const Testimonials = () => {
                   </div>
                 </div>
 
-                <div className="item"style={{marginRight:"20px"}}>
+                <div className="item" style={{ marginRight: "20px" }}>
                   <div className="testimonials-item">
                     <img src="images/2023/01/08/1.jpg" />
 
