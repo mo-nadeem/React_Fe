@@ -3,6 +3,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchHome } from "../../Api/action/HomeAction";
+import { Link } from "react-router-dom";
 
 const responsive = {
   superLargeDesktop: {
@@ -82,10 +83,10 @@ const DoctorSection = () => {
                           __html: e.short_description,
                         }}
                       />
-                      <a href="#" className="contact-now">
+                      <Link to="/" className="contact-now">
                         Contact Now{" "}
                         <img src="images/2023/01/arrow-c.png" alt="" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 ))}
@@ -103,10 +104,10 @@ const DoctorSection = () => {
                       minim veniam, quis nostrud exercitation ullamco laboris
                       nisi ut aliquip
                     </div>
-                    <a href="#" className="contact-now">
+                    <Link to="/" className="contact-now">
                       Contact Now{" "}
                       <img src="images/2023/01/arrow-c.png" alt="" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
 
@@ -123,10 +124,10 @@ const DoctorSection = () => {
                       minim veniam, quis nostrud exercitation ullamco laboris
                       nisi ut aliquip
                     </div>
-                    <a href="#" className="contact-now">
+                    <Link to="/" className="contact-now">
                       Contact Now{" "}
                       <img src="images/2023/01/arrow-c.png" alt="" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
 
@@ -143,10 +144,10 @@ const DoctorSection = () => {
                       minim veniam, quis nostrud exercitation ullamco laboris
                       nisi ut aliquip
                     </div>
-                    <a href="#" className="contact-now">
+                    <Link to="/" className="contact-now">
                       Contact Now{" "}
                       <img src="images/2023/01/arrow-c.png" alt="" />
-                    </a>
+                    </Link>
                   </div>
                 </div> */}
               </Carousel>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Section3 = () => {
   return (
@@ -25,9 +26,9 @@ const Section3 = () => {
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                 commodo con Duis aute irure
               </p>
-              <a className="learn-more" href="#">
+              <Link className="learn-more" to="/">
                 Learn More <img src="images/2023/01/learn-more.png" />
-              </a>
+              </Link>
             </div>
             <div className="healthcare-img">
               <img src="images/2023/01/02/frame-1.jpg" />
@@ -43,9 +44,9 @@ const Section3 = () => {
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                 commodo con Duis aute irure
               </p>
-              <a className="learn-more" href="#">
+              <Link className="learn-more" to="/">
                 Learn More <img src="images/2023/01/learn-more.png" />
-              </a>
+              </Link>
             </div>
             <div className="healthcare-img">
               <img
@@ -64,9 +65,9 @@ const Section3 = () => {
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                 commodo con Duis aute irure
               </p>
-              <a className="learn-more" href="#">
+              <Link className="learn-more" to="/">
                 Learn More <img src="images/2023/01/learn-more.png" />
-              </a>
+              </Link>
             </div>
             <div className="healthcare-img">
               <img src="images/2023/01/02/frame-3.jpg" />
@@ -88,9 +89,9 @@ const Section3 = () => {
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                 commodo con Duis aute irure
               </p>
-              <a className="learn-more" href="#">
+              <Link className="learn-more" to="/">
                 Learn More <img src="images/2023/01/learn-more.png" />
-              </a>
+              </Link>
             </div>
             <div className="healthcare-img">
               <img
@@ -109,9 +110,9 @@ const Section3 = () => {
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                 commodo con Duis aute irure
               </p>
-              <a className="learn-more" href="#">
+              <Link className="learn-more" to="/">
                 Learn More <img src="images/2023/01/learn-more.png" />
-              </a>
+              </Link>
             </div>
             <div className="healthcare-img">
               <img src="images/2023/01/02/frame-5.jpg" />

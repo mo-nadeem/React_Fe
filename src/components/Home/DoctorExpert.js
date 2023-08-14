@@ -1,6 +1,7 @@
-import React,{useEffect} from "react";
+import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { Link } from "react-router-dom";
 const responsiveHospital = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -95,9 +96,9 @@ const DoctorExpert = () => {
             </div>
           </div>
 
-          <a className="see-more" href="#">
+          <Link className="see-more" to="/">
             View more expert video{" "}
-          </a>
+          </Link>
         </div>
       </section>
     </>

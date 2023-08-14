@@ -2,6 +2,7 @@ import React, { useEffect, useCallback } from "react";
 import $ from "jquery";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchHome } from "../../Api/action/HomeAction";
+import { Link } from "react-router-dom";
 
 const HealthQuerys = () => {
   const dispatch = useDispatch();
@@ -66,10 +67,10 @@ const HealthQuerys = () => {
               </p>
             </div>
             <div className="querieshead-right">
-              <a href="#" className="queries-ask">
+              <Link to="/" className="queries-ask">
                 Ask FREE Question{" "}
                 <img src="images/2023/01/arrow-w.png" alt="" />
-              </a>
+              </Link>
             </div>
           </div>
 

@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useCallback, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchHome } from "../../Api/action/HomeAction";
 
 const HospitalSection = () => {
+  const dispatch = useDispatch();
+
+  const { hospital } = useSelector((state) => state.data);
+
+  const fetchHomedata = useCallback(() => {
+    dispatch(fetchHome());
+  }, [dispatch]);
+
+  useEffect(() => {
+    fetchHomedata();
+  }, [fetchHomedata]);
   return (
     <>
       <section id="hospital-section">
@@ -11,9 +24,15 @@ const HospitalSection = () => {
               animationDuration: "11s",
             }}
           >
-            <div className="Marquee-tag">
-              <img className="dr-img" src="images/2023/01/03/1.png" />{" "}
-            </div>
+            {hospital.map((e) => (
+              <div className="Marquee-tag" key={e.id}>
+                <img
+                  className="dr-img"
+                  src={`${process.env.REACT_APP_BASE_URL}/hospital/${e.home_image}`}
+                  alt={e.slug}
+                />{" "}
+              </div>
+            ))}
             <div className="Marquee-tag">
               <img className="dr-img" src="images/2023/01/03/2.png" />{" "}
             </div>

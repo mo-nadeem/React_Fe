@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -17,11 +18,11 @@ const About = () => {
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                 commo
               </p>
-              <a href="#">
+              <Link to="/">
                 {" "}
                 Ask FREE Question{" "}
                 <img src="images/2023/01/arrow-c.png" alt="" />
-              </a>
+              </Link>
             </div>
             <div className="homeabout-right">
               <div className="about-showbox">

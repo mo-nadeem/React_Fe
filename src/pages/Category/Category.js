@@ -66,7 +66,7 @@ const Category = () => {
       <Homelayout>
         <section id="category-slider">
           <img src={sliperImg} alt="Category" />
-          <div class="category-slidertext">
+          <div className="category-slidertext">
             <h1>Cancer</h1>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed do
@@ -79,27 +79,27 @@ const Category = () => {
         </section>
 
         <section id="category-marquee">
-          <div class="marquee-wrapper">
+          <div className="marquee-wrapper">
             <div
-              class="marquee"
+              className="marquee"
               style={{
                 animationDuration: "21s",
               }}
             >
-              <div class="Marquee-tag"> 100+ Surgeries </div>
-              <div class="Marquee-tag"> 95% Success Rate </div>
-              <div class="Marquee-tag"> 4000+ Top Doctors </div>
-              <div class="Marquee-tag"> 1000+ Top Hospital </div>
-              <div class="Marquee-tag"> 100+ Surgeries </div>
-              <div class="Marquee-tag"> 95% Success Rate </div>
-              <div class="Marquee-tag"> 4000+ Top Doctors </div>
-              <div class="Marquee-tag"> 1000+ Top Hospital </div>
+              <div className="Marquee-tag"> 100+ Surgeries </div>
+              <div className="Marquee-tag"> 95% Success Rate </div>
+              <div className="Marquee-tag"> 4000+ Top Doctors </div>
+              <div className="Marquee-tag"> 1000+ Top Hospital </div>
+              <div className="Marquee-tag"> 100+ Surgeries </div>
+              <div className="Marquee-tag"> 95% Success Rate </div>
+              <div className="Marquee-tag"> 4000+ Top Doctors </div>
+              <div className="Marquee-tag"> 1000+ Top Hospital </div>
             </div>
           </div>
         </section>
 
         <section id="category-mid">
-          <div class="midbox-inner  wiki-mk">
+          <div className="midbox-inner  wiki-mk">
             <h2>
               Lorem ipsum adipscing <span>dolor</span>
             </h2>
@@ -125,7 +125,7 @@ const Category = () => {
         </section>
 
         <section id="treatments-section">
-          <div class="midbox-inner wiki-mk">
+          <div className="midbox-inner wiki-mk">
             <h2>
               Cancer treatments in <span>India</span>
             </h2>
@@ -138,12 +138,12 @@ const Category = () => {
             <ul>
               <li>
                 <img src="images/2023/02/01/1.jpg" alt="" />
-                <div class="packages-text">
-                  <div class="pack-cost">
-                    <div class="pack-name">Cancer Surgery </div>
-                    <div class="cost">$4000</div>
+                <div className="packages-text">
+                  <div className="pack-cost">
+                    <div className="pack-name">Cancer Surgery </div>
+                    <div className="cost">$4000</div>
                   </div>
-                  <div class="packages-details">
+                  <div className="packages-details">
                     Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed
                     do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit
                     amet, consectetur elit, sed do eiusmod tempor incididunt ut
@@ -152,7 +152,7 @@ const Category = () => {
                   <a href="#">
                     <img
                       src="images/2023/01/pack-arrow.png"
-                      class="arrow-link"
+                      className="arrow-link"
                       alt=""
                     />
                   </a>
@@ -161,12 +161,12 @@ const Category = () => {
 
               <li>
                 <img src="images/2023/02/01/2.jpg" alt="" />
-                <div class="packages-text">
-                  <div class="pack-cost">
-                    <div class="pack-name">Breast Cancer </div>
-                    <div class="cost">$4000</div>
+                <div className="packages-text">
+                  <div className="pack-cost">
+                    <div className="pack-name">Breast Cancer </div>
+                    <div className="cost">$4000</div>
                   </div>
-                  <div class="packages-details">
+                  <div className="packages-details">
                     Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed
                     do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit
                     amet, consectetur elit, sed do eiusmod tempor incididunt ut
@@ -175,7 +175,7 @@ const Category = () => {
                   <a href="#">
                     <img
                       src="images/2023/01/pack-arrow.png"
-                      class="arrow-link"
+                      className="arrow-link"
                       alt=""
                     />
                   </a>
@@ -184,12 +184,12 @@ const Category = () => {
 
               <li>
                 <img src="images/2023/02/01/3.jpg" alt="" />
-                <div class="packages-text">
-                  <div class="pack-cost">
-                    <div class="pack-name">Breast Cancer </div>
-                    <div class="cost">$4000</div>
+                <div className="packages-text">
+                  <div className="pack-cost">
+                    <div className="pack-name">Breast Cancer </div>
+                    <div className="cost">$4000</div>
                   </div>
-                  <div class="packages-details">
+                  <div className="packages-details">
                     Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed
                     do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit
                     amet, consectetur elit, sed do eiusmod tempor incididunt ut
@@ -198,7 +198,7 @@ const Category = () => {
                   <a href="#">
                     <img
                       src="images/2023/01/pack-arrow.png"
-                      class="arrow-link"
+                      className="arrow-link"
                       alt=""
                     />
                   </a>
@@ -207,12 +207,12 @@ const Category = () => {
 
               <li>
                 <img src="images/2023/02/01/4.jpg" alt="" />
-                <div class="packages-text">
-                  <div class="pack-cost">
-                    <div class="pack-name">Radiation Therapy </div>
-                    <div class="cost">$4000</div>
+                <div className="packages-text">
+                  <div className="pack-cost">
+                    <div className="pack-name">Radiation Therapy </div>
+                    <div className="cost">$4000</div>
                   </div>
-                  <div class="packages-details">
+                  <div className="packages-details">
                     Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed
                     do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit
                     amet, consectetur elit, sed do eiusmod tempor incididunt ut
@@ -221,7 +221,7 @@ const Category = () => {
                   <a href="#">
                     <img
                       src="images/2023/01/pack-arrow.png"
-                      class="arrow-link"
+                      className="arrow-link"
                       alt=""
                     />
                   </a>
@@ -230,12 +230,12 @@ const Category = () => {
 
               <li>
                 <img src="images/2023/02/01/5.jpg" alt="" />
-                <div class="packages-text">
-                  <div class="pack-cost">
-                    <div class="pack-name">Chemoterapy </div>
-                    <div class="cost">$4000</div>
+                <div className="packages-text">
+                  <div className="pack-cost">
+                    <div className="pack-name">Chemoterapy </div>
+                    <div className="cost">$4000</div>
                   </div>
-                  <div class="packages-details">
+                  <div className="packages-details">
                     Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed
                     do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit
                     amet, consectetur elit, sed do eiusmod tempor incididunt ut
@@ -244,7 +244,7 @@ const Category = () => {
                   <a href="#">
                     <img
                       src="images/2023/01/pack-arrow.png"
-                      class="arrow-link"
+                      className="arrow-link"
                       alt=""
                     />
                   </a>
@@ -253,12 +253,12 @@ const Category = () => {
 
               <li>
                 <img src="images/2023/02/01/6.jpg" alt="" />
-                <div class="packages-text">
-                  <div class="pack-cost">
-                    <div class="pack-name">Immunity Therapy </div>
-                    <div class="cost">$4000</div>
+                <div className="packages-text">
+                  <div className="pack-cost">
+                    <div className="pack-name">Immunity Therapy </div>
+                    <div className="cost">$4000</div>
                   </div>
-                  <div class="packages-details">
+                  <div className="packages-details">
                     Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed
                     do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit
                     amet, consectetur elit, sed do eiusmod tempor incididunt ut
@@ -267,7 +267,7 @@ const Category = () => {
                   <a href="#">
                     <img
                       src="images/2023/01/pack-arrow.png"
-                      class="arrow-link"
+                      className="arrow-link"
                       alt=""
                     />
                   </a>
@@ -280,17 +280,17 @@ const Category = () => {
         <DoctorExpert />
         {/* end */}
         <section id="help-you">
-          <div class="midbox-inner  wiki-mk">
+          <div className="midbox-inner  wiki-mk">
             <img
               src="images/2023/02/logo.png"
-              class="logo-med"
+              className="logo-med"
               alt="Brand Logo"
             />
             <h2>How can we help you?</h2>
 
-            <div class="we-help-box">
-              <div class="we-help-left">
-                <div Class="button-wrap">
+            <div className="we-help-box">
+              <div className="we-help-left">
+                <div className="button-wrap">
                   {contentItems.map((item) => (
                     <div
                       className={`button ${
@@ -342,9 +342,9 @@ const Category = () => {
         </section>
 
         <section id="pay-section">
-          <div class="midbox-inner  wiki-mk">
-            <div Class="pay-box">
-              <div Class="medflick-payleft">
+          <div className="midbox-inner  wiki-mk">
+            <div className="pay-box">
+              <div className="medflick-payleft">
                 <h2>You don’t pay Medflick</h2>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -352,13 +352,13 @@ const Category = () => {
                 </p>
               </div>
 
-              <div Class="medflick-payright">
-                <a href="#" Class="consultation">
+              <div className="medflick-payright">
+                <a href="#" className="consultation">
                   {" "}
                   Request a free consultation{" "}
                   <img src="images/2023/01/arrow-w.png" alt="" />
                 </a>
-                <a href="#" Class="contact">
+                <a href="#" className="contact">
                   {" "}
                   Contact Us <img src="images/2023/01/arrow-c.png" alt="" />
                 </a>
@@ -371,7 +371,7 @@ const Category = () => {
         {/* end */}
 
         <section id="hospitals-section">
-          <div class="midbox-inner  wiki-mk">
+          <div className="midbox-inner  wiki-mk">
             <h2>
               Hospitals lorem ipsum <span>dolor</span>
             </h2>
@@ -382,7 +382,7 @@ const Category = () => {
               con Duis aute irure
             </p>
 
-            <div class="owl-slider">
+            <div className="owl-slider">
               <div id="hospitals-list">
                 <Carousel
                   responsive={responsive}
@@ -391,64 +391,64 @@ const Category = () => {
                   autoPlay={true}
                   autoPlaySpeed={2000}
                 >
-                  <div class="item" style={{ marginRight: "20px" }}>
-                    <div class="hospitals-item">
+                  <div className="item" style={{ marginRight: "20px" }}>
+                    <div className="hospitals-item">
                       <img src="images/2023/02/03/1.jpg" />
                     </div>
-                    <div class="hospitals-text">
+                    <div className="hospitals-text">
                       <h3>Hospitals Name </h3>
-                      <div class="hospitals-sub">
+                      <div className="hospitals-sub">
                         Lorem ipsum dolor sit amet
                       </div>
-                      <a href="#" class="contact-now">
+                      <a href="#" className="contact-now">
                         Contact Now{" "}
                         <img src="images/2023/01/arrow-c.png" alt="" />
                       </a>
                     </div>
                   </div>
 
-                  <div class="item" style={{ marginRight: "20px" }}>
-                    <div class="hospitals-item">
+                  <div className="item" style={{ marginRight: "20px" }}>
+                    <div className="hospitals-item">
                       <img src="images/2023/02/03/2.jpg" />
                     </div>
-                    <div class="hospitals-text">
+                    <div className="hospitals-text">
                       <h3>Hospitals Name </h3>
-                      <div class="hospitals-sub">
+                      <div className="hospitals-sub">
                         Lorem ipsum dolor sit amet
                       </div>
-                      <a href="#" class="contact-now">
+                      <a href="#" className="contact-now">
                         Contact Now{" "}
                         <img src="images/2023/01/arrow-c.png" alt="" />
                       </a>
                     </div>
                   </div>
 
-                  <div class="item" style={{ marginRight: "20px" }}>
-                    <div class="hospitals-item">
+                  <div className="item" style={{ marginRight: "20px" }}>
+                    <div className="hospitals-item">
                       <img src="images/2023/02/03/3.jpg" />
                     </div>
-                    <div class="hospitals-text">
+                    <div className="hospitals-text">
                       <h3>Hospitals Name </h3>
-                      <div class="hospitals-sub">
+                      <div className="hospitals-sub">
                         Lorem ipsum dolor sit amet
                       </div>
-                      <a href="#" class="contact-now">
+                      <a href="#" className="contact-now">
                         Contact Now{" "}
                         <img src="images/2023/01/arrow-c.png" alt="" />
                       </a>
                     </div>
                   </div>
 
-                  <div class="item" style={{ marginRight: "20px" }}>
-                    <div class="hospitals-item">
+                  <div className="item" style={{ marginRight: "20px" }}>
+                    <div className="hospitals-item">
                       <img src="images/2023/02/03/4.jpg" />
                     </div>
-                    <div class="hospitals-text">
+                    <div className="hospitals-text">
                       <h3>Hospitals Name </h3>
-                      <div class="hospitals-sub">
+                      <div className="hospitals-sub">
                         Lorem ipsum dolor sit amet
                       </div>
-                      <a href="#" class="contact-now">
+                      <a href="#" className="contact-now">
                         Contact Now{" "}
                         <img src="images/2023/01/arrow-c.png" alt="" />
                       </a>
@@ -466,10 +466,13 @@ const Category = () => {
         {/* end */}
 
         <section id="community-section">
-          <div class="midbox-inner  wiki-mk">
-            <div class="community-pro">
-              <img class="community-img" src="images/2023/02/community.jpg" />
-              <div class="community-box">
+          <div className="midbox-inner  wiki-mk">
+            <div className="community-pro">
+              <img
+                className="community-img"
+                src="images/2023/02/community.jpg"
+              />
+              <div className="community-box">
                 <h3>Join our Community!</h3>
                 <p>
                   Lorem ipsum dolor amet, consecte adipiscing elit, sed do
@@ -478,7 +481,7 @@ const Category = () => {
                   tempor incididunt ut enim ad minim veniam, quis tempor
                   incididunt
                 </p>
-                <a class="more-img" href="#">
+                <a className="more-img" href="#">
                   Lorem Ipsum <img src="images/2023/02/Vector 85.png" />
                 </a>
               </div>

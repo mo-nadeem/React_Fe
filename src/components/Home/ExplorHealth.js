@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ExplorHealth = () => {
   const [activeTab, setActiveTab] = useState("wiki-1"); // Initial active tab
@@ -42,16 +43,10 @@ const ExplorHealth = () => {
               >
                 Cancer <img src="images/2023/01/treatments-arrow.png" />
               </button>
-              <button
-                className="tablinks"
-                onmouseover="openCity(event, 'wiki-5')"
-              >
+              <button className="tablinks">
                 IVF Treatment <img src="images/2023/01/treatments-arrow.png" />
               </button>
-              <button
-                className="tablinks"
-                onmouseover="openCity(event, 'wiki-6')"
-              >
+              <button className="tablinks">
                 Orthopedic
                 <img src="images/2023/01/treatments-arrow.png" />
               </button>
@@ -87,10 +82,10 @@ const ExplorHealth = () => {
                     Donec sed purus consectetur, interdum felis in, auctor
                     ligula. Lorem ipsum dolor sit amet.
                   </p>
-                  <a className="more-img" href="#">
+                  <Link className="more-img" to="/">
                     {" "}
                     <i className="fa fa-arrow-right"></i>{" "}
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -117,10 +112,10 @@ const ExplorHealth = () => {
                     Donec sed purus consectetur, interdum felis in, auctor
                     ligula. Lorem ipsum dolor sit amet.
                   </p>
-                  <a className="more-img" href="#">
+                  <Link className="more-img" to="/">
                     {" "}
                     <i className="fa fa-arrow-right"></i>{" "}
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -146,10 +141,10 @@ const ExplorHealth = () => {
                     Donec sed purus consectetur, interdum felis in, auctor
                     ligula. Lorem ipsum dolor sit amet.
                   </p>
-                  <a className="more-img" href="#">
+                  <Link className="more-img" to="/">
                     {" "}
                     <i className="fa fa-arrow-right"></i>{" "}
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -175,19 +170,16 @@ const ExplorHealth = () => {
                     Donec sed purus consectetur, interdum felis in, auctor
                     ligula. Lorem ipsum dolor sit amet.
                   </p>
-                  <a className="more-img" href="#">
+                  <Link className="more-img" to="/">
                     {" "}
                     <i className="fa fa-arrow-right"></i>{" "}
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
 
             <div className="tab tab1">
-              <button
-                className="tablinks"
-                onmouseover="openCity(event, 'wiki-5')"
-              >
+              <button className="tablinks">
                 IVF Treatment <img src="images/2023/01/treatments-arrow.png" />
               </button>
             </div>
@@ -201,19 +193,16 @@ const ExplorHealth = () => {
                     Donec sed purus consectetur, interdum felis in, auctor
                     ligula. Lorem ipsum dolor sit amet.
                   </p>
-                  <a className="more-img" href="#">
+                  <Link className="more-img" to="/">
                     {" "}
                     <i className="fa fa-arrow-right"></i>{" "}
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
 
             <div className="tab tab1">
-              <button
-                className="tablinks"
-                onmouseover="openCity(event, 'wiki-6')"
-              >
+              <button className="tablinks">
                 Orthopedic <img src="images/2023/01/treatments-arrow.png" />
               </button>
             </div>
@@ -227,17 +216,17 @@ const ExplorHealth = () => {
                     Donec sed purus consectetur, interdum felis in, auctor
                     ligula. Lorem ipsum dolor sit amet.
                   </p>
-                  <a className="more-img" href="#">
+                  <Link className="more-img" to="/">
                     {" "}
                     <i className="fa fa-arrow-right"></i>{" "}
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
 
-            <a className="view-all" href="#">
+            <Link className="view-all" to="/">
               View All
-            </a>
+            </Link>
           </div>
         </div>
       </section>

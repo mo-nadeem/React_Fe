@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { Link } from "react-router-dom";
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -103,13 +104,13 @@ const HealthPackage = () => {
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit, sed do eiusmod tempor incididunt ut labore
                         </div>
-                        <a href="#">
+                        <Link to="/">
                           <img
                             src="images/2023/01/pack-arrow.png"
                             className="arrow-link"
                             alt=""
                           />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -126,13 +127,13 @@ const HealthPackage = () => {
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit, sed do eiusmod tempor incididunt ut labore
                         </div>
-                        <a href="#">
+                        <Link to="/">
                           <img
                             src="images/2023/01/pack-arrow.png"
                             className="arrow-link"
                             alt=""
                           />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -149,13 +150,13 @@ const HealthPackage = () => {
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit, sed do eiusmod tempor incididunt ut labore
                         </div>
-                        <a href="#">
+                        <Link to="/">
                           <img
                             src="images/2023/01/pack-arrow.png"
                             className="arrow-link"
                             alt=""
                           />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -172,13 +173,13 @@ const HealthPackage = () => {
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit, sed do eiusmod tempor incididunt ut labore
                         </div>
-                        <a href="#">
+                        <Link to="/">
                           <img
                             src="images/2023/01/pack-arrow.png"
                             className="arrow-link"
                             alt=""
                           />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -217,13 +218,13 @@ const HealthPackage = () => {
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit, sed do eiusmod tempor incididunt ut labore
                         </div>
-                        <a href="#">
+                        <Link to="/">
                           <img
                             src="images/2023/01/pack-arrow.png"
                             className="arrow-link"
                             alt=""
                           />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -240,13 +241,13 @@ const HealthPackage = () => {
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit, sed do eiusmod tempor incididunt ut labore
                         </div>
-                        <a href="#">
+                        <Link to="/">
                           <img
                             src="images/2023/01/pack-arrow.png"
                             className="arrow-link"
                             alt=""
                           />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -263,13 +264,13 @@ const HealthPackage = () => {
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit, sed do eiusmod tempor incididunt ut labore
                         </div>
-                        <a href="#">
+                        <Link to="/">
                           <img
                             src="images/2023/01/pack-arrow.png"
                             className="arrow-link"
                             alt=""
                           />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -286,13 +287,13 @@ const HealthPackage = () => {
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit, sed do eiusmod tempor incididunt ut labore
                         </div>
-                        <a href="#">
+                        <Link to="/">
                           <img
                             src="images/2023/01/pack-arrow.png"
                             className="arrow-link"
                             alt=""
                           />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -331,13 +332,13 @@ const HealthPackage = () => {
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit, sed do eiusmod tempor incididunt ut labore
                         </div>
-                        <a href="#">
+                        <Link to="/">
                           <img
                             src="images/2023/01/pack-arrow.png"
                             className="arrow-link"
                             alt=""
                           />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -354,13 +355,13 @@ const HealthPackage = () => {
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit, sed do eiusmod tempor incididunt ut labore
                         </div>
-                        <a href="#">
+                        <Link to="/">
                           <img
                             src="images/2023/01/pack-arrow.png"
                             className="arrow-link"
                             alt=""
                           />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -377,13 +378,13 @@ const HealthPackage = () => {
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit, sed do eiusmod tempor incididunt ut labore
                         </div>
-                        <a href="#">
+                        <Link to="/">
                           <img
                             src="images/2023/01/pack-arrow.png"
                             className="arrow-link"
                             alt=""
                           />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -400,13 +401,13 @@ const HealthPackage = () => {
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit, sed do eiusmod tempor incididunt ut labore
                         </div>
-                        <a href="#">
+                        <Link to="/">
                           <img
                             src="images/2023/01/pack-arrow.png"
                             className="arrow-link"
                             alt=""
                           />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -445,13 +446,13 @@ const HealthPackage = () => {
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit, sed do eiusmod tempor incididunt ut labore
                         </div>
-                        <a href="#">
+                        <Link to="/">
                           <img
                             src="images/2023/01/pack-arrow.png"
                             className="arrow-link"
                             alt=""
                           />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -468,13 +469,13 @@ const HealthPackage = () => {
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit, sed do eiusmod tempor incididunt ut labore
                         </div>
-                        <a href="#">
+                        <Link to="/">
                           <img
                             src="images/2023/01/pack-arrow.png"
                             className="arrow-link"
                             alt=""
                           />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -491,13 +492,13 @@ const HealthPackage = () => {
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit, sed do eiusmod tempor incididunt ut labore
                         </div>
-                        <a href="#">
+                        <Link to="/">
                           <img
                             src="images/2023/01/pack-arrow.png"
                             className="arrow-link"
                             alt=""
                           />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -514,13 +515,13 @@ const HealthPackage = () => {
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit, sed do eiusmod tempor incididunt ut labore
                         </div>
-                        <a href="#">
+                        <Link to="/">
                           <img
                             src="images/2023/01/pack-arrow.png"
                             className="arrow-link"
                             alt=""
                           />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -73,46 +74,47 @@ const Blog = () => {
                     arrows={false}
                     itemClass="carousel-item"
                   >
-                    {blog.map((e) => (
-                      <div className="carousel-item" key={e.id}>
-                        <div className="blog-item">
-                          <img
-                            src={`${process.env.REACT_APP_BASE_URL}/blog/${e.icon}`}
-                            alt={e.slug}
-                          />
-                          <h4>{e.name}</h4>
-                          {/* <div className="blog-drop">
+                    {blog &&
+                      blog.map((e) => (
+                        <div className="carousel-item" key={e.id}>
+                          <div className="blog-item">
+                            <img
+                              src={`${process.env.REACT_APP_BASE_URL}/blog/${e.icon}`}
+                              alt={e.slug}
+                            />
+                            <h4>{e.name}</h4>
+                            {/* <div className="blog-drop">
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit, sed do eiusmod tempor incididunt ut labore Ut
                             enim ad minim veniam, quis nostrud exercitation
                             ullamco laboris nisi ut aliquip
                           </div> */}
-                          <div
-                            className="blog-drop"
-                            dangerouslySetInnerHTML={{
-                              __html: e.short_description,
-                            }}
-                          />
-                          <div className="blog-text">
-                            <div className="category-blog">
-                              <span>
-                                <img src="images/2023/01/dotted.png" />
-                              </span>
-                              Category
+                            <div
+                              className="blog-drop"
+                              dangerouslySetInnerHTML={{
+                                __html: e.short_description,
+                              }}
+                            />
+                            <div className="blog-text">
+                              <div className="category-blog">
+                                <span>
+                                  <img src="images/2023/01/dotted.png" />
+                                </span>
+                                Category
+                              </div>
+                              <div className="time-blog">
+                                <span>
+                                  <img src="images/2023/01/dotted.png" />
+                                </span>
+                                12 min read
+                              </div>
+                              <Link to="/">
+                                <img src="images/2023/01/blog-more.png" />
+                              </Link>
                             </div>
-                            <div className="time-blog">
-                              <span>
-                                <img src="images/2023/01/dotted.png" />
-                              </span>
-                              12 min read
-                            </div>
-                            <a href="#">
-                              <img src="images/2023/01/blog-more.png" />
-                            </a>
                           </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
 
                     {/* <div className="carousel-item">
                       <div className="blog-item">
@@ -137,9 +139,9 @@ const Blog = () => {
                             </span>
                             12 min read
                           </div>
-                          <a href="#">
+                          <Link to="/">
                             <img src="images/2023/01/blog-more.png" />
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -167,9 +169,9 @@ const Blog = () => {
                             </span>
                             12 min read
                           </div>
-                          <a href="#">
+                          <Link to="/">
                             <img src="images/2023/01/blog-more.png" />
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -197,18 +199,18 @@ const Blog = () => {
                             </span>
                             12 min read
                           </div>
-                          <a href="#">
+                          <Link to="/">
                             <img src="images/2023/01/blog-more.png" />
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div> */}
                   </Carousel>
                 </div>
               </div>
-              <a className="see-more" href="#">
+              <Link className="see-more" to="/">
                 View more resources{" "}
-              </a>
+              </Link>
             </div>
           </div>
         </div>

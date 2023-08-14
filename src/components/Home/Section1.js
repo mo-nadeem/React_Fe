@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Section1 = () => {
   return (
@@ -32,13 +33,13 @@ const Section1 = () => {
               nisi ut aliquip ex ea commodo con
             </h2>
             <div className="home-topnav">
-              <a href="#" className="home-nav-left">
+              <Link to="/" className="home-nav-left">
                 Ask FREE Question{" "}
                 <img src="images/2023/01/arrow-c.png" alt="" />
-              </a>
-              <a href="#" className="home-nav-right">
+              </Link>
+              <Link to="/" className="home-nav-right">
                 Treatments Lorem <img src="images/2023/01/arrow-w.png" alt="" />
-              </a>
+              </Link>
             </div>
           </div>
 
