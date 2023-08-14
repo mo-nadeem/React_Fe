@@ -39,7 +39,7 @@ const DoctorSection = () => {
   }, [fetchHomedata]);
 
   let doctorSection = null;
-  if (doctor.length > 0) {
+  if (doctor?.length > 0) {
     doctorSection = (
       <>
         {doctor &&
