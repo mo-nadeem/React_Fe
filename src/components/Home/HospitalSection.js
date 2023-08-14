@@ -24,7 +24,7 @@ const HospitalSection = () => {
               animationDuration: "11s",
             }}
           >
-            {hospital.map((e) => (
+            {hospital && hospital.map((e) => (
               <div className="Marquee-tag" key={e.id}>
                 <img
                   className="dr-img"

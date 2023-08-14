@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Homelayout from "../../components/Homelayout/Homelayout";
 import DoctorExpert from "../../components/Home/DoctorExpert";
 import Testimonials from "../../components/Home/Testimonials";
@@ -8,6 +8,8 @@ import DoctorSection from "../../components/Home/DoctorSection";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import HealthQuerys from "../../components/Home/HealthQuerys";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -29,6 +31,24 @@ const responsive = {
 };
 
 const Category = () => {
+  const { slug, country } = useParams();
+  // const [speciality, setSpecliality] = useState([]);
+  // const [info, setInfo] = useState([]);
+
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       `${process.env.REACT_APP_BASE_URL}/api/speciality/${slug}/${country}`
+  //     )
+  //     .then((response) => {
+  //       setSpecliality(response.data.data.treatment_list);
+  //       setInfo(response.data.data.speciality_info);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching data:", error);
+  //     });
+  // }, [slug, country]);
+
   const [activeContent, setActiveContent] = useState(1); // Initialize as null
 
   const handleContentClick = (contentNumber) => {
