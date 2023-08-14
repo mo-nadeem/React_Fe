@@ -90,7 +90,7 @@ const DoctorSection = () => {
         </div>
       </>
     );
-  }
+  } 
   return (
     <>
       <section id="doctors-section">
