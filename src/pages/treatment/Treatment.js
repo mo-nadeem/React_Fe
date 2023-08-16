@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Homelayout from "../../components/Homelayout/Homelayout";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -47,6 +47,48 @@ const responsive = {
 };
 
 const Treatment = () => {
+  const [activeContent, setActiveContent] = useState(1); // Initialize as null
+
+  const handleContentClick = (contentNumber) => {
+    setActiveContent(activeContent === contentNumber ? null : contentNumber); // Toggle content visibility
+  };
+
+  const contentItems = [
+    {
+      id: 1,
+      title: "Lorem ipsum dolor sit amet 1",
+      text: "Content for button 1",
+      image: "images/2023/02/02/1.jpg",
+    },
+    {
+      id: 2,
+      title: "Lorem ipsum dolor sit amet 2",
+      text: "Content for button 2",
+      image: "images/2023/02/02/2.jpg",
+    },
+    {
+      id: 3,
+      title: "Lorem ipsum dolor sit amet 3",
+      text: "Content for button 3",
+      image: "images/2023/02/02/3.jpg",
+    },
+    {
+      id: 4,
+      title: "Lorem ipsum dolor sit amet 4",
+      text: "Content for button 4",
+      image: "images/2023/02/02/4.jpg",
+    },
+  ];
+
+  const [activeQuestion, setActiveQuestion] = useState(1);
+
+  const handleQuestionClick = (index) => {
+    if (activeQuestion === index) {
+      setActiveQuestion(null);
+    } else {
+      setActiveQuestion(index);
+    }
+  };
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -60,13 +102,13 @@ const Treatment = () => {
     <>
       <Homelayout>
         <section id="treatment-section">
-          <div class="midbox-inner wiki-mk">
-            <div class="treatment-top">
-              <div class="treatment-headtext">
+          <div className="midbox-inner wiki-mk">
+            <div className="treatment-top">
+              <div className="treatment-headtext">
                 <h1>Liver Transplant</h1>
                 <p>Avg Price: $1000 - $3000</p>
               </div>
-              <div class="treatment-subtext">
+              <div className="treatment-subtext">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore Ut enim ad minim veniam,
                 quis nostrud exercitation dolor sit
@@ -76,13 +118,13 @@ const Treatment = () => {
         </section>
 
         <section id="treatment-banner">
-          <div class="treatment-bannerimg">
+          <div className="treatment-bannerimg">
             <img src="images/2023/03/1.jpg" />
             <img src="images/2023/03/2.jpg" />
           </div>
-          <div class="midbox-inner  wiki-mk">
-            <div class="treatment-headbox">
-              <div class="treatment-left">
+          <div className="midbox-inner  wiki-mk">
+            <div className="treatment-headbox">
+              <div className="treatment-left">
                 <ul>
                   <li>
                     <h2>Chemotherapy</h2> <p>Treatment Type</p>
@@ -101,24 +143,24 @@ const Treatment = () => {
                   </li>
                 </ul>
               </div>
-              <div class="treatment-right">
+              <div className="treatment-right">
                 <h2>Get a free quote</h2>
 
-                <div class="treatment-form">
-                  <div class="inputbox">
+                <div className="treatment-form">
+                  <div className="inputbox">
                     <label>Name</label>
                     <input type="text" placeholder="" name="name" required="" />
                   </div>
                 </div>
 
-                <div class="treatment-form">
-                  <div class="inputbox">
+                <div className="treatment-form">
+                  <div className="inputbox">
                     <label>Phone</label>
-                    <div class="phone-form">
-                      <div class="phone-box1">
+                    <div className="phone-form">
+                      <div className="phone-box1">
                         <select
                           aria-label="Sort dropdown"
-                          class="phone-dropdown"
+                          className="phone-dropdown"
                         >
                           <option value="">Choose Code</option>
                           <option value="1">UK (+44)</option>
@@ -156,7 +198,7 @@ const Treatment = () => {
                           <option value="855">Cambodia (+855)</option>
                         </select>
                       </div>
-                      <div class="phone-box2">
+                      <div className="phone-box2">
                         <input
                           type="text"
                           placeholder=""
@@ -168,18 +210,18 @@ const Treatment = () => {
                   </div>
                 </div>
 
-                <div class="treatment-form">
-                  <div class="inputbox">
+                <div className="treatment-form">
+                  <div className="inputbox">
                     <label>Email</label>
                     <input type="text" placeholder="" name="name" required="" />
                   </div>
                 </div>
 
-                <div class="treatment-form">
-                  <div class="inputbox">
+                <div className="treatment-form">
+                  <div className="inputbox">
                     <label>Your Query</label>
                     <textarea
-                      class="querybox"
+                      className="querybox"
                       type="textarea"
                       name="query"
                       placeholder=""
@@ -188,7 +230,7 @@ const Treatment = () => {
                   </div>
                 </div>
 
-                <button type="submit" name="en" class="home-button">
+                <button type="submit" name="en" className="home-button">
                   {" "}
                   Submit Now <img src="images/2023/01/arrow-c.png" alt="" />
                 </button>
@@ -198,7 +240,7 @@ const Treatment = () => {
         </section>
 
         <section id="health-city">
-          <div class="midbox-inner  wiki-mk">
+          <div className="midbox-inner  wiki-mk">
             <h2>
               Lorem Ipsum dolor <span>Pricing</span>
             </h2>
@@ -208,7 +250,7 @@ const Treatment = () => {
               nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo
             </p>
 
-            <div class="owl-slider">
+            <div className="owl-slider">
               <div id="city-list">
                 <Carousel
                   responsive={responsiveHospital}
@@ -217,10 +259,10 @@ const Treatment = () => {
                   autoPlaySpeed={2000}
                   infinite={true}
                 >
-                  <div class="item" style={{ marginRight: "20px" }}>
-                    <div class="city-item">
+                  <div className="item" style={{ marginRight: "20px" }}>
+                    <div className="city-item">
                       <img src="images/2023/03/01/1.jpg" />
-                      <div class="city-box">
+                      <div className="city-box">
                         <h3>Delhi</h3>
                         <ul>
                           <li>
@@ -243,10 +285,10 @@ const Treatment = () => {
                     </div>
                   </div>
 
-                  <div class="item" style={{ marginRight: "20px" }}>
-                    <div class="city-item">
+                  <div className="item" style={{ marginRight: "20px" }}>
+                    <div className="city-item">
                       <img src="images/2023/03/01/2.jpg" />
-                      <div class="city-box">
+                      <div className="city-box">
                         <h3>Mumbai</h3>
                         <ul>
                           <li>
@@ -269,10 +311,10 @@ const Treatment = () => {
                     </div>
                   </div>
 
-                  <div class="item" style={{ marginRight: "20px" }}>
-                    <div class="city-item">
+                  <div className="item" style={{ marginRight: "20px" }}>
+                    <div className="city-item">
                       <img src="images/2023/03/01/3.jpg" />
-                      <div class="city-box">
+                      <div className="city-box">
                         <h3>Chennai</h3>
                         <ul>
                           <li>
@@ -295,10 +337,10 @@ const Treatment = () => {
                     </div>
                   </div>
 
-                  <div class="item" style={{ marginRight: "20px" }}>
-                    <div class="city-item">
+                  <div className="item" style={{ marginRight: "20px" }}>
+                    <div className="city-item">
                       <img src="images/2023/03/01/4.jpg" />
-                      <div class="city-box">
+                      <div className="city-box">
                         <h3>Hyderabad</h3>
                         <ul>
                           <li>
@@ -321,10 +363,10 @@ const Treatment = () => {
                     </div>
                   </div>
 
-                  <div class="item" style={{ marginRight: "20px" }}>
-                    <div class="city-item">
+                  <div className="item" style={{ marginRight: "20px" }}>
+                    <div className="city-item">
                       <img src="images/2023/03/01/3.jpg" />
-                      <div class="city-box">
+                      <div className="city-box">
                         <h3>Chennai</h3>
                         <ul>
                           <li>
@@ -352,31 +394,31 @@ const Treatment = () => {
           </div>
         </section>
 
-        <section class="treatment-marquee" id="category-marquee">
-          <div class="marquee-wrapper">
-            <div class="marquee" style={{ animationDuration: "21s" }}>
-              <div class="Marquee-tag"> 100+ Surgeries </div>
-              <div class="Marquee-tag"> 95% Success Rate </div>
-              <div class="Marquee-tag"> 4000+ Top Doctors </div>
-              <div class="Marquee-tag"> 1000+ Top Hospital </div>
-              <div class="Marquee-tag"> 100+ Surgeries </div>
-              <div class="Marquee-tag"> 95% Success Rate </div>
-              <div class="Marquee-tag"> 4000+ Top Doctors </div>
-              <div class="Marquee-tag"> 1000+ Top Hospital </div>
+        <section className="treatment-marquee" id="category-marquee">
+          <div className="marquee-wrapper">
+            <div className="marquee" style={{ animationDuration: "21s" }}>
+              <div className="Marquee-tag"> 100+ Surgeries </div>
+              <div className="Marquee-tag"> 95% Success Rate </div>
+              <div className="Marquee-tag"> 4000+ Top Doctors </div>
+              <div className="Marquee-tag"> 1000+ Top Hospital </div>
+              <div className="Marquee-tag"> 100+ Surgeries </div>
+              <div className="Marquee-tag"> 95% Success Rate </div>
+              <div className="Marquee-tag"> 4000+ Top Doctors </div>
+              <div className="Marquee-tag"> 1000+ Top Hospital </div>
             </div>
           </div>
         </section>
 
         <section id="treatment-mid">
-          <div class="midbox-inner  wiki-mk">
-            <div class="treatment-findox">
-              <div class="treatment-leftbox">
+          <div className="midbox-inner  wiki-mk">
+            <div className="treatment-findox">
+              <div className="treatment-leftbox">
                 <ul>
                   <li>
                     <a
                       target="_self"
                       onClick={() => scrollToSection("transplant-nav1")}
-                      class="active"
+                      className="active"
                     >
                       Overview
                     </a>
@@ -474,8 +516,8 @@ const Treatment = () => {
                 </ul>
               </div>
 
-              <div class="treatment-midbox">
-                <div class="treatmen-overview" id="transplant-nav1">
+              <div className="treatment-midbox">
+                <div className="treatmen-overview" id="transplant-nav1">
                   <h2>Overview</h2>
                   <p>
                     Ever since the first successful Liver Transplant was
@@ -492,7 +534,7 @@ const Treatment = () => {
                   </p>
                 </div>
 
-                <div class="treatmen-midnav" id="transplant-nav2">
+                <div className="treatmen-midnav" id="transplant-nav2">
                   <h2>What is liver transplant</h2>
                   <p>
                     Ever since the first successful Liver Transplant was
@@ -510,18 +552,18 @@ const Treatment = () => {
 
                   <img src="images/2023/03/bg1.jpg" />
 
-                  <div class="consultation-box">
+                  <div className="consultation-box">
                     <p>Lorem ipsum dolor sit amet quis</p>
-                    <a class="consultation-button" href="#">
+                    <a className="consultation-button" href="#">
                       Book a Free Consultation{" "}
                       <img src="images/2023/01/learn-more.png" />
                     </a>
                   </div>
                 </div>
-                <div class="treatmen-midnav" id="transplant-nav3">
+                <div className="treatmen-midnav" id="transplant-nav3">
                   <h2>why is it needed</h2>
 
-                  <div class="box-need">
+                  <div className="box-need">
                     <p>
                       Liver Transplant, in India, is generally the last resort
                       of treatment recommended for patients with liver failure,
@@ -573,15 +615,15 @@ const Treatment = () => {
                   </div>
                 </div>
 
-                <div class="treatment-mid-form">
+                <div className="treatment-mid-form">
                   <img src="images/2023/03/treatment-form.jpg" />
 
-                  <div class="assistance-form">
+                  <div className="assistance-form">
                     <h3>Provide your details</h3>
                     <p>Our Health Experts will get back to you shortly</p>
 
-                    <div class="assistance-box">
-                      <div class="input-box1">
+                    <div className="assistance-box">
+                      <div className="input-box1">
                         <label>Name</label>
                         <input
                           type="text"
@@ -592,14 +634,14 @@ const Treatment = () => {
                       </div>
                     </div>
 
-                    <div class="assistance-box">
-                      <div class="inputbox">
+                    <div className="assistance-box">
+                      <div className="inputbox">
                         <label>Phone</label>
-                        <div class="phone-box">
-                          <div class="phone-box3">
+                        <div className="phone-box">
+                          <div className="phone-box3">
                             <select
                               aria-label="Sort dropdown"
-                              class="phone-dropdown"
+                              className="phone-dropdown"
                             >
                               <option value="">Choose Code</option>
                               <option value="1">UK (+44)</option>
@@ -639,7 +681,7 @@ const Treatment = () => {
                               <option value="855">Cambodia (+855)</option>
                             </select>
                           </div>
-                          <div class="phone-box4">
+                          <div className="phone-box4">
                             <input
                               type="text"
                               placeholder=""
@@ -651,8 +693,8 @@ const Treatment = () => {
                       </div>
                     </div>
 
-                    <div class="assistance-box">
-                      <div class="input-box1">
+                    <div className="assistance-box">
+                      <div className="input-box1">
                         <label>Email</label>
                         <input
                           type="text"
@@ -663,8 +705,8 @@ const Treatment = () => {
                       </div>
                     </div>
 
-                    <div class="assistance-box">
-                      <button type="submit" name="en" class="submit-now">
+                    <div className="assistance-box">
+                      <button type="submit" name="en" className="submit-now">
                         {" "}
                         Submit Now{" "}
                         <img src="images/2023/01/arrow-c.png" alt="" />
@@ -673,7 +715,7 @@ const Treatment = () => {
                   </div>
                 </div>
 
-                <div class="treatmen-midnav" id="transplant-nav4">
+                <div className="treatmen-midnav" id="transplant-nav4">
                   <h2>Types of liver transplant</h2>
                   <p>
                     Liver transplant is broadly classified into 3 major types.
@@ -705,22 +747,22 @@ const Treatment = () => {
 
                   <img src="images/2023/03/bg2.jpg" />
 
-                  <div class="consultation-box1">
-                    <a class="free-quote" href="#">
+                  <div className="consultation-box1">
+                    <a className="free-quote" href="#">
                       Get a free quote <img src="images/2023/01/arrow-c.png" />
                     </a>
 
-                    <a class="view-hospitals" href="#">
+                    <a className="view-hospitals" href="#">
                       View Hospitals
                     </a>
 
-                    <a class="view-doctors" href="#">
+                    <a className="view-doctors" href="#">
                       View Doctors
                     </a>
                   </div>
                 </div>
 
-                <div class="treatmen-midnav" id="transplant-nav5">
+                <div className="treatmen-midnav" id="transplant-nav5">
                   <h2>pre evaluation</h2>
                   <p>
                     Although a liver transplant is a very effective procedure,
@@ -733,9 +775,9 @@ const Treatment = () => {
                     include:
                   </p>
 
-                  <div class="consultation-box">
+                  <div className="consultation-box">
                     <p>Lorem ipsum dolor sit amet quis</p>
-                    <a class="consultation-button" href="#">
+                    <a className="consultation-button" href="#">
                       Book a Free Consultation{" "}
                       <img src="images/2023/01/learn-more.png" />
                     </a>
@@ -841,13 +883,13 @@ const Treatment = () => {
                     </tr>
                   </table>
 
-                  <div class="treatment-bannerimg">
+                  <div className="treatment-bannerimg">
                     <img src="images/2023/03/bg3.jpg" />
                     <img src="images/2023/03/bg4.jpg" />
                   </div>
                 </div>
 
-                <div class="treatmen-midnav" id="transplant-nav6">
+                <div className="treatmen-midnav" id="transplant-nav6">
                   <h2>how is it done</h2>
                   <p>
                     Liver transplant procedure involves a series of steps, each
@@ -925,20 +967,20 @@ const Treatment = () => {
 
                   <img src="images/2023/03/bg6.jpg" />
 
-                  <div class="consultation-box1">
-                    <a class="free-quote" href="#">
+                  <div className="consultation-box1">
+                    <a className="free-quote" href="#">
                       Get a free quote <img src="images/2023/01/arrow-c.png" />
                     </a>
-                    <a class="view-hospitals" href="#">
+                    <a className="view-hospitals" href="#">
                       View Hospitals
                     </a>
-                    <a class="view-doctors" href="#">
+                    <a className="view-doctors" href="#">
                       View Doctors
                     </a>
                   </div>
                 </div>
 
-                <div class="treatmen-midnav" id="transplant-nav7">
+                <div className="treatmen-midnav" id="transplant-nav7">
                   <h2>Complications</h2>
                   <p>
                     Like other surgical interventions, liver transplant carries
@@ -949,7 +991,7 @@ const Treatment = () => {
                     consideration include:
                   </p>
 
-                  <div class="box-need">
+                  <div className="box-need">
                     <ul>
                       <li>
                         Wound infection, which can be managed with adherence to
@@ -975,15 +1017,15 @@ const Treatment = () => {
                   </div>
                 </div>
 
-                <div class="treatment-mid-form">
+                <div className="treatment-mid-form">
                   <img src="images/2023/03/treatment-form.jpg" />
 
-                  <div class="assistance-form">
+                  <div className="assistance-form">
                     <h3>Provide your details</h3>
                     <p>Our Health Experts will get back to you shortly</p>
 
-                    <div class="assistance-box">
-                      <div class="input-box1">
+                    <div className="assistance-box">
+                      <div className="input-box1">
                         <label>Name</label>
                         <input
                           type="text"
@@ -994,14 +1036,14 @@ const Treatment = () => {
                       </div>
                     </div>
 
-                    <div class="assistance-box">
-                      <div class="inputbox">
+                    <div className="assistance-box">
+                      <div className="inputbox">
                         <label>Phone</label>
-                        <div class="phone-box">
-                          <div class="phone-box3">
+                        <div className="phone-box">
+                          <div className="phone-box3">
                             <select
                               aria-label="Sort dropdown"
-                              class="phone-dropdown"
+                              className="phone-dropdown"
                             >
                               <option value="">Choose Code</option>
                               <option value="1">UK (+44)</option>
@@ -1041,7 +1083,7 @@ const Treatment = () => {
                               <option value="855">Cambodia (+855)</option>
                             </select>
                           </div>
-                          <div class="phone-box4">
+                          <div className="phone-box4">
                             <input
                               type="text"
                               placeholder=""
@@ -1053,8 +1095,8 @@ const Treatment = () => {
                       </div>
                     </div>
 
-                    <div class="assistance-box">
-                      <div class="input-box1">
+                    <div className="assistance-box">
+                      <div className="input-box1">
                         <label>Email</label>
                         <input
                           type="text"
@@ -1065,8 +1107,8 @@ const Treatment = () => {
                       </div>
                     </div>
 
-                    <div class="assistance-box">
-                      <button type="submit" name="en" class="submit-now">
+                    <div className="assistance-box">
+                      <button type="submit" name="en" className="submit-now">
                         {" "}
                         Submit Now{" "}
                         <img src="images/2023/01/arrow-c.png" alt="" />
@@ -1075,7 +1117,7 @@ const Treatment = () => {
                   </div>
                 </div>
 
-                <div class="treatmen-midnav" id="transplant-nav8">
+                <div className="treatmen-midnav" id="transplant-nav8">
                   <h2>post procedure</h2>
                   <ul>
                     <li>
@@ -1111,16 +1153,16 @@ const Treatment = () => {
                     </li>
                   </ul>
 
-                  <div class="consultation-box2">
+                  <div className="consultation-box2">
                     <p>Lorem ipsum dolor sit amet quis</p>
-                    <a class="consultation-button1" href="#">
+                    <a className="consultation-button1" href="#">
                       Book a Free Consultation{" "}
                       <img src="images/2023/03/learn-more.png" />
                     </a>
                   </div>
                 </div>
 
-                <div class="treatmen-midnav" id="transplant-nav9">
+                <div className="treatmen-midnav" id="transplant-nav9">
                   <h2>Life after a Liver Transplant</h2>
 
                   <p>
@@ -1172,7 +1214,7 @@ const Treatment = () => {
                   </table>
                 </div>
 
-                <div class="treatmen-midnav" id="transplant-nav10">
+                <div className="treatmen-midnav" id="transplant-nav10">
                   <h2>success rate</h2>
 
                   <p>
@@ -1189,20 +1231,20 @@ const Treatment = () => {
                     long and healthy life.
                   </p>
 
-                  <div class="consultation-box1">
-                    <a class="free-quote" href="#">
+                  <div className="consultation-box1">
+                    <a className="free-quote" href="#">
                       Get a free quote <img src="images/2023/01/arrow-c.png" />
                     </a>
-                    <a class="view-hospitals" href="#">
+                    <a className="view-hospitals" href="#">
                       View Hospitals
                     </a>
-                    <a class="view-doctors" href="#">
+                    <a className="view-doctors" href="#">
                       View Doctors
                     </a>
                   </div>
                 </div>
 
-                <div class="treatmen-midnav" id="transplant-nav11">
+                <div className="treatmen-midnav" id="transplant-nav11">
                   <h2>Analysis and Comparison of Treatment Cost</h2>
                   <p>
                     ne of the reasons why a lot of people prefer undergoing
@@ -1213,95 +1255,95 @@ const Treatment = () => {
                   </p>
                 </div>
 
-                <div class="treatmen-midnav" id="transplant-nav12">
+                <div className="treatmen-midnav" id="transplant-nav12">
                   <h2>Domestic Cost Comparison</h2>
                   <p>
                     Breakdown of the cost of liver transplant in 6 major
                     countries
                   </p>
 
-                  <div class="cost-boxmid">
-                    <div class="cost-list">
-                      <div class="name-city">Delhi</div>
-                      <div class="cost-city">₹ 18-31.5 lakh</div>
+                  <div className="cost-boxmid">
+                    <div className="cost-list">
+                      <div className="name-city">Delhi</div>
+                      <div className="cost-city">₹ 18-31.5 lakh</div>
                     </div>
 
-                    <div class="cost-list">
-                      <div class="name-city">Bangalore</div>
-                      <div class="cost-city">₹ 18-31.5 lakh</div>
+                    <div className="cost-list">
+                      <div className="name-city">Bangalore</div>
+                      <div className="cost-city">₹ 18-31.5 lakh</div>
                     </div>
 
-                    <div class="cost-list">
-                      <div class="name-city">Mumbai</div>
-                      <div class="cost-city">₹ 18-31.5 lakh</div>
+                    <div className="cost-list">
+                      <div className="name-city">Mumbai</div>
+                      <div className="cost-city">₹ 18-31.5 lakh</div>
                     </div>
 
-                    <div class="cost-list">
-                      <div class="name-city">Pune</div>
-                      <div class="cost-city">₹ 18-31.5 lakh</div>
+                    <div className="cost-list">
+                      <div className="name-city">Pune</div>
+                      <div className="cost-city">₹ 18-31.5 lakh</div>
                     </div>
 
-                    <div class="cost-list">
-                      <div class="name-city">Chennai</div>
-                      <div class="cost-city">₹ 18-31.5 lakh</div>
+                    <div className="cost-list">
+                      <div className="name-city">Chennai</div>
+                      <div className="cost-city">₹ 18-31.5 lakh</div>
                     </div>
 
-                    <div class="cost-list">
-                      <div class="name-city">Hyderabad</div>
-                      <div class="cost-city">₹ 18-31.5 lakh</div>
+                    <div className="cost-list">
+                      <div className="name-city">Hyderabad</div>
+                      <div className="cost-city">₹ 18-31.5 lakh</div>
                     </div>
                   </div>
                 </div>
 
-                <div class="treatmen-midnav" id="transplant-nav13">
+                <div className="treatmen-midnav" id="transplant-nav13">
                   <h2>international cost</h2>
                   <p>
                     Breakdown of the cost of liver transplant in 6 major
                     countries
                   </p>
 
-                  <div class="cost-boxmid">
-                    <div class="cost-list">
-                      <div class="name-city">India</div>
-                      <div class="cost-city">₹ 18-31.5 lakh</div>
+                  <div className="cost-boxmid">
+                    <div className="cost-list">
+                      <div className="name-city">India</div>
+                      <div className="cost-city">₹ 18-31.5 lakh</div>
                     </div>
 
-                    <div class="cost-list">
-                      <div class="name-city">South Africa</div>
-                      <div class="cost-city">₹ 18-31.5 lakh</div>
+                    <div className="cost-list">
+                      <div className="name-city">South Africa</div>
+                      <div className="cost-city">₹ 18-31.5 lakh</div>
                     </div>
 
-                    <div class="cost-list">
-                      <div class="name-city">Singapore</div>
-                      <div class="cost-city">₹ 18-31.5 lakh</div>
+                    <div className="cost-list">
+                      <div className="name-city">Singapore</div>
+                      <div className="cost-city">₹ 18-31.5 lakh</div>
                     </div>
 
-                    <div class="cost-list">
-                      <div class="name-city">United Kingdom</div>
-                      <div class="cost-city">₹ 18-31.5 lakh</div>
+                    <div className="cost-list">
+                      <div className="name-city">United Kingdom</div>
+                      <div className="cost-city">₹ 18-31.5 lakh</div>
                     </div>
 
-                    <div class="cost-list">
-                      <div class="name-city">Germany</div>
-                      <div class="cost-city">₹ 18-31.5 lakh</div>
+                    <div className="cost-list">
+                      <div className="name-city">Germany</div>
+                      <div className="cost-city">₹ 18-31.5 lakh</div>
                     </div>
 
-                    <div class="cost-list">
-                      <div class="name-city">USA</div>
-                      <div class="cost-city">₹ 18-31.5 lakh</div>
+                    <div className="cost-list">
+                      <div className="name-city">USA</div>
+                      <div className="cost-city">₹ 18-31.5 lakh</div>
                     </div>
                   </div>
 
-                  <div class="consultation-box">
+                  <div className="consultation-box">
                     <p>Lorem ipsum dolor sit amet quis</p>
-                    <a class="consultation-button" href="#">
+                    <a className="consultation-button" href="#">
                       Book a Free Consultation{" "}
                       <img src="images/2023/01/learn-more.png" />
                     </a>
                   </div>
                 </div>
 
-                <div class="treatmen-midnav" id="transplant-nav14">
+                <div className="treatmen-midnav" id="transplant-nav14">
                   <h2>cost influencing factors</h2>
                   <p>
                     There are several factors that influence the cost of liver
@@ -1309,7 +1351,7 @@ const Treatment = () => {
                     prevalent of these include:
                   </p>
 
-                  <div class="box-need">
+                  <div className="box-need">
                     <ul>
                       <li>Hospital facilities, infrastructure and services </li>
                       <li>Location of the hospital </li>
@@ -1327,7 +1369,7 @@ const Treatment = () => {
                   </div>
                 </div>
 
-                <div class="treatmen-midnav" id="transplant-nav15">
+                <div className="treatmen-midnav" id="transplant-nav15">
                   <h2>Our Services: Your Journey With MedFlick</h2>
                   <p>
                     Medflick is your trusted healthcare companion for planning a
@@ -1335,45 +1377,45 @@ const Treatment = () => {
                     us, you can expect:
                   </p>
 
-                  <div class="medflick-services">
-                    <div class="services-box">
+                  <div className="medflick-services">
+                    <div className="services-box">
                       <img src="images/2023/03/02/1.png" />
                       Access to world-class hospitals and healthcare facilities
                     </div>
 
-                    <div class="services-box">
+                    <div className="services-box">
                       <img src="images/2023/03/02/2.png" />
                       Personalized assistance to suit your specific needs and
                       requirements
                     </div>
 
-                    <div class="services-box">
+                    <div className="services-box">
                       <img src="images/2023/03/02/3.png" />
                       Expert network of India’s renowned liver transplant
                       experts
                     </div>
 
-                    <div class="services-box">
+                    <div className="services-box">
                       <img src="images/2023/03/02/4.png" />
                       Satisfactory pricing and complete transparency
                     </div>
 
-                    <div class="services-box">
+                    <div className="services-box">
                       <img src="images/2023/03/02/5.png" />
                       Travel and lodging support to ensure a smooth journey
                     </div>
 
-                    <div class="services-box">
+                    <div className="services-box">
                       <img src="images/2023/03/02/6.png" />
                       Multilingual support
                     </div>
 
-                    <div class="services-box">
+                    <div className="services-box">
                       <img src="images/2023/03/02/7.png" />
                       24/7 assistance throughout your stay
                     </div>
 
-                    <div class="services-box services-box1">
+                    <div className="services-box services-box1">
                       <img src="images/2023/01/logo.png" alt="Brand Logo" />
                       <a href="#">Contact us</a>
                     </div>
@@ -1387,7 +1429,7 @@ const Treatment = () => {
                   </p>
                 </div>
 
-                <div class="treatmen-midnav" id="transplant-nav15">
+                <div className="treatmen-midnav" id="transplant-nav15">
                   <h2>Doctors</h2>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -1395,101 +1437,24 @@ const Treatment = () => {
                     amet, consectetur adipiscing
                   </p>
 
-                  <div class="owl-slider">
-                    <div id="doctors-treatment" class="owl-carousel">
-                      <div class="item">
-                        <div class="doctors-treatment">
-                          <img src="images/2023/01/06/1.jpg" />
-                          <div class="doctors-treat">
-                            <h3>Doctor Name </h3>
-                            <div class="doctors-sub">
-                              Lorem ipsum dolor sit amet
-                            </div>
-                            <a href="#" class="contact-now">
-                              Contact Now{" "}
-                              <img src="images/2023/01/arrow-c.png" alt="" />
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="item">
-                        <div class="doctors-treatment">
-                          <img src="images/2023/01/06/2.jpg" />
-                          <div class="doctors-treat">
-                            <h3>Doctor Name </h3>
-                            <div class="doctors-sub">
-                              Lorem ipsum dolor sit amet
-                            </div>
-                            <a href="#" class="contact-now">
-                              Contact Now{" "}
-                              <img src="images/2023/01/arrow-c.png" alt="" />
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="item">
-                        <div class="doctors-treatment">
-                          <img src="images/2023/01/06/3.jpg" />
-                          <div class="doctors-treat">
-                            <h3>Doctor Name </h3>
-                            <div class="doctors-sub">
-                              Lorem ipsum dolor sit amet
-                            </div>
-                            <a href="#" class="contact-now">
-                              Contact Now{" "}
-                              <img src="images/2023/01/arrow-c.png" alt="" />
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="item">
-                        <div class="doctors-treatment">
-                          <img src="images/2023/01/06/2.jpg" />
-                          <div class="doctors-treat">
-                            <h3>Doctor Name </h3>
-                            <div class="doctors-sub">
-                              Lorem ipsum dolor sit amet
-                            </div>
-                            <a href="#" class="contact-now">
-                              Contact Now{" "}
-                              <img src="images/2023/01/arrow-c.png" alt="" />
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="treatment-view">
-                    <a class="viewmore" href="#">
-                      View more{" "}
-                    </a>
-                  </div>
-                </div>
-
-                <div class="treatmen-midnav" id="transplant-nav16">
-                  <h2>Hospitals</h2>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit
-                    amet, consectetur adipiscing
-                  </p>
-
-                  <div class="owl-slider">
-                    <div id="hospitals-treatment">
-                      <Carousel responsive={responsive} arrows={false} >
-                        <div class="item" style={{marginRight:"20px"}}>
-                          <div class="hospitals-treatment">
-                            <img src="images/2023/02/03/1.jpg" />
-                            <div class="hospitals-treat">
-                              <h3>Hospitals Name </h3>
-                              <div class="hospitals-sub">
+                  <div className="owl-slider">
+                    <div id="doctors-treatment">
+                      <Carousel
+                        responsive={responsive}
+                        arrows={false}
+                        infinite={true}
+                        autoPlay={true}
+                        autoPlaySpeed={1500}
+                      >
+                        <div className="item" style={{ marginRight: "20px" }}>
+                          <div className="doctors-treatment">
+                            <img src="images/2023/01/06/1.jpg" />
+                            <div className="doctors-treat">
+                              <h3>Doctor Name </h3>
+                              <div className="doctors-sub">
                                 Lorem ipsum dolor sit amet
                               </div>
-                              <a href="#" class="contact-now">
+                              <a href="#" className="contact-now">
                                 Contact Now{" "}
                                 <img src="images/2023/01/arrow-c.png" alt="" />
                               </a>
@@ -1497,15 +1462,15 @@ const Treatment = () => {
                           </div>
                         </div>
 
-                        <div class="item" style={{marginRight:"20px"}}>
-                          <div class="hospitals-treatment">
-                            <img src="images/2023/02/03/2.jpg" />
-                            <div class="hospitals-treat">
-                              <h3>Hospitals Name </h3>
-                              <div class="hospitals-sub">
+                        <div className="item" style={{ marginRight: "20px" }}>
+                          <div className="doctors-treatment">
+                            <img src="images/2023/01/06/2.jpg" />
+                            <div className="doctors-treat">
+                              <h3>Doctor Name </h3>
+                              <div className="doctors-sub">
                                 Lorem ipsum dolor sit amet
                               </div>
-                              <a href="#" class="contact-now">
+                              <a href="#" className="contact-now">
                                 Contact Now{" "}
                                 <img src="images/2023/01/arrow-c.png" alt="" />
                               </a>
@@ -1513,15 +1478,15 @@ const Treatment = () => {
                           </div>
                         </div>
 
-                        <div class="item" style={{marginRight:"20px"}}>
-                          <div class="hospitals-treatment">
-                            <img src="images/2023/02/03/3.jpg" />
-                            <div class="hospitals-treat">
-                              <h3>Hospitals Name </h3>
-                              <div class="hospitals-sub">
+                        <div className="item" style={{ marginRight: "20px" }}>
+                          <div className="doctors-treatment">
+                            <img src="images/2023/01/06/3.jpg" />
+                            <div className="doctors-treat">
+                              <h3>Doctor Name </h3>
+                              <div className="doctors-sub">
                                 Lorem ipsum dolor sit amet
                               </div>
-                              <a href="#" class="contact-now">
+                              <a href="#" className="contact-now">
                                 Contact Now{" "}
                                 <img src="images/2023/01/arrow-c.png" alt="" />
                               </a>
@@ -1529,15 +1494,15 @@ const Treatment = () => {
                           </div>
                         </div>
 
-                        <div class="item" style={{marginRight:"20px"}}>
-                          <div class="hospitals-treatment">
-                            <img src="images/2023/02/03/2.jpg" />
-                            <div class="hospitals-treat">
-                              <h3>Hospitals Name </h3>
-                              <div class="hospitals-sub">
+                        <div className="item" style={{ marginRight: "20px" }}>
+                          <div className="doctors-treatment">
+                            <img src="images/2023/01/06/2.jpg" />
+                            <div className="doctors-treat">
+                              <h3>Doctor Name </h3>
+                              <div className="doctors-sub">
                                 Lorem ipsum dolor sit amet
                               </div>
-                              <a href="#" class="contact-now">
+                              <a href="#" className="contact-now">
                                 Contact Now{" "}
                                 <img src="images/2023/01/arrow-c.png" alt="" />
                               </a>
@@ -1548,16 +1513,107 @@ const Treatment = () => {
                     </div>
                   </div>
 
-                  <div class="treatment-view">
-                    <a class="viewmore" href="#">
+                  <div className="treatment-view">
+                    <a className="viewmore" href="#">
+                      View more{" "}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="treatmen-midnav" id="transplant-nav16">
+                  <h2>Hospitals</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit
+                    amet, consectetur adipiscing
+                  </p>
+
+                  <div className="owl-slider">
+                    <div id="hospitals-treatment">
+                      <Carousel
+                        responsive={responsive}
+                        arrows={false}
+                        infinite={true}
+                        autoPlay={true}
+                        autoPlaySpeed={1500}
+                      >
+                        <div className="item" style={{ marginRight: "20px" }}>
+                          <div className="hospitals-treatment">
+                            <img src="images/2023/02/03/1.jpg" />
+                            <div className="hospitals-treat">
+                              <h3>Hospitals Name </h3>
+                              <div className="hospitals-sub">
+                                Lorem ipsum dolor sit amet
+                              </div>
+                              <a href="#" className="contact-now">
+                                Contact Now{" "}
+                                <img src="images/2023/01/arrow-c.png" alt="" />
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="item" style={{ marginRight: "20px" }}>
+                          <div className="hospitals-treatment">
+                            <img src="images/2023/02/03/2.jpg" />
+                            <div className="hospitals-treat">
+                              <h3>Hospitals Name </h3>
+                              <div className="hospitals-sub">
+                                Lorem ipsum dolor sit amet
+                              </div>
+                              <a href="#" className="contact-now">
+                                Contact Now{" "}
+                                <img src="images/2023/01/arrow-c.png" alt="" />
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="item" style={{ marginRight: "20px" }}>
+                          <div className="hospitals-treatment">
+                            <img src="images/2023/02/03/3.jpg" />
+                            <div className="hospitals-treat">
+                              <h3>Hospitals Name </h3>
+                              <div className="hospitals-sub">
+                                Lorem ipsum dolor sit amet
+                              </div>
+                              <a href="#" className="contact-now">
+                                Contact Now{" "}
+                                <img src="images/2023/01/arrow-c.png" alt="" />
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="item" style={{ marginRight: "20px" }}>
+                          <div className="hospitals-treatment">
+                            <img src="images/2023/02/03/2.jpg" />
+                            <div className="hospitals-treat">
+                              <h3>Hospitals Name </h3>
+                              <div className="hospitals-sub">
+                                Lorem ipsum dolor sit amet
+                              </div>
+                              <a href="#" className="contact-now">
+                                Contact Now{" "}
+                                <img src="images/2023/01/arrow-c.png" alt="" />
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </Carousel>
+                    </div>
+                  </div>
+
+                  <div className="treatment-view">
+                    <a className="viewmore" href="#">
                       View more{" "}
                     </a>
                   </div>
                 </div>
               </div>
 
-              <div class="treatment-rightbox">
-                <div class="free-consultation">
+              <div className="treatment-rightbox">
+                <div className="free-consultation">
                   <img src="images/2023/03/free-consultation.jpg" />
                   <h3>
                     Book a free Consultation with Highly Qualified Doctors
@@ -1568,25 +1624,25 @@ const Treatment = () => {
                   </a>
                 </div>
 
-                <div class="navbox">
+                <div className="navbox">
                   <img src="images/2023/03/icon1.png" />
                   <h4>Hospitals</h4>
                   <p>Lorem ipsum dolor sit aliqua sit labore minim venia</p>
                 </div>
 
-                <div class="navbox">
+                <div className="navbox">
                   <img src="images/2023/03/icon2.png" />
                   <h4>Doctors</h4>
                   <p>Lorem ipsum dolor sit aliqua sit labore minim venia</p>
                 </div>
 
-                <div class="navbox">
+                <div className="navbox">
                   <img src="images/2023/03/icon3.png" />
                   <h4> Q&A </h4>
                   <p>Lorem ipsum dolor sit aliqua sit labore minim venia</p>
                 </div>
 
-                <div class="symptomsbox">
+                <div className="symptomsbox">
                   <h4>Symptoms</h4>
 
                   <ul>
@@ -1635,22 +1691,22 @@ const Treatment = () => {
         </section>
 
         <section id="pay-section">
-          <div class="midbox-inner  wiki-mk">
-            <div class="pay-box">
-              <div class="medflick-payleft">
+          <div className="midbox-inner  wiki-mk">
+            <div className="pay-box">
+              <div className="medflick-payleft">
                 <h2>You don’t pay Medflick</h2>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore Ut enim minim
                 </p>
               </div>
-              <div class="medflick-payright">
-                <a href="#" class="consultation">
+              <div className="medflick-payright">
+                <a href="#" className="consultation">
                   {" "}
                   Request a free consultation{" "}
                   <img src="images/2023/01/arrow-w.png" alt="" />
                 </a>
-                <a href="#" class="contact">
+                <a href="#" className="contact">
                   {" "}
                   Contact Us <img src="images/2023/01/arrow-c.png" alt="" />
                 </a>
@@ -1660,9 +1716,9 @@ const Treatment = () => {
         </section>
 
         <section id="day-section">
-          <div class="midbox-inner  wiki-mk">
-            <div class="day-section">
-              <div class="day-left">
+          <div className="midbox-inner  wiki-mk">
+            <div className="day-section">
+              <div className="day-left">
                 <h2>Daywise lorem ipsum dolor sit amet</h2>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -1677,27 +1733,44 @@ const Treatment = () => {
                 </a>
               </div>
 
-              <div class="day-right">
-                <div class="question active">
-                  <span>Day 1 </span>
-                  <h5>Lorem ipsum dolor sit amet</h5>
-                  <div class="arrow"></div>
-                  <div class="answer" style={{ display: "block" }}>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed eiusmod tempor incididunt ut labore Ut enim ad minim
-                      veniam, quis nostru exercitation ullamco laboris nisi ut
-                      aliquip{" "}
-                    </p>
-                    <img src="images/2023/03/day.jpg" alt="" />
+              <div className="day-right">
+                {contentItems.map((e, index) => (
+                  <div
+                    key={e.id}
+                    className={`question ${
+                      activeQuestion === index ? "active" : ""
+                    }`}
+                    onClick={() => handleQuestionClick(index)}
+                  >
+                    <span>Day 1 </span>
+                    <h5>{e.title}</h5>
+                    <div
+                      className={`arrow ${
+                        activeQuestion === index ? "arrow-active" : ""
+                      }`}
+                    ></div>
+                    {activeQuestion === index && (
+                      <div className="answer" style={{ display: "block" }}>
+                        <p>{e.text}</p>
+                        <img src={e.image} alt="" />
+                      </div>
+                    )}
+                    {/* <div
+                      className={`question ${
+                        activeContent === e.id ? "active" : ""
+                      }`}
+                      style={{ display: "block" }}
+                    >
+                      
+                    </div> */}
                   </div>
-                </div>
+                ))}
 
-                <div class="question">
+                {/* <div className="question">
                   <span>Day 2 </span>
                   <h5>Lorem ipsum dolor sit amet</h5>
-                  <div class="arrow"></div>
-                  <div class="answer">
+                  <div className="arrow"></div>
+                  <div className="answer">
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed eiusmod tempor incididunt ut labore Ut enim ad minim
@@ -1708,11 +1781,11 @@ const Treatment = () => {
                   </div>
                 </div>
 
-                <div class="question">
+                <div className="question">
                   <span>Day 3 </span>
                   <h5>Lorem ipsum dolor sit amet</h5>
-                  <div class="arrow"></div>
-                  <div class="answer">
+                  <div className="arrow"></div>
+                  <div className="answer">
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed eiusmod tempor incididunt ut labore Ut enim ad minim
@@ -1723,11 +1796,11 @@ const Treatment = () => {
                   </div>
                 </div>
 
-                <div class="question">
+                <div className="question">
                   <span>Day 4 </span>
                   <h5>Lorem ipsum dolor sit amet</h5>
-                  <div class="arrow"></div>
-                  <div class="answer">
+                  <div className="arrow"></div>
+                  <div className="answer">
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed eiusmod tempor incididunt ut labore Ut enim ad minim
@@ -1736,94 +1809,72 @@ const Treatment = () => {
                     </p>
                     <img src="images/2023/03/day.jpg" alt="" />
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
         </section>
-
         {/* doctor expert */}
         <DoctorExpert />
 
         {/* end */}
 
         <section id="help-you">
-          <div class="midbox-inner  wiki-mk">
+          <div className="midbox-inner  wiki-mk">
             <img
               src="images/2023/02/logo.png"
-              class="logo-med"
+              className="logo-med"
               alt="Brand Logo"
             />
             <h2>How can we help you?</h2>
 
-            <div class="we-help-box">
-              <div class="we-help-left">
-                <div Class="button-wrap">
-                  <div class="button">
-                    <div class="arrow-icon"></div>
-                    <h3>Lorem ipsum dolor sit amet</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore Ut enim ad
-                      minim veniam, quis nostrud exercitation ullamco laboris
-                      nisi ut aliquip ex ea commodo con duis aute irure orem
-                      ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                      eiusmod tempor incididunt ut labore Ut enim
-                    </p>
-                  </div>
-                  <div class="button">
-                    <div class="arrow-icon"></div>
-                    <h3>Lorem ipsum dolor sit amet</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore Ut enim ad
-                      minim veniam, quis nostrud exercitation ullamco laboris
-                      nisi ut aliquip ex ea commodo con duis aute irure orem
-                      ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                      eiusmod tempor incididunt ut labore Ut enim
-                    </p>
-                  </div>
-                  <div class="button">
-                    <div class="arrow-icon"></div>
-                    <h3>Lorem ipsum dolor sit amet</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore Ut enim ad
-                      minim veniam, quis nostrud exercitation ullamco laboris
-                      nisi ut aliquip ex ea commodo con duis aute irure orem
-                      ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                      eiusmod tempor incididunt ut labore Ut enim
-                    </p>
-                  </div>
-                  <div class="button">
-                    <div class="arrow-icon"></div>
-                    <h3>Lorem ipsum dolor sit amet</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore Ut enim ad
-                      minim veniam, quis nostrud exercitation ullamco laboris
-                      nisi ut aliquip ex ea commodo con duis aute irure orem
-                      ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                      eiusmod tempor incididunt ut labore Ut enim
-                    </p>
-                  </div>
+            <div className="we-help-box">
+              <div className="we-help-left">
+                <div className="button-wrap">
+                  {contentItems.map((item) => (
+                    <div
+                      className={`button ${
+                        activeContent === item.id ? "active" : ""
+                      }`}
+                      key={item.id}
+                    >
+                      <div
+                        className="arrow-icon"
+                        onClick={() => handleContentClick(item.id)}
+                      />
+                      <h3 onClick={() => handleContentClick(item.id)}>
+                        {item.title}
+                      </h3>
+                      {activeContent === item.id && ( // Render text and image only when activeContent matches item.id
+                        <React.Fragment>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore Ut
+                            enim ad minim veniam, quis nostrud exercitation
+                            ullamco laboris nisi ut aliquip ex ea commodo con
+                            duis aute irure orem ipsum dolor sit amet,
+                            consectetur adipiscing elit, sed do eiusmod tempor
+                            incididunt ut labore Ut enim
+                          </p>
+                        </React.Fragment>
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              <div class="we-help-right">
-                <div class="content">
-                  <div class="content-1 active">
-                    <img src="images/2023/02/02/1.jpg" />
-                  </div>
-                  <div class="content-2">
-                    <img src="images/2023/02/02/2.jpg" />
-                  </div>
-                  <div class="content-3">
-                    <img src="images/2023/02/02/3.jpg" />
-                  </div>
-                  <div class="content-4">
-                    <img src="images/2023/02/02/4.jpg" />
-                  </div>
+              <div className="we-help-right">
+                <div className="content">
+                  {contentItems.map((item) => (
+                    <div
+                      className={`content-${item.id} ${
+                        activeContent === item.id ? "active" : ""
+                      }`}
+                      key={item.id}
+                    >
+                      <img src={item.image} alt={`Content ${item.id}`} />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -1831,9 +1882,9 @@ const Treatment = () => {
         </section>
 
         <section id="health-queries">
-          <div class="midbox-inner  wiki-mk">
-            <div class="queries-head">
-              <div class="querieshead-left">
+          <div className="midbox-inner  wiki-mk">
+            <div className="queries-head">
+              <div className="querieshead-left">
                 <h2>Get answers to Health Queries</h2>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -1842,23 +1893,23 @@ const Treatment = () => {
                   aliquip
                 </p>
               </div>
-              <div class="querieshead-right">
-                <a href="#" class="queries-ask">
+              <div className="querieshead-right">
+                <a href="#" className="queries-ask">
                   Ask FREE Question{" "}
                   <img src="images/2023/01/arrow-w.png" alt="" />
                 </a>
               </div>
             </div>
 
-            <div class="healthcare-professionals">
-              <div class="professionals">
-                <div class="professionals-box">
+            <div className="healthcare-professionals">
+              <div className="professionals">
+                <div className="professionals-box">
                   <img src="images/2023/01/icon-m.png" alt="" />
-                  <div class="question-box">
+                  <div className="question-box">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Donec sed purus consectetur, interdum felis in?{" "}
                   </div>
-                  <div class="question-ans">
+                  <div className="question-ans">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Donec sed purus consectetur, interdum felis in, auctor
                     ligula. Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -1868,14 +1919,14 @@ const Treatment = () => {
                 </div>
               </div>
 
-              <div class="professionals">
-                <div class="professionals-box">
+              <div className="professionals">
+                <div className="professionals-box">
                   <img src="images/2023/01/icon-m.png" alt="" />
-                  <div class="question-box">
+                  <div className="question-box">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Donec sed purus consectetur, interdum felis in?{" "}
                   </div>
-                  <div class="question-ans">
+                  <div className="question-ans">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Donec sed purus consectetur, interdum felis in, auctor
                     ligula. Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -1885,14 +1936,14 @@ const Treatment = () => {
                 </div>
               </div>
 
-              <div class="professionals">
-                <div class="professionals-box">
+              <div className="professionals">
+                <div className="professionals-box">
                   <img src="images/2023/01/icon-m.png" alt="" />
-                  <div class="question-box">
+                  <div className="question-box">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Donec sed purus consectetur, interdum felis in?{" "}
                   </div>
-                  <div class="question-ans">
+                  <div className="question-ans">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Donec sed purus consectetur, interdum felis in, auctor
                     ligula. Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -1902,13 +1953,13 @@ const Treatment = () => {
                 </div>
               </div>
 
-              <div class="professionals treatmen-query">
-                <div class="homeform-left">
-                  <div class="home-form">
-                    <div class="homequery">
+              <div className="professionals treatmen-query">
+                <div className="homeform-left">
+                  <div className="home-form">
+                    <div className="homequery">
                       <label>Your Query</label>
                       <textarea
-                        class="magbox"
+                        className="magbox"
                         type="textarea"
                         name="query"
                         placeholder=""
@@ -1917,8 +1968,8 @@ const Treatment = () => {
                     </div>
                   </div>
 
-                  <div class="home-form">
-                    <div class="inputbox1">
+                  <div className="home-form">
+                    <div className="inputbox1">
                       <label>Age</label>
                       <input
                         type="text"
@@ -1927,7 +1978,7 @@ const Treatment = () => {
                         required=""
                       />
                     </div>
-                    <div class="inputbox1">
+                    <div className="inputbox1">
                       <label>Gender</label>
                       <input
                         type="text"
@@ -1938,8 +1989,8 @@ const Treatment = () => {
                     </div>
                   </div>
 
-                  <div class="home-form">
-                    <button type="submit" name="en" class="home-button">
+                  <div className="home-form">
+                    <button type="submit" name="en" className="home-button">
                       {" "}
                       Submit Now <img src="images/2023/01/arrow-c.png" alt="" />
                     </button>
@@ -1951,10 +2002,13 @@ const Treatment = () => {
         </section>
 
         <section id="community-section">
-          <div class="midbox-inner  wiki-mk">
-            <div class="community-pro">
-              <img class="community-img" src="images/2023/02/community.jpg" />
-              <div class="community-box">
+          <div className="midbox-inner  wiki-mk">
+            <div className="community-pro">
+              <img
+                className="community-img"
+                src="images/2023/02/community.jpg"
+              />
+              <div className="community-box">
                 <h3>Join our Community!</h3>
                 <p>
                   Lorem ipsum dolor amet, consecte adipiscing elit, sed do
@@ -1963,7 +2017,7 @@ const Treatment = () => {
                   tempor incididunt ut enim ad minim veniam, quis tempor
                   incididunt
                 </p>
-                <a class="more-img" href="#">
+                <a className="more-img" href="#">
                   Lorem Ipsum <img src="images/2023/02/Vector 85.png" />
                 </a>
               </div>

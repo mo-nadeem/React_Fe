@@ -3,8 +3,8 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import dottedImg from "../../assests/images/2023/01/dotted.png"
-import icon from "../../assests/images/2023/01/blog-more.png"
+import dottedImg from "../../assests/images/2023/01/dotted.png";
+import icon from "../../assests/images/2023/01/blog-more.png";
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
