@@ -3569,6 +3569,9 @@ footer {
     width: 100%;
     text-align: center;
   }
+  .tablinks {
+    display: block;
+  }
   /*------footer-----*/
 }
 

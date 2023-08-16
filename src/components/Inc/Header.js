@@ -202,18 +202,17 @@ const Header = () => {
                       </i>
                     </Link>
                     <ul className="menu-child">
-                      <li className="menu-child-item">
-                        <Link href="#">Organ Transplantation </Link>
-                      </li>
-                      <li className="menu-child-item">
-                        <Link href="#">Neuromodulation </Link>
-                      </li>
-                      <li className="menu-child-item">
-                        <Link href="#">Cancer Treatment </Link>
-                      </li>
-                      <li className="menu-child-item">
-                        <Link href="#">Cardiac Surgery </Link>
-                      </li>
+                    {speciality &&
+                        speciality.map((e) => (
+                          <li className="menu-child-item" key={e.id}>
+                            <Link
+                              to={`/speciality/${e.slug}/${e.country}`}
+                              className="dropbtn"
+                            >
+                              {e.name} 
+                            </Link>{" "}
+                          </li>
+                        ))}
                     </ul>
                   </li>
                   <li className="menu-item has-collapsible">
@@ -224,18 +223,17 @@ const Header = () => {
                       </i>
                     </Link>
                     <ul className="menu-child">
-                      <li className="menu-child-item">
-                        <Link href="#">Organ Transplantation </Link>
-                      </li>
-                      <li className="menu-child-item">
-                        <Link href="#">Neuromodulation </Link>
-                      </li>
-                      <li className="menu-child-item">
-                        <Link href="#">Cancer Treatment </Link>
-                      </li>
-                      <li className="menu-child-item">
-                        <Link href="#">Cardiac Surgery </Link>
-                      </li>
+                    {speciality &&
+                        speciality.map((e) => (
+                          <li className="menu-child-item" key={e.id}>
+                            <Link
+                              to={`hospitals/speciality/${e.slug}/${e.country}`}
+                              className="dropbtn"
+                            >
+                              {e.name} Hospitals
+                            </Link>{" "}
+                          </li>
+                        ))}
                     </ul>
                   </li>
                   <li className="menu-item has-collapsible">
@@ -246,18 +244,17 @@ const Header = () => {
                       </i>
                     </Link>
                     <ul className="menu-child">
-                      <li className="menu-child-item">
-                        <Link href="#">Organ Transplantation </Link>
-                      </li>
-                      <li className="menu-child-item">
-                        <Link href="#">Neuromodulation </Link>
-                      </li>
-                      <li className="menu-child-item">
-                        <Link href="#">Cancer Treatment </Link>
-                      </li>
-                      <li className="menu-child-item">
-                        <Link href="#">Cardiac Surgery </Link>
-                      </li>
+                    {speciality &&
+                        speciality.map((e) => (
+                          <li className="menu-child-item" key={e.id}>
+                            <Link
+                              to={`doctors/speciality/${e.slug}/${e.country}`}
+                              className="dropbtn"
+                            >
+                              {e.name} Doctors
+                            </Link>{" "}
+                          </li>
+                        ))}
                     </ul>
                   </li>
                   <li className="menu-item has-collapsible">

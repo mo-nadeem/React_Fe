@@ -52,13 +52,10 @@ const ExplorHealth = () => {
               </button>
             </div>
 
-            <div
-              className={`tab tab1 ${activeTab === "wiki-1" ? "active" : ""}`}
-            >
+            <div className="tab tab1">
               <button
                 className={`tablinks ${activeTab === "wiki-1" ? "active" : ""}`}
                 onMouseOver={() => handleTabChange("wiki-1")}
-                style={{ display: activeTab === "wiki-1" ? "none" : "block" }}
               >
                 Dental{" "}
                 <img src="images/2023/01/treatments-arrow.png" alt="Arrow" />
