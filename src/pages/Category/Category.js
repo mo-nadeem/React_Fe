@@ -4,50 +4,44 @@ import DoctorExpert from "../../components/Home/DoctorExpert";
 import Testimonials from "../../components/Home/Testimonials";
 import Blog from "../../components/Home/Blog";
 import sliperImg from "../../assests/images/02/slider.jpg";
-import DoctorSection from "../../components/Home/DoctorSection";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
 import HealthQuerys from "../../components/Home/HealthQuerys";
 import { useParams } from "react-router-dom";
+import arrowImg from "../../assests/images/2023/01/arrow-c.png";
+import arrow2Img from "../../assests/images/2023/01/arrow-w.png";
+import img1 from "../../assests/images/02/01/1.jpg";
+import img2 from "../../assests/images/02/01/2.jpg";
+import img3 from "../../assests/images/02/01/3.jpg";
+import img4 from "../../assests/images/02/01/4.jpg";
+import img5 from "../../assests/images/02/01/5.jpg";
+import img6 from "../../assests/images/02/01/6.jpg";
 import axios from "axios";
-const responsive = {
-  superLargeDesktop: {
-    // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 3000 },
-    items: 3.3,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3.3,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 3,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-  },
-};
+import DoctorCarousel from "./DoctorCarousel";
+import HospitalCarousel from "./HospitalCarousel";
+import comunityImg from "../../assests/images/02/community.jpg"
+import vectorImg from "../../assests/images/02/Vector 85.png"
 
 const Category = () => {
   const { slug, country } = useParams();
-  // const [speciality, setSpecliality] = useState([]);
-  // const [info, setInfo] = useState([]);
+  const [speciality, setSpecliality] = useState([]);
+  const [info, setInfo] = useState([]);
+  const [doctor, setDoctor] = useState([]);
+  const [hospital, setHospital] = useState([]);
 
-  // useEffect(() => {
-  //   axios
-  //     .get(
-  //       `${process.env.REACT_APP_BASE_URL}/api/speciality/${slug}/${country}`
-  //     )
-  //     .then((response) => {
-  //       setSpecliality(response.data.data.treatment_list);
-  //       setInfo(response.data.data.speciality_info);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching data:", error);
-  //     });
-  // }, [slug, country]);
+  useEffect(() => {
+    axios
+      .get(
+        `${process.env.REACT_APP_BASE_URL}/api/speciality/${slug}/${country}`
+      )
+      .then((response) => {
+        setSpecliality(response.data.data.treatment_list);
+        setInfo(response.data.data.speciality_info);
+        setDoctor(response.data.data.doctor);
+        setHospital(response.data.data.hospitals);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, [slug, country]);
 
   const [activeContent, setActiveContent] = useState(1); // Initialize as null
 
@@ -87,7 +81,7 @@ const Category = () => {
         <section id="category-slider">
           <img src={sliperImg} alt="Category" />
           <div className="category-slidertext">
-            <h1>Cancer</h1>
+            <h1>{info.name}</h1>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed do
               eiusmod tempor incididunt ut labore consectetur ipsum dolor sit
@@ -139,7 +133,7 @@ const Category = () => {
             </p>
             <a href="#">
               {" "}
-              Ask FREE Question <img src="images/2023/01/arrow-c.png" alt="" />
+              Ask FREE Question <img src={arrowImg} alt="ask-a-questions" />
             </a>
           </div>
         </section>
@@ -156,54 +150,35 @@ const Category = () => {
             </p>
 
             <ul>
-              <li>
-                <img src="images/2023/02/01/1.jpg" alt="" />
-                <div className="packages-text">
-                  <div className="pack-cost">
-                    <div className="pack-name">Cancer Surgery </div>
-                    <div className="cost">$4000</div>
-                  </div>
-                  <div className="packages-details">
-                    Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed
-                    do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit
-                    amet, consectetur elit, sed do eiusmod tempor incididunt ut
-                    labore Lorem ipsum dolor sit amet
-                  </div>
-                  <a href="#">
-                    <img
-                      src="images/2023/01/pack-arrow.png"
-                      className="arrow-link"
-                      alt=""
-                    />
-                  </a>
-                </div>
-              </li>
+              {speciality &&
+                speciality.map((e) => (
+                  <li key={e.id}>
+                    <img src={img1} alt="" />
+                    <div className="packages-text">
+                      <div className="pack-cost">
+                        <div className="pack-name">{e.name} </div>
+                        <div className="cost">${e.price}</div>
+                      </div>
 
+                      <div
+                        className="packages-details"
+                        dangerouslySetInnerHTML={{
+                          __html: e.short_description,
+                        }}
+                      />
+                      <a href="#">
+                        <img
+                          src="images/2023/01/pack-arrow.png"
+                          className="arrow-link"
+                          alt=""
+                        />
+                      </a>
+                    </div>
+                  </li>
+                ))}
+              {/* 
               <li>
-                <img src="images/2023/02/01/2.jpg" alt="" />
-                <div className="packages-text">
-                  <div className="pack-cost">
-                    <div className="pack-name">Breast Cancer </div>
-                    <div className="cost">$4000</div>
-                  </div>
-                  <div className="packages-details">
-                    Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed
-                    do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit
-                    amet, consectetur elit, sed do eiusmod tempor incididunt ut
-                    labore Lorem ipsum dolor sit amet
-                  </div>
-                  <a href="#">
-                    <img
-                      src="images/2023/01/pack-arrow.png"
-                      className="arrow-link"
-                      alt=""
-                    />
-                  </a>
-                </div>
-              </li>
-
-              <li>
-                <img src="images/2023/02/01/3.jpg" alt="" />
+                <img src={img2} alt="" />
                 <div className="packages-text">
                   <div className="pack-cost">
                     <div className="pack-name">Breast Cancer </div>
@@ -226,7 +201,30 @@ const Category = () => {
               </li>
 
               <li>
-                <img src="images/2023/02/01/4.jpg" alt="" />
+                <img src={img3} alt="" />
+                <div className="packages-text">
+                  <div className="pack-cost">
+                    <div className="pack-name">Breast Cancer </div>
+                    <div className="cost">$4000</div>
+                  </div>
+                  <div className="packages-details">
+                    Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed
+                    do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit
+                    amet, consectetur elit, sed do eiusmod tempor incididunt ut
+                    labore Lorem ipsum dolor sit amet
+                  </div>
+                  <a href="#">
+                    <img
+                      src="images/2023/01/pack-arrow.png"
+                      className="arrow-link"
+                      alt=""
+                    />
+                  </a>
+                </div>
+              </li>
+
+              <li>
+                <img src={img4} alt="" />
                 <div className="packages-text">
                   <div className="pack-cost">
                     <div className="pack-name">Radiation Therapy </div>
@@ -249,7 +247,7 @@ const Category = () => {
               </li>
 
               <li>
-                <img src="images/2023/02/01/5.jpg" alt="" />
+                <img src={img5} alt="" />
                 <div className="packages-text">
                   <div className="pack-cost">
                     <div className="pack-name">Chemoterapy </div>
@@ -272,7 +270,7 @@ const Category = () => {
               </li>
 
               <li>
-                <img src="images/2023/02/01/6.jpg" alt="" />
+                <img src={img6} alt="" />
                 <div className="packages-text">
                   <div className="pack-cost">
                     <div className="pack-name">Immunity Therapy </div>
@@ -292,7 +290,7 @@ const Category = () => {
                     />
                   </a>
                 </div>
-              </li>
+              </li> */}
             </ul>
           </div>
         </section>
@@ -375,110 +373,25 @@ const Category = () => {
               <div className="medflick-payright">
                 <a href="#" className="consultation">
                   {" "}
-                  Request a free consultation{" "}
-                  <img src="images/2023/01/arrow-w.png" alt="" />
+                  Request a free consultation <img src={arrow2Img} alt="" />
                 </a>
                 <a href="#" className="contact">
                   {" "}
-                  Contact Us <img src="images/2023/01/arrow-c.png" alt="" />
+                  Contact Us <img src={arrowImg} alt="" />
                 </a>
               </div>
             </div>
           </div>
         </section>
         {/* doctor section */}
-        <DoctorSection />
+        <DoctorCarousel doctor={doctor} />
+
+        {/* end */}
+        {/* Hospital section */}
+        <HospitalCarousel hospital={hospital} />
+
         {/* end */}
 
-        <section id="hospitals-section">
-          <div className="midbox-inner  wiki-mk">
-            <h2>
-              Hospitals lorem ipsum <span>dolor</span>
-            </h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              con Duis aute irure
-            </p>
-
-            <div className="owl-slider">
-              <div id="hospitals-list">
-                <Carousel
-                  responsive={responsive}
-                  arrows={false}
-                  infinite={true}
-                  autoPlay={true}
-                  autoPlaySpeed={2000}
-                >
-                  <div className="item" style={{ marginRight: "20px" }}>
-                    <div className="hospitals-item">
-                      <img src="images/2023/02/03/1.jpg" />
-                    </div>
-                    <div className="hospitals-text">
-                      <h3>Hospitals Name </h3>
-                      <div className="hospitals-sub">
-                        Lorem ipsum dolor sit amet
-                      </div>
-                      <a href="#" className="contact-now">
-                        Contact Now{" "}
-                        <img src="images/2023/01/arrow-c.png" alt="" />
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="item" style={{ marginRight: "20px" }}>
-                    <div className="hospitals-item">
-                      <img src="images/2023/02/03/2.jpg" />
-                    </div>
-                    <div className="hospitals-text">
-                      <h3>Hospitals Name </h3>
-                      <div className="hospitals-sub">
-                        Lorem ipsum dolor sit amet
-                      </div>
-                      <a href="#" className="contact-now">
-                        Contact Now{" "}
-                        <img src="images/2023/01/arrow-c.png" alt="" />
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="item" style={{ marginRight: "20px" }}>
-                    <div className="hospitals-item">
-                      <img src="images/2023/02/03/3.jpg" />
-                    </div>
-                    <div className="hospitals-text">
-                      <h3>Hospitals Name </h3>
-                      <div className="hospitals-sub">
-                        Lorem ipsum dolor sit amet
-                      </div>
-                      <a href="#" className="contact-now">
-                        Contact Now{" "}
-                        <img src="images/2023/01/arrow-c.png" alt="" />
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="item" style={{ marginRight: "20px" }}>
-                    <div className="hospitals-item">
-                      <img src="images/2023/02/03/4.jpg" />
-                    </div>
-                    <div className="hospitals-text">
-                      <h3>Hospitals Name </h3>
-                      <div className="hospitals-sub">
-                        Lorem ipsum dolor sit amet
-                      </div>
-                      <a href="#" className="contact-now">
-                        Contact Now{" "}
-                        <img src="images/2023/01/arrow-c.png" alt="" />
-                      </a>
-                    </div>
-                  </div>
-                </Carousel>
-              </div>
-            </div>
-          </div>
-        </section>
         {/* components */}
         <HealthQuerys />
 
@@ -490,7 +403,8 @@ const Category = () => {
             <div className="community-pro">
               <img
                 className="community-img"
-                src="images/2023/02/community.jpg"
+                src={comunityImg}
+                alt="changes"
               />
               <div className="community-box">
                 <h3>Join our Community!</h3>
@@ -502,7 +416,7 @@ const Category = () => {
                   incididunt
                 </p>
                 <a className="more-img" href="#">
-                  Lorem Ipsum <img src="images/2023/02/Vector 85.png" />
+                  Lorem Ipsum <img src={vectorImg} alt="icon" />
                 </a>
               </div>
             </div>

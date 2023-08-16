@@ -3,6 +3,12 @@ import $ from "jquery";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchHome } from "../../Api/action/HomeAction";
 import { Link } from "react-router-dom";
+import iconImg from "../../assests/images/2023/01/icon-m.png";
+import iconImg2 from "../../assests/images/2023/01/arrow-c.png";
+import img1 from "../../assests/images/2023/01/home-icon1.png";
+import img2 from "../../assests/images/2023/01/home-icon2.png";
+import img3 from "../../assests/images/2023/01/home-icon2.png";
+import formDoctorImg from "../../assests/images/2023/01/home-q.jpg"
 
 const HealthQuerys = () => {
   const dispatch = useDispatch();
@@ -82,7 +88,7 @@ const HealthQuerys = () => {
                   key={e.id}
                 >
                   <div className="professionals-box">
-                    <img src="images/2023/01/icon-m.png" alt="" />
+                    <img src={iconImg} alt="" />
                     <div className="question-box">Q. {e.short_description}</div>
                     {/* <div className="question-ans">
                     Q. {e.long_desc}
@@ -191,27 +197,27 @@ const HealthQuerys = () => {
               <div className="home-form">
                 <button type="submit" name="en" className="home-button">
                   {" "}
-                  Submit Now <img src="images/2023/01/arrow-c.png" alt="" />
+                  Submit Now <img src={iconImg2} alt="icon" />
                 </button>
               </div>
             </div>
             <div className="homeform-right">
-              <img src="images/2023/01/home-q.jpg" alt="" />
+              <img src={formDoctorImg} alt="form-img" />
 
               <div className="home-drbox">
                 <h4>We value your Privacy</h4>
 
                 <ul>
                   <li>
-                    <img src="images/2023/01/home-icon3.png" alt="" />
+                    <img src={img3} alt="icon1" />
                     <h5>Lorem ipsum dolor sitconsec</h5>
                   </li>
                   <li>
-                    <img src="images/2023/01/home-icon2.png" alt="" />
+                    <img src={img2} alt="icon2" />
                     <h5>Lorem ipsum dolor sitconsec</h5>
                   </li>
                   <li>
-                    <img src="images/2023/01/home-icon1.png" alt="" />
+                    <img src={img1} alt="icon3" />
                     <h5>Lorem ipsum dolor sitconsec</h5>
                   </li>
                 </ul>

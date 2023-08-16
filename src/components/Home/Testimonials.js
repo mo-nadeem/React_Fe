@@ -1,6 +1,7 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import img1 from "../../assests/images/2023/01/08/1.jpg"
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -45,7 +46,7 @@ const Testimonials = () => {
               >
                 <div className="item" style={{ marginRight: "20px" }}>
                   <div className="testimonials-item">
-                    <img src="images/2023/01/08/1.jpg" />
+                    <img src={img1} alt="doctor-img" />
 
                     <div className="testimonials-text">
                       <h3>Lorem ipsum dolor sit amet</h3>
@@ -62,7 +63,7 @@ const Testimonials = () => {
 
                 <div className="item" style={{ marginRight: "20px" }}>
                   <div className="testimonials-item">
-                    <img src="images/2023/01/08/1.jpg" />
+                    <img src={img1} />
 
                     <div className="testimonials-text">
                       <h3>Lorem ipsum dolor sit amet</h3>
@@ -79,7 +80,7 @@ const Testimonials = () => {
 
                 <div className="item" style={{ marginRight: "20px" }}>
                   <div className="testimonials-item">
-                    <img src="images/2023/01/08/1.jpg" />
+                    <img src={img1} />
 
                     <div className="testimonials-text">
                       <h3>Lorem ipsum dolor sit amet</h3>

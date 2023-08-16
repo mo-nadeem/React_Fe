@@ -2,6 +2,10 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Link } from "react-router-dom";
+import img1 from "../../assests/images/2023/01/04/1.jpg"
+import img2 from "../../assests/images/2023/01/04/2.jpg"
+import img3 from "../../assests/images/2023/01/04/3.jpg"
+
 const responsiveHospital = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -48,7 +52,7 @@ const DoctorExpert = () => {
               >
                 <div className="item" style={{ marginRight: "20px" }}>
                   <div className="item-experience">
-                    <img src="images/2023/01/04/1.jpg" />
+                    <img src={img1}  alt="doctor-expert"/>
                   </div>
                   <div className="experience-text">
                     <h3>
@@ -59,19 +63,7 @@ const DoctorExpert = () => {
                 </div>
                 <div className="item" style={{ marginRight: "20px" }}>
                   <div className="item-experience">
-                    <img src="images/2023/01/04/2.jpg" />
-                  </div>
-                  <div className="experience-text">
-                    <h3>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,{" "}
-                    </h3>
-                    <p>Lorem ipsum</p>
-                  </div>
-                </div>
-
-                <div className="item" style={{ marginRight: "20px" }}>
-                  <div className="item-experience">
-                    <img src="images/2023/01/04/3.jpg" />
+                    <img src={img2}  alt="doctor-expert" />
                   </div>
                   <div className="experience-text">
                     <h3>
@@ -83,7 +75,19 @@ const DoctorExpert = () => {
 
                 <div className="item" style={{ marginRight: "20px" }}>
                   <div className="item-experience">
-                    <img src="images/2023/01/04/2.jpg" />
+                    <img src={img3}  alt="doctor-expert" />
+                  </div>
+                  <div className="experience-text">
+                    <h3>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,{" "}
+                    </h3>
+                    <p>Lorem ipsum</p>
+                  </div>
+                </div>
+
+                <div className="item" style={{ marginRight: "20px" }}>
+                  <div className="item-experience">
+                    <img src={img3}  alt="doctor-expert" />
                   </div>
                   <div className="experience-text">
                     <h3>

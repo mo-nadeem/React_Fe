@@ -132,17 +132,17 @@ const Header = () => {
                     </ul>
                   </li>
                   <li>
-                    <Link href="#">Blogs</Link>
+                    <Link to="/">Blogs</Link>
                   </li>
                   <li>
-                    <Link href="#"> Q&A </Link>
+                    <Link to="/"> Q&A </Link>
                   </li>
                 </ul>
               </div>
             </nav>
           </div>
           <div className="navbar__buttons">
-            <Link className="navbar__buttons-login" href="#">
+            <Link className="navbar__buttons-login" to="/">
               Log In
             </Link>
             <div className="most-recent">
@@ -155,7 +155,7 @@ const Header = () => {
               </select>
             </div>
 
-            <Link className="qsk-question" href="#">
+            <Link className="qsk-question" to="/">
               Ask FREE Question <img src={arrow} alt="" />
             </Link>
           </div>
@@ -195,35 +195,35 @@ const Header = () => {
                   </li>
 
                   <li className="menu-item has-collapsible">
-                    <Link href="#" onClick={handleCollapsibleClick}>
+                    <Link to="/" onClick={handleCollapsibleClick}>
                       Treatments
                       <i style={{ marginLeft: "10rem" }}>
                         <GoChevronDown style={{ fontSize: "22px" }} />
                       </i>
                     </Link>
                     <ul className="menu-child">
-                    {speciality &&
+                      {speciality &&
                         speciality.map((e) => (
                           <li className="menu-child-item" key={e.id}>
                             <Link
                               to={`/speciality/${e.slug}/${e.country}`}
                               className="dropbtn"
                             >
-                              {e.name} 
+                              {e.name}
                             </Link>{" "}
                           </li>
                         ))}
                     </ul>
                   </li>
                   <li className="menu-item has-collapsible">
-                    <Link href="#" onClick={handleCollapsibleClick}>
+                    <Link to="/" onClick={handleCollapsibleClick}>
                       Hospitals
                       <i style={{ marginLeft: "11rem" }}>
                         <GoChevronDown style={{ fontSize: "22px" }} />
                       </i>
                     </Link>
                     <ul className="menu-child">
-                    {speciality &&
+                      {speciality &&
                         speciality.map((e) => (
                           <li className="menu-child-item" key={e.id}>
                             <Link
@@ -237,14 +237,14 @@ const Header = () => {
                     </ul>
                   </li>
                   <li className="menu-item has-collapsible">
-                    <Link href="#" onClick={handleCollapsibleClick}>
+                    <Link to="/" onClick={handleCollapsibleClick}>
                       Doctors
                       <i style={{ marginLeft: "11.5rem" }}>
                         <GoChevronDown style={{ fontSize: "22px" }} />
                       </i>
                     </Link>
                     <ul className="menu-child">
-                    {speciality &&
+                      {speciality &&
                         speciality.map((e) => (
                           <li className="menu-child-item" key={e.id}>
                             <Link
@@ -258,10 +258,10 @@ const Header = () => {
                     </ul>
                   </li>
                   <li className="menu-item has-collapsible">
-                    <Link href="#">Testimonials</Link>
+                    <Link to="/">Testimonials</Link>
                   </li>
                   <li className="menu-item has-collapsible">
-                    <Link href="#">Book an Appointment</Link>
+                    <Link to="/">Book an Appointment</Link>
                   </li>
                   <li className="menu-item" style={{ background: "#ff6800" }}>
                     <Link className="menu-link" style={{ color: "#fff" }}>
@@ -274,17 +274,17 @@ const Header = () => {
                     </Link>
                   </li>
                   <li className="menu-item">
-                    <Link href="#" className="submenu-link">
+                    <Link to="/" className="submenu-link">
                       News & Events
                     </Link>
                   </li>
                   <li className="menu-item">
-                    <Link href="#" className="submenu-link">
+                    <Link to="/" className="submenu-link">
                       Blog
                     </Link>
                   </li>
                   <li className="menu-item">
-                    <Link href="#" className="submenu-link">
+                    <Link to="/" className="submenu-link">
                       Contact Us
                     </Link>
                   </li>

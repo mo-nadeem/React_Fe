@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useEffect, useCallback } from "react";
 import { CgFacebook } from "react-icons/cg";
 import {
   AiOutlineTwitter,
   AiFillYoutube,
   AiOutlineInstagram,
 } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchHome } from "../../Api/action/HomeAction";
+import logo from "../../assests/images/2023/01/logo.png";
+import arrowImg from "../../assests/images/2023/01/arrow-c.png";
 
 const Footer = () => {
+  const dispatch = useDispatch();
+
+  const { speciality } = useSelector((state) => state.data);
+
+  const fetchHomedata = useCallback(() => {
+    dispatch(fetchHome());
+  }, [dispatch]);
+
+  useEffect(() => {
+    fetchHomedata();
+  }, [fetchHomedata]);
   return (
     <>
       <footer>
@@ -15,7 +30,7 @@ const Footer = () => {
             <div className="footer-logobox">
               <a href="index.html" target="_self">
                 {" "}
-                <img src="images/2023/01/logo.png" alt="Brand Logo" />
+                <img src={logo} alt="Brand Logo" />
               </a>
             </div>
             <div className="footer-customer">
@@ -27,7 +42,7 @@ const Footer = () => {
               </p>
               <a href="#">
                 {" "}
-                Contact us <img src="images/2023/01/arrow-c.png" alt="" />
+                Contact us <img src={arrowImg} alt="arrow-img" />
               </a>
             </div>
           </div>
@@ -69,14 +84,17 @@ const Footer = () => {
               </ul>
             </div>
             <div className="footer-navbox">
-              <h4>Lorem</h4>
+              <h4>Treatments</h4>
               <ul>
-                <li>
-                  <a href="#" target="_self">
-                    Lorem Ipsum
-                  </a>
-                </li>
-                <li>
+                {speciality &&
+                  speciality.map((e) => (
+                    <li key={e.id}>
+                      <a href="#" target="_self">
+                        {e.menu_name}
+                      </a>
+                    </li>
+                  ))}
+                {/* <li>
                   <a href="#" target="_self">
                     Dolor Sit
                   </a>
@@ -100,7 +118,7 @@ const Footer = () => {
                   <a href="#" target="_self">
                     Anim ipsum
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
             <div className="footer-navbox">

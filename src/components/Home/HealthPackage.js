@@ -32,7 +32,7 @@ const HealthPackage = () => {
     <>
       <section id="health-packages">
         <div className="midbox-inner  wiki-mk">
-          <h2>Health Packages</h2>
+          <h2>Treatment Packages</h2>
 
           <div className="health-tab">
             <button

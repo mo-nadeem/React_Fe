@@ -1,9 +1,7 @@
-import React, { useEffect, useCallback } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchHome } from "../../Api/action/HomeAction";
-import { Link } from "react-router-dom";
 
 const responsive = {
   superLargeDesktop: {
@@ -25,19 +23,8 @@ const responsive = {
   },
 };
 
-const DoctorSection = () => {
-  const dispatch = useDispatch();
-
-  const { doctor } = useSelector((state) => state.data);
-
-  const fetchHomedata = useCallback(() => {
-    dispatch(fetchHome());
-  }, [dispatch]);
-
-  useEffect(() => {
-    fetchHomedata();
-  }, [fetchHomedata]);
-
+const DoctorCarousel = ({ doctor }) => {
+  
   let doctorSection = null;
   if (doctor?.length > 0) {
     doctorSection = (
@@ -111,4 +98,4 @@ const DoctorSection = () => {
   );
 };
 
-export default DoctorSection;
+export default DoctorCarousel;

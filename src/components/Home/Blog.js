@@ -3,6 +3,8 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import dottedImg from "../../assests/images/2023/01/dotted.png"
+import icon from "../../assests/images/2023/01/blog-more.png"
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -98,18 +100,18 @@ const Blog = () => {
                             <div className="blog-text">
                               <div className="category-blog">
                                 <span>
-                                  <img src="images/2023/01/dotted.png" />
+                                  <img src={dottedImg} alt="icon" />
                                 </span>
                                 Category
                               </div>
                               <div className="time-blog">
                                 <span>
-                                  <img src="images/2023/01/dotted.png" />
+                                  <img src={dottedImg} alt="icon1" />
                                 </span>
                                 12 min read
                               </div>
                               <Link to="/">
-                                <img src="images/2023/01/blog-more.png" />
+                                <img src={icon} alt="icon-img" />
                               </Link>
                             </div>
                           </div>
