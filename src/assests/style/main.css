@@ -2445,8 +2445,13 @@ textarea {
 #treatments-section .cost {
   font-size: 20px;
 }
-#treatments-section li .packages-details {
+#treatments-section li .packages-details p{
   font-size: 16px !important;
+  width: 100%;
+text-align: start;
+  font-size: 18px;
+
+  color: #fff;
 }
 #treatments-section li .arrow-link {
   width: 24px !important;
