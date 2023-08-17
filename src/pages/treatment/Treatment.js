@@ -62,16 +62,6 @@ const Treatment = () => {
     },
   ];
 
-  const [activeQuestion, setActiveQuestion] = useState(1);
-
-  const handleQuestionClick = (index) => {
-    if (activeQuestion === index) {
-      setActiveQuestion(null);
-    } else {
-      setActiveQuestion(index);
-    }
-  };
-
   return (
     <>
       <Homelayout>

@@ -68,7 +68,7 @@ const Header = () => {
               <div className="top-menu-wrapper">
                 <ul className="top-menu">
                   <li className="has-dropdown" style={{ display: "block" }}>
-                    <Link to="/category">
+                    <Link to="/treatment">
                       Treatments
                       <i>
                         <GoChevronDown style={{ fontSize: "22px" }} />
@@ -132,7 +132,7 @@ const Header = () => {
                     </ul>
                   </li>
                   <li>
-                    <Link to="/">Blogs</Link>
+                    <Link to="/blog">Blogs</Link>
                   </li>
                   <li>
                     <Link to="/"> Q&A </Link>
