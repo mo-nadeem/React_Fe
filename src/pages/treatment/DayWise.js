@@ -1,84 +1,85 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
+import img1 from "../../assests/images/02/02/1.jpg";
 
 const DayWise = () => {
-    const [activeQuestion, setActiveQuestion] = useState(1);
+  const [activeQuestion, setActiveQuestion] = useState(1);
 
-    const handleQuestionClick = (index) => {
-      if (activeQuestion === index) {
-        setActiveQuestion(null);
-      } else {
-        setActiveQuestion(index);
-      }
-    };
+  const handleQuestionClick = (index) => {
+    if (activeQuestion === index) {
+      setActiveQuestion(null);
+    } else {
+      setActiveQuestion(index);
+    }
+  };
   const contentItems = [
     {
       id: 1,
       title: "Lorem ipsum dolor sit amet 1",
       text: "Content for button 1",
-      image: "images/2023/02/02/1.jpg",
+      image: img1,
     },
     {
       id: 2,
       title: "Lorem ipsum dolor sit amet 2",
       text: "Content for button 2",
-      image: "images/2023/02/02/2.jpg",
+      image: img1,
     },
     {
       id: 3,
       title: "Lorem ipsum dolor sit amet 3",
       text: "Content for button 3",
-      image: "images/2023/02/02/3.jpg",
+      image: img1,
     },
     {
       id: 4,
       title: "Lorem ipsum dolor sit amet 4",
       text: "Content for button 4",
-      image: "images/2023/02/02/4.jpg",
+      image: img1,
     },
   ];
   return (
     <>
       <section id="day-section">
-          <div className="midbox-inner  wiki-mk">
-            <div className="day-section">
-              <div className="day-left">
-                <h2>Daywise lorem ipsum dolor sit amet</h2>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore Ut enim ad minim
-                  veniam, quis nostrud exercitation ullamco laboris nisi ut
-                  aliquip ex ea commo
-                </p>
-                <a href="#">
-                  {" "}
-                  Ask FREE Question{" "}
-                  <img src="images/2023/01/arrow-c.png" alt="" />
-                </a>
-              </div>
+        <div className="midbox-inner  wiki-mk">
+          <div className="day-section">
+            <div className="day-left">
+              <h2>Daywise lorem ipsum dolor sit amet</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commo
+              </p>
+              <a href="#">
+                {" "}
+                Ask FREE Question{" "}
+                <img src="images/2023/01/arrow-c.png" alt="" />
+              </a>
+            </div>
 
-              <div className="day-right">
-                {contentItems.map((e, index) => (
+            <div className="day-right">
+              {contentItems.map((e, index) => (
+                <div
+                  key={e.id}
+                  className={`question ${
+                    activeQuestion === index ? "active" : ""
+                  }`}
+                  onClick={() => handleQuestionClick(index)}
+                >
+                  <span>Day 1 </span>
+                  <h5>{e.title}</h5>
                   <div
-                    key={e.id}
-                    className={`question ${
-                      activeQuestion === index ? "active" : ""
+                    className={`arrow ${
+                      activeQuestion === index ? "arrow-active" : ""
                     }`}
-                    onClick={() => handleQuestionClick(index)}
-                  >
-                    <span>Day 1 </span>
-                    <h5>{e.title}</h5>
-                    <div
-                      className={`arrow ${
-                        activeQuestion === index ? "arrow-active" : ""
-                      }`}
-                    ></div>
-                    {activeQuestion === index && (
-                      <div className="answer" style={{ display: "block" }}>
-                        <p>{e.text}</p>
-                        <img src={e.image} alt="" />
-                      </div>
-                    )}
-                    {/* <div
+                  ></div>
+                  {activeQuestion === index && (
+                    <div className="answer" style={{ display: "block" }}>
+                      <p>{e.text}</p>
+                      <img src={e.image} alt="" />
+                    </div>
+                  )} 
+                  {/* <div
                       className={`question ${
                         activeContent === e.id ? "active" : ""
                       }`}
@@ -86,10 +87,10 @@ const DayWise = () => {
                     >
                       
                     </div> */}
-                  </div>
-                ))}
+                </div>
+              ))}
 
-                {/* <div className="question">
+              {/* <div className="question">
                   <span>Day 2 </span>
                   <h5>Lorem ipsum dolor sit amet</h5>
                   <div className="arrow"></div>
@@ -133,10 +134,10 @@ const DayWise = () => {
                     <img src="images/2023/03/day.jpg" alt="" />
                   </div>
                 </div> */}
-              </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
     </>
   );
 };

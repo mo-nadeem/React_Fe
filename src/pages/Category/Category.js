@@ -9,17 +9,13 @@ import { useParams } from "react-router-dom";
 import arrowImg from "../../assests/images/2023/01/arrow-c.png";
 import arrow2Img from "../../assests/images/2023/01/arrow-w.png";
 import img1 from "../../assests/images/02/01/1.jpg";
-import img2 from "../../assests/images/02/01/2.jpg";
-import img3 from "../../assests/images/02/01/3.jpg";
-import img4 from "../../assests/images/02/01/4.jpg";
-import img5 from "../../assests/images/02/01/5.jpg";
-import img6 from "../../assests/images/02/01/6.jpg";
 import axios from "axios";
 import DoctorCarousel from "./DoctorCarousel";
 import HospitalCarousel from "./HospitalCarousel";
 import comunityImg from "../../assests/images/02/community.jpg";
 import vectorImg from "../../assests/images/02/Vector 85.png";
 import { Link } from "react-router-dom";
+import Brandlogoimg from "../../assests/images/02/logo.png"
 
 const Category = () => {
   const { slug, country } = useParams();
@@ -44,7 +40,7 @@ const Category = () => {
       });
   }, [slug, country]);
 
-  
+
 
   const [activeContent, setActiveContent] = useState(1); // Initialize as null
 
@@ -57,7 +53,7 @@ const Category = () => {
       id: 1,
       title: "Lorem ipsum dolor sit amet 1",
       text: "Content for button 1",
-      image: "images/2023/02/02/1.jpg",
+      image: img1,
     },
     {
       id: 2,
@@ -305,7 +301,7 @@ const Category = () => {
         <section id="help-you">
           <div className="midbox-inner  wiki-mk">
             <img
-              src="images/2023/02/logo.png"
+              src={Brandlogoimg}
               className="logo-med"
               alt="Brand Logo"
             />

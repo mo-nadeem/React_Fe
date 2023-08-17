@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import arrowIcon from "../../assests/images/2023/01/arrow-c.png";
 
 const responsive = {
   superLargeDesktop: {
@@ -24,7 +25,6 @@ const responsive = {
 };
 
 const DoctorCarousel = ({ doctor }) => {
-  
   let doctorSection = null;
   if (doctor?.length > 0) {
     doctorSection = (
@@ -66,8 +66,7 @@ const DoctorCarousel = ({ doctor }) => {
                         }}
                       />
                       <Link to="/" className="contact-now">
-                        Contact Now{" "}
-                        <img src="images/2023/01/arrow-c.png" alt="" />
+                        Contact Now <img src={arrowIcon} alt="" />
                       </Link>
                     </div>
                   </div>

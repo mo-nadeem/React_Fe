@@ -163,7 +163,7 @@ const HealthQuerys = () => {
                 <div className="inputbox">
                   <label>Name</label>
                   <input type="text" placeholder="" name="name" required="" />
-                </div>
+                </div>  
               </div>
 
               <div className="home-form">
