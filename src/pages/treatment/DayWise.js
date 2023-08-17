@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import img1 from "../../assests/images/02/02/1.jpg";
+import arrowIcon from "../../assests/images/2023/01/arrow-c.png"
+import { Link } from "react-router-dom";
 
 const DayWise = () => {
   const [activeQuestion, setActiveQuestion] = useState(1);
@@ -50,11 +52,11 @@ const DayWise = () => {
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                 commo
               </p>
-              <a href="#">
+              <Link to="/">
                 {" "}
                 Ask FREE Question{" "}
-                <img src="images/2023/01/arrow-c.png" alt="" />
-              </a>
+                <img src={arrowIcon} alt="" />
+              </Link>
             </div>
 
             <div className="day-right">

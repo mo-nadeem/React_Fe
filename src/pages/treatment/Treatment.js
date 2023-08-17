@@ -24,6 +24,7 @@ import qaIcon from "../../assests/images/2023/01/arrow-w.png";
 import quesryIcon from "../../assests/images/2023/01/icon-m.png";
 import communityImg from "../../assests/images/02/community.jpg";
 import vectorIcon from "../../assests/images/02/Vector 85.png";
+import { Link } from "react-router-dom";
 
 const responsiveHospital = {
   superLargeDesktop: {
@@ -431,15 +432,15 @@ const Treatment = () => {
                 </p>
               </div>
               <div className="medflick-payright">
-                <a href="#" className="consultation">
+                <Link to="/" className="consultation">
                   {" "}
                   Request a free consultation{" "}
-                  <img src="images/2023/01/arrow-w.png" alt="" />
-                </a>
-                <a href="#" className="contact">
+                  <img src={qaIcon} alt="" />
+                </Link>
+                <Link to="/" className="contact">
                   {" "}
-                  Contact Us <img src="images/2023/01/arrow-c.png" alt="" />
-                </a>
+                  Contact Us <img src={arrowIcon} alt="" />
+                </Link>
               </div>
             </div>
           </div>
@@ -526,9 +527,9 @@ const Treatment = () => {
                 </p>
               </div>
               <div className="querieshead-right">
-                <a href="#" className="queries-ask">
+                <Link to="/" className="queries-ask">
                   Ask FREE Question <img src={qaIcon} alt="" />
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -645,9 +646,9 @@ const Treatment = () => {
                   tempor incididunt ut enim ad minim veniam, quis tempor
                   incididunt
                 </p>
-                <a className="more-img" href="#">
+                <Link className="more-img" to="/">
                   Lorem Ipsum <img src={vectorIcon} />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
