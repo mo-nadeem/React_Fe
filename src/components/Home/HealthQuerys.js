@@ -8,7 +8,7 @@ import iconImg2 from "../../assests/images/2023/01/arrow-c.png";
 import img1 from "../../assests/images/2023/01/home-icon1.png";
 import img2 from "../../assests/images/2023/01/home-icon2.png";
 import img3 from "../../assests/images/2023/01/home-icon2.png";
-import formDoctorImg from "../../assests/images/2023/01/home-q.jpg"
+import formDoctorImg from "../../assests/images/2023/01/home-q.jpg";
 
 const HealthQuerys = () => {
   const dispatch = useDispatch();
@@ -83,10 +83,7 @@ const HealthQuerys = () => {
           <div className="healthcare-professionals">
             {limitedData &&
               limitedData.map((e) => (
-                <div
-                  className="professionals animation-element slide-up"
-                  key={e.id}
-                >
+                <div className="professionals" key={e.id}>
                   <div className="professionals-box">
                     <img src={iconImg} alt="" />
                     <div className="question-box">Q. {e.short_description}</div>

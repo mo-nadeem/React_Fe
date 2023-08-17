@@ -21,7 +21,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home></Home>}></Route>
         <Route path="/speciality/:slug/:country" element={<Category />}></Route>
-        <Route path="/treatment" element={<Treatment />}></Route>
+        <Route path="/treatment/:slug/:country" element={<Treatment />}></Route>
         <Route path="/blog" element={<BlogDetails />}></Route>
       </Routes>
     </>

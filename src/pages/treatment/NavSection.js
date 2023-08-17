@@ -1,6 +1,7 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import arrowIcon from "../../assests/images/2023/01/arrow-c.png";
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -21,7 +22,7 @@ const responsive = {
   },
 };
 
-const NavSection = () => {
+const NavSection = ({ doctor, hospital }) => {
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -402,101 +403,106 @@ const NavSection = () => {
                   </a>
                 </div>
 
-                <table cellspacing="0" cellpadding="0">
-                  <tr>
-                    <td>
-                      <strong>Initial screening and referral</strong>
-                    </td>
-                    <td>
-                      This involves a few primary tests that may be recommended
-                      by a doctor/general physician to analyze the underlying
-                      cause of the symptoms that you have been experiencing. If
-                      diagnosed with a serious liver ailment that may call for
-                      the need for a transplant, you will be referred to a
-                      specialist.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>
-                        Assessment of medical history and physical examinations
-                      </strong>
-                    </td>
-                    <td>
-                      Your medical records will be thoroughly evaluated to
-                      analyze the progression of the disease and a general
-                      physical examination will be conducted to assess the
-                      symptoms.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>Blood Analysis</strong>
-                    </td>
-                    <td>
-                      Blood samples collected from the patients are examined to
-                      assess liver function by measuring blood toxicity and
-                      enzyme levels.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>Biopsy</strong>
-                    </td>
-                    <td>
-                      This involves the collection of a small tissue sample from
-                      the liver, which is examined under a high-definition
-                      microscope to detect serious diseases like liver cancer,
-                      as well as to determine the severity of the same.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>Imaging tests</strong>
-                    </td>
-                    <td>
-                      This includes advanced interventions like Computerised
-                      Tomography (CT) scan, Magnetic Resonance Imaging (MRI)
-                      scan, Positron Emission Tomography (PET) scan and
-                      ultrasound for detecting any structural abnormalities or
-                      visible changes in the liver
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>Social and psychological evaluation</strong>
-                    </td>
-                    <td>
-                      Although these are not related to your physical
-                      well-being, they are crucial in determining whether you
-                      are eligible for undergoing the transplant. This involves
-                      the evaluation of mental well-being, financial security
-                      and family ties and relationships
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>Nutrition counselling</strong>
-                    </td>
-                    <td>
-                      A certified dietician will evaluate your nutritional
-                      status and recommend a balanced plan to help you make up
-                      for the nutritional deficits that might affect your
-                      eligibility to undergo the transplant.
-                    </td>
-                  </tr>
+                <table cellSpacing="0" cellPadding="0">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>Initial screening and referral</strong>
+                      </td>
+                      <td>
+                        This involves a few primary tests that may be
+                        recommended by a doctor/general physician to analyze the
+                        underlying cause of the symptoms that you have been
+                        experiencing. If diagnosed with a serious liver ailment
+                        that may call for the need for a transplant, you will be
+                        referred to a specialist.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>
+                          Assessment of medical history and physical
+                          examinations
+                        </strong>
+                      </td>
+                      <td>
+                        Your medical records will be thoroughly evaluated to
+                        analyze the progression of the disease and a general
+                        physical examination will be conducted to assess the
+                        symptoms.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Blood Analysis</strong>
+                      </td>
+                      <td>
+                        Blood samples collected from the patients are examined
+                        to assess liver function by measuring blood toxicity and
+                        enzyme levels.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Biopsy</strong>
+                      </td>
+                      <td>
+                        This involves the collection of a small tissue sample
+                        from the liver, which is examined under a
+                        high-definition microscope to detect serious diseases
+                        like liver cancer, as well as to determine the severity
+                        of the same.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Imaging tests</strong>
+                      </td>
+                      <td>
+                        This includes advanced interventions like Computerised
+                        Tomography (CT) scan, Magnetic Resonance Imaging (MRI)
+                        scan, Positron Emission Tomography (PET) scan and
+                        ultrasound for detecting any structural abnormalities or
+                        visible changes in the liver
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Social and psychological evaluation</strong>
+                      </td>
+                      <td>
+                        Although these are not related to your physical
+                        well-being, they are crucial in determining whether you
+                        are eligible for undergoing the transplant. This
+                        involves the evaluation of mental well-being, financial
+                        security and family ties and relationships
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Nutrition counselling</strong>
+                      </td>
+                      <td>
+                        A certified dietician will evaluate your nutritional
+                        status and recommend a balanced plan to help you make up
+                        for the nutritional deficits that might affect your
+                        eligibility to undergo the transplant.
+                      </td>
+                    </tr>
 
-                  <tr>
-                    <td>
-                      <strong>Cardiopulmonary </strong>
-                    </td>
-                    <td>
-                      A liver transplant is a major surgery and it is important
-                      to ensure that your heart and lungs are healthy enough to
-                      tolerate it. Certain cardiac and pulmonary function tests
-                      will be performed to evaluate the same.
-                    </td>
-                  </tr>
+                    <tr>
+                      <td>
+                        <strong>Cardiopulmonary </strong>
+                      </td>
+                      <td>
+                        A liver transplant is a major surgery and it is
+                        important to ensure that your heart and lungs are
+                        healthy enough to tolerate it. Certain cardiac and
+                        pulmonary function tests will be performed to evaluate
+                        the same.
+                      </td>
+                    </tr>
+                  </tbody>
                 </table>
 
                 <div className="treatment-bannerimg">
@@ -788,7 +794,7 @@ const NavSection = () => {
                   you need to prioritise post-liver transplant, include:
                 </p>
 
-                <table cellspacing="0" cellpadding="0">
+                <table cellSpacing="0" cellPadding="0">
                   <tbody>
                     <tr>
                       <td>
@@ -1056,23 +1062,34 @@ const NavSection = () => {
                       autoPlay={true}
                       autoPlaySpeed={1500}
                     >
-                      <div className="item" style={{ marginRight: "20px" }}>
-                        <div className="doctors-treatment">
-                          <img src="images/2023/01/06/1.jpg" />
-                          <div className="doctors-treat">
-                            <h3>Doctor Name </h3>
-                            <div className="doctors-sub">
-                              Lorem ipsum dolor sit amet
+                      {doctor.map((e) => (
+                        <div
+                          className="item"
+                          style={{ marginRight: "20px" }}
+                          key={e.id}
+                        >
+                          <div className="doctors-treatment">
+                            <img
+                              src={`${process.env.REACT_APP_BASE_URL}/doctor/${e.image}`}
+                              alt={e.slug}
+                            />
+                            <div className="doctors-treat">
+                              <h3>
+                                {e.prefix}
+                                {e.first_name}
+                                {e.last_name}
+                              </h3>
+                              <div className="doctors-sub">{e.designation}</div>
+                              <a href="#" className="contact-now">
+                                Contact Now{" "}
+                                <img src={arrowIcon} alt="arrow-icon" />
+                              </a>
                             </div>
-                            <a href="#" className="contact-now">
-                              Contact Now{" "}
-                              <img src="images/2023/01/arrow-c.png" alt="" />
-                            </a>
                           </div>
                         </div>
-                      </div>
+                      ))}
 
-                      <div className="item" style={{ marginRight: "20px" }}>
+                      {/* <div className="item" style={{ marginRight: "20px" }}>
                         <div className="doctors-treatment">
                           <img src="images/2023/01/06/2.jpg" />
                           <div className="doctors-treat">
@@ -1118,7 +1135,7 @@ const NavSection = () => {
                             </a>
                           </div>
                         </div>
-                      </div>
+                      </div> */}
                     </Carousel>
                   </div>
                 </div>
@@ -1147,23 +1164,32 @@ const NavSection = () => {
                       autoPlay={true}
                       autoPlaySpeed={1500}
                     >
-                      <div className="item" style={{ marginRight: "20px" }}>
-                        <div className="hospitals-treatment">
-                          <img src="images/2023/02/03/1.jpg" />
-                          <div className="hospitals-treat">
-                            <h3>Hospitals Name </h3>
-                            <div className="hospitals-sub">
-                              Lorem ipsum dolor sit amet
+                      {hospital.map((e) => (
+                        <div
+                          className="item"
+                          style={{ marginRight: "20px" }}
+                          key={e.id}
+                        >
+                          <div className="hospitals-treatment">
+                            <img
+                              src={`${process.env.REACT_APP_BASE_URL}/hospital/${e.icon}`}
+                              alt={e.slug}
+                            />
+                            <div className="hospitals-treat">
+                              <h3>{e.name}</h3>
+                              <div className="hospitals-sub">
+                                Lorem ipsum dolor sit amet
+                              </div>
+                              <a href="#" className="contact-now">
+                                Contact Now{" "}
+                                <img src="images/2023/01/arrow-c.png" alt="" />
+                              </a>
                             </div>
-                            <a href="#" className="contact-now">
-                              Contact Now{" "}
-                              <img src="images/2023/01/arrow-c.png" alt="" />
-                            </a>
                           </div>
                         </div>
-                      </div>
+                      ))}
 
-                      <div className="item" style={{ marginRight: "20px" }}>
+                      {/* <div className="item" style={{ marginRight: "20px" }}>
                         <div className="hospitals-treatment">
                           <img src="images/2023/02/03/2.jpg" />
                           <div className="hospitals-treat">
@@ -1209,7 +1235,7 @@ const NavSection = () => {
                             </a>
                           </div>
                         </div>
-                      </div>
+                      </div> */}
                     </Carousel>
                   </div>
                 </div>

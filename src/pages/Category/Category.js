@@ -17,8 +17,9 @@ import img6 from "../../assests/images/02/01/6.jpg";
 import axios from "axios";
 import DoctorCarousel from "./DoctorCarousel";
 import HospitalCarousel from "./HospitalCarousel";
-import comunityImg from "../../assests/images/02/community.jpg"
-import vectorImg from "../../assests/images/02/Vector 85.png"
+import comunityImg from "../../assests/images/02/community.jpg";
+import vectorImg from "../../assests/images/02/Vector 85.png";
+import { Link } from "react-router-dom";
 
 const Category = () => {
   const { slug, country } = useParams();
@@ -42,6 +43,8 @@ const Category = () => {
         console.error("Error fetching data:", error);
       });
   }, [slug, country]);
+
+  
 
   const [activeContent, setActiveContent] = useState(1); // Initialize as null
 
@@ -141,7 +144,7 @@ const Category = () => {
         <section id="treatments-section">
           <div className="midbox-inner wiki-mk">
             <h2>
-              Cancer treatments in <span>India</span>
+              {info.name} treatments in <span>{info.country}</span>
             </h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -154,26 +157,28 @@ const Category = () => {
                 speciality.map((e) => (
                   <li key={e.id}>
                     <img src={img1} alt="" />
-                    <div className="packages-text">
-                      <div className="pack-cost">
-                        <div className="pack-name">{e.name} </div>
-                        <div className="cost">${e.price}</div>
-                      </div>
+                    <Link  to={`/treatment/${e.slug}/${e.country}`}>
+                      <div className="packages-text">
+                        <div className="pack-cost">
+                          <div className="pack-name">{e.name} </div>
+                          <div className="cost">${e.price}</div>
+                        </div>
 
-                      <div
-                        className="packages-details"
-                        dangerouslySetInnerHTML={{
-                          __html: e.short_description,
-                        }}
-                      />
-                      <a href="#">
-                        <img
-                          src="images/2023/01/pack-arrow.png"
-                          className="arrow-link"
-                          alt=""
+                        <div
+                          className="packages-details"
+                          dangerouslySetInnerHTML={{
+                            __html: e.short_description,
+                          }}
                         />
-                      </a>
-                    </div>
+                        <a href="#">
+                          <img
+                            src="images/2023/01/pack-arrow.png"
+                            className="arrow-link"
+                            alt=""
+                          />
+                        </a>
+                      </div>
+                    </Link>
                   </li>
                 ))}
               {/* 
@@ -401,11 +406,7 @@ const Category = () => {
         <section id="community-section">
           <div className="midbox-inner  wiki-mk">
             <div className="community-pro">
-              <img
-                className="community-img"
-                src={comunityImg}
-                alt="changes"
-              />
+              <img className="community-img" src={comunityImg} alt="changes" />
               <div className="community-box">
                 <h3>Join our Community!</h3>
                 <p>
@@ -422,8 +423,9 @@ const Category = () => {
             </div>
           </div>
         </section>
-
+        {/* Blog Section */}
         <Blog />
+        {/* Blog end */}
       </Homelayout>
     </>
   );

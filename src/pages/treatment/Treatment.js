@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Homelayout from "../../components/Homelayout/Homelayout";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -7,6 +7,17 @@ import FAQ from "../../components/Home/FAQ";
 import Blog from "../../components/Home/Blog";
 import NavSection from "./NavSection";
 import DayWise from "./DayWise";
+import hoemImg from "../../assests/images/03/1.jpg";
+import hoemImg2 from "../../assests/images/03/2.jpg";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import pricingImg from "../../assests/images/03/01/1.jpg";
+import pricingImg1 from "../../assests/images/03/01/2.jpg";
+import pricingImg2 from "../../assests/images/03/01/3.jpg";
+import pricingImg3 from "../../assests/images/03/01/4.jpg";
+import icon from "../../assests/images/03/line-icon.png";
+import icon1 from "../../assests/images/03/line-icon1.png";
+import icon2 from "../../assests/images/03/line-icon2.png";
 
 const responsiveHospital = {
   superLargeDesktop: {
@@ -29,6 +40,25 @@ const responsiveHospital = {
 };
 
 const Treatment = () => {
+  const { slug, country } = useParams();
+  const [info, setInfo] = useState([]);
+  const [doctor, setDoctor] = useState([]);
+  const [hospital, setHospital] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_BASE_URL}/api/treatment/${slug}/${country}`)
+      .then((response) => {
+        setInfo(response.data.treateDetailsbyCountry.treateDetailsbyCountry);
+        setDoctor(response.data.treateDetailsbyCountry.doctors);
+        setHospital(response.data.treateDetailsbyCountry.hospitals);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, [slug, country]);
+
+  // for active and non active section
   const [activeContent, setActiveContent] = useState(1);
 
   const handleContentClick = (contentNumber) => {
@@ -69,7 +99,7 @@ const Treatment = () => {
           <div className="midbox-inner wiki-mk">
             <div className="treatment-top">
               <div className="treatment-headtext">
-                <h1>Liver Transplant</h1>
+                <h1>{info && info.name}</h1>
                 <p>Avg Price: $1000 - $3000</p>
               </div>
               <div className="treatment-subtext">
@@ -83,8 +113,8 @@ const Treatment = () => {
 
         <section id="treatment-banner">
           <div className="treatment-bannerimg">
-            <img src="images/2023/03/1.jpg" />
-            <img src="images/2023/03/2.jpg" />
+            <img src={hoemImg} />
+            <img src={hoemImg2} />
           </div>
           <div className="midbox-inner  wiki-mk">
             <div className="treatment-headbox">
@@ -206,13 +236,19 @@ const Treatment = () => {
         <section id="health-city">
           <div className="midbox-inner  wiki-mk">
             <h2>
-              Lorem Ipsum dolor <span>Pricing</span>
+              {/* Lorem Ipsum dolor <span>Pricing</span> */}
+              {info && info.menu_name}
             </h2>
-            <p>
+            {/* <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis
               nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo
-            </p>
+            </p> */}
+            <div
+              dangerouslySetInnerHTML={{
+                __html: info && info.short_description,
+              }}
+            />
 
             <div className="owl-slider">
               <div id="city-list">
@@ -225,23 +261,23 @@ const Treatment = () => {
                 >
                   <div className="item" style={{ marginRight: "20px" }}>
                     <div className="city-item">
-                      <img src="images/2023/03/01/1.jpg" />
+                      <img src={pricingImg} />
                       <div className="city-box">
                         <h3>Delhi</h3>
                         <ul>
                           <li>
                             <h4>$1100</h4>
-                            <img src="images/2023/03/line-icon.png" />
+                            <img src={icon} />
                             <h5>Lowest Cost (Approx)</h5>
                           </li>
                           <li>
                             <h4>$1100</h4>
-                            <img src="images/2023/03/line-icon1.png" />
+                            <img src={icon1} />
                             <h5>Lowest Cost (Approx)</h5>
                           </li>
                           <li>
                             <h4>$1100</h4>
-                            <img src="images/2023/03/line-icon2.png" />
+                            <img src={icon2} />
                             <h5>Lowest Cost (Approx)</h5>
                           </li>
                         </ul>
@@ -251,23 +287,23 @@ const Treatment = () => {
 
                   <div className="item" style={{ marginRight: "20px" }}>
                     <div className="city-item">
-                      <img src="images/2023/03/01/2.jpg" />
+                      <img src={pricingImg1} />
                       <div className="city-box">
                         <h3>Mumbai</h3>
                         <ul>
                           <li>
                             <h4>$1100</h4>
-                            <img src="images/2023/03/line-icon.png" />
+                            <img src={icon} />
                             <h5>Lowest Cost (Approx)</h5>
                           </li>
                           <li>
                             <h4>$1100</h4>
-                            <img src="images/2023/03/line-icon1.png" />
+                            <img src={icon1} />
                             <h5>Lowest Cost (Approx)</h5>
                           </li>
                           <li>
                             <h4>$1100</h4>
-                            <img src="images/2023/03/line-icon2.png" />
+                            <img src={icon2} />
                             <h5>Lowest Cost (Approx)</h5>
                           </li>
                         </ul>
@@ -277,23 +313,23 @@ const Treatment = () => {
 
                   <div className="item" style={{ marginRight: "20px" }}>
                     <div className="city-item">
-                      <img src="images/2023/03/01/3.jpg" />
+                      <img src={pricingImg2} />
                       <div className="city-box">
                         <h3>Chennai</h3>
                         <ul>
                           <li>
                             <h4>$1100</h4>
-                            <img src="images/2023/03/line-icon.png" />
+                            <img src={icon} />
                             <h5>Lowest Cost (Approx)</h5>
                           </li>
                           <li>
                             <h4>$1100</h4>
-                            <img src="images/2023/03/line-icon1.png" />
+                            <img src={icon1} />
                             <h5>Lowest Cost (Approx)</h5>
                           </li>
                           <li>
                             <h4>$1100</h4>
-                            <img src="images/2023/03/line-icon2.png" />
+                            <img src={icon2} />
                             <h5>Lowest Cost (Approx)</h5>
                           </li>
                         </ul>
@@ -303,23 +339,23 @@ const Treatment = () => {
 
                   <div className="item" style={{ marginRight: "20px" }}>
                     <div className="city-item">
-                      <img src="images/2023/03/01/4.jpg" />
+                      <img src={pricingImg3} />
                       <div className="city-box">
                         <h3>Hyderabad</h3>
                         <ul>
                           <li>
                             <h4>$1100</h4>
-                            <img src="images/2023/03/line-icon.png" />
+                            <img src={icon} />
                             <h5>Lowest Cost (Approx)</h5>
                           </li>
                           <li>
                             <h4>$1100</h4>
-                            <img src="images/2023/03/line-icon1.png" />
+                            <img src={icon1} />
                             <h5>Lowest Cost (Approx)</h5>
                           </li>
                           <li>
                             <h4>$1100</h4>
-                            <img src="images/2023/03/line-icon2.png" />
+                            <img src={icon2} />
                             <h5>Lowest Cost (Approx)</h5>
                           </li>
                         </ul>
@@ -327,7 +363,7 @@ const Treatment = () => {
                     </div>
                   </div>
 
-                  <div className="item" style={{ marginRight: "20px" }}>
+                  {/* <div className="item" style={{ marginRight: "20px" }}>
                     <div className="city-item">
                       <img src="images/2023/03/01/3.jpg" />
                       <div className="city-box">
@@ -351,7 +387,7 @@ const Treatment = () => {
                         </ul>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </Carousel>
               </div>
             </div>
@@ -374,7 +410,7 @@ const Treatment = () => {
         </section>
 
         {/* Nav section */}
-        <NavSection />
+        <NavSection doctor={doctor} hospital={hospital} />
 
         {/* End */}
 
@@ -622,13 +658,13 @@ const Treatment = () => {
         {/* FAQ section */}
         <FAQ />
 
-        {/* end */}
+        {/*FAQ end */}
 
         {/* Blog */}
 
         <Blog />
 
-        {/* end */}
+        {/*Blog end */}
       </Homelayout>
     </>
   );

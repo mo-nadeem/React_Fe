@@ -7,13 +7,13 @@ const BlogDetails = () => {
       <Homelayout>
         <section id="blog-slider">
           <img src="images/2023/04/slider.jpg" alt="Category" />
-          <div class="blog-slidertext">
+          <div className="blog-slidertext">
             <h1>Lorem ipsum dolor amet fugit</h1>
-            <div class="blog-datebox">
-              <div class="by-box">
+            <div className="blog-datebox">
+              <div className="by-box">
                 <img src="images/2023/04/icon2.png" /> By - Lilly Williams
               </div>
-              <div class="updated-box">
+              <div className="updated-box">
                 <img src="images/2023/04/icon1.png" /> Updated on 12th June 023
               </div>
             </div>
@@ -21,14 +21,14 @@ const BlogDetails = () => {
         </section>
 
         <section id="blog-mid">
-          <div class="midbox-inner  wiki-mk">
-            <div class="blog-findox">
-              <div class="blog-leftbox">
-                <div class="blog-nav">
+          <div className="midbox-inner  wiki-mk">
+            <div className="blog-findox">
+              <div className="blog-leftbox">
+                <div className="blog-nav">
                   <h3>Table of Content</h3>
                   <ul>
                     <li>
-                      <a href="#blog-nav1" target="_self" class="active">
+                      <a href="#blog-nav1" target="_self" className="active">
                         Lorem Ipsum dolor sit amet aliqua id fugiat irure duis
                         ex
                       </a>
@@ -68,15 +68,15 @@ const BlogDetails = () => {
                   </ul>
                 </div>
 
-                <div class="talk-doctor">
+                <div className="talk-doctor">
                   Talk to a Doctor
-                  <a class="free-quote" href="#">
+                  <a className="free-quote" href="#">
                     View Doctors Listing
                     <img src="images/2023/01/arrow-c.png" />
                   </a>
                 </div>
 
-                <div class="articles-box">
+                <div className="articles-box">
                   Related Articles
                   <ul>
                     <li>
@@ -95,7 +95,7 @@ const BlogDetails = () => {
                 </div>
               </div>
 
-              <div class="blog-midbox">
+              <div className="blog-midbox">
                 <p>
                   Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
                   Sunt qui esse pariatur duis deserunt mollit dolore cillum
@@ -178,12 +178,12 @@ const BlogDetails = () => {
                 </p>
               </div>
 
-              <div class="blog-rightbox">
-                <div class="treatment-right">
+              <div className="blog-rightbox">
+                <div className="treatment-right">
                   <h2>Need Assistance?</h2>
 
-                  <div class="treatment-form">
-                    <div class="inputbox">
+                  <div className="treatment-form">
+                    <div className="inputbox">
                       <label>Name</label>
                       <input
                         type="text"
@@ -194,14 +194,14 @@ const BlogDetails = () => {
                     </div>
                   </div>
 
-                  <div class="treatment-form">
-                    <div class="inputbox">
+                  <div className="treatment-form">
+                    <div className="inputbox">
                       <label>Phone</label>
-                      <div class="phone-form">
-                        <div class="phone-box1">
+                      <div className="phone-form">
+                        <div className="phone-box1">
                           <select
                             aria-label="Sort dropdown"
-                            class="phone-dropdown"
+                            className="phone-dropdown"
                           >
                             <option value="">Choose Code</option>
                             <option value="1">UK (+44)</option>
@@ -241,7 +241,7 @@ const BlogDetails = () => {
                             <option value="855">Cambodia (+855)</option>
                           </select>
                         </div>
-                        <div class="phone-box2">
+                        <div className="phone-box2">
                           <input
                             type="text"
                             placeholder=""
@@ -253,8 +253,8 @@ const BlogDetails = () => {
                     </div>
                   </div>
 
-                  <div class="treatment-form">
-                    <div class="inputbox">
+                  <div className="treatment-form">
+                    <div className="inputbox">
                       <label>Email</label>
                       <input
                         type="text"
@@ -265,11 +265,11 @@ const BlogDetails = () => {
                     </div>
                   </div>
 
-                  <div class="treatment-form">
-                    <div class="inputbox">
+                  <div className="treatment-form">
+                    <div className="inputbox">
                       <label>Your Query</label>
                       <textarea
-                        class="querybox"
+                        className="querybox"
                         type="textarea"
                         name="query"
                         placeholder=""
@@ -278,7 +278,7 @@ const BlogDetails = () => {
                     </div>
                   </div>
 
-                  <button type="submit" name="en" class="home-button">
+                  <button type="submit" name="en" className="home-button">
                     {" "}
                     Submit Now <img src="images/2023/01/arrow-c.png" alt="" />
                   </button>
@@ -289,9 +289,9 @@ const BlogDetails = () => {
         </section>
 
         <section id="related-blog">
-          <div class="midbox-inner  wiki-mk">
-            <div class="blog-content">
-              <div class="blog-cont-left">
+          <div className="midbox-inner  wiki-mk">
+            <div className="blog-content">
+              <div className="blog-cont-left">
                 <h2>
                   Related <span>Content</span>
                 </h2>
@@ -300,8 +300,8 @@ const BlogDetails = () => {
                   amet sint. Velit officia
                 </p>
               </div>
-              <div class="blog-cont-right">
-                <a href="#" class="view-blog">
+              <div className="blog-cont-right">
+                <a href="#" className="view-blog">
                   {" "}
                   View All <img src="images/2023/01/arrow-c.png" alt="" />
                 </a>
@@ -318,7 +318,7 @@ const BlogDetails = () => {
                   Nemo enim ipsam voluptatem quia volup aspern aut odit aut
                   fugit, sed quia enim ipsam voluptatem quia volup
                 </p>
-                <div class="symptoms-nav">
+                <div className="symptoms-nav">
                   <a href="#" target="_self">
                     Lorem Ipsum
                   </a>
@@ -339,7 +339,7 @@ const BlogDetails = () => {
                   Nemo enim ipsam voluptatem quia volup aspern aut odit aut
                   fugit, sed quia enim ipsam voluptatem quia volup
                 </p>
-                <div class="symptoms-nav">
+                <div className="symptoms-nav">
                   <a href="#" target="_self">
                     Lorem Ipsum
                   </a>
@@ -360,7 +360,7 @@ const BlogDetails = () => {
                   Nemo enim ipsam voluptatem quia volup aspern aut odit aut
                   fugit, sed quia enim ipsam voluptatem quia volup
                 </p>
-                <div class="symptoms-nav">
+                <div className="symptoms-nav">
                   <a href="#" target="_self">
                     Lorem Ipsum
                   </a>
@@ -377,25 +377,25 @@ const BlogDetails = () => {
         </section>
 
         <section id="newslette-section">
-          <div class="midbox-inner  wiki-mk">
-            <div class="newslette-box">
-              <div class="newslette-left">
+          <div className="midbox-inner  wiki-mk">
+            <div className="newslette-box">
+              <div className="newslette-left">
                 <h2>Sign up to our Newsletter</h2>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore Ut enim minim
                 </p>
               </div>
-              <div class="newslette-right">
-                <div class="latest-news">
+              <div className="newslette-right">
+                <div className="latest-news">
                   <input
-                    class="latest-newsbox"
+                    className="latest-newsbox"
                     type="text"
                     placeholder="Email address"
                     name="name"
                     required=""
                   />
-                  <button type="submit" name="en" class="news-button">
+                  <button type="submit" name="en" className="news-button">
                     Sign Up <img src="images/2023/01/arrow-w.png" alt="" />
                   </button>
                 </div>

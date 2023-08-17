@@ -1319,6 +1319,7 @@ section {
   border-radius: 20px;
   inset: auto 0px 0px;
   z-index: 1;
+  width: 96%;
   padding: 4rem 1rem 1rem;
   display: flex;
   flex-direction: column;
@@ -2445,8 +2446,11 @@ textarea {
 #treatments-section .cost {
   font-size: 20px;
 }
-#treatments-section li .packages-details {
+#treatments-section li .packages-details p {
   font-size: 16px !important;
+  width: 100%;
+ text-align: start;
+  color: #fff;
 }
 #treatments-section li .arrow-link {
   width: 24px !important;
@@ -2698,6 +2702,7 @@ div.active {
   border-radius: 20px;
   inset: auto 0px 0px;
   z-index: 1;
+  width: 96%;
   padding: 4rem 1rem 1rem;
   display: flex;
   flex-direction: column;

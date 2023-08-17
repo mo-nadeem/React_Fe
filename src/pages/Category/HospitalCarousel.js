@@ -43,7 +43,7 @@ const HospitalCarousel = ({ hospital }) => {
                     key={e.id}
                   >
                     <div className="hospitals-item">
-                      <img src={`${process.env.REACT_APP_BASE_URL}/hospital/${e.icon}`} />
+                      <img src={`${process.env.REACT_APP_BASE_URL}/hospital/${e.icon}`} alt={e.slug} />
                     </div>
                     <div className="hospitals-text">
                       <h3>{e.name}</h3>
