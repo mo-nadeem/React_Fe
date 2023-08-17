@@ -2,6 +2,22 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import arrowIcon from "../../assests/images/2023/01/arrow-c.png";
+import consultentImg from "../../assests/images/03/free-consultation.jpg"
+import bg1 from "../../assests/images/03/bg1.jpg"
+import bg2 from "../../assests/images/03/bg2.jpg"
+import bg3 from "../../assests/images/03/bg3.jpg"
+import bg4 from "../../assests/images/03/bg4.jpg"
+import learnMore from "../../assests/images/2023/01/learn-more.png"
+import treatmentImg from "../../assests/images/03/treatment-form.jpg"
+import icon1 from "../../assests/images/03/02/1.png"
+import icon2 from "../../assests/images/03/02/2.png"
+import icon3 from "../../assests/images/03/02/3.png"
+import icon4 from "../../assests/images/03/02/4.png"
+import icon5 from "../../assests/images/03/02/5.png"
+import icon6 from "../../assests/images/03/02/6.png"
+import icon7 from "../../assests/images/03/02/7.png"
+import logo from "../../assests/images/2023/01/logo.png"
+
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -173,13 +189,13 @@ const NavSection = ({ doctor, hospital }) => {
                   and Medflick gives you easy access to the best of these.
                 </p>
 
-                <img src="images/2023/03/bg1.jpg" />
+                <img src={bg1} />
 
                 <div className="consultation-box">
                   <p>Lorem ipsum dolor sit amet quis</p>
                   <a className="consultation-button" href="#">
                     Book a Free Consultation{" "}
-                    <img src="images/2023/01/learn-more.png" />
+                    <img src={learnMore} />
                   </a>
                 </div>
               </div>
@@ -238,7 +254,7 @@ const NavSection = ({ doctor, hospital }) => {
               </div>
 
               <div className="treatment-mid-form">
-                <img src="images/2023/03/treatment-form.jpg" />
+                <img src={treatmentImg} />
 
                 <div className="assistance-form">
                   <h3>Provide your details</h3>
@@ -330,7 +346,7 @@ const NavSection = ({ doctor, hospital }) => {
                   <div className="assistance-box">
                     <button type="submit" name="en" className="submit-now">
                       {" "}
-                      Submit Now <img src="images/2023/01/arrow-c.png" alt="" />
+                      Submit Now <img src={arrowIcon} alt="" />
                     </button>
                   </div>
                 </div>
@@ -366,11 +382,11 @@ const NavSection = ({ doctor, hospital }) => {
                   used for treating a separate recipient.
                 </p>
 
-                <img src="images/2023/03/bg2.jpg" />
+                <img src={bg2} />
 
                 <div className="consultation-box1">
                   <a className="free-quote" href="#">
-                    Get a free quote <img src="images/2023/01/arrow-c.png" />
+                    Get a free quote <img src={arrowIcon} />
                   </a>
 
                   <a className="view-hospitals" href="#">
@@ -399,7 +415,7 @@ const NavSection = ({ doctor, hospital }) => {
                   <p>Lorem ipsum dolor sit amet quis</p>
                   <a className="consultation-button" href="#">
                     Book a Free Consultation{" "}
-                    <img src="images/2023/01/learn-more.png" />
+                    <img src={learnMore} />
                   </a>
                 </div>
 
@@ -506,8 +522,8 @@ const NavSection = ({ doctor, hospital }) => {
                 </table>
 
                 <div className="treatment-bannerimg">
-                  <img src="images/2023/03/bg3.jpg" />
-                  <img src="images/2023/03/bg4.jpg" />
+                  <img src={bg3} />
+                  <img src={bg4} />
                 </div>
               </div>
 
@@ -545,7 +561,7 @@ const NavSection = ({ doctor, hospital }) => {
                   last-minute assessments.
                 </p>
 
-                <img src="images/2023/03/bg5.jpg" />
+                <img src={bg4} />
 
                 <h4>Step 3: Anesthesia</h4>
 
@@ -587,11 +603,11 @@ const NavSection = ({ doctor, hospital }) => {
                   control.
                 </p>
 
-                <img src="images/2023/03/bg6.jpg" />
+                <img src={bg1} />
 
                 <div className="consultation-box1">
                   <a className="free-quote" href="#">
-                    Get a free quote <img src="images/2023/01/arrow-c.png" />
+                    Get a free quote <img src={arrowIcon} />
                   </a>
                   <a className="view-hospitals" href="#">
                     View Hospitals
@@ -640,7 +656,7 @@ const NavSection = ({ doctor, hospital }) => {
               </div>
 
               <div className="treatment-mid-form">
-                <img src="images/2023/03/treatment-form.jpg" />
+                <img src={treatmentImg} />
 
                 <div className="assistance-form">
                   <h3>Provide your details</h3>
@@ -732,7 +748,7 @@ const NavSection = ({ doctor, hospital }) => {
                   <div className="assistance-box">
                     <button type="submit" name="en" className="submit-now">
                       {" "}
-                      Submit Now <img src="images/2023/01/arrow-c.png" alt="" />
+                      Submit Now <img src={arrowIcon} alt="" />
                     </button>
                   </div>
                 </div>
@@ -778,7 +794,7 @@ const NavSection = ({ doctor, hospital }) => {
                   <p>Lorem ipsum dolor sit amet quis</p>
                   <a className="consultation-button1" href="#">
                     Book a Free Consultation{" "}
-                    <img src="images/2023/03/learn-more.png" />
+                    <img src={learnMore} />
                   </a>
                 </div>
               </div>
@@ -852,7 +868,7 @@ const NavSection = ({ doctor, hospital }) => {
 
                 <div className="consultation-box1">
                   <a className="free-quote" href="#">
-                    Get a free quote <img src="images/2023/01/arrow-c.png" />
+                    Get a free quote <img src={arrowIcon} />
                   </a>
                   <a className="view-hospitals" href="#">
                     View Hospitals
@@ -955,7 +971,7 @@ const NavSection = ({ doctor, hospital }) => {
                   <p>Lorem ipsum dolor sit amet quis</p>
                   <a className="consultation-button" href="#">
                     Book a Free Consultation{" "}
-                    <img src="images/2023/01/learn-more.png" />
+                    <img src={learnMore} />
                   </a>
                 </div>
               </div>
@@ -996,43 +1012,43 @@ const NavSection = ({ doctor, hospital }) => {
 
                 <div className="medflick-services">
                   <div className="services-box">
-                    <img src="images/2023/03/02/1.png" />
+                    <img src={icon1} />
                     Access to world-class hospitals and healthcare facilities
                   </div>
 
                   <div className="services-box">
-                    <img src="images/2023/03/02/2.png" />
+                    <img src={icon2} />
                     Personalized assistance to suit your specific needs and
                     requirements
                   </div>
 
                   <div className="services-box">
-                    <img src="images/2023/03/02/3.png" />
+                    <img src={icon3} />
                     Expert network of India’s renowned liver transplant experts
                   </div>
 
                   <div className="services-box">
-                    <img src="images/2023/03/02/4.png" />
+                    <img src={icon4} />
                     Satisfactory pricing and complete transparency
                   </div>
 
                   <div className="services-box">
-                    <img src="images/2023/03/02/5.png" />
+                    <img src={icon5} />
                     Travel and lodging support to ensure a smooth journey
                   </div>
 
                   <div className="services-box">
-                    <img src="images/2023/03/02/6.png" />
+                    <img src={icon6} />
                     Multilingual support
                   </div>
 
                   <div className="services-box">
-                    <img src="images/2023/03/02/7.png" />
+                    <img src={icon7} />
                     24/7 assistance throughout your stay
                   </div>
 
                   <div className="services-box services-box1">
-                    <img src="images/2023/01/logo.png" alt="Brand Logo" />
+                    <img src={logo} alt="Brand Logo" />
                     <a href="#">Contact us</a>
                   </div>
                 </div>
@@ -1250,28 +1266,28 @@ const NavSection = ({ doctor, hospital }) => {
 
             <div className="treatment-rightbox">
               <div className="free-consultation">
-                <img src="images/2023/03/free-consultation.jpg" />
+                <img src={consultentImg} />
                 <h3>Book a free Consultation with Highly Qualified Doctors</h3>
                 <a href="#">
                   {" "}
-                  Contact us <img src="images/2023/01/arrow-c.png" alt="" />
+                  Contact us <img src={arrowIcon} alt="" />
                 </a>
               </div>
 
               <div className="navbox">
-                <img src="images/2023/03/icon1.png" />
+                <img src={icon1} />
                 <h4>Hospitals</h4>
                 <p>Lorem ipsum dolor sit aliqua sit labore minim venia</p>
               </div>
 
               <div className="navbox">
-                <img src="images/2023/03/icon2.png" />
+                <img src={icon2} />
                 <h4>Doctors</h4>
                 <p>Lorem ipsum dolor sit aliqua sit labore minim venia</p>
               </div>
 
               <div className="navbox">
-                <img src="images/2023/03/icon3.png" />
+                <img src={icon3} />
                 <h4> Q&A </h4>
                 <p>Lorem ipsum dolor sit aliqua sit labore minim venia</p>
               </div>

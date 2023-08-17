@@ -18,6 +18,12 @@ import pricingImg3 from "../../assests/images/03/01/4.jpg";
 import icon from "../../assests/images/03/line-icon.png";
 import icon1 from "../../assests/images/03/line-icon1.png";
 import icon2 from "../../assests/images/03/line-icon2.png";
+import arrowIcon from "../../assests/images/2023/01/arrow-c.png";
+import logo from "../../assests/images/02/logo.png";
+import qaIcon from "../../assests/images/2023/01/arrow-w.png";
+import quesryIcon from "../../assests/images/2023/01/icon-m.png";
+import communityImg from "../../assests/images/02/community.jpg";
+import vectorIcon from "../../assests/images/02/Vector 85.png";
 
 const responsiveHospital = {
   superLargeDesktop: {
@@ -226,7 +232,7 @@ const Treatment = () => {
 
                 <button type="submit" name="en" className="home-button">
                   {" "}
-                  Submit Now <img src="images/2023/01/arrow-c.png" alt="" />
+                  Submit Now <img src={arrowIcon} alt="" />
                 </button>
               </div>
             </div>
@@ -451,11 +457,7 @@ const Treatment = () => {
 
         <section id="help-you">
           <div className="midbox-inner  wiki-mk">
-            <img
-              src="images/2023/02/logo.png"
-              className="logo-med"
-              alt="Brand Logo"
-            />
+            <img src={logo} className="logo-med" alt="Brand Logo" />
             <h2>How can we help you?</h2>
 
             <div className="we-help-box">
@@ -525,8 +527,7 @@ const Treatment = () => {
               </div>
               <div className="querieshead-right">
                 <a href="#" className="queries-ask">
-                  Ask FREE Question{" "}
-                  <img src="images/2023/01/arrow-w.png" alt="" />
+                  Ask FREE Question <img src={qaIcon} alt="" />
                 </a>
               </div>
             </div>
@@ -534,7 +535,7 @@ const Treatment = () => {
             <div className="healthcare-professionals">
               <div className="professionals">
                 <div className="professionals-box">
-                  <img src="images/2023/01/icon-m.png" alt="" />
+                  <img src={quesryIcon} alt="" />
                   <div className="question-box">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Donec sed purus consectetur, interdum felis in?{" "}
@@ -551,7 +552,7 @@ const Treatment = () => {
 
               <div className="professionals">
                 <div className="professionals-box">
-                  <img src="images/2023/01/icon-m.png" alt="" />
+                  <img src={quesryIcon} alt="" />
                   <div className="question-box">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Donec sed purus consectetur, interdum felis in?{" "}
@@ -568,7 +569,7 @@ const Treatment = () => {
 
               <div className="professionals">
                 <div className="professionals-box">
-                  <img src="images/2023/01/icon-m.png" alt="" />
+                  <img src={quesryIcon} alt="" />
                   <div className="question-box">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Donec sed purus consectetur, interdum felis in?{" "}
@@ -622,7 +623,7 @@ const Treatment = () => {
                   <div className="home-form">
                     <button type="submit" name="en" className="home-button">
                       {" "}
-                      Submit Now <img src="images/2023/01/arrow-c.png" alt="" />
+                      Submit Now <img src={arrowIcon} alt="" />
                     </button>
                   </div>
                 </div>
@@ -634,10 +635,7 @@ const Treatment = () => {
         <section id="community-section">
           <div className="midbox-inner  wiki-mk">
             <div className="community-pro">
-              <img
-                className="community-img"
-                src="images/2023/02/community.jpg"
-              />
+              <img className="community-img" src={communityImg} />
               <div className="community-box">
                 <h3>Join our Community!</h3>
                 <p>
@@ -648,7 +646,7 @@ const Treatment = () => {
                   incididunt
                 </p>
                 <a className="more-img" href="#">
-                  Lorem Ipsum <img src="images/2023/02/Vector 85.png" />
+                  Lorem Ipsum <img src={vectorIcon} />
                 </a>
               </div>
             </div>
