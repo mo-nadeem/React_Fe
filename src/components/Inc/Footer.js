@@ -26,12 +26,13 @@ const Footer = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const toggleAccordion = () => {
-    setIsOpen(!isOpen);
+    if (window.innerWidth <= 767) {
+      setIsOpen(!isOpen);
+    }
   };
-  const contentStyle = {
-    display: isOpen ? 'block' : 'none',
- 
-  };
+  // const contentStyle = {
+  //   display: isOpen ? "none" : "block",
+  // };
   return (
     <>
       <footer>
@@ -57,14 +58,14 @@ const Footer = () => {
 
           <div class="footer-links">
             <div class="footer-navbox">
-              <h4 className={`but ${isOpen ? 'active' : ''}`} onClick={toggleAccordion}>
+              <h4 className="but">
                 About{" "}
                 <i className="fotter-icon">
                   <GoChevronDown style={{ fontSize: "22px" }} />
                 </i>
               </h4>
-              {isOpen && (
-              <ul className="footerbox" style={contentStyle}>
+
+              <ul className="footerbox">
                 <li>
                   <a href="#" target="_self">
                     Lorem Ipsum
@@ -96,7 +97,6 @@ const Footer = () => {
                   </a>
                 </li>
               </ul>
-              )}
             </div>
             <div class="footer-navbox">
               <h4 class="but">
@@ -265,22 +265,22 @@ const Footer = () => {
               <ul>
                 <li>
                   <a href="#" target="_black">
-                    <i class="fab fa-facebook-f"></i>
+                    <CgFacebook style={{ fontSize: "20px" }} />
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_black">
-                    <i class="fab fa-twitter"></i>
+                    <AiOutlineTwitter style={{ fontSize: "20px" }} />
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_black">
-                    <i class="fab fa-youtube"></i>
+                    <AiFillYoutube style={{ fontSize: "20px" }} />
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_black">
-                    <i class="fab fa-instagram"></i>
+                    <AiOutlineInstagram style={{ fontSize: "20px" }} />
                   </a>
                 </li>
               </ul>

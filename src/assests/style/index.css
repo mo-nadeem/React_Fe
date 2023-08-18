@@ -2561,13 +2561,10 @@ pre code {
     right: 8px;
     top: 5px;
   }
-  .footerbox {
-    display: none; /* Hide the footerbox section for screen widths <= 767px */
-  }
-  .footer-navbox.active .footerbox {
-    display: block; /* Show the footerbox section when .footer-navbox is active in mobile view */
-  }
+
 }
+
+
 
 .carousel-item {
   width: 357px;

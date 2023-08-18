@@ -74,12 +74,12 @@ const DoctorSection = () => {
                       {/* <div className="doctors-bio">
                         {e.short_description}
                       </div> */}
-                      <div
+                      {/* <div
                         className="doctors-bio"
                         dangerouslySetInnerHTML={{
                           __html: e.short_description,
                         }}
-                      />
+                      /> */}
                       <Link to="/" className="contact-now">
                         Contact Now{" "}
                         <img src="images/2023/01/arrow-c.png" alt="" />

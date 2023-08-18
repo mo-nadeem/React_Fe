@@ -64,298 +64,297 @@ const Header = () => {
             <img src={logo} alt="Brand Logo" />
           </Link>
           <div className="topnav-right page-header">
-          <nav>
-            <div class="top-menu-wrapper">
-              <ul class="top-menu">
-                <li class="has-dropdown dropdown">
-                  <a href="#" class="dropbtn">
-                    Treatments
-                    <i>
+            <nav>
+              <div class="top-menu-wrapper">
+                <ul class="top-menu">
+                  <li class="has-dropdown dropdown">
+                    <a href="#" class="dropbtn">
+                      Treatments
+                      <i>
                         <GoChevronDown style={{ fontSize: "22px" }} />
                       </i>
-                  </a>
-                  <div class="dropdown-content">
-                    <ul>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Treatments
-                          <span>Lorem ipsum dolor sit amet</span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Treatments
-                          <span>Lorem ipsum dolor sit amet</span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Treatments<span
-                            >Lorem ipsum dolor sit amet</span
-                          ></a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Treatments
-                          <span>Lorem ipsum dolor sit amet</span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Treatments
-                          <span>Lorem ipsum dolor sit amet</span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Treatments
-                          <span>Lorem ipsum dolor sit amet</span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Treatments
-                          <span>Lorem ipsum dolor sit amet</span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Treatments
-                          <span>Lorem ipsum dolor sit amet</span></a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </li>
+                    </a>
+                    <div class="dropdown-content">
+                      <ul>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Treatments
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Treatments
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Treatments
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Treatments
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Treatments
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Treatments
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Treatments
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Treatments
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
 
-                <li class="has-dropdown dropdown">
-                  <a href="#" class="dropbtn">
-                    Hospitals
-                    <i>
+                  <li class="has-dropdown dropdown">
+                    <a href="#" class="dropbtn">
+                      Hospitals
+                      <i>
                         <GoChevronDown style={{ fontSize: "22px" }} />
                       </i>
-                  </a>
-                  <div class="dropdown-content">
-                    <ul>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Hospitals
-                          <span>Lorem ipsum dolor sit amet</span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Hospitals
-                          <span>Lorem ipsum dolor sit amet</span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Hospitals
-                          <span>Lorem ipsum dolor sit amet</span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Hospitals
-                          <span>Lorem ipsum dolor sit amet</span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Hospitals
-                          <span>Lorem ipsum dolor sit amet</span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Hospitals
-                          <span>Lorem ipsum dolor sit amet</span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Hospitals
-                          <span>Lorem ipsum dolor sit amet</span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Hospitals
-                          <span>Lorem ipsum dolor sit amet</span></a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </li>
+                    </a>
+                    <div class="dropdown-content">
+                      <ul>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Hospitals
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Hospitals
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Hospitals
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Hospitals
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Hospitals
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Hospitals
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Hospitals
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Hospitals
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
 
-                <li class="has-dropdown dropdown">
-                  <a href="#" class="dropbtn">
-                    Doctors
-                    <i>
+                  <li class="has-dropdown dropdown">
+                    <a href="#" class="dropbtn">
+                      Doctors
+                      <i>
                         <GoChevronDown style={{ fontSize: "22px" }} />
                       </i>
-                  </a>
-                  <div class="dropdown-content">
-                    <ul>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Doctors
-                          <span>Lorem ipsum dolor sit amet</span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Doctors
-                          <span>Lorem ipsum dolor sit amet</span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Doctors
-                          <span>Lorem ipsum dolor sit amet</span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Doctors
-                          <span>Lorem ipsum dolor sit amet</span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Doctors
-                          <span>Lorem ipsum dolor sit amet</span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Doctors
-                          <span>Lorem ipsum dolor sit amet</span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Doctors
-                          <span>Lorem ipsum dolor sit amet</span></a
-                        >
-                      </li>
-                      <li>
-                        <a href="#"
-                          ><img
-                            src="images/2023/nav/icon1.png"
-                            alt="Brand Logo"
-                          />
-                          Cancer Doctors
-                          <span>Lorem ipsum dolor sit amet</span></a
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </li>
+                    </a>
+                    <div class="dropdown-content">
+                      <ul>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Doctors
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Doctors
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Doctors
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Doctors
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Doctors
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Doctors
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Doctors
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="images/2023/nav/icon1.png"
+                              alt="Brand Logo"
+                            />
+                            Cancer Doctors
+                            <span>Lorem ipsum dolor sit amet</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
 
-                <li>
-                  <a href="#">Blogs</a>
-                </li>
-                <li>
-                  <a href="#"> Q&A </a>
-                </li>
-              </ul>
-            </div>
-          </nav>
+                  <li>
+                    <Link to="/blog">Blogs</Link>
+                  </li>
+                  <li>
+                    <a href="#"> Q&A </a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
           </div>
           <div className="navbar__buttons">
             <Link className="navbar__buttons-login" to="/">
