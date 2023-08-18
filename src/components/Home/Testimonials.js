@@ -1,7 +1,7 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import img1 from "../../assests/images/2023/01/08/1.jpg"
+import img1 from "../../assests/images/2023/01/08/1.jpg";
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.

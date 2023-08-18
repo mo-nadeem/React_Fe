@@ -21,6 +21,3 @@ root.render(
     </Provider>
   </BrowserRouter>
 );
-
-
-

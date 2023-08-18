@@ -71,7 +71,9 @@ const DoctorSection = () => {
                         {e.last_name}{" "}
                       </h3>
                       <div className="doctors-sub">{e.designation}</div>
-                      {/* <div className="doctors-bio">{e.short_description}</div> */}
+                      {/* <div className="doctors-bio">
+                        {e.short_description}
+                      </div> */}
                       <div
                         className="doctors-bio"
                         dangerouslySetInnerHTML={{

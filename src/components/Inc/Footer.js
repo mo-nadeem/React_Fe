@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import { CgFacebook } from "react-icons/cg";
 import {
   AiOutlineTwitter,
@@ -7,6 +7,7 @@ import {
 } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchHome } from "../../Api/action/HomeAction";
+import { GoChevronDown } from "react-icons/go";
 import logo from "../../assests/images/2023/01/logo.png";
 import arrowImg from "../../assests/images/2023/01/arrow-c.png";
 
@@ -22,18 +23,26 @@ const Footer = () => {
   useEffect(() => {
     fetchHomedata();
   }, [fetchHomedata]);
+
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleAccordion = () => {
+    setIsOpen(!isOpen);
+  };
+  const contentStyle = {
+    display: isOpen ? 'block' : 'none',
+ 
+  };
   return (
     <>
       <footer>
-        <div className="midbox-inner  wiki-mk">
-          <div className="footer-logo">
-            <div className="footer-logobox">
+        <div class="midbox-inner wiki-mk">
+          <div class="footer-logo">
+            <div class="footer-logobox">
               <a href="index.html" target="_self">
-                {" "}
-                <img src={logo} alt="Brand Logo" />
+                <img src="images/2023/01/logo.png" alt="Brand Logo" />
               </a>
             </div>
-            <div className="footer-customer">
+            <div class="footer-customer">
               <h2>24/7 Support</h2>
               <p>
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa
@@ -41,16 +50,62 @@ const Footer = () => {
                 amet, consectetur
               </p>
               <a href="#">
-                {" "}
-                Contact us <img src={arrowImg} alt="arrow-img" />
+                Contact us <img src="images/2023/01/arrow-c.png" alt="" />
               </a>
             </div>
           </div>
 
-          <div className="footer-links">
-            <div className="footer-navbox">
-              <h4>About</h4>
-              <ul>
+          <div class="footer-links">
+            <div class="footer-navbox">
+              <h4 className={`but ${isOpen ? 'active' : ''}`} onClick={toggleAccordion}>
+                About{" "}
+                <i className="fotter-icon">
+                  <GoChevronDown style={{ fontSize: "22px" }} />
+                </i>
+              </h4>
+              {isOpen && (
+              <ul className="footerbox" style={contentStyle}>
+                <li>
+                  <a href="#" target="_self">
+                    Lorem Ipsum
+                  </a>
+                </li>
+                <li>
+                  <a href="#" target="_self">
+                    Dolor Sit
+                  </a>
+                </li>
+                <li>
+                  <a href="#" target="_self">
+                    Exceptur{" "}
+                  </a>
+                </li>
+                <li>
+                  <a href="#" target="_self">
+                    Occaecat sint{" "}
+                  </a>
+                </li>
+                <li>
+                  <a href="#" target="_self">
+                    Non Proident{" "}
+                  </a>
+                </li>
+                <li>
+                  <a href="#" target="_self">
+                    Anim ipsum
+                  </a>
+                </li>
+              </ul>
+              )}
+            </div>
+            <div class="footer-navbox">
+              <h4 class="but">
+                Lorem{" "}
+                <i className="fotter-icon">
+                  <GoChevronDown style={{ fontSize: "22px" }} />
+                </i>
+              </h4>
+              <ul class="footerbox">
                 <li>
                   <a href="#" target="_self">
                     Lorem Ipsum
@@ -83,47 +138,14 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className="footer-navbox">
-              <h4>Treatments</h4>
-              <ul>
-                {speciality &&
-                  speciality.map((e) => (
-                    <li key={e.id}>
-                      <a href="#" target="_self">
-                        {e.menu_name}
-                      </a>
-                    </li>
-                  ))}
-                {/* <li>
-                  <a href="#" target="_self">
-                    Dolor Sit
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_self">
-                    Exceptur{" "}
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_self">
-                    Occaecat sint{" "}
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_self">
-                    Non Proident{" "}
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_self">
-                    Anim ipsum
-                  </a>
-                </li> */}
-              </ul>
-            </div>
-            <div className="footer-navbox">
-              <h4>Quick Links</h4>
-              <ul>
+            <div class="footer-navbox">
+              <h4 class="but">
+                Quick Links{" "}
+                <i className="fotter-icon">
+                  <GoChevronDown style={{ fontSize: "22px" }} />
+                </i>
+              </h4>
+              <ul class="footerbox">
                 <li>
                   <a href="#" target="_self">
                     Lorem Ipsum
@@ -156,9 +178,14 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className="footer-navbox">
-              <h4>Company</h4>
-              <ul>
+            <div class="footer-navbox">
+              <h4 class="but">
+                Company{" "}
+                <i className="fotter-icon">
+                  <GoChevronDown style={{ fontSize: "22px" }} />
+                </i>
+              </h4>
+              <ul class="footerbox">
                 <li>
                   <a href="#" target="_self">
                     Lorem Ipsum
@@ -191,9 +218,14 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className="footer-navbox">
-              <h4>Help & Support</h4>
-              <ul>
+            <div class="footer-navbox">
+              <h4 class="but">
+                Help & Support{" "}
+                <i className="fotter-icon">
+                  <GoChevronDown style={{ fontSize: "22px" }} />
+                </i>
+              </h4>
+              <ul class="footerbox">
                 <li>
                   <a href="#" target="_self">
                     Lorem Ipsum
@@ -228,37 +260,37 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="copyright">
-            <div className="wiki">
+          <div class="copyright">
+            <div class="wiki">
               <ul>
                 <li>
                   <a href="#" target="_black">
-                    <CgFacebook style={{ fontSize: "20px" }} />
+                    <i class="fab fa-facebook-f"></i>
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_black">
-                    <AiOutlineTwitter style={{ fontSize: "20px" }} />
+                    <i class="fab fa-twitter"></i>
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_black">
-                    <AiFillYoutube style={{ fontSize: "20px" }} />
+                    <i class="fab fa-youtube"></i>
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_black">
-                    <AiOutlineInstagram style={{ fontSize: "20px" }} />
+                    <i class="fab fa-instagram"></i>
                   </a>
                 </li>
               </ul>
             </div>
-            <div className="wh">
-              © Medflick, 2023. All rights reserved. |{" "}
+            <div class="wh">
+              © Medflick, 2023. All rights reserved. |
               <a href="#" target="_black">
                 Privacy Policy
               </a>{" "}
-              |{" "}
+              |
               <a href="#" target="_black">
                 Terms & Conditions
               </a>

@@ -15,7 +15,7 @@ import HospitalCarousel from "./HospitalCarousel";
 import comunityImg from "../../assests/images/02/community.jpg";
 import vectorImg from "../../assests/images/02/Vector 85.png";
 import { Link } from "react-router-dom";
-import Brandlogoimg from "../../assests/images/02/logo.png"
+import Brandlogoimg from "../../assests/images/02/logo.png";
 
 const Category = () => {
   const { slug, country } = useParams();
@@ -39,8 +39,6 @@ const Category = () => {
         console.error("Error fetching data:", error);
       });
   }, [slug, country]);
-
-
 
   const [activeContent, setActiveContent] = useState(1); // Initialize as null
 
@@ -153,7 +151,7 @@ const Category = () => {
                 speciality.map((e) => (
                   <li key={e.id}>
                     <img src={img1} alt="" />
-                    <Link  to={`/treatment/${e.slug}/${e.country}`}>
+                    <Link to={`/treatment/${e.slug}/${e.country}`}>
                       <div className="packages-text">
                         <div className="pack-cost">
                           <div className="pack-name">{e.name} </div>
@@ -300,11 +298,7 @@ const Category = () => {
         {/* end */}
         <section id="help-you">
           <div className="midbox-inner  wiki-mk">
-            <img
-              src={Brandlogoimg}
-              className="logo-med"
-              alt="Brand Logo"
-            />
+            <img src={Brandlogoimg} className="logo-med" alt="Brand Logo" />
             <h2>How can we help you?</h2>
 
             <div className="we-help-box">
