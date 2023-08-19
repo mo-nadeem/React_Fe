@@ -76,7 +76,7 @@ const Header = () => {
                     </a>
                     <div class="dropdown-content">
                       <ul>
-                        {speciality.map((e) => (
+                        {speciality && speciality.map((e) => (
                           <li key={e.id}>
                             <Link to={`/speciality/${e.slug}/${e.country}`}>
                               <img
