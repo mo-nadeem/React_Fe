@@ -76,7 +76,19 @@ const Header = () => {
                     </a>
                     <div class="dropdown-content">
                       <ul>
-                        <li>
+                        {speciality.map((e) => (
+                          <li key={e.id}>
+                            <Link to={`/speciality/${e.slug}/${e.country}`}>
+                              <img
+                                src="images/2023/nav/icon1.png"
+                                alt="Brand Logo"
+                              />
+                              {e.menu_name}
+                              <span>Lorem ipsum dolor sit amet</span>
+                            </Link>
+                          </li>
+                        ))}
+                        {/* <li>
                           <a href="#">
                             <img
                               src="images/2023/nav/icon1.png"
@@ -145,17 +157,7 @@ const Header = () => {
                             Cancer Treatments
                             <span>Lorem ipsum dolor sit amet</span>
                           </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <img
-                              src="images/2023/nav/icon1.png"
-                              alt="Brand Logo"
-                            />
-                            Cancer Treatments
-                            <span>Lorem ipsum dolor sit amet</span>
-                          </a>
-                        </li>
+                        </li> */}
                       </ul>
                     </div>
                   </li>
@@ -347,7 +349,7 @@ const Header = () => {
                   </li>
 
                   <li>
-                    <Link to="/blog">Blogs</Link>
+                    <Link to="/blogs">Blogs</Link>
                   </li>
                   <li>
                     <a href="#"> Q&A </a>

@@ -110,7 +110,7 @@ const Blog = () => {
                                 </span>
                                 12 min read
                               </div>
-                              <Link to="/">
+                              <Link to={`/blog/${e.slug}`}>
                                 <img src={icon} alt="icon-img" />
                               </Link>
                             </div>

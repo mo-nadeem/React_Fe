@@ -40,7 +40,7 @@ const Footer = () => {
           <div class="footer-logo">
             <div class="footer-logobox">
               <a href="index.html" target="_self">
-                <img src="images/2023/01/logo.png" alt="Brand Logo" />
+                <img src={logo} alt="Brand Logo" />
               </a>
             </div>
             <div class="footer-customer">
@@ -51,7 +51,7 @@ const Footer = () => {
                 amet, consectetur
               </p>
               <a href="#">
-                Contact us <img src="images/2023/01/arrow-c.png" alt="" />
+                Contact us <img src={arrowImg} alt="" />
               </a>
             </div>
           </div>

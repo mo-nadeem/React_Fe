@@ -1,20 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Homelayout from "../../components/Homelayout/Homelayout";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import icon1 from "../../assests/images/04/icon2.png";
+import icon2 from "../../assests/images/04/icon1.png";
+import arrowIcon from "../../assests/images/2023/01/arrow-c.png";
+import img1 from "../../assests/images/04/02/1.jpg";
+import img2 from "../../assests/images/04/02/2.jpg";
+import img3 from "../../assests/images/04/02/3.jpg";
+import arrowW from "../../assests/images/2023/01/arrow-w.png";
 
 const BlogDetails = () => {
+  const { slug } = useParams();
+  const [blogDetails, setBlogDetails] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_BASE_URL}/api/blog/${slug}`)
+      .then((response) => {
+        setBlogDetails(response.data.data.blog_info);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, [slug]);
+
   return (
     <>
       <Homelayout>
         <section id="blog-slider">
-          <img src="images/2023/04/slider.jpg" alt="Category" />
-          <div className="blog-slidertext">
-            <h1>Lorem ipsum dolor amet fugit</h1>
+          <img
+            src={`${process.env.REACT_APP_BASE_URL}/${blogDetails.image}`}
+            alt="Category"
+          />
+          <div className="blog-slidertext">                                                                                                               
+            <h1>{blogDetails.name}</h1>
             <div className="blog-datebox">
-              <div className="by-box">
-                <img src="images/2023/04/icon2.png" /> By - Lilly Williams
+              <div className="by-box"> 
+                <img src={icon1} alt="icon-blog" /> By - Lilly Williams
               </div>
               <div className="updated-box">
-                <img src="images/2023/04/icon1.png" /> Updated on 12th June 023
+                <img src={icon2} alt="icon-blog" /> Updated on 12th June 023
               </div>
             </div>
           </div>
@@ -287,7 +312,6 @@ const BlogDetails = () => {
             </div>
           </div>
         </section>
-
         <section id="related-blog">
           <div className="midbox-inner  wiki-mk">
             <div className="blog-content">
@@ -303,14 +327,14 @@ const BlogDetails = () => {
               <div className="blog-cont-right">
                 <a href="#" className="view-blog">
                   {" "}
-                  View All <img src="images/2023/01/arrow-c.png" alt="" />
+                  View All <img src={arrowIcon} alt="" />
                 </a>
               </div>
             </div>
 
             <ul>
               <li>
-                <img src="images/2023/04/02/1.jpg" />
+                <img src={img1} />
                 <h3>
                   Lorem ipsum dolor sit amet volup aspernatur odit fugit sed
                 </h3>
@@ -331,7 +355,7 @@ const BlogDetails = () => {
                 </div>
               </li>
               <li>
-                <img src="images/2023/04/02/2.jpg" />
+                <img src={img2} />
                 <h3>
                   Lorem ipsum dolor sit amet volup aspernatur odit fugit sed
                 </h3>
@@ -352,7 +376,7 @@ const BlogDetails = () => {
                 </div>
               </li>
               <li>
-                <img src="images/2023/04/02/3.jpg" />
+                <img src={img3} />
                 <h3>
                   Lorem ipsum dolor sit amet volup aspernatur odit fugit sed
                 </h3>
@@ -396,7 +420,7 @@ const BlogDetails = () => {
                     required=""
                   />
                   <button type="submit" name="en" className="news-button">
-                    Sign Up <img src="images/2023/01/arrow-w.png" alt="" />
+                    Sign Up <img src={arrowW} alt="" />
                   </button>
                 </div>
               </div>

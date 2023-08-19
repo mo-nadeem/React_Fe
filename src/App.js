@@ -23,7 +23,7 @@ function App() {
         <Route exact path="/" element={<Home></Home>}></Route>
         <Route path="/speciality/:slug/:country" element={<Category />}></Route>
         <Route path="/treatment/:slug/:country" element={<Treatment />}></Route>
-        <Route path="/blog" element={<BlogDetails />}></Route>
+        <Route path="/blog/:slug" element={<BlogDetails />}></Route>
         <Route path="/blogs" element={<BlogList />}></Route>
       </Routes>
     </>
