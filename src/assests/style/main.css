@@ -1322,6 +1322,7 @@ section {
   z-index: 1;
   padding: 4rem 1rem 1rem;
   display: flex;
+ 
   flex-direction: column;
   -moz-box-pack: end;
   justify-content: flex-end;

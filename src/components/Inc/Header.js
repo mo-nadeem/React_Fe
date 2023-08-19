@@ -5,6 +5,7 @@ import { GoChevronDown } from "react-icons/go";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchHome } from "../../Api/action/HomeAction";
 import { Link } from "react-router-dom";
+import navIcon from "../../assests/images/nav/icon1.png"
 const Header = () => {
   const dispatch = useDispatch();
 
@@ -80,7 +81,7 @@ const Header = () => {
                           <li key={e.id}>
                             <Link to={`/speciality/${e.slug}/${e.country}`}>
                               <img
-                                src="images/2023/nav/icon1.png"
+                                src={navIcon}
                                 alt="Brand Logo"
                               />
                               {e.menu_name}

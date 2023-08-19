@@ -16,6 +16,7 @@ import comunityImg from "../../assests/images/02/community.jpg";
 import vectorImg from "../../assests/images/02/Vector 85.png";
 import { Link } from "react-router-dom";
 import Brandlogoimg from "../../assests/images/02/logo.png";
+import arrowTrans from "../../assests/images/2023/01/pack-arrow.png"
 
 const Category = () => {
   const { slug, country } = useParams();
@@ -166,9 +167,9 @@ const Category = () => {
                         />
                         <a href="#">
                           <img
-                            src="images/2023/01/pack-arrow.png"
+                            src={arrowTrans}
                             className="arrow-link"
-                            alt=""
+                            alt="arrow"
                           />
                         </a>
                       </div>
