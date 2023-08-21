@@ -83,7 +83,7 @@ const Header = () => {
                               <Link to={`/speciality/${e.slug}/${e.country}`}>
                                 <img src={navIcon} alt="Brand Logo" />
                                 {e.menu_name}
-                                {/* <span>Lorem ipsum dolor sit amet</span> */}
+                                <span>Medflick</span>
                               </Link>
                             </li>
                           ))}
@@ -106,7 +106,7 @@ const Header = () => {
                               <a href="#">
                                 <img src={navIcon} alt="Brand Logo" />
                                 {e.name} Hospitals
-                                {/* <span>Lorem ipsum dolor sit amet</span> */}
+                                <span>Medflick</span>
                               </a>
                             </li>
                           ))}
@@ -129,7 +129,7 @@ const Header = () => {
                               <a href="#">
                                 <img src={navIcon} alt="Brand Logo" />
                                 {e.name} Doctors
-                                {/* <span>Lorem ipsum dolor sit amet</span> */}
+                                <span>Medflick</span>
                               </a>
                             </li>
                           ))}
