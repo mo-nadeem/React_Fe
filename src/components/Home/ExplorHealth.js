@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import {BsArrowRight} from "react-icons/bs"
 
 const ExplorHealth = () => {
   const [activeTab, setActiveTab] = useState("wiki-1"); // Initial active tab
@@ -214,8 +215,9 @@ const ExplorHealth = () => {
                     ligula. Lorem ipsum dolor sit amet.
                   </p>
                   <Link className="more-img" to="/">
-                    {" "}
-                    <i className="fa fa-arrow-right"></i>{" "}
+  
+                   
+                    <i><BsArrowRight /></i>
                   </Link>
                 </div>
               </div>

@@ -1,7 +1,4 @@
-import React, { useEffect, useCallback } from "react";
-import $ from "jquery";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchHome } from "../../Api/action/HomeAction";
+import React from 'react'
 import { Link } from "react-router-dom";
 import iconImg from "../../assests/images/2023/01/icon-m.png";
 import iconImg2 from "../../assests/images/2023/01/arrow-c.png";
@@ -10,58 +7,10 @@ import img2 from "../../assests/images/2023/01/home-icon2.png";
 import img3 from "../../assests/images/2023/01/home-icon2.png";
 import formDoctorImg from "../../assests/images/2023/01/home-q.jpg";
 
-const HealthQuerys = () => {
-  const dispatch = useDispatch();
-
-  const { qa } = useSelector((state) => state.data);
-
-  const fetchHomedata = useCallback(() => {
-    dispatch(fetchHome());
-  }, [dispatch]);
-
-  useEffect(() => {
-    fetchHomedata();
-  }, [fetchHomedata]);
-  const limitedData = qa?.slice(0, 4) ?? [];
-
-  // for animation
-  useEffect(() => {
-    const $animation_elements = $(".animation-element");
-    const $window = $(window);
-
-    function check_if_in_view() {
-      const window_height = $window.height();
-      const window_top_position = $window.scrollTop();
-      const window_bottom_position = window_top_position + window_height;
-
-      $animation_elements.each(function () {
-        const $element = $(this);
-        const element_height = $element.outerHeight();
-        const element_top_position = $element.offset().top;
-        const element_bottom_position = element_top_position + element_height;
-
-        // Check to see if this current container is within viewport
-        if (
-          element_bottom_position >= window_top_position &&
-          element_top_position <= window_bottom_position
-        ) {
-          $element.addClass("in-view");
-        } else {
-          $element.removeClass("in-view");
-        }
-      });
-    }
-
-    $window.on("scroll resize", check_if_in_view);
-    $window.trigger("scroll");
-
-    return () => {
-      $window.off("scroll resize", check_if_in_view);
-    };
-  }, []);
-  return (
+const CategoryQA = ({qa}) => {
+  return (  
     <>
-      <section id="health-queries">
+     <section id="health-queries">
         <div className="midbox-inner  wiki-mk">
           <div className="queries-head">
             <div className="querieshead-left">
@@ -81,8 +30,8 @@ const HealthQuerys = () => {
           </div>
 
           <div className="healthcare-professionals">
-            {limitedData &&
-              limitedData.map((e) => (
+            {qa &&
+              qa.map((e) => (
                 <div className="professionals" key={e.id}>
                   <div className="professionals-box">
                     <img src={iconImg} alt="" />
@@ -115,7 +64,7 @@ const HealthQuerys = () => {
                 <div className="inputbox">
                   <label>Name</label>
                   <input type="text" placeholder="" name="name" required="" />
-                </div>
+                </div>  
               </div>
 
               <div className="home-form">
@@ -125,19 +74,10 @@ const HealthQuerys = () => {
                 </div>
 
                 <div className="inputbox1">
-                    <label>Gender</label>
-                    <select
-                      name="gender"
-               
-                      required
-                    >
-                      <option value="">Select Gender</option>
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
-                      <option value="Other">Other</option>
-                    </select>
-                  </div>
+                  <label>Gender</label>
+                  <input type="text" placeholder="" name="name" required="" />
                 </div>
+              </div>
 
               <div className="home-form">
                 <div className="homequery">
@@ -185,7 +125,7 @@ const HealthQuerys = () => {
         </div>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default HealthQuerys;
+export default CategoryQA

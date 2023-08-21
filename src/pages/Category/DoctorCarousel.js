@@ -59,12 +59,12 @@ const DoctorCarousel = ({ doctor }) => {
                       </h3>
                       <div className="doctors-sub">{e.designation}</div>
                       {/* <div className="doctors-bio">{e.short_description}</div> */}
-                      <div
+                      {/* <div
                         className="doctors-bio"
-                        dangerouslySetInnerHTML={{
+                        dangerouslySetInnerHTML={{  
                           __html: e.short_description,
                         }}
-                      />
+                      /> */}
                       <Link to="/" className="contact-now">
                         Contact Now <img src={arrowIcon} alt="" />
                       </Link>

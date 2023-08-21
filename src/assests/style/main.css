@@ -1322,7 +1322,7 @@ section {
   z-index: 1;
   padding: 4rem 1rem 1rem;
   display: flex;
- 
+  width: 95.2%;
   flex-direction: column;
   -moz-box-pack: end;
   justify-content: flex-end;
@@ -1642,6 +1642,7 @@ section {
   border: 1px solid #f36c22;
 }
 .home-form input,
+select,
 textarea {
   border: 1px solid #dcdee2;
   height: 55px;

@@ -2510,7 +2510,7 @@ pre code {
 }
 
 .day-right .arrow {
-  background-image: url(../../assests/images/02/vector-128.png);
+  background-image: url(../../assests/images/02/vector-127.png);
   width: 15px;
   height: 15px;
   background-size: contain;
@@ -2520,7 +2520,7 @@ pre code {
   right: 10px;
 }
 .day-right .arrow-active {
-  background-image: url(../../assests/images/02/vector-127.png);
+  background-image: url(../../assests/images/02/vector-128.png);
 }
 
 @media screen and (max-width: 880px) {

@@ -2,21 +2,21 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import arrowIcon from "../../assests/images/2023/01/arrow-c.png";
-import consultentImg from "../../assests/images/03/free-consultation.jpg"
-import bg1 from "../../assests/images/03/bg1.jpg"
-import bg2 from "../../assests/images/03/bg2.jpg"
-import bg3 from "../../assests/images/03/bg3.jpg"
-import bg4 from "../../assests/images/03/bg4.jpg"
-import learnMore from "../../assests/images/2023/01/learn-more.png"
-import treatmentImg from "../../assests/images/03/treatment-form.jpg"
-import icon1 from "../../assests/images/03/02/1.png"
-import icon2 from "../../assests/images/03/02/2.png"
-import icon3 from "../../assests/images/03/02/3.png"
-import icon4 from "../../assests/images/03/02/4.png"
-import icon5 from "../../assests/images/03/02/5.png"
-import icon6 from "../../assests/images/03/02/6.png"
-import icon7 from "../../assests/images/03/02/7.png"
-import logo from "../../assests/images/2023/01/logo.png"
+import consultentImg from "../../assests/images/03/free-consultation.jpg";
+import bg1 from "../../assests/images/03/bg1.jpg";
+import bg2 from "../../assests/images/03/bg2.jpg";
+import bg3 from "../../assests/images/03/bg3.jpg";
+import bg4 from "../../assests/images/03/bg4.jpg";
+import learnMore from "../../assests/images/2023/01/learn-more.png";
+import treatmentImg from "../../assests/images/03/treatment-form.jpg";
+import icon1 from "../../assests/images/03/02/1.png";
+import icon2 from "../../assests/images/03/02/2.png";
+import icon3 from "../../assests/images/03/02/3.png";
+import icon4 from "../../assests/images/03/02/4.png";
+import icon5 from "../../assests/images/03/02/5.png";
+import icon6 from "../../assests/images/03/02/6.png";
+import icon7 from "../../assests/images/03/02/7.png";
+import logo from "../../assests/images/2023/01/logo.png";
 
 const responsive = {
   superLargeDesktop: {
@@ -154,6 +154,22 @@ const NavSection = ({ doctor, hospital }) => {
                     Our Services
                   </a>
                 </li>
+                <li>
+                  <a
+                    onClick={() => scrollToSection("transplant-nav16")}
+                    target="_self"
+                  >
+                    Doctors
+                  </a>
+                </li>
+                <li>
+                  <a
+                    onClick={() => scrollToSection("transplant-nav17")}
+                    target="_self"
+                  >
+                    Hospitals
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -194,8 +210,7 @@ const NavSection = ({ doctor, hospital }) => {
                 <div className="consultation-box">
                   <p>Lorem ipsum dolor sit amet quis</p>
                   <a className="consultation-button" href="#">
-                    Book a Free Consultation{" "}
-                    <img src={learnMore} />
+                    Book a Free Consultation <img src={learnMore} />
                   </a>
                 </div>
               </div>
@@ -414,8 +429,7 @@ const NavSection = ({ doctor, hospital }) => {
                 <div className="consultation-box">
                   <p>Lorem ipsum dolor sit amet quis</p>
                   <a className="consultation-button" href="#">
-                    Book a Free Consultation{" "}
-                    <img src={learnMore} />
+                    Book a Free Consultation <img src={learnMore} />
                   </a>
                 </div>
 
@@ -793,8 +807,7 @@ const NavSection = ({ doctor, hospital }) => {
                 <div className="consultation-box2">
                   <p>Lorem ipsum dolor sit amet quis</p>
                   <a className="consultation-button1" href="#">
-                    Book a Free Consultation{" "}
-                    <img src={learnMore} />
+                    Book a Free Consultation <img src={learnMore} />
                   </a>
                 </div>
               </div>
@@ -970,8 +983,7 @@ const NavSection = ({ doctor, hospital }) => {
                 <div className="consultation-box">
                   <p>Lorem ipsum dolor sit amet quis</p>
                   <a className="consultation-button" href="#">
-                    Book a Free Consultation{" "}
-                    <img src={learnMore} />
+                    Book a Free Consultation <img src={learnMore} />
                   </a>
                 </div>
               </div>
@@ -1061,7 +1073,7 @@ const NavSection = ({ doctor, hospital }) => {
                 </p>
               </div>
 
-              <div className="treatmen-midnav" id="transplant-nav15">
+              <div className="treatmen-midnav" id="transplant-nav16">
                 <h2>Doctors</h2>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -1091,9 +1103,7 @@ const NavSection = ({ doctor, hospital }) => {
                             />
                             <div className="doctors-treat">
                               <h3>
-                                {e.prefix}
-                                {e.first_name}
-                                {e.last_name}
+                                {e.prefix} {e.first_name} {e.last_name}
                               </h3>
                               <div className="doctors-sub">{e.designation}</div>
                               <a href="#" className="contact-now">
@@ -1104,54 +1114,6 @@ const NavSection = ({ doctor, hospital }) => {
                           </div>
                         </div>
                       ))}
-
-                      {/* <div className="item" style={{ marginRight: "20px" }}>
-                        <div className="doctors-treatment">
-                          <img src="images/2023/01/06/2.jpg" />
-                          <div className="doctors-treat">
-                            <h3>Doctor Name </h3>
-                            <div className="doctors-sub">
-                              Lorem ipsum dolor sit amet
-                            </div>
-                            <a href="#" className="contact-now">
-                              Contact Now{" "}
-                              <img src="images/2023/01/arrow-c.png" alt="" />
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="item" style={{ marginRight: "20px" }}>
-                        <div className="doctors-treatment">
-                          <img src="images/2023/01/06/3.jpg" />
-                          <div className="doctors-treat">
-                            <h3>Doctor Name </h3>
-                            <div className="doctors-sub">
-                              Lorem ipsum dolor sit amet
-                            </div>
-                            <a href="#" className="contact-now">
-                              Contact Now{" "}
-                              <img src="images/2023/01/arrow-c.png" alt="" />
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="item" style={{ marginRight: "20px" }}>
-                        <div className="doctors-treatment">
-                          <img src="images/2023/01/06/2.jpg" />
-                          <div className="doctors-treat">
-                            <h3>Doctor Name </h3>
-                            <div className="doctors-sub">
-                              Lorem ipsum dolor sit amet
-                            </div>
-                            <a href="#" className="contact-now">
-                              Contact Now{" "}
-                              <img src="images/2023/01/arrow-c.png" alt="" />
-                            </a>
-                          </div>
-                        </div>
-                      </div> */}
                     </Carousel>
                   </div>
                 </div>
@@ -1163,7 +1125,7 @@ const NavSection = ({ doctor, hospital }) => {
                 </div>
               </div>
 
-              <div className="treatmen-midnav" id="transplant-nav16">
+              <div className="treatmen-midnav" id="transplant-nav17">
                 <h2>Hospitals</h2>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -1197,61 +1159,12 @@ const NavSection = ({ doctor, hospital }) => {
                                 Lorem ipsum dolor sit amet
                               </div>
                               <a href="#" className="contact-now">
-                                Contact Now{" "}
-                                <img src="images/2023/01/arrow-c.png" alt="" />
+                                Contact Now <img src={arrowIcon} alt="" />
                               </a>
                             </div>
                           </div>
                         </div>
                       ))}
-
-                      {/* <div className="item" style={{ marginRight: "20px" }}>
-                        <div className="hospitals-treatment">
-                          <img src="images/2023/02/03/2.jpg" />
-                          <div className="hospitals-treat">
-                            <h3>Hospitals Name </h3>
-                            <div className="hospitals-sub">
-                              Lorem ipsum dolor sit amet
-                            </div>
-                            <a href="#" className="contact-now">
-                              Contact Now{" "}
-                              <img src="images/2023/01/arrow-c.png" alt="" />
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="item" style={{ marginRight: "20px" }}>
-                        <div className="hospitals-treatment">
-                          <img src="images/2023/02/03/3.jpg" />
-                          <div className="hospitals-treat">
-                            <h3>Hospitals Name </h3>
-                            <div className="hospitals-sub">
-                              Lorem ipsum dolor sit amet
-                            </div>
-                            <a href="#" className="contact-now">
-                              Contact Now{" "}
-                              <img src="images/2023/01/arrow-c.png" alt="" />
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="item" style={{ marginRight: "20px" }}>
-                        <div className="hospitals-treatment">
-                          <img src="images/2023/02/03/2.jpg" />
-                          <div className="hospitals-treat">
-                            <h3>Hospitals Name </h3>
-                            <div className="hospitals-sub">
-                              Lorem ipsum dolor sit amet
-                            </div>
-                            <a href="#" className="contact-now">
-                              Contact Now{" "}
-                              <img src="images/2023/01/arrow-c.png" alt="" />
-                            </a>
-                          </div>
-                        </div>
-                      </div> */}
                     </Carousel>
                   </div>
                 </div>
@@ -1270,7 +1183,7 @@ const NavSection = ({ doctor, hospital }) => {
                 <h3>Book a free Consultation with Highly Qualified Doctors</h3>
                 <a href="#">
                   {" "}
-                  Contact us <img src={arrowIcon} alt="" />
+                  Contact us <img src={arrowIcon} alt="arrow" />
                 </a>
               </div>
 
@@ -1336,8 +1249,6 @@ const NavSection = ({ doctor, hospital }) => {
             </div>
           </div>
         </div>
-
-        <div></div>
       </section>
     </>
   );

@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import Homelayout from "../../components/Homelayout/Homelayout";
 import DoctorExpert from "../../components/Home/DoctorExpert";
 import Testimonials from "../../components/Home/Testimonials";
-import Blog from "../../components/Home/Blog";
 import sliperImg from "../../assests/images/02/slider.jpg";
-import HealthQuerys from "../../components/Home/HealthQuerys";
 import { useParams } from "react-router-dom";
 import arrowImg from "../../assests/images/2023/01/arrow-c.png";
 import arrow2Img from "../../assests/images/2023/01/arrow-w.png";
@@ -12,12 +10,13 @@ import img1 from "../../assests/images/02/01/1.jpg";
 import axios from "axios";
 import DoctorCarousel from "./DoctorCarousel";
 import HospitalCarousel from "./HospitalCarousel";
-import comunityImg from "../../assests/images/02/community.jpg";
-import vectorImg from "../../assests/images/02/Vector 85.png";
 import { Link } from "react-router-dom";
 import Brandlogoimg from "../../assests/images/02/logo.png";
 import arrowTrans from "../../assests/images/2023/01/pack-arrow.png";
 import { Helmet } from "react-helmet";
+import CategoryBlog from "./CategoryBlog";
+import Community from "../../components/community/Community";
+import CategoryQA from "./CategoryQA";
 
 const Category = () => {
   const { slug, country } = useParams();
@@ -25,6 +24,8 @@ const Category = () => {
   const [info, setInfo] = useState([]);
   const [doctor, setDoctor] = useState([]);
   const [hospital, setHospital] = useState([]);
+  const [blog, setBlog] = useState([]);
+  const [qa, setQa] = useState([]);
 
   useEffect(() => {
     axios
@@ -36,6 +37,8 @@ const Category = () => {
         setInfo(response.data.data.speciality_info);
         setDoctor(response.data.data.doctor);
         setHospital(response.data.data.hospitals);
+        setBlog(response.data.data.blogs);
+        setQa(response.data.data.qa);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -408,34 +411,19 @@ const Category = () => {
 
         {/* end */}
 
-        {/* components */}
-        <HealthQuerys />
+        {/* query components */}
+        <CategoryQA qa={qa} />
 
         <Testimonials />
         {/* end */}
 
-        <section id="community-section">
-          <div className="midbox-inner  wiki-mk">
-            <div className="community-pro">
-              <img className="community-img" src={comunityImg} alt="changes" />
-              <div className="community-box">
-                <h3>Join our Community!</h3>
-                <p>
-                  Lorem ipsum dolor amet, consecte adipiscing elit, sed do
-                  eiusmod tempor incididunt ut enim ad minim veniam, quis Lorem
-                  ipsum dolor amet, consecte adipiscing elit, sed do eiusmod
-                  tempor incididunt ut enim ad minim veniam, quis tempor
-                  incididunt
-                </p>
-                <a className="more-img" href="#">
-                  Lorem Ipsum <img src={vectorImg} alt="icon" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* community section */}
+
+        <Community />
+
+        {/* end */}
         {/* Blog Section */}
-        <Blog />
+        <CategoryBlog blog={blog} />
         {/* Blog end */}
       </Homelayout>
     </>

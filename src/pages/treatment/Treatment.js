@@ -20,12 +20,11 @@ import icon2 from "../../assests/images/03/line-icon2.png";
 import arrowIcon from "../../assests/images/2023/01/arrow-c.png";
 import logo from "../../assests/images/02/logo.png";
 import qaIcon from "../../assests/images/2023/01/arrow-w.png";
-import communityImg from "../../assests/images/02/community.jpg";
-import vectorIcon from "../../assests/images/02/Vector 85.png";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import TreatmentBlog from "./TreatmentBlog";
 import TreatmentQA from "./TreatmentQA";
+import Community from "../../components/community/Community";
 const responsiveHospital = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -543,26 +542,10 @@ const Treatment = () => {
 
         {/* End */}
 
-        <section id="community-section">
-          <div className="midbox-inner  wiki-mk">
-            <div className="community-pro">
-              <img className="community-img" src={communityImg} />
-              <div className="community-box">
-                <h3>Join our Community!</h3>
-                <p>
-                  Lorem ipsum dolor amet, consecte adipiscing elit, sed do
-                  eiusmod tempor incididunt ut enim ad minim veniam, quis Lorem
-                  ipsum dolor amet, consecte adipiscing elit, sed do eiusmod
-                  tempor incididunt ut enim ad minim veniam, quis tempor
-                  incididunt
-                </p>
-                <Link className="more-img" to="/">
-                  Lorem Ipsum <img src={vectorIcon} />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* community section */}
+        <Community />
+
+        {/* end */}
 
         {/* FAQ section */}
         <FAQ />

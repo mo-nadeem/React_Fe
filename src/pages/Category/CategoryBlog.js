@@ -24,7 +24,7 @@ const responsive = {
   },
 };
 
-const TreatmentBlog = ({ blog }) => {
+const CategoryBlog = ({ blog }) => {
   let blogSection = null;
   if (blog.length > 0) {
     blogSection = (
@@ -124,4 +124,4 @@ const TreatmentBlog = ({ blog }) => {
   );
 };
 
-export default TreatmentBlog;
+export default CategoryBlog;

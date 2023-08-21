@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import qaIcon from "../../assests/images/2023/01/arrow-w.png";
 import arrowIcon from "../../assests/images/2023/01/arrow-c.png";
 const TreatmentQA = ({ qa }) => {
-
   return (
     <>
       <section id="health-queries">

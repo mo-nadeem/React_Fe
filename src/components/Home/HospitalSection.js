@@ -33,7 +33,7 @@ const HospitalSection = () => {
                 />{" "}
               </div>
             ))}
-            <div className="Marquee-tag">
+            {/* <div className="Marquee-tag">
               <img className="dr-img" src="images/2023/01/03/2.png" />{" "}
             </div>
             <div className="Marquee-tag">
@@ -59,7 +59,7 @@ const HospitalSection = () => {
             </div>
             <div className="Marquee-tag">
               <img className="dr-img" src="images/2023/01/03/10.png" />{" "}
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
