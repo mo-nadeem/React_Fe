@@ -16,7 +16,9 @@ import Section3 from "./components/Home/Section3";
 import Testimonials from "./components/Home/Testimonials";
 import WorldMap from "./components/Home/WorldMap";
 
+
 const Home = () => {
+
   return (
     <>
       <main>

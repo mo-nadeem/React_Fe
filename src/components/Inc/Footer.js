@@ -24,26 +24,28 @@ const Footer = () => {
     fetchHomedata();
   }, [fetchHomedata]);
 
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleAccordion = () => {
-    if (window.innerWidth <= 767) {
-      setIsOpen(!isOpen);
-    }
+  const [isAboutVisible, setIsAboutVisible] = useState(false);
+
+  // Function to toggle the visibility of the list
+  const toggleAbout = () => {
+    setIsAboutVisible(!isAboutVisible);
   };
+
+  
   // const contentStyle = {
   //   display: isOpen ? "none" : "block",
   // };
   return (
     <>
       <footer>
-        <div class="midbox-inner wiki-mk">
-          <div class="footer-logo">
-            <div class="footer-logobox">
+        <div className="midbox-inner wiki-mk">
+          <div className="footer-logo">
+            <div className="footer-logobox">
               <a href="index.html" target="_self">
                 <img src={logo} alt="Brand Logo" />
               </a>
             </div>
-            <div class="footer-customer">
+            <div className="footer-customer">
               <h2>24/7 Support</h2>
               <p>
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa
@@ -56,15 +58,56 @@ const Footer = () => {
             </div>
           </div>
 
-          <div class="footer-links">
-            <div class="footer-navbox">
+          <div className="footer-links">
+            <div className="footer-navbox">
               <h4 className="but">
                 About{" "}
                 <i className="fotter-icon">
                   <GoChevronDown style={{ fontSize: "22px" }} />
                 </i>
               </h4>
-
+              
+                <ul className="footerbox">
+                  <li>
+                    <a href="#" target="_self">
+                      Lorem Ipsum
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" target="_self">
+                      Dolor Sit
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" target="_self">
+                      Exceptur{" "}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" target="_self">
+                      Occaecat sint{" "}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" target="_self">
+                      Non Proident{" "}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" target="_self">
+                      Anim ipsum
+                    </a>
+                  </li>
+                </ul>
+          
+            </div>
+            <div className="footer-navbox">
+              <h4 className="but">
+                Lorem{" "}
+                <i className="fotter-icon">
+                  <GoChevronDown style={{ fontSize: "22px" }} />
+                </i>
+              </h4>
               <ul className="footerbox">
                 <li>
                   <a href="#" target="_self">
@@ -98,54 +141,14 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div class="footer-navbox">
-              <h4 class="but">
-                Lorem{" "}
-                <i className="fotter-icon">
-                  <GoChevronDown style={{ fontSize: "22px" }} />
-                </i>
-              </h4>
-              <ul class="footerbox">
-                <li>
-                  <a href="#" target="_self">
-                    Lorem Ipsum
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_self">
-                    Dolor Sit
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_self">
-                    Exceptur{" "}
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_self">
-                    Occaecat sint{" "}
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_self">
-                    Non Proident{" "}
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_self">
-                    Anim ipsum
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="footer-navbox">
-              <h4 class="but">
+            <div className="footer-navbox">
+              <h4 className="but">
                 Quick Links{" "}
                 <i className="fotter-icon">
                   <GoChevronDown style={{ fontSize: "22px" }} />
                 </i>
               </h4>
-              <ul class="footerbox">
+              <ul className="footerbox">
                 <li>
                   <a href="#" target="_self">
                     Lorem Ipsum
@@ -178,14 +181,14 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div class="footer-navbox">
-              <h4 class="but">
+            <div className="footer-navbox">
+              <h4 className="but">
                 Company{" "}
                 <i className="fotter-icon">
                   <GoChevronDown style={{ fontSize: "22px" }} />
                 </i>
               </h4>
-              <ul class="footerbox">
+              <ul className="footerbox">
                 <li>
                   <a href="#" target="_self">
                     Lorem Ipsum
@@ -218,14 +221,14 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div class="footer-navbox">
-              <h4 class="but">
+            <div className="footer-navbox">
+              <h4 className="but">
                 Help & Support{" "}
                 <i className="fotter-icon">
                   <GoChevronDown style={{ fontSize: "22px" }} />
                 </i>
               </h4>
-              <ul class="footerbox">
+              <ul className="footerbox">
                 <li>
                   <a href="#" target="_self">
                     Lorem Ipsum
@@ -260,8 +263,8 @@ const Footer = () => {
             </div>
           </div>
 
-          <div class="copyright">
-            <div class="wiki">
+          <div className="copyright">
+            <div className="wiki">
               <ul>
                 <li>
                   <a href="#" target="_black">
@@ -285,7 +288,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div class="wh">
+            <div className="wh">
               © Medflick, 2023. All rights reserved. |
               <a href="#" target="_black">
                 Privacy Policy

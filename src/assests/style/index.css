@@ -2561,6 +2561,9 @@ pre code {
     right: 8px;
     top: 5px;
   }
+  .but-mobile {
+    display: block;
+  }
 
 }
 
@@ -2598,5 +2601,9 @@ pre code {
 }
 
 .fotter-icon {
+  display: none;
+}
+
+.but-mobile {
   display: none;
 }

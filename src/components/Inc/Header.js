@@ -66,16 +66,16 @@ const Header = () => {
           </Link>
           <div className="topnav-right page-header">
             <nav>
-              <div class="top-menu-wrapper">
-                <ul class="top-menu">
-                  <li class="has-dropdown dropdown">
-                    <a href="#" class="dropbtn">
+              <div className="top-menu-wrapper">
+                <ul className="top-menu">
+                  <li className="has-dropdown dropdown">
+                    <a href="#" className="dropbtn">
                       Treatments
                       <i>
                         <GoChevronDown style={{ fontSize: "22px" }} />
                       </i>
                     </a>
-                    <div class="dropdown-content">
+                    <div className="dropdown-content">
                       <ul>
                         {speciality && speciality.map((e) => (
                           <li key={e.id}>
@@ -163,14 +163,14 @@ const Header = () => {
                     </div>
                   </li>
 
-                  <li class="has-dropdown dropdown">
-                    <a href="#" class="dropbtn">
+                  <li className="has-dropdown dropdown">
+                    <a href="#" className="dropbtn">
                       Hospitals
                       <i>
                         <GoChevronDown style={{ fontSize: "22px" }} />
                       </i>
                     </a>
-                    <div class="dropdown-content">
+                    <div className="dropdown-content">
                       <ul>
                         <li>
                           <a href="#">
@@ -256,14 +256,14 @@ const Header = () => {
                     </div>
                   </li>
 
-                  <li class="has-dropdown dropdown">
-                    <a href="#" class="dropbtn">
+                  <li className="has-dropdown dropdown">
+                    <a href="#" className="dropbtn">
                       Doctors
                       <i>
                         <GoChevronDown style={{ fontSize: "22px" }} />
                       </i>
                     </a>
-                    <div class="dropdown-content">
+                    <div className="dropdown-content">
                       <ul>
                         <li>
                           <a href="#">

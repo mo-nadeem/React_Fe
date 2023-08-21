@@ -4,7 +4,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import DoctorExpert from "../../components/Home/DoctorExpert";
 import FAQ from "../../components/Home/FAQ";
-import Blog from "../../components/Home/Blog";
 import NavSection from "./NavSection";
 import DayWise from "./DayWise";
 import hoemImg from "../../assests/images/03/1.jpg";
@@ -21,11 +20,12 @@ import icon2 from "../../assests/images/03/line-icon2.png";
 import arrowIcon from "../../assests/images/2023/01/arrow-c.png";
 import logo from "../../assests/images/02/logo.png";
 import qaIcon from "../../assests/images/2023/01/arrow-w.png";
-import quesryIcon from "../../assests/images/2023/01/icon-m.png";
 import communityImg from "../../assests/images/02/community.jpg";
 import vectorIcon from "../../assests/images/02/Vector 85.png";
 import { Link } from "react-router-dom";
-
+import { Helmet } from "react-helmet";
+import TreatmentBlog from "./TreatmentBlog";
+import TreatmentQA from "./TreatmentQA";
 const responsiveHospital = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -51,6 +51,8 @@ const Treatment = () => {
   const [info, setInfo] = useState([]);
   const [doctor, setDoctor] = useState([]);
   const [hospital, setHospital] = useState([]);
+  const [blog, setBlog] = useState([]);
+  const [qa, setQa] = useState({});
 
   useEffect(() => {
     axios
@@ -59,6 +61,8 @@ const Treatment = () => {
         setInfo(response.data.treateDetailsbyCountry.treateDetailsbyCountry);
         setDoctor(response.data.treateDetailsbyCountry.doctors);
         setHospital(response.data.treateDetailsbyCountry.hospitals);
+        setBlog(response.data.treateDetailsbyCountry.blogs);
+        setQa(response.data.treateDetailsbyCountry.qa);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -101,6 +105,28 @@ const Treatment = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{info && info.title}</title>
+        <meta name="description" content={info && info.description} />
+        <link
+          rel="canonical"
+          href={`https://medflick.com/treatment/${slug}/${country}`}
+        />
+        <meta property="og:title" content={info && info.title} />
+
+        <meta property="og:description" content={info && info.description} />
+
+        <meta
+          property="og:url"
+          content={`https://medflick.com/treatment/${slug}/${country}`}
+        />
+
+        <meta property="og:type" content="website" />
+
+        <meta property="og:locale" content="en" />
+
+        <meta property="og:site_name" content="Medflick" />
+      </Helmet>
       <Homelayout>
         <section id="treatment-section">
           <div className="midbox-inner wiki-mk">
@@ -434,8 +460,7 @@ const Treatment = () => {
               <div className="medflick-payright">
                 <Link to="/" className="consultation">
                   {" "}
-                  Request a free consultation{" "}
-                  <img src={qaIcon} alt="" />
+                  Request a free consultation <img src={qaIcon} alt="" />
                 </Link>
                 <Link to="/" className="contact">
                   {" "}
@@ -513,125 +538,10 @@ const Treatment = () => {
             </div>
           </div>
         </section>
+        {/* Treatment QA */}
+        <TreatmentQA qa={qa} />
 
-        <section id="health-queries">
-          <div className="midbox-inner  wiki-mk">
-            <div className="queries-head">
-              <div className="querieshead-left">
-                <h2>Get answers to Health Queries</h2>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore Ut enim ad minim
-                  veniam, quis nostrud exercitation ullamco laboris nisi ut
-                  aliquip
-                </p>
-              </div>
-              <div className="querieshead-right">
-                <Link to="/" className="queries-ask">
-                  Ask FREE Question <img src={qaIcon} alt="" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="healthcare-professionals">
-              <div className="professionals">
-                <div className="professionals-box">
-                  <img src={quesryIcon} alt="" />
-                  <div className="question-box">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Donec sed purus consectetur, interdum felis in?{" "}
-                  </div>
-                  <div className="question-ans">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Donec sed purus consectetur, interdum felis in, auctor
-                    ligula. Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit. Donec sed purus consectetur, interdum felis in, auctor
-                    ligula.{" "}
-                  </div>
-                </div>
-              </div>
-
-              <div className="professionals">
-                <div className="professionals-box">
-                  <img src={quesryIcon} alt="" />
-                  <div className="question-box">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Donec sed purus consectetur, interdum felis in?{" "}
-                  </div>
-                  <div className="question-ans">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Donec sed purus consectetur, interdum felis in, auctor
-                    ligula. Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit. Donec sed purus consectetur, interdum felis in, auctor
-                    ligula.{" "}
-                  </div>
-                </div>
-              </div>
-
-              <div className="professionals">
-                <div className="professionals-box">
-                  <img src={quesryIcon} alt="" />
-                  <div className="question-box">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Donec sed purus consectetur, interdum felis in?{" "}
-                  </div>
-                  <div className="question-ans">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Donec sed purus consectetur, interdum felis in, auctor
-                    ligula. Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit. Donec sed purus consectetur, interdum felis in, auctor
-                    ligula.{" "}
-                  </div>
-                </div>
-              </div>
-
-              <div className="professionals treatmen-query">
-                <div className="homeform-left">
-                  <div className="home-form">
-                    <div className="homequery">
-                      <label>Your Query</label>
-                      <textarea
-                        className="magbox"
-                        type="textarea"
-                        name="query"
-                        placeholder=""
-                        rows="2"
-                      ></textarea>
-                    </div>
-                  </div>
-
-                  <div className="home-form">
-                    <div className="inputbox1">
-                      <label>Age</label>
-                      <input
-                        type="text"
-                        placeholder=""
-                        name="name"
-                        required=""
-                      />
-                    </div>
-                    <div className="inputbox1">
-                      <label>Gender</label>
-                      <input
-                        type="text"
-                        placeholder=""
-                        name="name"
-                        required=""
-                      />
-                    </div>
-                  </div>
-
-                  <div className="home-form">
-                    <button type="submit" name="en" className="home-button">
-                      {" "}
-                      Submit Now <img src={arrowIcon} alt="" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* End */}
 
         <section id="community-section">
           <div className="midbox-inner  wiki-mk">
@@ -661,7 +571,7 @@ const Treatment = () => {
 
         {/* Blog */}
 
-        <Blog />
+        <TreatmentBlog blog={blog} />
 
         {/*Blog end */}
       </Homelayout>

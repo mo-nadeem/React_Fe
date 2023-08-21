@@ -16,7 +16,8 @@ import comunityImg from "../../assests/images/02/community.jpg";
 import vectorImg from "../../assests/images/02/Vector 85.png";
 import { Link } from "react-router-dom";
 import Brandlogoimg from "../../assests/images/02/logo.png";
-import arrowTrans from "../../assests/images/2023/01/pack-arrow.png"
+import arrowTrans from "../../assests/images/2023/01/pack-arrow.png";
+import { Helmet } from "react-helmet";
 
 const Category = () => {
   const { slug, country } = useParams();
@@ -75,6 +76,25 @@ const Category = () => {
   ];
   return (
     <>
+      <Helmet>
+        <title>{info.title}</title>
+        <meta name="description" content={info.description} />
+        <link
+          rel="canonical"
+          href={`https://medflick.com/${slug}/${country}`}
+        />
+        <meta property="og:title" content={info.title} />
+
+        <meta property="og:description" content={info.description} />
+
+        <meta property="og:url" content="https://medflick.com" />
+
+        <meta property="og:type" content="website" />
+
+        <meta property="og:locale" content="en" />
+
+        <meta property="og:site_name" content="Medflick" />
+      </Helmet>
       <Homelayout>
         <section id="category-slider">
           <img src={sliperImg} alt="Category" />

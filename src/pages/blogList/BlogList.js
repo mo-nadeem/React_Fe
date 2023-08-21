@@ -6,11 +6,11 @@ const BlogList = () => {
     <>
       <Homelayout>
         <section id="bloglist-head">
-          <div class="midbox-inner  wiki-mk">
-            <div class="bloglist">
-              <div class="bloglist-left">
+          <div className="midbox-inner  wiki-mk">
+            <div className="bloglist">
+              <div className="bloglist-left">
                 <img src="images/2023/04/04/1.jpg" alt="" />
-                <div class="bloglist-box">
+                <div className="bloglist-box">
                   <h2>Lorem ipsum dolor sit amet</h2>
                   <p>
                     Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
@@ -20,26 +20,26 @@ const BlogList = () => {
                 </div>
               </div>
 
-              <div class="bloglist-right">
-                <div class="bloglist-box1">
+              <div className="bloglist-right">
+                <div className="bloglist-box1">
                   <img src="images/2023/04/04/2.jpg" alt="" />
-                  <div class="bloglist-box">
+                  <div className="bloglist-box">
                     <h2>
                       Lorem ipsum dolor sit amet quia aspernatur aut odit aut
                       fugit sed ut
                     </h2>
                   </div>
                 </div>
-                <div class="bloglist-box2">
-                  <div class="bloglist-box3">
+                <div className="bloglist-box2">
+                  <div className="bloglist-box3">
                     <img src="images/2023/04/04/3.jpg" alt="" />
-                    <div class="bloglist-box">
+                    <div className="bloglist-box">
                       <h2>Lorem ipsum dolor sit amet quia</h2>
                     </div>
                   </div>
-                  <div class="bloglist-box4">
+                  <div className="bloglist-box4">
                     <img src="images/2023/04/04/4.jpg" alt="" />
-                    <div class="bloglist-box">
+                    <div className="bloglist-box">
                       <h2>Lorem ipsum dolor sit amet quia</h2>
                     </div>
                   </div>
@@ -49,20 +49,20 @@ const BlogList = () => {
           </div>
         </section>
 
-        <section class="bloglist-section">
-          <div class="midbox-inner  wiki-mk">
-            <div class="bloglist-itembox">
-              <div class="bloglist-itemleft">
+        <section className="bloglist-section">
+          <div className="midbox-inner  wiki-mk">
+            <div className="bloglist-itembox">
+              <div className="bloglist-itemleft">
                 <h3>Lorem ipsum dolor amet fugit</h3>
-                <div class="bloglist-itemmid">
-                  <div class="bloglist-leftbox">
-                    <div class="bloglist-item">
+                <div className="bloglist-itemmid">
+                  <div className="bloglist-leftbox">
+                    <div className="bloglist-item">
                       <img src="images/2023/04/04/6.jpg" />
                       <h4>
                         Lorem ipsum dolor sit amet quia aspernatur odit sed
                         consequntr
                       </h4>
-                      <div class="blog-datalist">Feb 12, 2023</div>
+                      <div className="blog-datalist">Feb 12, 2023</div>
                       <p>
                         Aliqua id fugiat nostrud irure ex duis ea quis id quis
                         ad et. Sunt qui esse pariatur
@@ -70,45 +70,45 @@ const BlogList = () => {
                     </div>
                   </div>
 
-                  <div class="bloglist-midbox">
+                  <div className="bloglist-midbox">
                     <ul>
                       <li>
-                        <div class="blogright-img">
+                        <div className="blogright-img">
                           <img src="images/2023/04/04/7.jpg" />
                         </div>
-                        <div class="blogright-details">
+                        <div className="blogright-details">
                           <h4>Lorem ipsum dolor sit amet lorem sit amet </h4>
-                          <div class="blog-datalist">Feb 12, 2023</div>
+                          <div className="blog-datalist">Feb 12, 2023</div>
                         </div>
                       </li>
 
                       <li>
-                        <div class="blogright-img">
+                        <div className="blogright-img">
                           <img src="images/2023/04/04/8.jpg" />
                         </div>
-                        <div class="blogright-details">
+                        <div className="blogright-details">
                           <h4>Lorem ipsum dolor sit amet lorem sit amet </h4>
-                          <div class="blog-datalist">Feb 12, 2023</div>
+                          <div className="blog-datalist">Feb 12, 2023</div>
                         </div>
                       </li>
 
                       <li>
-                        <div class="blogright-img">
+                        <div className="blogright-img">
                           <img src="images/2023/04/04/9.jpg" />
                         </div>
-                        <div class="blogright-details">
+                        <div className="blogright-details">
                           <h4>Lorem ipsum dolor sit amet lorem sit amet </h4>
-                          <div class="blog-datalist">Feb 12, 2023</div>
+                          <div className="blog-datalist">Feb 12, 2023</div>
                         </div>
                       </li>
 
                       <li>
-                        <div class="blogright-img">
+                        <div className="blogright-img">
                           <img src="images/2023/04/04/10.jpg" />
                         </div>
-                        <div class="blogright-details">
+                        <div className="blogright-details">
                           <h4>Lorem ipsum dolor sit amet lorem sit amet </h4>
-                          <div class="blog-datalist">Feb 12, 2023</div>
+                          <div className="blog-datalist">Feb 12, 2023</div>
                         </div>
                       </li>
                     </ul>
@@ -116,9 +116,9 @@ const BlogList = () => {
                 </div>
               </div>
 
-              <div class="bloglist-itemright">
+              <div className="bloglist-itemright">
                 <img src="images/2023/04/04/5.jpg" alt="" />
-                <div class="bloglist-box">
+                <div className="bloglist-box">
                   <h2>Lorem ipsum dolor sit amet</h2>
                   <p>
                     Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
@@ -131,31 +131,31 @@ const BlogList = () => {
           </div>
         </section>
 
-        <section class="bloglist-section">
-          <div class="midbox-inner  wiki-mk">
-            <div class="bloglist-itembox">
-              <div class="bloglist-itemleft">
+        <section className="bloglist-section">
+          <div className="midbox-inner  wiki-mk">
+            <div className="bloglist-itembox">
+              <div className="bloglist-itemleft">
                 <h3>Lorem ipsum dolor amet fugit</h3>
-                <div class="bloglist-itemmid">
-                  <div class="bloglist-item">
+                <div className="bloglist-itemmid">
+                  <div className="bloglist-item">
                     <img src="images/2023/04/04/6.jpg" />
                     <h4>
                       Lorem ipsum dolor sit amet quia aspernatur odit sed
                       consequntr
                     </h4>
-                    <div class="blog-datalist">Feb 12, 2023</div>
+                    <div className="blog-datalist">Feb 12, 2023</div>
                     <p>
                       Aliqua id fugiat nostrud irure ex duis ea quis id quis ad
                       et. Sunt qui esse pariatur
                     </p>
                   </div>
-                  <div class="bloglist-item">
+                  <div className="bloglist-item">
                     <img src="images/2023/04/04/6.jpg" />
                     <h4>
                       Lorem ipsum dolor sit amet quia aspernatur odit sed
                       consequntr
                     </h4>
-                    <div class="blog-datalist">Feb 12, 2023</div>
+                    <div className="blog-datalist">Feb 12, 2023</div>
                     <p>
                       Aliqua id fugiat nostrud irure ex duis ea quis id quis ad
                       et. Sunt qui esse pariatur
@@ -163,75 +163,75 @@ const BlogList = () => {
                   </div>
                 </div>
 
-                <div class="bloglist-midlist">
+                <div className="bloglist-midlist">
                   <ul>
                     <li>
-                      <div class="blogright-img">
+                      <div className="blogright-img">
                         <img src="images/2023/04/04/7.jpg" />
                       </div>
-                      <div class="blogright-details">
+                      <div className="blogright-details">
                         <h4>Lorem ipsum dolor sit amet lorem sit amet </h4>
-                        <div class="blog-datalist">Feb 12, 2023</div>
+                        <div className="blog-datalist">Feb 12, 2023</div>
                       </div>
                     </li>
 
                     <li>
-                      <div class="blogright-img">
+                      <div className="blogright-img">
                         <img src="images/2023/04/04/8.jpg" />
                       </div>
-                      <div class="blogright-details">
+                      <div className="blogright-details">
                         <h4>Lorem ipsum dolor sit amet lorem sit amet </h4>
-                        <div class="blog-datalist">Feb 12, 2023</div>
+                        <div className="blog-datalist">Feb 12, 2023</div>
                       </div>
                     </li>
 
                     <li>
-                      <div class="blogright-img">
+                      <div className="blogright-img">
                         <img src="images/2023/04/04/9.jpg" />
                       </div>
-                      <div class="blogright-details">
+                      <div className="blogright-details">
                         <h4>Lorem ipsum dolor sit amet lorem sit amet </h4>
-                        <div class="blog-datalist">Feb 12, 2023</div>
+                        <div className="blog-datalist">Feb 12, 2023</div>
                       </div>
                     </li>
 
                     <li>
-                      <div class="blogright-img">
+                      <div className="blogright-img">
                         <img src="images/2023/04/04/10.jpg" />
                       </div>
-                      <div class="blogright-details">
+                      <div className="blogright-details">
                         <h4>Lorem ipsum dolor sit amet lorem sit amet </h4>
-                        <div class="blog-datalist">Feb 12, 2023</div>
+                        <div className="blog-datalist">Feb 12, 2023</div>
                       </div>
                     </li>
                   </ul>
                 </div>
               </div>
 
-              <div class="bloglist-midinner">
+              <div className="bloglist-midinner">
                 <h3>Lorem ipsum </h3>
-                <div class="bloglist-itemmid-right">
-                  <div class="bloglist-item">
+                <div className="bloglist-itemmid-right">
+                  <div className="bloglist-item">
                     <img src="images/2023/04/04/11.jpg" />
                     <h4>Lorem ipsum dolor amet quia sit aspernatur</h4>
                   </div>
-                  <div class="bloglist-item">
+                  <div className="bloglist-item">
                     <img src="images/2023/04/04/12.jpg" />
                     <h4>Lorem ipsum dolor amet quia sit aspernatur</h4>
                   </div>
-                  <div class="bloglist-item">
+                  <div className="bloglist-item">
                     <img src="images/2023/04/04/13.jpg" />
                     <h4>Lorem ipsum dolor amet quia sit aspernatur</h4>
                   </div>
-                  <div class="bloglist-item">
+                  <div className="bloglist-item">
                     <img src="images/2023/04/04/14.jpg" />
                     <h4>Lorem ipsum dolor amet quia sit aspernatur</h4>
                   </div>
-                  <div class="bloglist-item">
+                  <div className="bloglist-item">
                     <img src="images/2023/04/04/15.jpg" />
                     <h4>Lorem ipsum dolor amet quia sit aspernatur</h4>
                   </div>
-                  <div class="bloglist-item">
+                  <div className="bloglist-item">
                     <img src="images/2023/04/04/16.jpg" />
                     <h4>Lorem ipsum dolor amet quia sit aspernatur</h4>
                   </div>
@@ -241,43 +241,43 @@ const BlogList = () => {
           </div>
         </section>
 
-        <section class="bloglist-section">
-          <div class="midbox-inner  wiki-mk">
-            <div class="bloglist-itembox">
-              <div class="bloglist-itemleft">
+        <section className="bloglist-section">
+          <div className="midbox-inner  wiki-mk">
+            <div className="bloglist-itembox">
+              <div className="bloglist-itemleft">
                 <h3>Lorem ipsum dolor amet fugit</h3>
-                <div class="bloglist-itemmid">
-                  <div class="bloglist-item">
+                <div className="bloglist-itemmid">
+                  <div className="bloglist-item">
                     <img src="images/2023/04/04/16.jpg" />
                     <h4>
                       Lorem ipsum dolor sit amet quia aspernatur odit sed
                       consequntr
                     </h4>
-                    <div class="blog-datalist">Feb 12, 2023</div>
+                    <div className="blog-datalist">Feb 12, 2023</div>
                     <p>
                       Aliqua id fugiat nostrud irure ex duis ea quis id quis ad
                       et. Sunt qui esse pariatur
                     </p>
                   </div>
-                  <div class="bloglist-item">
+                  <div className="bloglist-item">
                     <img src="images/2023/04/04/17.jpg" />
                     <h4>
                       Lorem ipsum dolor sit amet quia aspernatur odit sed
                       consequntr
                     </h4>
-                    <div class="blog-datalist">Feb 12, 2023</div>
+                    <div className="blog-datalist">Feb 12, 2023</div>
                     <p>
                       Aliqua id fugiat nostrud irure ex duis ea quis id quis ad
                       et. Sunt qui esse pariatur
                     </p>
                   </div>
-                  <div class="bloglist-item">
+                  <div className="bloglist-item">
                     <img src="images/2023/04/04/18.jpg" />
                     <h4>
                       Lorem ipsum dolor sit amet quia aspernatur odit sed
                       consequntr
                     </h4>
-                    <div class="blog-datalist">Feb 12, 2023</div>
+                    <div className="blog-datalist">Feb 12, 2023</div>
                     <p>
                       Aliqua id fugiat nostrud irure ex duis ea quis id quis ad
                       et. Sunt qui esse pariatur
@@ -285,17 +285,17 @@ const BlogList = () => {
                   </div>
                 </div>
 
-                <div class="bloglist-itembottom">
+                <div className="bloglist-itembottom">
                   <h3>Lorem ipsum dolor amet fugit</h3>
-                  <div class="bloglist-itemmid">
-                    <div class="bloglist-leftbox">
-                      <div class="bloglist-item">
+                  <div className="bloglist-itemmid">
+                    <div className="bloglist-leftbox">
+                      <div className="bloglist-item">
                         <img src="images/2023/04/04/22.jpg" />
                         <h4>
                           Lorem ipsum dolor sit amet quia aspernatur odit sed
                           consequntr
                         </h4>
-                        <div class="blog-datalist">Feb 12, 2023</div>
+                        <div className="blog-datalist">Feb 12, 2023</div>
                         <p>
                           Aliqua id fugiat nostrud irure ex duis ea quis id quis
                           ad et. Sunt qui esse pariatur
@@ -303,45 +303,45 @@ const BlogList = () => {
                       </div>
                     </div>
 
-                    <div class="bloglist-midbox">
+                    <div className="bloglist-midbox">
                       <ul>
                         <li>
-                          <div class="blogright-img">
+                          <div className="blogright-img">
                             <img src="images/2023/04/04/23.jpg" />
                           </div>
-                          <div class="blogright-details">
+                          <div className="blogright-details">
                             <h4>Lorem ipsum dolor sit amet lorem sit amet </h4>
-                            <div class="blog-datalist">Feb 12, 2023</div>
+                            <div className="blog-datalist">Feb 12, 2023</div>
                           </div>
                         </li>
 
                         <li>
-                          <div class="blogright-img">
+                          <div className="blogright-img">
                             <img src="images/2023/04/04/24.jpg" />
                           </div>
-                          <div class="blogright-details">
+                          <div className="blogright-details">
                             <h4>Lorem ipsum dolor sit amet lorem sit amet </h4>
-                            <div class="blog-datalist">Feb 12, 2023</div>
+                            <div className="blog-datalist">Feb 12, 2023</div>
                           </div>
                         </li>
 
                         <li>
-                          <div class="blogright-img">
+                          <div className="blogright-img">
                             <img src="images/2023/04/04/25.jpg" />
                           </div>
-                          <div class="blogright-details">
+                          <div className="blogright-details">
                             <h4>Lorem ipsum dolor sit amet lorem sit amet </h4>
-                            <div class="blog-datalist">Feb 12, 2023</div>
+                            <div className="blog-datalist">Feb 12, 2023</div>
                           </div>
                         </li>
 
                         <li>
-                          <div class="blogright-img">
+                          <div className="blogright-img">
                             <img src="images/2023/04/04/26.jpg" />
                           </div>
-                          <div class="blogright-details">
+                          <div className="blogright-details">
                             <h4>Lorem ipsum dolor sit amet lorem sit amet </h4>
-                            <div class="blog-datalist">Feb 12, 2023</div>
+                            <div className="blog-datalist">Feb 12, 2023</div>
                           </div>
                         </li>
                       </ul>
@@ -350,28 +350,28 @@ const BlogList = () => {
                 </div>
               </div>
 
-              <div class="bloglist-rightbottom">
+              <div className="bloglist-rightbottom">
                 <h3>Lorem ipsum </h3>
-                <div class="bloglist-item">
+                <div className="bloglist-item">
                   <img src="images/2023/04/04/20.jpg" />
                   <h4>
                     Lorem ipsum dolor sit amet quia aspernatur odit sed
                     consequntr
                   </h4>
-                  <div class="blog-datalist">Feb 12, 2023</div>
+                  <div className="blog-datalist">Feb 12, 2023</div>
                   <p>
                     Aliqua id fugiat nostrud irure ex duis ea quis id quis ad
                     et. Sunt qui esse pariatur
                   </p>
                 </div>
 
-                <div class="bloglist-item">
+                <div className="bloglist-item">
                   <img src="images/2023/04/04/21.jpg" />
                   <h4>
                     Lorem ipsum dolor sit amet quia aspernatur odit sed
                     consequntr
                   </h4>
-                  <div class="blog-datalist">Feb 12, 2023</div>
+                  <div className="blog-datalist">Feb 12, 2023</div>
                   <p>
                     Aliqua id fugiat nostrud irure ex duis ea quis id quis ad
                     et. Sunt qui esse pariatur
@@ -383,25 +383,25 @@ const BlogList = () => {
         </section>
 
         <section id="newslette-section">
-          <div class="midbox-inner  wiki-mk">
-            <div class="newslette-box">
-              <div class="newslette-left">
+          <div className="midbox-inner  wiki-mk">
+            <div className="newslette-box">
+              <div className="newslette-left">
                 <h2>Sign up to our Newsletter</h2>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore Ut enim minim
                 </p>
               </div>
-              <div class="newslette-right">
-                <div class="latest-news">
+              <div className="newslette-right">
+                <div className="latest-news">
                   <input
-                    class="latest-newsbox"
+                    className="latest-newsbox"
                     type="text"
                     placeholder="Email address"
                     name="name"
                     required=""
                   />
-                  <button type="submit" name="en" class="news-button">
+                  <button type="submit" name="en" className="news-button">
                     Sign Up <img src="images/2023/01/arrow-w.png" alt="" />
                   </button>
                 </div>
