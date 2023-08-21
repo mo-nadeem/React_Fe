@@ -29,7 +29,7 @@ const BlogDetails = () => {
       <Homelayout>
         <section id="blog-slider">
           <img
-            src={`${process.env.REACT_APP_BASE_URL}/${blogDetails.image}`}
+            src={`${process.env.REACT_APP_BASE_URL}/blog/${blogDetails.image}`}
             alt="Category"
           />
           <div className="blog-slidertext">                                                                                                               
