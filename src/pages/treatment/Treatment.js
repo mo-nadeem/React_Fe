@@ -3,17 +3,12 @@ import Homelayout from "../../components/Homelayout/Homelayout";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import DoctorExpert from "../../components/Home/DoctorExpert";
-import FAQ from "../../components/Home/FAQ";
 import NavSection from "./NavSection";
 import DayWise from "./DayWise";
 import hoemImg from "../../assests/images/03/1.jpg";
 import hoemImg2 from "../../assests/images/03/2.jpg";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import pricingImg from "../../assests/images/03/01/1.jpg";
-import pricingImg1 from "../../assests/images/03/01/2.jpg";
-import pricingImg2 from "../../assests/images/03/01/3.jpg";
-import pricingImg3 from "../../assests/images/03/01/4.jpg";
 import icon from "../../assests/images/03/line-icon.png";
 import icon1 from "../../assests/images/03/line-icon1.png";
 import icon2 from "../../assests/images/03/line-icon2.png";
@@ -25,6 +20,7 @@ import { Helmet } from "react-helmet";
 import TreatmentBlog from "./TreatmentBlog";
 import TreatmentQA from "./TreatmentQA";
 import Community from "../../components/community/Community";
+import TreatmentFAQ from "./TreatmentFAQ";
 const responsiveHospital = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -53,6 +49,7 @@ const Treatment = () => {
   const [blog, setBlog] = useState([]);
   const [qa, setQa] = useState([]);
   const [cost, setCost] = useState([]);
+  const[faq,setFaq] = useState([])
 
   useEffect(() => {
     axios
@@ -64,6 +61,7 @@ const Treatment = () => {
         setBlog(response.data.treateDetailsbyCountry.blogs);
         setQa(response.data.treateDetailsbyCountry.qa);
         setCost(response.data.treateDetailsbyCountry.treatment_cost_comparison);
+        setFaq(response.data.treateDetailsbyCountry.faqs)
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -445,7 +443,7 @@ const Treatment = () => {
         {/* end */}
 
         {/* FAQ section */}
-        <FAQ />
+       <TreatmentFAQ faq={faq}/>
 
         {/*FAQ end */}
 
