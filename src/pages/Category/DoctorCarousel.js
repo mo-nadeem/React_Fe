@@ -53,9 +53,7 @@ const DoctorCarousel = ({ doctor }) => {
                     </div>
                     <div className="doctors-text">
                       <h3>
-                        {e.prefix}
-                        {e.first_name}
-                        {e.last_name}{" "}
+                        {e.prefix} {e.first_name} {e.last_name}
                       </h3>
                       <div className="doctors-sub">{e.designation}</div>
                       {/* <div className="doctors-bio">{e.short_description}</div> */}

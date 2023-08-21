@@ -51,7 +51,8 @@ const Treatment = () => {
   const [doctor, setDoctor] = useState([]);
   const [hospital, setHospital] = useState([]);
   const [blog, setBlog] = useState([]);
-  const [qa, setQa] = useState({});
+  const [qa, setQa] = useState([]);
+  const [cost, setCost] = useState([]);
 
   useEffect(() => {
     axios
@@ -62,6 +63,7 @@ const Treatment = () => {
         setHospital(response.data.treateDetailsbyCountry.hospitals);
         setBlog(response.data.treateDetailsbyCountry.blogs);
         setQa(response.data.treateDetailsbyCountry.qa);
+        setCost(response.data.treateDetailsbyCountry.treatment_cost_comparison);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -267,15 +269,8 @@ const Treatment = () => {
 
         <section id="health-city">
           <div className="midbox-inner  wiki-mk">
-            <h2>
-              {/* Lorem Ipsum dolor <span>Pricing</span> */}
-              {info && info.menu_name}
-            </h2>
-            {/* <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo
-            </p> */}
+            <h2>{info && info.menu_name}</h2>
+
             <div
               dangerouslySetInnerHTML={{
                 __html: info && info.short_description,
@@ -291,135 +286,37 @@ const Treatment = () => {
                   autoPlaySpeed={2000}
                   infinite={true}
                 >
-                  <div className="item" style={{ marginRight: "20px" }}>
-                    <div className="city-item">
-                      <img src={pricingImg} />
-                      <div className="city-box">
-                        <h3>Delhi</h3>
-                        <ul>
-                          <li>
-                            <h4>$1100</h4>
-                            <img src={icon} />
-                            <h5>Lowest Cost (Approx)</h5>
-                          </li>
-                          <li>
-                            <h4>$1100</h4>
-                            <img src={icon1} />
-                            <h5>Lowest Cost (Approx)</h5>
-                          </li>
-                          <li>
-                            <h4>$1100</h4>
-                            <img src={icon2} />
-                            <h5>Lowest Cost (Approx)</h5>
-                          </li>
-                        </ul>
+                  {cost.map((e) => (
+                    <div
+                      className="item"
+                      style={{ marginRight: "20px" }}
+                      key={e.id}
+                    >
+                      <div className="city-item">
+                        <img src={`${process.env.REACT_APP_BASE_URL}/treatments/${e.icon}`} />
+                        <div className="city-box">
+                          <h3>{e.name}</h3>
+                          <ul>
+                            <li>
+                              <h4>$ {e.lowest_cost}</h4>
+                              <img src={icon} />
+                              <h5>Lowest Cost (Approx)</h5>
+                            </li>
+                            <li>
+                              <h4>$ {e.average_cost}</h4>
+                              <img src={icon1} />
+                              <h5>Average Cost (Approx)</h5>
+                            </li>
+                            <li>
+                              <h4>$ {e.highest_cost}</h4>
+                              <img src={icon2} />
+                              <h5>Highest Cost (Approx)</h5>
+                            </li>
+                          </ul>
+                        </div>
                       </div>
                     </div>
-                  </div>
-
-                  <div className="item" style={{ marginRight: "20px" }}>
-                    <div className="city-item">
-                      <img src={pricingImg1} />
-                      <div className="city-box">
-                        <h3>Mumbai</h3>
-                        <ul>
-                          <li>
-                            <h4>$1100</h4>
-                            <img src={icon} />
-                            <h5>Lowest Cost (Approx)</h5>
-                          </li>
-                          <li>
-                            <h4>$1100</h4>
-                            <img src={icon1} />
-                            <h5>Lowest Cost (Approx)</h5>
-                          </li>
-                          <li>
-                            <h4>$1100</h4>
-                            <img src={icon2} />
-                            <h5>Lowest Cost (Approx)</h5>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="item" style={{ marginRight: "20px" }}>
-                    <div className="city-item">
-                      <img src={pricingImg2} />
-                      <div className="city-box">
-                        <h3>Chennai</h3>
-                        <ul>
-                          <li>
-                            <h4>$1100</h4>
-                            <img src={icon} />
-                            <h5>Lowest Cost (Approx)</h5>
-                          </li>
-                          <li>
-                            <h4>$1100</h4>
-                            <img src={icon1} />
-                            <h5>Lowest Cost (Approx)</h5>
-                          </li>
-                          <li>
-                            <h4>$1100</h4>
-                            <img src={icon2} />
-                            <h5>Lowest Cost (Approx)</h5>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="item" style={{ marginRight: "20px" }}>
-                    <div className="city-item">
-                      <img src={pricingImg3} />
-                      <div className="city-box">
-                        <h3>Hyderabad</h3>
-                        <ul>
-                          <li>
-                            <h4>$1100</h4>
-                            <img src={icon} />
-                            <h5>Lowest Cost (Approx)</h5>
-                          </li>
-                          <li>
-                            <h4>$1100</h4>
-                            <img src={icon1} />
-                            <h5>Lowest Cost (Approx)</h5>
-                          </li>
-                          <li>
-                            <h4>$1100</h4>
-                            <img src={icon2} />
-                            <h5>Lowest Cost (Approx)</h5>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* <div className="item" style={{ marginRight: "20px" }}>
-                    <div className="city-item">
-                      <img src="images/2023/03/01/3.jpg" />
-                      <div className="city-box">
-                        <h3>Chennai</h3>
-                        <ul>
-                          <li>
-                            <h4>$1100</h4>
-                            <img src="images/2023/03/line-icon.png" />
-                            <h5>Lowest Cost (Approx)</h5>
-                          </li>
-                          <li>
-                            <h4>$1100</h4>
-                            <img src="images/2023/03/line-icon1.png" />
-                            <h5>Lowest Cost (Approx)</h5>
-                          </li>
-                          <li>
-                            <h4>$1100</h4>
-                            <img src="images/2023/03/line-icon2.png" />
-                            <h5>Lowest Cost (Approx)</h5>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div> */}
+                  ))}
                 </Carousel>
               </div>
             </div>
@@ -442,7 +339,7 @@ const Treatment = () => {
         </section>
 
         {/* Nav section */}
-        <NavSection doctor={doctor} hospital={hospital} />
+        <NavSection doctor={doctor} hospital={hospital} info={info} />
 
         {/* End */}
 
