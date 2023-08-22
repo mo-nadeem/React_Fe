@@ -110,7 +110,7 @@ const HealthPackage = () => {
               Neuromodulation{" "}
             </button> */}
           </div>
-          {speciality.map((e) => (
+          {speciality && speciality.map((e) => (
             <div
               key={e.id}
               id={e.id}
