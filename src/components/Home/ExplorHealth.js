@@ -8,7 +8,7 @@ import arrowImg from "../../assests/images/2023/01/treatments-arrow.png"
 const ExplorHealth = () => {
   const dispatch = useDispatch();
 
-  const { speciality } = useSelector((state) => state.data);
+  const { treatment } = useSelector((state) => state.data);
 
   const fetchHomedata = useCallback(() => {
     dispatch(fetchHome());
@@ -18,11 +18,15 @@ const ExplorHealth = () => {
     fetchHomedata();
   }, [fetchHomedata]);
 
-  const [activeTab, setActiveTab] = useState(1); // Initial active tab
+  const [activeTab, setActiveTab] = useState("bone-marrow-transplant"); // Initial active tab
 
   const handleTabChange = (tabId) => {
     setActiveTab(tabId);
   };
+
+  const filteredSpecialities = treatment.filter(
+    (speciality) => speciality.featured === "1"
+  );
 
   return (
     <>
@@ -32,13 +36,13 @@ const ExplorHealth = () => {
             <h4>Treatments</h4>
 
             <div className="tab">
-              {speciality &&
-                speciality.map((e) => (
+              {filteredSpecialities &&
+                filteredSpecialities.map((e) => (
                   <button
                     className={`tablinks ${
-                      activeTab === e.id ? "active" : ""
+                      activeTab === e.slug ? "active" : ""
                     }`}
-                    onMouseOver={() => handleTabChange(e.id)}
+                    onMouseOver={() => handleTabChange(e.slug)}
                     key={e.id}
                   >
                     {e.name}
@@ -111,28 +115,28 @@ const ExplorHealth = () => {
                 </div>
               </div>
             </div> */}
-            {speciality &&
-              speciality.map((e) => (
+            {filteredSpecialities &&
+              filteredSpecialities.map((e) => (
                 <div className="tab tab1" key={e.id}>
                   <button
                     className={`tab tab1 ${
-                      activeTab === e.id ? "active" : ""
+                      activeTab === e.slug ? "active" : ""
                     }`}
-                    onMouseOver={() => handleTabChange(e.id)}
+                    onMouseOver={() => handleTabChange(e.slug)}
                   >
                     Kidney Transplant{" "}
                     <img src="images/2023/01/treatments-arrow.png" />
                   </button>
                 </div>
               ))}
-            {speciality &&
-              speciality.map((e) => (
+            {filteredSpecialities &&
+              filteredSpecialities.map((e) => (
                 <div
                   id={e.id}
                   className={`tabcontent ${
-                    activeTab === e.id ? "active" : ""
+                    activeTab === e.slug ? "active" : ""
                   }`}
-                  key={e.id}
+                  key={e.slug}
                 >
                   <div className="explore-pro">
                     <img className="pd-img3" src="images/2023/01/05/02.jpg" />

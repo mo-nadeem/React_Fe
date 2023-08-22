@@ -42,11 +42,13 @@ const DoctorList = () => {
             </h2>
             <div class="doctors-list-find">
               <div class="ding">
-                <select id="wiki">
-                  <option value="none" selected>
-                    Location
-                  </option>
-                </select>
+                <div className="ss-main">
+                  <select id="wiki">
+                    <option value="none" selected>
+                      Delhi
+                    </option>
+                  </select>
+                </div>
               </div>
               <div class="ding">
                 <select id="wiki1">

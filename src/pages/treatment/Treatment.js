@@ -49,7 +49,7 @@ const Treatment = () => {
   const [blog, setBlog] = useState([]);
   const [qa, setQa] = useState([]);
   const [cost, setCost] = useState([]);
-  const[faq,setFaq] = useState([])
+  const [faq, setFaq] = useState([]);
 
   useEffect(() => {
     axios
@@ -61,7 +61,7 @@ const Treatment = () => {
         setBlog(response.data.treateDetailsbyCountry.blogs);
         setQa(response.data.treateDetailsbyCountry.qa);
         setCost(response.data.treateDetailsbyCountry.treatment_cost_comparison);
-        setFaq(response.data.treateDetailsbyCountry.faqs)
+        setFaq(response.data.treateDetailsbyCountry.faqs);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -134,16 +134,15 @@ const Treatment = () => {
                 <h1>{info && info.name}</h1>
                 <p>Avg Price: {info.special_price}</p>
               </div>
-              <div className="treatment-subtext">
-              {info.quote}
-              </div>
+              <div className="treatment-subtext">{info.quote}</div>
             </div>
           </div>
         </section>
 
         <section id="treatment-banner">
           <div className="treatment-bannerimg">
-            <img src={hoemImg} />
+            <img src={`${process.env.REACT_APP_BASE_URL}/treatments/${info.image}`} />
+            {/* <img src={hoemImg2} /> */}
             <img src={hoemImg2} />
           </div>
           <div className="midbox-inner  wiki-mk">
@@ -160,7 +159,8 @@ const Treatment = () => {
                     <h2>{info.recovery_time}</h2> <p>Recovery Time</p>
                   </li>
                   <li>
-                    <h2>{info.hospitalization_days}</h2> <p>Hospitalization Days</p>
+                    <h2>{info.hospitalization_days}</h2>{" "}
+                    <p>Hospitalization Days</p>
                   </li>
                   <li>
                     <h2>{info.success_rate}</h2> <p>Success Rate</p>
@@ -267,8 +267,6 @@ const Treatment = () => {
           <div className="midbox-inner  wiki-mk">
             <h2>{info && info.menu_name}</h2>
 
-           
-
             <div className="owl-slider">
               <div id="city-list">
                 <Carousel
@@ -285,7 +283,9 @@ const Treatment = () => {
                       key={e.id}
                     >
                       <div className="city-item">
-                        <img src={`${process.env.REACT_APP_BASE_URL}/treatments/${e.icon}`} />
+                        <img
+                          src={`${process.env.REACT_APP_BASE_URL}/treatments/${e.icon}`}
+                        />
                         <div className="city-box">
                           <h3>{e.name}</h3>
                           <ul>
@@ -437,7 +437,7 @@ const Treatment = () => {
         {/* end */}
 
         {/* FAQ section */}
-       <TreatmentFAQ faq={faq}/>
+        <TreatmentFAQ faq={faq} />
 
         {/*FAQ end */}
 

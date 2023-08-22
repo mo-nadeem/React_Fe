@@ -222,13 +222,10 @@ const NavSection = ({ doctor, hospital, info }) => {
                 <div className="treatmen-midnav" id="transplant-nav2">
                   <h2>{info.head_brief}</h2>
                   <div
-                 
                     dangerouslySetInnerHTML={{
                       __html: info && info.brief,
                     }}
                   />
-
-               
 
                   <div className="consultation-box">
                     <p>Lorem ipsum dolor sit amet quis</p>
@@ -352,7 +349,6 @@ const NavSection = ({ doctor, hospital, info }) => {
                 <div className="treatmen-midnav box-need" id="transplant-nav4">
                   <h2>{info.head_types}</h2>
                   <div
-                 
                     dangerouslySetInnerHTML={{
                       __html: info && info.treatment_types,
                     }}
@@ -769,7 +765,7 @@ const NavSection = ({ doctor, hospital, info }) => {
                               alt={e.slug}
                             />
                             <div className="hospitals-treat">
-                              <h3 style={{textAlign:"left"}}>{e.name}</h3>
+                              <h3 style={{ textAlign: "left" }}>{e.name}</h3>
                               <div className="hospitals-sub">
                                 Lorem ipsum dolor sit amet
                               </div>
