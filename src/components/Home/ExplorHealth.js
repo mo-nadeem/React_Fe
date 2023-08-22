@@ -40,12 +40,12 @@ const ExplorHealth = () => {
         
                   <button
                     className={`tablinks ${
-                      activeTab === filteredSpecialities.slug ? "active" : ""
+                      activeTab === filteredSpecialities && filteredSpecialities.slug ? "active" : ""
                     }`}
                     onMouseOver={() => handleTabChange(filteredSpecialities.slug)}
-                    key={filteredSpecialities.id}
+                    key={filteredSpecialities && filteredSpecialities.id}
                   >
-                    {filteredSpecialities.name}
+                    {filteredSpecialities && filteredSpecialities.name}
                     <img
                       src={arrowImg}
                       alt="Arrow"
@@ -119,28 +119,28 @@ const ExplorHealth = () => {
                 <div className="tab tab1">
                   <button
                     className={`tab tab1 ${
-                      activeTab === filteredSpecialities.slug ? "active" : ""
+                      activeTab === filteredSpecialities && filteredSpecialities.slug ? "active" : ""
                     }`}
                     onMouseOver={() => handleTabChange(filteredSpecialities.slug)}
                   >
-                    Kidney Transplant{" "}
+                    {filteredSpecialities && filteredSpecialities.name}
                     <img src="images/2023/01/treatments-arrow.png" />
                   </button>
                 </div>
        
                 <div
-                  id={filteredSpecialities.id}
+                  id={filteredSpecialities && filteredSpecialities.id}
                   className={`tabcontent ${
-                    activeTab === filteredSpecialities.slug ? "active" : ""
+                    activeTab === filteredSpecialities && filteredSpecialities.slug ? "active" : ""
                   }`}
-                  key={filteredSpecialities.slug}
+                  key={filteredSpecialities && filteredSpecialities.slug}
                 >
                   <div className="explore-pro">
                     <img className="pd-img3" src="images/2023/01/05/02.jpg" />
                     <div className="explore-box ex-pro">
-                      <h3>{filteredSpecialities.name}</h3>
+                      <h3>{filteredSpecialities && filteredSpecialities.name}</h3>
                       <p>
-                        {filteredSpecialities.short_description}
+                        {filteredSpecialities && filteredSpecialities.short_description}
                       </p>
                       <Link className="more-img" to="/">
                         {" "}
