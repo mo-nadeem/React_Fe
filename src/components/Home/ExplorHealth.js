@@ -24,7 +24,8 @@ const ExplorHealth = () => {
     setActiveTab(tabId);
   };
 
-  const filteredSpecialities = treatment.filter(
+  const navigation = treatment || [];
+  const filteredSpecialities = navigation.find(
     (speciality) => speciality.featured === "1"
   );
 
@@ -36,22 +37,21 @@ const ExplorHealth = () => {
             <h4>Treatments</h4>
 
             <div className="tab">
-              {filteredSpecialities &&
-                filteredSpecialities.map((e) => (
+        
                   <button
                     className={`tablinks ${
-                      activeTab === e.slug ? "active" : ""
+                      activeTab === filteredSpecialities.slug ? "active" : ""
                     }`}
-                    onMouseOver={() => handleTabChange(e.slug)}
-                    key={e.id}
+                    onMouseOver={() => handleTabChange(filteredSpecialities.slug)}
+                    key={filteredSpecialities.id}
                   >
-                    {e.name}
+                    {filteredSpecialities.name}
                     <img
                       src={arrowImg}
                       alt="Arrow"
                     />
                   </button>
-                ))}
+           
               {/* <button
                 className={`tablinks ${activeTab === "wiki-2" ? "active" : ""}`}
                 onMouseOver={() => handleTabChange("wiki-2")}
@@ -115,35 +115,32 @@ const ExplorHealth = () => {
                 </div>
               </div>
             </div> */}
-            {filteredSpecialities &&
-              filteredSpecialities.map((e) => (
-                <div className="tab tab1" key={e.id}>
+           
+                <div className="tab tab1">
                   <button
                     className={`tab tab1 ${
-                      activeTab === e.slug ? "active" : ""
+                      activeTab === filteredSpecialities.slug ? "active" : ""
                     }`}
-                    onMouseOver={() => handleTabChange(e.slug)}
+                    onMouseOver={() => handleTabChange(filteredSpecialities.slug)}
                   >
                     Kidney Transplant{" "}
                     <img src="images/2023/01/treatments-arrow.png" />
                   </button>
                 </div>
-              ))}
-            {filteredSpecialities &&
-              filteredSpecialities.map((e) => (
+       
                 <div
-                  id={e.id}
+                  id={filteredSpecialities.id}
                   className={`tabcontent ${
-                    activeTab === e.slug ? "active" : ""
+                    activeTab === filteredSpecialities.slug ? "active" : ""
                   }`}
-                  key={e.slug}
+                  key={filteredSpecialities.slug}
                 >
                   <div className="explore-pro">
                     <img className="pd-img3" src="images/2023/01/05/02.jpg" />
                     <div className="explore-box ex-pro">
-                      <h3>{e.name}</h3>
+                      <h3>{filteredSpecialities.name}</h3>
                       <p>
-                        {e.short_description}
+                        {filteredSpecialities.short_description}
                       </p>
                       <Link className="more-img" to="/">
                         {" "}
@@ -152,7 +149,7 @@ const ExplorHealth = () => {
                     </div>
                   </div>
                 </div>
-              ))}
+        
             {/* 
             <div className="tab tab1">
               <button
