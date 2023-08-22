@@ -4,19 +4,12 @@ import "react-multi-carousel/lib/styles.css";
 import arrowIcon from "../../assests/images/2023/01/arrow-c.png";
 import consultentImg from "../../assests/images/03/free-consultation.jpg";
 import bg1 from "../../assests/images/03/bg1.jpg";
-import bg2 from "../../assests/images/03/bg2.jpg";
-import bg3 from "../../assests/images/03/bg3.jpg";
-import bg4 from "../../assests/images/03/bg4.jpg";
 import learnMore from "../../assests/images/2023/01/learn-more.png";
 import treatmentImg from "../../assests/images/03/treatment-form.jpg";
 import icon1 from "../../assests/images/03/02/1.png";
 import icon2 from "../../assests/images/03/02/2.png";
 import icon3 from "../../assests/images/03/02/3.png";
-import icon4 from "../../assests/images/03/02/4.png";
-import icon5 from "../../assests/images/03/02/5.png";
-import icon6 from "../../assests/images/03/02/6.png";
-import icon7 from "../../assests/images/03/02/7.png";
-import logo from "../../assests/images/2023/01/logo.png";
+import { Link } from "react-router-dom";
 
 const responsive = {
   superLargeDesktop: {
@@ -230,12 +223,13 @@ const NavSection = ({ doctor, hospital, info }) => {
                 <div className="treatmen-midnav" id="transplant-nav2">
                   <h2>{info.head_brief}</h2>
                   <div
+                 
                     dangerouslySetInnerHTML={{
                       __html: info && info.brief,
                     }}
                   />
 
-                  <img src={bg1} />
+               
 
                   <div className="consultation-box">
                     <p>Lorem ipsum dolor sit amet quis</p>
@@ -356,9 +350,10 @@ const NavSection = ({ doctor, hospital, info }) => {
                 </div>
               </div>
               {info.head_types && (
-                <div className="treatmen-midnav" id="transplant-nav4">
+                <div className="treatmen-midnav box-need" id="transplant-nav4">
                   <h2>{info.head_types}</h2>
                   <div
+                 
                     dangerouslySetInnerHTML={{
                       __html: info && info.treatment_types,
                     }}
@@ -703,7 +698,7 @@ const NavSection = ({ doctor, hospital, info }) => {
                 </p>
 
                 <div className="owl-slider">
-                  <div id="doctors-treatment">
+                  <div id="doctors-treatment" className="owl-carousel">
                     <Carousel
                       responsive={responsive}
                       arrows={false}
@@ -775,7 +770,7 @@ const NavSection = ({ doctor, hospital, info }) => {
                               alt={e.slug}
                             />
                             <div className="hospitals-treat">
-                              <h3>{e.name}</h3>
+                              <h3 style={{textAlign:"left"}}>{e.name}</h3>
                               <div className="hospitals-sub">
                                 Lorem ipsum dolor sit amet
                               </div>
@@ -830,41 +825,12 @@ const NavSection = ({ doctor, hospital, info }) => {
                 <h4>Symptoms</h4>
 
                 <ul>
-                  <li>
-                    <a href="#" target="_self">
-                      Lorem Ipsum
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" target="_self">
-                      Lorem Ipsum
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" target="_self">
-                      Exceptur{" "}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" target="_self">
-                      Exceptur{" "}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" target="_self">
-                      Anim
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" target="_self">
-                      Lorem Ipsum{" "}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" target="_self">
-                      Anim
-                    </a>
-                  </li>
+                  {info.symptoms &&
+                    info.symptoms.split(",").map((amenity, index) => (
+                      <li key={index}>
+                        <Link>{amenity.trim()}</Link>
+                      </li>
+                    ))}
                 </ul>
               </div>
             </div>

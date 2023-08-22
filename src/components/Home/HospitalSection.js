@@ -28,38 +28,11 @@ const HospitalSection = () => {
               <div className="Marquee-tag" key={e.id}>
                 <img
                   className="dr-img"
-                  src={`${process.env.REACT_APP_BASE_URL}/hospital/${e.home_image}`}
+                  src={`${process.env.REACT_APP_BASE_URL}/hospital/${e.icon}`}
                   alt={e.slug}
                 />{" "}
               </div>
             ))}
-            {/* <div className="Marquee-tag">
-              <img className="dr-img" src="images/2023/01/03/2.png" />{" "}
-            </div>
-            <div className="Marquee-tag">
-              <img className="dr-img" src="images/2023/01/03/3.png" />{" "}
-            </div>
-            <div className="Marquee-tag">
-              <img className="dr-img" src="images/2023/01/03/4.png" />{" "}
-            </div>
-            <div className="Marquee-tag">
-              <img className="dr-img" src="images/2023/01/03/5.png" />{" "}
-            </div>
-            <div className="Marquee-tag">
-              <img className="dr-img" src="images/2023/01/03/6.png" />{" "}
-            </div>
-            <div className="Marquee-tag">
-              <img className="dr-img" src="images/2023/01/03/7.png" />{" "}
-            </div>
-            <div className="Marquee-tag">
-              <img className="dr-img" src="images/2023/01/03/8.png" />{" "}
-            </div>
-            <div className="Marquee-tag">
-              <img className="dr-img" src="images/2023/01/03/9.png" />{" "}
-            </div>
-            <div className="Marquee-tag">
-              <img className="dr-img" src="images/2023/01/03/10.png" />{" "}
-            </div> */}
           </div>
         </div>
       </section>

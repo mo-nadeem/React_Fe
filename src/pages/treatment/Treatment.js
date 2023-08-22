@@ -132,12 +132,10 @@ const Treatment = () => {
             <div className="treatment-top">
               <div className="treatment-headtext">
                 <h1>{info && info.name}</h1>
-                <p>Avg Price: $1000 - $3000</p>
+                <p>Avg Price: {info.special_price}</p>
               </div>
               <div className="treatment-subtext">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore Ut enim ad minim veniam,
-                quis nostrud exercitation dolor sit
+              {info.quote}
               </div>
             </div>
           </div>
@@ -153,19 +151,19 @@ const Treatment = () => {
               <div className="treatment-left">
                 <ul>
                   <li>
-                    <h2>Chemotherapy</h2> <p>Treatment Type</p>
+                    <h2>{info.treatment_type_name}</h2> <p>Treatment Type</p>
                   </li>
                   <li>
-                    <h2>3-6 Months</h2> <p>Treatment Time</p>
+                    <h2>{info.treatment_time}</h2> <p>Treatment Time</p>
                   </li>
                   <li>
-                    <h2>6-8 Weeks</h2> <p>Recovery Time</p>
+                    <h2>{info.recovery_time}</h2> <p>Recovery Time</p>
                   </li>
                   <li>
-                    <h2>2-7 Days</h2> <p>Hospitalization Days</p>
+                    <h2>{info.hospitalization_days}</h2> <p>Hospitalization Days</p>
                   </li>
                   <li>
-                    <h2>84.5 - 95.1%</h2> <p>Success Rate</p>
+                    <h2>{info.success_rate}</h2> <p>Success Rate</p>
                   </li>
                 </ul>
               </div>

@@ -2607,3 +2607,31 @@ pre code {
 .but-mobile {
   display: none;
 }
+
+
+
+#doctors-treatment li:before {
+  position: absolute;
+  top: 9px;
+  left: -19px;
+  height: 8px;
+  width: 8px;
+  background: #ff6800;
+  border-radius: 100%;
+  content: "";
+  display: none;
+
+}
+
+#hospitals-treatment li:before {
+  position: absolute;
+  top: 9px;
+  left: -19px;
+  height: 8px;
+  width: 8px;
+  background: #ff6800;
+  border-radius: 100%;
+  content: "";
+  display: none;
+
+}

@@ -48,12 +48,12 @@ const HospitalCarousel = ({ hospital }) => {
                     <div className="hospitals-text">
                       <h3>{e.name}</h3>
                       {/* <div className="hospitals-sub">{e.short_description}</div> */}
-                      <div
+                      {/* <div
                         className="hospitals-sub"
                         dangerouslySetInnerHTML={{
                           __html: e.short_description,
                         }}
-                      />
+                      /> */}
                       <a href="#" className="contact-now">
                         Contact Now{" "}
                         <img src={arrowImg} alt="" />

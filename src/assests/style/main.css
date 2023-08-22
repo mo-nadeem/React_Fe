@@ -3260,16 +3260,7 @@ textarea {
   position: relative;
   margin-bottom: 7px;
 }
-.treatment-midbox li:before {
-  position: absolute;
-  top: 9px;
-  left: -19px;
-  height: 8px;
-  width: 8px;
-  background: #ff6800;
-  border-radius: 100%;
-  content: "";
-}
+
 
 .treatmen-overview {
   scroll-margin-top: 140px;
@@ -6095,4 +6086,17 @@ footer {
     flex: 0 0 38%;
     padding: 10px;
   }
+}
+
+
+.treatment-midbox li:before {
+  position: absolute;
+  top: 9px;
+  left: -19px;
+  height: 8px;
+  width: 8px;
+  background: #ff6800;
+  border-radius: 100%;
+  content: "";
+
 }

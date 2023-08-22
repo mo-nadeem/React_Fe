@@ -31,7 +31,6 @@ const Footer = () => {
     setIsAboutVisible(!isAboutVisible);
   };
 
-  
   // const contentStyle = {
   //   display: isOpen ? "none" : "block",
   // };
@@ -66,48 +65,7 @@ const Footer = () => {
                   <GoChevronDown style={{ fontSize: "22px" }} />
                 </i>
               </h4>
-              
-                <ul className="footerbox">
-                  <li>
-                    <a href="#" target="_self">
-                      Lorem Ipsum
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" target="_self">
-                      Dolor Sit
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" target="_self">
-                      Exceptur{" "}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" target="_self">
-                      Occaecat sint{" "}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" target="_self">
-                      Non Proident{" "}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" target="_self">
-                      Anim ipsum
-                    </a>
-                  </li>
-                </ul>
-          
-            </div>
-            <div className="footer-navbox">
-              <h4 className="but">
-                Lorem{" "}
-                <i className="fotter-icon">
-                  <GoChevronDown style={{ fontSize: "22px" }} />
-                </i>
-              </h4>
+
               <ul className="footerbox">
                 <li>
                   <a href="#" target="_self">
@@ -139,6 +97,24 @@ const Footer = () => {
                     Anim ipsum
                   </a>
                 </li>
+              </ul>
+            </div>
+            <div className="footer-navbox">
+              <h4 className="but">
+                Treatments
+                <i className="fotter-icon">
+                  <GoChevronDown style={{ fontSize: "22px" }} />
+                </i>
+              </h4>
+              <ul className="footerbox">
+                {speciality &&
+                  speciality.map((e) => (
+                    <li key={e.id}>
+                      <a href="#" target="_self">
+                        {e.menu_name}
+                      </a>
+                    </li>
+                  ))}
               </ul>
             </div>
             <div className="footer-navbox">

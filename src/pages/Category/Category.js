@@ -104,11 +104,7 @@ const Category = () => {
           <div className="category-slidertext">
             <h1>{info.name}</h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed do
-              eiusmod tempor incididunt ut labore consectetur ipsum dolor sit
-              amet, consectetur elit, sed do eiusmod tempor incidid Lorem ipsum
-              dolor sit amet adipiscin elit, sed do eiusmod tempor lorem ipsum
-              dolor amet, consectetur adipiscin elit, sed
+             {info.short_description}
             </p>
           </div>
         </section>
@@ -136,21 +132,10 @@ const Category = () => {
         <section id="category-mid">
           <div className="midbox-inner  wiki-mk">
             <h2>
-              Lorem ipsum adipscing <span>dolor</span>
+              {info.menu_name}
             </h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo
-              orem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo
-              orem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo
-              orem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis
-              nostrud exercitation
+              {info.quote}
             </p>
             <a href="#">
               {" "}
