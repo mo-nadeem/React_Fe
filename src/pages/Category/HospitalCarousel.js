@@ -2,6 +2,7 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import arrowImg from "../../assests/images/2023/01/arrow-c.png";
+import { Link } from "react-router-dom";
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -43,7 +44,7 @@ const HospitalCarousel = ({ hospital }) => {
                     key={e.id}
                   >
                     <div className="hospitals-item">
-                      <img src={`${process.env.REACT_APP_BASE_URL}/hospital/${e.icon}`} alt={e.slug} />
+                      <img src={`${process.env.REACT_APP_BASE_URL}/hospital/${e.home_image}`} alt={e.slug} />
                     </div>
                     <div className="hospitals-text">
                       <h3>{e.name}</h3>
@@ -54,10 +55,10 @@ const HospitalCarousel = ({ hospital }) => {
                           __html: e.short_description,
                         }}
                       /> */}
-                      <a href="#" className="contact-now">
+                      <Link to="/#" className="contact-now">
                         Contact Now{" "}
                         <img src={arrowImg} alt="" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 ))}

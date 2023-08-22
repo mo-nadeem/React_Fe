@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import Homelayout from "../../components/Homelayout/Homelayout";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -24,6 +24,19 @@ const BlogDetails = () => {
       });
   }, [slug]);
 
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
+  const transplantNav1Ref = useRef(null);
+  const transplantNav2Ref = useRef(null);
+
   return (
     <>
       <Homelayout>
@@ -32,10 +45,10 @@ const BlogDetails = () => {
             src={`${process.env.REACT_APP_BASE_URL}/blog/${blogDetails.image}`}
             alt="Category"
           />
-          <div className="blog-slidertext">                                                                                                               
+          <div className="blog-slidertext">
             <h1>{blogDetails.name}</h1>
             <div className="blog-datebox">
-              <div className="by-box"> 
+              <div className="by-box">
                 <img src={icon1} alt="icon-blog" /> By - Lilly Williams
               </div>
               <div className="updated-box">
@@ -52,44 +65,86 @@ const BlogDetails = () => {
                 <div className="blog-nav">
                   <h3>Table of Content</h3>
                   <ul>
-                    <li>
-                      <a href="#blog-nav1" target="_self" className="active">
-                        Lorem Ipsum dolor sit amet aliqua id fugiat irure duis
-                        ex
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#blog-nav2" target="_self">
-                        Lorem Ipsum dolor sit amet aliqua
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#blog-nav3" target="_self">
-                        Lorem Ipsum dolor sit amet aliqua id fugiat irure duis
-                        ex
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#blog-nav4" target="_self">
-                        Lorem Ipsum dolor sit
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#blog-nav7" target="_self">
-                        Lorem Ipsum dolor sit amet{" "}
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#blog-nav8" target="_self">
-                        Lorem Ipsum dolor sit amet aliqua id fugiat irure duis
-                        ex
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#blog-nav9" target="_self">
-                        Lorem Ipsum dolor sit amet{" "}
-                      </a>
-                    </li>
+                    {blogDetails.heading1 && (
+                      <li>
+                        <a
+                          onClick={() => transplantNav1Ref.current.scrollIntoView({ behavior: 'smooth' })}
+                          className="active"
+                        >
+                          {blogDetails.heading1}
+                        </a>
+                      </li>
+                    )}
+                    {blogDetails.heading2 && (
+                      <li>
+                        <a
+                          onClick={() => scrollToSection("transplant-nav2")}
+                          target="_self"
+                        >
+                          {blogDetails.heading2}
+                        </a>
+                      </li>
+                    )}
+                    {blogDetails.heading3 && (
+                      <li>
+                        <a
+                          onClick={() => scrollToSection("transplant-nav3")}
+                          target="_self"
+                        >
+                          {blogDetails.heading3}
+                        </a>
+                      </li>
+                    )}
+                    {blogDetails.heading4 && (
+                      <li>
+                        <a
+                          onClick={() => scrollToSection("transplant-nav4")}
+                          target="_self"
+                        >
+                          {blogDetails.heading4}
+                        </a>
+                      </li>
+                    )}
+                    {blogDetails.heading5 && (
+                      <li>
+                        <a
+                          onClick={() => scrollToSection("transplant-nav5")}
+                          target="_self"
+                        >
+                          {blogDetails.heading5}
+                        </a>
+                      </li>
+                    )}
+                    {blogDetails.heading6 && (
+                      <li>
+                        <a
+                          onClick={() => scrollToSection("transplant-nav6")}
+                          target="_self"
+                        >
+                          {blogDetails.heading6}
+                        </a>
+                      </li>
+                    )}
+                    {blogDetails.heading7 && (
+                      <li>
+                        <a
+                          onClick={() => scrollToSection("transplant-nav7")}
+                          target="_self"
+                        >
+                          {blogDetails.heading7}
+                        </a>
+                      </li>
+                    )}
+                    {blogDetails.heading8 && (
+                      <li>
+                        <a
+                          onClick={() => scrollToSection("transplant-nav8")}
+                          target="_self"
+                        >
+                          {blogDetails.heading8}
+                        </a>
+                      </li>
+                    )}
                   </ul>
                 </div>
 
@@ -120,18 +175,73 @@ const BlogDetails = () => {
                 </div>
               </div>
 
-              <div className="blog-midbox">
-                <p>
-                  Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
-                  Sunt qui esse pariatur duis deserunt mollit dolore cillum
-                  minim tempor enim. Elit aute irure tempor cupidatat incididunt
-                  sint deserunt ut voluptate aute id deserunt nisi. Nulla Lorem
-                  mollit cupidatat irure.{" "}
-                  <strong>Laborum magna nulla duis</strong> ullamco cillum
-                  dolor. Voluptate exercitation incididunt aliquip deserunt.
-                </p>
+              <div className="treatment-midbox">
+                <div className="heading1" id="transplant-nav1"  ref={transplantNav1Ref}>
+                  <h2>{blogDetails.heading1}</h2>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: blogDetails && blogDetails.long_description,
+                    }}
+                  />
+                </div>
+                <div className="heading2" id="transplant-nav2">
+                  <h2>{blogDetails.heading2}</h2>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: blogDetails && blogDetails.long_description2,
+                    }}
+                  />
+                </div>
+                <div className="heading3" id="transplant-nav3">
+                  <h2>{blogDetails.heading3}</h2>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: blogDetails && blogDetails.long_description3,
+                    }}
+                  />
+                </div>
+                <div className="heading4" id="transplant-nav4">
+                  <h2>{blogDetails.heading4}</h2>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: blogDetails && blogDetails.long_description4,
+                    }}
+                  />
+                </div>
+                <div className="heading5" id="transplant-nav5">
+                  <h2>{blogDetails.heading5}</h2>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: blogDetails && blogDetails.long_description5,
+                    }}
+                  />
+                </div>
+                <div className="heading6" id="transplant-nav6">
+                  <h2>{blogDetails.heading6}</h2>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: blogDetails && blogDetails.long_description6,
+                    }}
+                  />
+                </div>
+                <div className="heading7" id="transplant-nav6">
+                  <h2>{blogDetails.heading7}</h2>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: blogDetails && blogDetails.long_description7,
+                    }}
+                  />
+                </div>
+                <div className="heading8" id="transplant-nav8">
+                  <h2>{blogDetails.heading8}</h2>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: blogDetails && blogDetails.long_description8,
+                    }}
+                  />
+                </div>
 
-                <p>
+                {/* <p>
                   Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
                   Sunt qui esse pariatur duis deserunt mollit dolore cillum
                   minim tempor enim. Elit aute irure tempor cupidatat incididunt
@@ -200,7 +310,7 @@ const BlogDetails = () => {
                   <strong>Nulla Lorem mollit cupidatat irure.</strong> Laborum
                   magna nulla duis ullamco cillum dolor. Voluptate exercitation
                   incididunt aliquip deserunt.
-                </p>
+                </p> */}
               </div>
 
               <div className="blog-rightbox">

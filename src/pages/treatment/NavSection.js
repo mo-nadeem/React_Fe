@@ -3,7 +3,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import arrowIcon from "../../assests/images/2023/01/arrow-c.png";
 import consultentImg from "../../assests/images/03/free-consultation.jpg";
-import bg1 from "../../assests/images/03/bg1.jpg";
 import learnMore from "../../assests/images/2023/01/learn-more.png";
 import treatmentImg from "../../assests/images/03/treatment-form.jpg";
 import icon1 from "../../assests/images/03/02/1.png";

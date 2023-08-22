@@ -5,6 +5,8 @@ import Category from "./pages/Category/Category";
 import Treatment from "./pages/treatment/Treatment";
 import BlogDetails from "./pages/blog/BlogDetails";
 import BlogList from "./pages/blogList/BlogList";
+import DoctorProfile from "./pages/doctorProfile/DoctorProfile";
+import HospitalProfile from "./pages/hospitalProfile/HospitalProfile";
 
 const ScrollToTop = () => {
   const location = useLocation();
@@ -25,6 +27,8 @@ function App() {
         <Route path="/treatment/:slug/:country" element={<Treatment />}></Route>
         <Route path="/blog/:slug" element={<BlogDetails />}></Route>
         <Route path="/blogs" element={<BlogList />}></Route>
+        <Route path="/doctor-profile" element={<DoctorProfile />}></Route>
+        <Route path="/hospital-profile" element={<HospitalProfile />}></Route>
       </Routes>
     </>
   );

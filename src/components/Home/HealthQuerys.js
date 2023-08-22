@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback,useState } from "react";
 import $ from "jquery";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchHome } from "../../Api/action/HomeAction";
@@ -9,6 +9,7 @@ import img1 from "../../assests/images/2023/01/home-icon1.png";
 import img2 from "../../assests/images/2023/01/home-icon2.png";
 import img3 from "../../assests/images/2023/01/home-icon2.png";
 import formDoctorImg from "../../assests/images/2023/01/home-q.jpg";
+import axios from "axios";
 
 const HealthQuerys = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,59 @@ const HealthQuerys = () => {
     fetchHomedata();
   }, [fetchHomedata]);
   const limitedData = qa?.slice(0, 4) ?? [];
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [age, setAge] = useState("");
+  const [gender, setGender] = useState("");
+  const [query, setQuery] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleAgeChange = (e) => {
+    // Get the input value from the event
+    const inputValue = e.target.value;
+
+    // If the input value is empty or is a number with up to 3 digits, update the state
+    if (inputValue === "" || /^\d{0,2}$/.test(inputValue)) {
+      setAge(inputValue);
+    }
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    const fullName = `${firstName} ${lastName}`;
+    // Create the data object to be sent in the API request
+    const data = {
+      pname: fullName,
+
+      age: age,
+      gender: gender,
+      askq: query,
+    };
+
+    // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
+    const apiEndpoint = `${process.env.REACT_APP_BASE_URL}/api/askPost`;
+
+    setIsLoading(true);
+
+    // Make the API call
+    axios
+      .post(apiEndpoint, data)
+      .then((response) => {
+        // Handle the API response here if needed
+        console.log(response);
+        alert("questions is susscefull submitted")
+      })
+      .catch((error) => {
+        // Handle any errors that occurred during the API call
+        console.error("Error:", error);
+      })
+      .finally(() => {
+        // Set loading back to false after the API call is complete
+        setIsLoading(false);
+      });
+  };
 
   // for animation
   useEffect(() => {

@@ -4,6 +4,7 @@ import "react-multi-carousel/lib/styles.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchHome } from "../../Api/action/HomeAction";
+import arrowIcon from "../../assests/images/2023/01/pack-arrow.png";
 import axios from "axios";
 const responsive = {
   superLargeDesktop: {
@@ -136,7 +137,10 @@ const HealthPackage = () => {
                         key={items.id}
                       >
                         <div className="packages-item">
-                          <img src="images/2023/01/07/01/1.jpg" />
+                          <img
+                            src="images/2023/01/07/01/1.jpg"
+                            alt="tratment-pic"
+                          />
                           <div className="packages-text">
                             <div className="pack-cost">
                               <div className="pack-name">{items.name}</div>
@@ -147,9 +151,9 @@ const HealthPackage = () => {
                             </div>
                             <Link to="/">
                               <img
-                                src="images/2023/01/pack-arrow.png"
+                                src={arrowIcon}
                                 className="arrow-link"
-                                alt=""
+                                alt="rrow"
                               />
                             </Link>
                           </div>
