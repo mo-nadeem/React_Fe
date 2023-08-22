@@ -17,7 +17,8 @@ const ExplorHealth = () => {
   useEffect(() => {
     fetchHomedata();
   }, [fetchHomedata]);
-  const [activeTab, setActiveTab] = useState(); // Initial active tab
+
+  const [activeTab, setActiveTab] = useState(1); // Initial active tab
 
   const handleTabChange = (tabId) => {
     setActiveTab(tabId);
@@ -38,6 +39,7 @@ const ExplorHealth = () => {
                       activeTab === e.id ? "active" : ""
                     }`}
                     onMouseOver={() => handleTabChange(e.id)}
+                    key={e.id}
                   >
                     {e.name}
                     <img

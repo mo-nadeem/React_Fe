@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchHome } from "../../Api/action/HomeAction";
+import axios from "axios";
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -23,29 +26,62 @@ const responsive = {
 };
 
 const HealthPackage = () => {
-  const [activePackage, setActivePackage] = useState("packages1"); // Initial active package category
+  const dispatch = useDispatch();
+
+  const { speciality } = useSelector((state) => state.data);
+
+  const fetchHomedata = useCallback(() => {
+    dispatch(fetchHome());
+  }, [dispatch]);
+
+  useEffect(() => {
+    fetchHomedata();
+  }, [fetchHomedata]);
+
+  const [activePackage, setActivePackage] = useState(); // Initial active package category
 
   const handlePackageClick = (packageId) => {
     setActivePackage(packageId);
   };
+  const [details, setDetails] = useState([]);
+
+  useEffect(() => {
+    if (activePackage) {
+      // Fetch the details data based on the activePackage ID
+      axios
+        .get(
+          `${process.env.REACT_APP_BASE_URL}/api/speciality/${activePackage}`
+        )
+        .then((response) => {
+          setDetails(response.data.data.treatment_list);
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching details data:", error);
+        });
+    }
+  }, [activePackage]);
   return (
     <>
       <section id="health-packages">
         <div className="midbox-inner  wiki-mk">
-          <h2>Treatment Packages</h2>
+          <h2>Treatment</h2>
 
           <div className="health-tab">
-            <button
-              className={`packageslinks ${
-                activePackage === "packages1" ? "active" : ""
-              }`}
-              onClick={() => handlePackageClick("packages1")}
-              id="defaultOpen"
-            >
-              {" "}
-              Cancer{" "}
-            </button>
-            <button
+            {speciality &&
+              speciality.map((e) => (
+                <button
+                  className={`packageslinks ${
+                    activePackage === e.slug ? "active" : ""
+                  }`}
+                  onClick={() => handlePackageClick(e.slug)}
+                  id={e.id}
+                  key={e.id}
+                >
+                  {e.name}
+                </button>
+              ))}
+            {/* <button
               className={`packageslinks ${
                 activePackage === "packages2" ? "active" : ""
               }`}
@@ -71,51 +107,57 @@ const HealthPackage = () => {
             >
               {" "}
               Neuromodulation{" "}
-            </button>
+            </button> */}
           </div>
-
-          <div
-            id="packages1"
-            className={`packagesbox ${
-              activePackage === "packages1" ? "active" : ""
-            }`}
-            style={{
-              display: activePackage === "packages1" ? "block" : "none",
-            }}
-          >
-            <div className="owl-slider">
-              <div id="packages-1" className="owl-carousel">
-                <Carousel
-                  responsive={responsive}
-                  arrows={false}
-                  infinite={true}
-                  autoPlay={true}
-                  autoPlaySpeed={2000}
-                >
-                  <div className="item" style={{ marginRight: "20px" }}>
-                    <div className="packages-item">
-                      <img src="images/2023/01/07/01/1.jpg" />
-                      <div className="packages-text">
-                        <div className="pack-cost">
-                          <div className="pack-name">Breast Cancer </div>
-                          <div className="cost">$4000</div>
+          {speciality.map((e) => (
+            <div
+              key={e.id}
+              id={e.id}
+              className={`packagesbox ${
+                activePackage === e.slug ? "active" : ""
+              }`}
+              style={{
+                display: activePackage === e.slug ? "block" : "none",
+              }}
+            >
+              <div className="owl-slider">
+                <div id="packages-1" className="owl-carousel">
+                  <Carousel
+                    responsive={responsive}
+                    arrows={false}
+                    infinite={true}
+                    autoPlay={true}
+                    autoPlaySpeed={2000}
+                  >
+                    {details.map((items) => (
+                      <div
+                        className="item"
+                        style={{ marginRight: "20px" }}
+                        key={items.id}
+                      >
+                        <div className="packages-item">
+                          <img src="images/2023/01/07/01/1.jpg" />
+                          <div className="packages-text">
+                            <div className="pack-cost">
+                              <div className="pack-name">{items.name}</div>
+                              <div className="cost">$ {items.price}</div>
+                            </div>
+                            <div className="packages-details">
+                              {items.short_description}
+                            </div>
+                            <Link to="/">
+                              <img
+                                src="images/2023/01/pack-arrow.png"
+                                className="arrow-link"
+                                alt=""
+                              />
+                            </Link>
+                          </div>
                         </div>
-                        <div className="packages-details">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore
-                        </div>
-                        <Link to="/">
-                          <img
-                            src="images/2023/01/pack-arrow.png"
-                            className="arrow-link"
-                            alt=""
-                          />
-                        </Link>
                       </div>
-                    </div>
-                  </div>
+                    ))}
 
-                  <div className="item" style={{ marginRight: "20px" }}>
+                    {/* <div className="item" style={{ marginRight: "20px" }}>
                     <div className="packages-item">
                       <img src="images/2023/01/07/01/2.jpg" />
                       <div className="packages-text">
@@ -182,12 +224,13 @@ const HealthPackage = () => {
                         </Link>
                       </div>
                     </div>
-                  </div>
-                </Carousel>
+                  </div> */}
+                  </Carousel>
+                </div>
               </div>
             </div>
-          </div>
-
+          ))}
+          {/* 
           <div
             id="packages2"
             className={`packagesbox ${
@@ -206,7 +249,9 @@ const HealthPackage = () => {
                   autoPlay={true}
                   autoPlaySpeed={2000}
                 >
-                  <div className="item" style={{ marginRight: "20px" }}>
+                  <div  className={`packagesbox ${
+              activePackage === "packages2" ? "active" : ""
+            }`} style={{ marginRight: "20px" }}>
                     <div className="packages-item">
                       <img src="images/2023/01/07/02/1.jpg" />
                       <div className="packages-text">
@@ -528,7 +573,7 @@ const HealthPackage = () => {
                 </Carousel>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
     </>

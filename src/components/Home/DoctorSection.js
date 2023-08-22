@@ -60,7 +60,7 @@ const DoctorSection = () => {
                   >
                     <div className="doctors-item">
                       <img
-                        src={`${process.env.REACT_APP_BASE_URL}/doctor/${e.image}`}
+                        src={`${process.env.REACT_APP_BASE_URL}/doctor/${e.icon}`}
                         alt={e.slug}
                       />
                     </div>

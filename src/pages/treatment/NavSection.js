@@ -766,7 +766,7 @@ const NavSection = ({ doctor, hospital, info }) => {
                         >
                           <div className="hospitals-treatment">
                             <img
-                              src={`${process.env.REACT_APP_BASE_URL}/hospital/${e.icon}`}
+                              src={`${process.env.REACT_APP_BASE_URL}/hospital/${e.home_image}`}
                               alt={e.slug}
                             />
                             <div className="hospitals-treat">
