@@ -7,11 +7,12 @@ const Section3 = () => {
       <section id="homemid-section">
         <div className="midbox-inner wiki-mk">
           <h2>
-            Lorem Ipsum dolor sit velit dolor <span>consect</span>
+            {/* Lorem Ipsum dolor sit velit dolor <span>consect</span> */}
+            With you, when you need us the most!
           </h2>
           <p>
-            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-            consectetur
+            Providing you with every ounce of authentic health information when
+            you need it the most.
           </p>
         </div>
       </section>
@@ -21,10 +22,9 @@ const Section3 = () => {
             <div className="healthcare-text">
               <h2>Answers</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo con Duis aute irure
+                Empower your health journey with expert guidance! Engage with
+                best doctors, ask questions and get all your queries sorted to
+                make an informed decision
               </p>
               <Link className="learn-more" to="/">
                 Learn More <img src="images/2023/01/learn-more.png" />
@@ -39,10 +39,9 @@ const Section3 = () => {
             <div className="healthcare-text">
               <h2>Affordable</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo con Duis aute irure
+                Get high-quality healthcare facilities without worrying about
+                the cost. Connect with best doctors and top hospitals in India
+                for a treatment plan that fit your health needs and budget.
               </p>
               <Link className="learn-more" to="/">
                 Learn More <img src="images/2023/01/learn-more.png" />
@@ -60,10 +59,9 @@ const Section3 = () => {
             <div className="healthcare-text">
               <h2>Treatment</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo con Duis aute irure
+                Connect with the best doctors, hospitals in India for a
+                comprehensive and personalized treatment plan to ensure the best
+                recovery for you and your loved ones.
               </p>
               <Link className="learn-more" to="/">
                 Learn More <img src="images/2023/01/learn-more.png" />
@@ -84,10 +82,9 @@ const Section3 = () => {
             <div className="healthcare-text">
               <h2>Contact</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo con Duis aute irure
+                Count on us for expert health guidance. You are just a step away
+                from starting your journey to better health. Get in touch to
+                find expert care at affordable prices.
               </p>
               <Link className="learn-more" to="/">
                 Learn More <img src="images/2023/01/learn-more.png" />
@@ -105,10 +102,11 @@ const Section3 = () => {
             <div className="healthcare-text">
               <h2>Community</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo con Duis aute irure
+                Medflick is your Health Hub where you can get answers to all
+                your health-related queries in one place. Just one step away
+                from finding the solutions you need! Know about shared
+                experiences, join the community, ask questions, get answers and
+                make your informed health decisions.
               </p>
               <Link className="learn-more" to="/">
                 Learn More <img src="images/2023/01/learn-more.png" />

@@ -7,6 +7,7 @@ import BlogDetails from "./pages/blog/BlogDetails";
 import BlogList from "./pages/blogList/BlogList";
 import DoctorProfile from "./pages/doctorProfile/DoctorProfile";
 import HospitalProfile from "./pages/hospitalProfile/HospitalProfile";
+import DoctorList from "./pages/doctorList/DoctorList";
 
 const ScrollToTop = () => {
   const location = useLocation();
@@ -29,6 +30,7 @@ function App() {
         <Route path="/blogs" element={<BlogList />}></Route>
         <Route path="/doctor-profile" element={<DoctorProfile />}></Route>
         <Route path="/hospital-profile" element={<HospitalProfile />}></Route>
+        <Route path="/doctors" element={<DoctorList />}></Route>
       </Routes>
     </>
   );

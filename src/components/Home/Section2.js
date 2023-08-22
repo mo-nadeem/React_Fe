@@ -11,21 +11,27 @@ const Section2 = () => {
                 <img src="images/2023/01/01/compass.png" alt="" />
                 <h3>Explore</h3>
                 <p>
-                  Find & Research top hospitals and doctors by location and
-                  budget
+                  Expand your horizon and explore the best hospitals, top
+                  doctors and treatments based on your preferred location and
+                  budget considerations in India.
                 </p>
               </li>
               <li>
                 <img src="images/2023/01/01/positive-review.png" alt="" />
                 <h3>Read Reviews</h3>
-                <p>Explore feedback and experiences of other patients</p>
+                <p>
+                  Go through testimonials & experiences of other patients to
+                  gain a more comprehensive understanding and be confident about
+                  your treatment.
+                </p>
               </li>
               <li>
                 <img src="images/2023/01/01/to-do-list.png" alt="" />
                 <h3>Prepare</h3>
                 <p>
-                  Learn what you need to know about your treatment and which
-                  questions to ask your doctor.
+                  Get ready and feel confident about your treatment! Watch
+                  expert videos and helpful content created by experts just for
+                  you.
                 </p>
               </li>
               <li>

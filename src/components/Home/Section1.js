@@ -27,10 +27,10 @@ const Section1 = () => {
           </video>
 
           <div className="ababslider-text">
-            <h1 className="cs-heading"> Expert Healthcare </h1>
+            <h1 className="cs-heading"> Watch, Learn & Choose wisely </h1>
             <h2 className="cs-heading1">
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo con
+              Empowering Health through Video Learning: Your Path to Informed
+              Choices. Trusted health information when you need it most.
             </h2>
             <div className="home-topnav">
               <Link to="/" className="home-nav-left">

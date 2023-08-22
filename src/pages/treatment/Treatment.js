@@ -267,11 +267,7 @@ const Treatment = () => {
           <div className="midbox-inner  wiki-mk">
             <h2>{info && info.menu_name}</h2>
 
-            <div
-              dangerouslySetInnerHTML={{
-                __html: info && info.short_description,
-              }}
-            />
+           
 
             <div className="owl-slider">
               <div id="city-list">
