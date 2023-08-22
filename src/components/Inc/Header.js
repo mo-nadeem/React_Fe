@@ -126,11 +126,11 @@ const Header = () => {
                         {treatment &&
                           treatment.map((e) => (
                             <li key={e.id}>
-                              <a href="#">
+                              <Link  to={`/doctors/${e.slug}/${e.country}`}>
                                 <img src={navIcon} alt="Brand Logo" />
                                 {e.name} Doctors
                                 <span>Medflick</span>
-                              </a>
+                              </Link>
                             </li>
                           ))}
                       </ul>

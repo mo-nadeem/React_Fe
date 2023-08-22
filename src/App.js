@@ -29,9 +29,9 @@ function App() {
         <Route path="/treatment/:slug/:country" element={<Treatment />}></Route>
         <Route path="/blog/:slug" element={<BlogDetails />}></Route>
         <Route path="/blogs" element={<BlogList />}></Route>
-        <Route path="/doctor-profile" element={<DoctorProfile />}></Route>
+        <Route path="/doctor/:slug" element={<DoctorProfile />}></Route>
         <Route path="/hospital-profile" element={<HospitalProfile />}></Route>
-        <Route path="/doctors" element={<DoctorList />}></Route>
+        <Route path="/doctors/:slug/:country" element={<DoctorList />}></Route>
         <Route path="/hospitals" element={<HospitalList />}></Route>
       </Routes>
     </>
