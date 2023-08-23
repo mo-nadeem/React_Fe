@@ -48,7 +48,7 @@ const HospitalList = () => {
     { value: "cherry", label: "Cherry" },
     { value: "date", label: "Date" },
     { value: "elderberry", label: "Elderberry" },
-    // Add more options as needed
+
   ];
 
   const [selectedOption, setSelectedOption] = useState(null);

@@ -526,13 +526,13 @@ section {
   display: block;
 }
 .ababslider-text .cs-heading {
-  font-size: 85px;
+  font-size: 76px;
+  line-height: 76px;
   color: #fff;
   text-align: left;
   padding-bottom: 10px;
   font-family: Helvetica Neu Bold;
   z-index: 1;
-  font-weight: bold;
   position: relative;
   display: block;
   letter-spacing: 0px;

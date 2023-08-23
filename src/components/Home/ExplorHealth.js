@@ -38,18 +38,19 @@ const ExplorHealth = () => {
             <h4>Treatments</h4>
 
             <div className="tab">
-              {speciality && speciality.map((filteredSpecialities) => (
-                <button
-                  className={`tablinks ${
-                    activeTab === filteredSpecialities.id ? "active" : ""
-                  }`}
-                  onMouseOver={() => handleTabChange(filteredSpecialities.id)}
-                  key={filteredSpecialities.id}
-                >
-                  {filteredSpecialities.name}
-                  <img src={arrowImg} alt="Arrow" />
-                </button>
-              ))}
+              {speciality &&
+                speciality.map((filteredSpecialities) => (
+                  <button
+                    className={`tablinks ${
+                      activeTab === filteredSpecialities.id ? "active" : ""
+                    }`}
+                    onMouseOver={() => handleTabChange(filteredSpecialities.id)}
+                    key={filteredSpecialities.id}
+                  >
+                    {filteredSpecialities.name}
+                    <img src={arrowImg} alt="Arrow" />
+                  </button>
+                ))}
 
               {/* <button
                 className={`tablinks ${activeTab === "wiki-2" ? "active" : ""}`}

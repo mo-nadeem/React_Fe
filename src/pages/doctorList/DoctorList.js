@@ -7,6 +7,8 @@ import profileIcon from "../../assests/images/05/profile.png";
 import shareIcon from "../../assests/images/05/share-profile.png";
 import hospitalImg from "../../assests/images/05/02/1.png";
 import { Link } from "react-router-dom";
+import Select from "react-select";
+import loadingImg from "../../assests/images/05/loading.png";
 
 const DoctorList = () => {
   const { slug, country } = useParams();
@@ -23,6 +25,25 @@ const DoctorList = () => {
         console.error("Error fetching data:", error);
       });
   }, [slug, country]);
+
+  const options = [
+    { value: "apple", label: "Apple" },
+    { value: "banana", label: "Banana" },
+    { value: "cherry", label: "Cherry" },
+    { value: "date", label: "Date" },
+    { value: "elderberry", label: "Elderberry" },
+  ];
+
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleSelectChange = (selectedOption) => {
+    setSelectedOption(selectedOption);
+  };
+
+  const handleClearSelection = () => {
+    setSelectedOption(null); // Clear the selected option
+  };
+
   return (
     <>
       <Homelayout>
@@ -63,33 +84,67 @@ const DoctorList = () => {
             </h2>
             <div class="doctors-list-find">
               <div class="ding">
-                <div className="ss-main">
-                  <select id="wiki">
+                <Select
+                  id="wiki"
+                  value={selectedOption}
+                  onChange={handleSelectChange}
+                  options={options}
+                  isSearchable={true} // Enables search
+                  placeholder=" Location"
+                  maxMenuHeight={150}
+                />
+                {/* <select id="wiki">
                     <option value="none" selected>
                       Delhi
                     </option>
-                  </select>
-                </div>
+                  </select> */}
               </div>
               <div class="ding">
-                <select id="wiki1">
+                <Select
+                  id="wiki"
+                  value={selectedOption}
+                  onChange={handleSelectChange}
+                  options={options}
+                  isSearchable={true} // Enables search
+                  placeholder="Gender"
+                  maxMenuHeight={150}
+                />
+                {/* <select id="wiki1">
                   <option value="none" selected>
                     Gender
                   </option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                   <option value="other">other</option>
-                </select>
+                </select> */}
               </div>
               <div class="ding">
-                <select id="wiki2">
+                <Select
+                  id="wiki"
+                  value={selectedOption}
+                  onChange={handleSelectChange}
+                  options={options}
+                  isSearchable={true} // Enables search
+                  placeholder="Rating"
+                  maxMenuHeight={150}
+                />
+                {/* <select id="wiki2">
                   <option value="none" selected>
                     Rating
                   </option>
-                </select>
+                </select> */}
               </div>
               <div class="ding">
-                <select id="wiki3">
+                <Select
+                  id="wiki"
+                  value={selectedOption}
+                  onChange={handleSelectChange}
+                  options={options}
+                  isSearchable={true} // Enables search
+                  placeholder="Experience"
+                  maxMenuHeight={150}
+                />
+                {/* <select id="wiki3">
                   <option value="none" selected>
                     Experience
                   </option>
@@ -98,20 +153,29 @@ const DoctorList = () => {
                   <option value="">15 Year's</option>
                   <option value="">20 Year's</option>
                   <option value="">20 Year's</option>
-                </select>
+                </select> */}
               </div>
               <div class="ding">
-                <select id="wiki4">
+                <Select
+                  id="wiki"
+                  value={selectedOption}
+                  onChange={handleSelectChange}
+                  options={options}
+                  isSearchable={true} // Enables search
+                  placeholder="Hospital"
+                  maxMenuHeight={150}
+                />
+                {/* <select id="wiki4">
                   <option value="none" selected>
                     Hospital
                   </option>
-                </select>
+                </select> */}
               </div>
 
               <div class="refresh-box">
-                <a href="#">
-                  <img src="images/2023/05/loading.png" />
-                </a>
+                <span onClick={handleClearSelection}>
+                  <img src={loadingImg} alt="icon" />
+                </span>
               </div>
             </div>
 
