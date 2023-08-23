@@ -44,7 +44,10 @@ const HospitalCarousel = ({ hospital }) => {
                     key={e.id}
                   >
                     <div className="hospitals-item">
-                      <img src={`${process.env.REACT_APP_BASE_URL}/hospital/${e.home_image}`} alt={e.slug} />
+                      <img
+                        src={`${process.env.REACT_APP_BASE_URL}/hospital/${e.home_image}`}
+                        alt={e.slug}
+                      />
                     </div>
                     <div className="hospitals-text">
                       <h3>{e.name}</h3>
@@ -56,8 +59,7 @@ const HospitalCarousel = ({ hospital }) => {
                         }}
                       /> */}
                       <Link to="/#" className="contact-now">
-                        Contact Now{" "}
-                        <img src={arrowImg} alt="" />
+                        Contact Now <img src={arrowImg} alt="" />
                       </Link>
                     </div>
                   </div>
@@ -120,14 +122,12 @@ const HospitalCarousel = ({ hospital }) => {
     <>
       <section id="hospitals-section">
         <div className="midbox-inner  wiki-mk">
-          <h2>
-            Hospitals lorem ipsum <span>dolor</span>
-          </h2>
+          <h2>Browse Medflick Assured Hospital Directory</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis
-            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            con Duis aute irure
+            Discover our comprehensive hospital listings. From cutting-edge
+            technology and infrastructure to globally acclaimed medical experts,
+            we're committed to assist you in finding the right healthcare
+            options for your health needs.
           </p>
           {hospitalSection}
         </div>

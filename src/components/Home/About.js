@@ -30,14 +30,15 @@ const About = () => {
           <div className="homeabout-box">
             <div className="homeabout-left">
               <h2>
-                We push the limits of what's possible for{" "}
-                <span>our patients</span>
+                Your Health,
+                <span>our Purpose</span>
               </h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commo
+                From diagnosis to recovery, our commitment is to provide you
+                with the highest level of care. Welcome to Medflick, where your
+                health comes first. Our approach is built on four pillars -
+                Commitment, Trust, Excellence, and Quality Standards, that drive
+                us to exceed boundaries for your well-being.
               </p>
               <Link to="/">
                 {" "}

@@ -96,13 +96,13 @@ const DoctorSection = () => {
       <section id="doctors-section">
         <div className="midbox-inner  wiki-mk">
           <h2>
-            Doctors lorem ipsum <span>dolor</span>
+            Expertise You Can
+            <span>Trust</span>
           </h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis
-            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            con Duis aute irure
+            Get connected to India's best doctors/ surgeons from top hospitals.
+            Find trusted medical expertise & reliable knowledge tailored to your
+            needs at one place.
           </p>
           {doctorSection}
         </div>

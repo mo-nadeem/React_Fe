@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback,useState } from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import $ from "jquery";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchHome } from "../../Api/action/HomeAction";
@@ -66,7 +66,7 @@ const HealthQuerys = () => {
       .then((response) => {
         // Handle the API response here if needed
         console.log(response);
-        alert("questions is susscefull submitted")
+        alert("questions is susscefull submitted");
       })
       .catch((error) => {
         // Handle any errors that occurred during the API call
@@ -119,11 +119,11 @@ const HealthQuerys = () => {
         <div className="midbox-inner  wiki-mk">
           <div className="queries-head">
             <div className="querieshead-left">
-              <h2>Get answers to Health Queries</h2>
+              <h2>Get answers to your health queries.</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip
+                Timely Information for Informed Choices. Ask health questions,
+                receive expert answers. Empowering you with the insights to make
+                informed health decisions.
               </p>
             </div>
             <div className="querieshead-right">
@@ -154,12 +154,11 @@ const HealthQuerys = () => {
           </div>
 
           <div className="question-opinion">
-            <h2>Have any questions? </h2>
+            <h2>Have any health queries? </h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              con
+              Engage with our experts. Ask a query and get valuable insights to
+              guide your health decisions. Your questions will be answered with
+              care and expertise.
             </p>
           </div>
 
@@ -179,19 +178,15 @@ const HealthQuerys = () => {
                 </div>
 
                 <div className="inputbox1">
-                    <label>Gender</label>
-                    <select
-                      name="gender"
-               
-                      required
-                    >
-                      <option value="">Select Gender</option>
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
-                      <option value="Other">Other</option>
-                    </select>
-                  </div>
+                  <label>Gender</label>
+                  <select name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
                 </div>
+              </div>
 
               <div className="home-form">
                 <div className="homequery">

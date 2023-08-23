@@ -38,8 +38,8 @@ const Section2 = () => {
                 <img src="images/2023/01/01/medical.png" alt="" />
                 <h3>Treat</h3>
                 <p>
-                  Finalise your treatment with a hospital/ provider of your
-                  choice.
+                  Choose the right treatment, with the top hospitals and best
+                  doctors in India, to suit your specific preference and needs.
                 </p>
               </li>
             </ul>

@@ -5,11 +5,11 @@ const WorldMap = () => {
     <>
       <section id="home-contact">
         <div className="midbox-inner  wiki-mk">
-          <h2>Sorry, does all this scare you?</h2>
+          <h2>Stay Informed, Stay Healthy</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis
-            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo
+            Subscribe to our Newsletter and make your informed health decisions.
+            Get essential health insights and updates delivered straight to your
+            inbox. Join now for a healthier you
           </p>
           <a href="#">
             {" "}

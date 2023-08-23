@@ -28,11 +28,11 @@ const Testimonials = () => {
       <section id="home-testimonials">
         <div className="midbox-inner  wiki-mk">
           <h2>
-            Lorem ipsum sit elitconsec diusmod <span>Testimonials</span>
+            Real Stories, Real Impact: Voices of <span>Trust</span>
           </h2>
           <p>
-            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-            consectetur
+            Expert care that speaks for itself. Watch heartfelt stories coming
+            directly from those who've benefited from Medflick.
           </p>
 
           <div className="owl-slider">
