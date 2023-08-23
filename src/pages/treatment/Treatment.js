@@ -5,8 +5,6 @@ import "react-multi-carousel/lib/styles.css";
 import DoctorExpert from "../../components/Home/DoctorExpert";
 import NavSection from "./NavSection";
 import DayWise from "./DayWise";
-import hoemImg from "../../assests/images/03/1.jpg";
-import hoemImg2 from "../../assests/images/03/2.jpg";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import icon from "../../assests/images/03/line-icon.png";
@@ -141,9 +139,10 @@ const Treatment = () => {
 
         <section id="treatment-banner">
           <div className="treatment-bannerimg">
-            <img src={`${process.env.REACT_APP_BASE_URL}/treatments/${info.image}`} />
+            <img src={`${process.env.REACT_APP_BASE_URL}/treatments/${info.image}`} width="50%" style={{width:"50%"}}/>
+            <img src={`${process.env.REACT_APP_BASE_URL}/treatments/${info.image}`} width="50%" style={{width:"50%"}}/>
             {/* <img src={hoemImg2} /> */}
-            <img src={hoemImg2} />
+            {/* <img src={hoemImg2} /> */}
           </div>
           <div className="midbox-inner  wiki-mk">
             <div className="treatment-headbox">

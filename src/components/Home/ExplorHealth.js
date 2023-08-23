@@ -8,7 +8,7 @@ import arrowImg from "../../assests/images/2023/01/treatments-arrow.png";
 const ExplorHealth = () => {
   const dispatch = useDispatch();
 
-  const { treatment } = useSelector((state) => state.data);
+  const { speciality } = useSelector((state) => state.data);
 
   const fetchHomedata = useCallback(() => {
     dispatch(fetchHome());
@@ -18,18 +18,17 @@ const ExplorHealth = () => {
     fetchHomedata();
   }, [fetchHomedata]);
 
-  const [activeTab, setActiveTab] = useState("bone-marrow-transplant"); // Initial active tab
+  const [activeTab, setActiveTab] = useState(1); // Initial active tab
 
   const handleTabChange = (tabId) => {
     setActiveTab(tabId);
   };
 
+  // const filteredSpecialities = Array.isArray(treatment)
+  //   ? treatment.filter((speciality) => speciality.featured === "1")
+  //   : [];
 
-  const filteredSpecialities = Array.isArray(treatment)
-    ? treatment.filter((speciality) => speciality.featured === "1")
-    : [];
-
-  console.log(filteredSpecialities);
+  // console.log(filteredSpecialities);
 
   return (
     <>
@@ -39,12 +38,12 @@ const ExplorHealth = () => {
             <h4>Treatments</h4>
 
             <div className="tab">
-              {filteredSpecialities?.map((filteredSpecialities) => (
+              {speciality.map((filteredSpecialities) => (
                 <button
                   className={`tablinks ${
-                    activeTab === filteredSpecialities.slug ? "active" : ""
+                    activeTab === filteredSpecialities.id ? "active" : ""
                   }`}
-                  onMouseOver={() => handleTabChange(filteredSpecialities.slug)}
+                  onMouseOver={() => handleTabChange(filteredSpecialities.id)}
                   key={filteredSpecialities.id}
                 >
                   {filteredSpecialities.name}
@@ -117,23 +116,23 @@ const ExplorHealth = () => {
             </div> */}
 
             <div className="tab tab1">
-              {filteredSpecialities?.map((filteredSpecialities) => (
+              {speciality.map((filteredSpecialities) => (
                 <button
                   className={`tab tab1 ${
-                    activeTab === filteredSpecialities.slug ? "active" : ""
+                    activeTab === filteredSpecialities.id ? "active" : ""
                   }`}
-                  onMouseOver={() => handleTabChange(filteredSpecialities.slug)}
+                  onMouseOver={() => handleTabChange(filteredSpecialities.id)}
                 >
                   {filteredSpecialities.name}
                   <img src="images/2023/01/treatments-arrow.png" />
                 </button>
               ))}
             </div>
-            {filteredSpecialities.map((filteredSpecialities) => (
+            {speciality.map((filteredSpecialities) => (
               <div
                 id={filteredSpecialities.id}
                 className={`tabcontent ${
-                  activeTab === filteredSpecialities.slug ? "active" : ""
+                  activeTab === filteredSpecialities.id ? "active" : ""
                 }`}
                 key={filteredSpecialities.slug}
               >
@@ -143,8 +142,9 @@ const ExplorHealth = () => {
                     <h3>{filteredSpecialities.name}</h3>
                     <p>{filteredSpecialities.short_description}</p>
                     <Link className="more-img" to="/">
-                      {" "}
-                      <i className="fa fa-arrow-right"></i>{" "}
+                      <i>
+                        <BsArrowRight style={{color:"#fff"}} />
+                      </i>
                     </Link>
                   </div>
                 </div>

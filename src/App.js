@@ -30,9 +30,15 @@ function App() {
         <Route path="/blog/:slug" element={<BlogDetails />}></Route>
         <Route path="/blogs" element={<BlogList />}></Route>
         <Route path="/doctor/:slug" element={<DoctorProfile />}></Route>
-        <Route  path="/hospital/:slug/:country" element={<HospitalProfile />}></Route>
+        <Route
+          path="/hospital/:slug/:country"
+          element={<HospitalProfile />}
+        ></Route>
         <Route path="/doctors/:slug/:country" element={<DoctorList />}></Route>
-        <Route path="/hospitals/:slug/:country" element={<HospitalList />}></Route>
+        <Route
+          path="/hospitals/:slug/:country"
+          element={<HospitalList />}
+        ></Route>
       </Routes>
     </>
   );

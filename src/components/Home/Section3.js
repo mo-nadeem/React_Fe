@@ -100,13 +100,12 @@ const Section3 = () => {
 
           <div className="healthcare-box">
             <div className="healthcare-text">
-              <h2>Community</h2>
+              <h2>Find Your Community. Empower Your Knowledge.</h2>
               <p>
-                Medflick is your Health Hub where you can get answers to all
-                your health-related queries in one place. Just one step away
-                from finding the solutions you need! Know about shared
-                experiences, join the community, ask questions, get answers and
-                make your informed health decisions.
+                The world's most trusted personalized health community with more
+                than 1,00, 000 members that share their journey, experiences and
+                health insights. Join your community and get access to make
+                informed health decisions.
               </p>
               <Link className="learn-more" to="/">
                 Learn More <img src="images/2023/01/learn-more.png" />

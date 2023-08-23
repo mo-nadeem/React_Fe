@@ -12,6 +12,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import iconImg from "../../assests/images/05/loc.png";
 import { Link } from "react-router-dom";
+import Select from "react-select";
+import loadingImg from "../../assests/images/05/loading.png";
 
 const HospitalList = () => {
   const { slug, country } = useParams();
@@ -37,24 +39,26 @@ const HospitalList = () => {
       });
   }, [slug, country]);
 
-  // const images = [
-  //   {
-  //     id: 1,
-  //     src: himg1,
-  //   },
-  //   {
-  //     id: 2,
-  //     src: himg2,
-  //   },
-  //   {
-  //     id: 3,
-  //     src: himg3,
-  //   },
-  //   // Add more image objects as needed
-  // ];
+  // const handleImageClick = (imageSrc) => {
+  //   setActiveImage(imageSrc);
+  // };
+  const options = [
+    { value: "apple", label: "Apple" },
+    { value: "banana", label: "Banana" },
+    { value: "cherry", label: "Cherry" },
+    { value: "date", label: "Date" },
+    { value: "elderberry", label: "Elderberry" },
+    // Add more options as needed
+  ];
 
-  const handleImageClick = (imageSrc) => {
-    setActiveImage(imageSrc);
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleSelectChange = (selectedOption) => {
+    setSelectedOption(selectedOption);
+  };
+
+  const handleClearSelection = () => {
+    setSelectedOption(null); // Clear the selected option
   };
   return (
     <>
@@ -88,7 +92,6 @@ const HospitalList = () => {
             </div>
           </div>
         </section>
-
         <section id="find-hospital-list">
           <div class="midbox-inner  wiki-mk">
             <h2>
@@ -96,23 +99,41 @@ const HospitalList = () => {
             </h2>
             <div class="hospital-list-find">
               <div class="ding">
-                <select id="wiki">
+                <Select
+                  id="wiki"
+                  value={selectedOption}
+                  onChange={handleSelectChange}
+                  options={options}
+                  isSearchable={true} // Enables search
+                  placeholder=" Location"
+                  maxMenuHeight={150}
+                />
+                {/* <select id="wiki">
                   <option value="none" selected>
                     Location
                   </option>
-                </select>
+                </select> */}
               </div>
               <div class="ding">
-                <select id="wiki1">
+                <Select
+                  id="wiki"
+                  value={selectedOption}
+                  onChange={handleSelectChange}
+                  options={options}
+                  isSearchable={true} // Enables search
+                  placeholder=" Rating"
+                  maxMenuHeight={150}
+                />
+                {/* <select id="wiki1">
                   <option value="none" selected>
                     Gender
                   </option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                   <option value="other">other</option>
-                </select>
+                </select> */}
               </div>
-              <div class="ding">
+              {/* <div class="ding">
                 <select id="wiki2">
                   <option value="none" selected>
                     Rating
@@ -137,11 +158,11 @@ const HospitalList = () => {
                     Hospital
                   </option>
                 </select>
-              </div>
+              </div> */}
 
               <div class="refresh-box">
-                <a href="#">
-                  <img src="images/2023/05/loading.png" />
+                <a onClick={handleClearSelection} href="#">
+                  <img src={loadingImg} alt="changes" />
                 </a>
               </div>
             </div>
@@ -309,16 +330,18 @@ const HospitalList = () => {
                         <a href="#" class="book-app">
                           Book Appointment <img src={bookIcon} alt="icon" />
                         </a>
-                        <Link to={`/hospital/${hospital.slug}/${hospital.country}`} class="view-profile">
+                        <Link
+                          to={`/hospital/${hospital.slug}/${hospital.country}`}
+                          class="view-profile"
+                        >
                           View Profile <img src={profileIcon} alt="icon" />
                         </Link>
-                        <Link  class="share-profile">
+                        <Link class="share-profile">
                           Share Profile <img src={shareIcon} alt="icon" />
                         </Link>
 
                         <div class="hospital-location-box">
-                          22 W 15TH ST <br />
-                          New York, NY 10011
+                          {hospital.location}
                           <img src={iconImg} alt="icon" />
                         </div>
                       </div>

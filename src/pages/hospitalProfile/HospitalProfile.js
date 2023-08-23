@@ -351,6 +351,7 @@ const HospitalProfile = () => {
               <div class="search-doctor">
                 <div class="select-department">
                   <div class="ding">
+                    <div className=""></div>
                     <select id="wiki">
                       <option value="none" selected>
                         Search by Department

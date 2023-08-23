@@ -4977,7 +4977,7 @@ table strong {
   padding: 0 10px;
 }
 .refresh-box img {
-  width: 100%;
+  width: 43% !important;
   height: auto;
 }
 .doctor-midbox {

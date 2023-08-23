@@ -79,7 +79,7 @@ const DoctorCarousel = ({ doctor }) => {
     <>
       <section id="doctors-section">
         <div className="midbox-inner  wiki-mk">
-        <h2>
+          <h2>
             Expertise You Can
             <span>Trust</span>
           </h2>
