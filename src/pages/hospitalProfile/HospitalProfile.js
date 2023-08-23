@@ -1,7 +1,71 @@
 import React, { useState, useEffect } from "react";
 import Homelayout from "../../components/Homelayout/Homelayout";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import saveIcon from "../../assests/images/05/save.png";
+import bookIcon from "../../assests/images/05/book.png";
+import doctorIcon from "../../assests/images/05/doctors.png";
+import establishIcon from "../../assests/images/05/established.png";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import { Link } from "react-router-dom";
+
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 3,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 3,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
+
+const responsiveDoctor = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 2,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 2,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 1,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
 
 const HospitalProfile = () => {
+  const { slug, country } = useParams();
+  const [hospitalDetails, setHospitalDetails] = useState([]);
+  const [gallery, setGallery] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_BASE_URL}/api/hospital/${slug}/${country}`)
+      .then((response) => {
+        setHospitalDetails(response.data.data.hospital_info);
+        setGallery(response.data.data.hospital_gallery);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, [slug, country]);
+
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -28,11 +92,14 @@ const HospitalProfile = () => {
             <div class="hospitalprofile">
               <div class="hospitalprofile-left">
                 <div class="hospitalprofile-img">
-                  <img src="images/2023/05/02/1.png" />
+                  <img
+                    src={`${process.env.REACT_APP_BASE_URL}/hospital/${hospitalDetails.icon}`}
+                    alt={hospitalDetails.slug}
+                  />
                 </div>
                 <div class="hospitalprofile-head">
-                  <h1>Apollo Hospital</h1>
-                  <div class="location">Greams Road, Chennai</div>
+                  <h1>{hospitalDetails.name}</h1>
+                  <div class="location">{hospitalDetails.location}</div>
                 </div>
               </div>
               <div class="hospitalprofile-right">
@@ -47,22 +114,24 @@ const HospitalProfile = () => {
                 </div>
                 <div class="experience-total">
                   <div class="experience-text">
-                    <img src="images/2023/05/doctors.png" /> Doctors
+                    <img src={doctorIcon} alt="doctor-icon" /> Doctors
                   </div>
-                  <div class="experience-years">300</div>
+                  <div class="experience-years">{hospitalDetails.doc}</div>
                 </div>
                 <div class="experience-total">
                   <div class="experience-text">
-                    <img src="images/2023/05/established.png" /> Established
+                    <img src={establishIcon} alt="doctor-icon" /> Established
                   </div>
-                  <div class="experience-years">1983</div>
+                  <div class="experience-years">
+                    {hospitalDetails.established}
+                  </div>
                 </div>
                 <div class="doctor-book-an">
                   <a href="#" class="save-profile">
-                    Save Profile <img src="images/2023/05/save.png" />
+                    Save Profile <img src={saveIcon} alt="icon" />
                   </a>
                   <a href="#" class="book-appointment">
-                    Enquire Now <img src="images/2023/05/book.png" />
+                    Enquire Now <img src={bookIcon} alt="icon" />
                   </a>
                 </div>
               </div>
@@ -112,12 +181,15 @@ const HospitalProfile = () => {
               <div class="hospital-boxright">
                 <div class="hos-profile">
                   <div class="hosprofile-img">
-                    <img src="images/2023/05/02/1.png" />
+                    <img
+                      src={`${process.env.REACT_APP_BASE_URL}/hospital/${hospitalDetails.icon}`}
+                      alt={hospitalDetails.name}
+                    />
                   </div>{" "}
-                  <span>Dr. Oleg Goncharov</span>
+                  <span>{hospitalDetails.name}</span>
                 </div>
                 <a href="#" class="book-appointment">
-                  Enquire Now <img src="images/2023/05/book.png" />
+                  Enquire Now <img src={bookIcon} />
                 </a>
               </div>
             </div>
@@ -241,59 +313,35 @@ const HospitalProfile = () => {
 
             <div id="overview" class="profile-data-section">
               <h2>Overview</h2>
-              <ul>
-                <li>
-                  Apollo Hospitals, Greams Road, Chennai established in 1983,
-                  recognized as a premier heart care hospital in India.{" "}
-                </li>
-                <li>
-                  Pioneered techniques like coronary angioplasty, stereotactic
-                  radiotherapy, and radio-surgery for brain tumors in India.{" "}
-                </li>
-                <li>
-                  Noteworthy specialties include Heart, Cancer, Bones, Joints &
-                  Spine, Organ Transplants, Neurology, Gastro & Colorectal,
-                  Bariatric Surgery, Gynaecology & Infertility, and
-                  Ophthalmology.{" "}
-                </li>
-                <li>
-                  First Indian hospital to achieve ISO 9001 and ISO 14001
-                  certifications.
-                </li>
-              </ul>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: hospitalDetails.long_description,
+                }}
+              />
             </div>
 
-            {/* <div id="gallery" class="profile-data-section">
+            <div id="gallery" class="profile-data-section">
               <h2>Gallery</h2>
 
               <div class="owl-slider">
                 <div id="gallery-list" class="owl-carousel">
-                  <div class="item">
-                    <img src="images/2023/05/03/1.jpg" />
-                  </div>
-
-                  <div class="item">
-                    <img src="images/2023/05/03/2.jpg" />
-                  </div>
-
-                  <div class="item">
-                    <img src="images/2023/05/03/3.jpg" />
-                  </div>
-
-                  <div class="item">
-                    <img src="images/2023/05/03/1.jpg" />
-                  </div>
-
-                  <div class="item">
-                    <img src="images/2023/05/03/2.jpg" />
-                  </div>
-
-                  <div class="item">
-                    <img src="images/2023/05/03/3.jpg" />
-                  </div>
+                  <Carousel responsive={responsive} arrows={false}>
+                    {gallery.map((e) => (
+                      <div
+                        class="item"
+                        key={e.id}
+                        style={{ marginRight: "20px" }}
+                      >
+                        <img
+                          src={`${process.env.REACT_APP_BASE_URL}/hospital/${e.icon}`}
+                          alt={gallery.name}
+                        />
+                      </div>
+                    ))}
+                  </Carousel>
                 </div>
               </div>
-            </div> */}
+            </div>
 
             <div id="Search-doctor" class="profile-data-section">
               <h2>Search Doctor</h2>
@@ -342,397 +390,399 @@ const HospitalProfile = () => {
 
               <div class="owl-slider">
                 <div id="doctors-list-hospital" class="owl-carousel">
-                  <div class="item">
-                    <div class="doctors-hospital-item">
-                      <div class="doctors-box-item">
-                        <div class="doctor-img">
-                          <img src="images/2023/05/1.jpg" />
+                  <Carousel responsive={responsiveDoctor} arrows={false}>
+                    <div class="item">
+                      <div class="doctors-hospital-item">
+                        <div class="doctors-box-item">
+                          <div class="doctor-img">
+                            <img src="images/2023/05/1.jpg" />
+                          </div>
+                          <div class="doctorprofile-head">
+                            Dr. Oleg Goncharov
+                            <div class="department">
+                              Spine and Pain Specialist
+                            </div>
+                          </div>
                         </div>
-                        <div class="doctorprofile-head">
-                          Dr. Oleg Goncharov
-                          <div class="department">
-                            Spine and Pain Specialist
+                        <div class="doctors-day-time">
+                          <div class="daybox">
+                            <div class="day-box"> Mon-Sat </div>
+                            <div class="time-box">
+                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
+                            </div>
+                          </div>
+                        </div>
+                        <div class="doctors-time-boox">
+                          <div class="daybox">
+                            <a href="#" class="save-profile">
+                              Save Profile
+                            </a>
+                            <a href="#" class="book-appointment">
+                              Enquire Now
+                            </a>
                           </div>
                         </div>
                       </div>
-                      <div class="doctors-day-time">
-                        <div class="daybox">
-                          <div class="day-box"> Mon-Sat </div>
-                          <div class="time-box">
-                            8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
+
+                      <div class="doctors-hospital-item">
+                        <div class="doctors-box-item">
+                          <div class="doctor-img">
+                            <img src="images/2023/05/1.jpg" />
+                          </div>
+                          <div class="doctorprofile-head">
+                            Dr. Oleg Goncharov
+                            <div class="department">
+                              Spine and Pain Specialist
+                            </div>
+                          </div>
+                        </div>
+                        <div class="doctors-day-time">
+                          <div class="daybox">
+                            <div class="day-box"> Mon-Sat </div>
+                            <div class="time-box">
+                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
+                            </div>
+                          </div>
+                        </div>
+                        <div class="doctors-time-boox">
+                          <div class="daybox">
+                            <a href="#" class="save-profile">
+                              Save Profile
+                            </a>
+                            <a href="#" class="book-appointment">
+                              Enquire Now
+                            </a>
                           </div>
                         </div>
                       </div>
-                      <div class="doctors-time-boox">
-                        <div class="daybox">
-                          <a href="#" class="save-profile">
-                            Save Profile
-                          </a>
-                          <a href="#" class="book-appointment">
-                            Enquire Now
-                          </a>
+
+                      <div class="doctors-hospital-item">
+                        <div class="doctors-box-item">
+                          <div class="doctor-img">
+                            <img src="images/2023/05/1.jpg" />
+                          </div>
+                          <div class="doctorprofile-head">
+                            Dr. Oleg Goncharov
+                            <div class="department">
+                              Spine and Pain Specialist
+                            </div>
+                          </div>
+                        </div>
+                        <div class="doctors-day-time">
+                          <div class="daybox">
+                            <div class="day-box"> Mon-Sat </div>
+                            <div class="time-box">
+                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
+                            </div>
+                          </div>
+                        </div>
+                        <div class="doctors-time-boox">
+                          <div class="daybox">
+                            <a href="#" class="save-profile">
+                              Save Profile
+                            </a>
+                            <a href="#" class="book-appointment">
+                              Enquire Now
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </div>
 
-                    <div class="doctors-hospital-item">
-                      <div class="doctors-box-item">
-                        <div class="doctor-img">
-                          <img src="images/2023/05/1.jpg" />
+                    <div class="item">
+                      <div class="doctors-hospital-item">
+                        <div class="doctors-box-item">
+                          <div class="doctor-img">
+                            <img src="images/2023/05/1.jpg" />
+                          </div>
+                          <div class="doctorprofile-head">
+                            Dr. Oleg Goncharov
+                            <div class="department">
+                              Spine and Pain Specialist
+                            </div>
+                          </div>
                         </div>
-                        <div class="doctorprofile-head">
-                          Dr. Oleg Goncharov
-                          <div class="department">
-                            Spine and Pain Specialist
+                        <div class="doctors-day-time">
+                          <div class="daybox">
+                            <div class="day-box"> Mon-Sat </div>
+                            <div class="time-box">
+                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
+                            </div>
+                          </div>
+                        </div>
+                        <div class="doctors-time-boox">
+                          <div class="daybox">
+                            <a href="#" class="save-profile">
+                              Save Profile
+                            </a>
+                            <a href="#" class="book-appointment">
+                              Enquire Now
+                            </a>
                           </div>
                         </div>
                       </div>
-                      <div class="doctors-day-time">
-                        <div class="daybox">
-                          <div class="day-box"> Mon-Sat </div>
-                          <div class="time-box">
-                            8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
+
+                      <div class="doctors-hospital-item">
+                        <div class="doctors-box-item">
+                          <div class="doctor-img">
+                            <img src="images/2023/05/1.jpg" />
+                          </div>
+                          <div class="doctorprofile-head">
+                            Dr. Oleg Goncharov
+                            <div class="department">
+                              Spine and Pain Specialist
+                            </div>
+                          </div>
+                        </div>
+                        <div class="doctors-day-time">
+                          <div class="daybox">
+                            <div class="day-box"> Mon-Sat </div>
+                            <div class="time-box">
+                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
+                            </div>
+                          </div>
+                        </div>
+                        <div class="doctors-time-boox">
+                          <div class="daybox">
+                            <a href="#" class="save-profile">
+                              Save Profile
+                            </a>
+                            <a href="#" class="book-appointment">
+                              Enquire Now
+                            </a>
                           </div>
                         </div>
                       </div>
-                      <div class="doctors-time-boox">
-                        <div class="daybox">
-                          <a href="#" class="save-profile">
-                            Save Profile
-                          </a>
-                          <a href="#" class="book-appointment">
-                            Enquire Now
-                          </a>
+
+                      <div class="doctors-hospital-item">
+                        <div class="doctors-box-item">
+                          <div class="doctor-img">
+                            <img src="images/2023/05/1.jpg" />
+                          </div>
+                          <div class="doctorprofile-head">
+                            Dr. Oleg Goncharov
+                            <div class="department">
+                              Spine and Pain Specialist
+                            </div>
+                          </div>
+                        </div>
+                        <div class="doctors-day-time">
+                          <div class="daybox">
+                            <div class="day-box"> Mon-Sat </div>
+                            <div class="time-box">
+                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
+                            </div>
+                          </div>
+                        </div>
+                        <div class="doctors-time-boox">
+                          <div class="daybox">
+                            <a href="#" class="save-profile">
+                              Save Profile
+                            </a>
+                            <a href="#" class="book-appointment">
+                              Enquire Now
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </div>
 
-                    <div class="doctors-hospital-item">
-                      <div class="doctors-box-item">
-                        <div class="doctor-img">
-                          <img src="images/2023/05/1.jpg" />
+                    <div class="item">
+                      <div class="doctors-hospital-item">
+                        <div class="doctors-box-item">
+                          <div class="doctor-img">
+                            <img src="images/2023/05/1.jpg" />
+                          </div>
+                          <div class="doctorprofile-head">
+                            Dr. Oleg Goncharov
+                            <div class="department">
+                              Spine and Pain Specialist
+                            </div>
+                          </div>
                         </div>
-                        <div class="doctorprofile-head">
-                          Dr. Oleg Goncharov
-                          <div class="department">
-                            Spine and Pain Specialist
+                        <div class="doctors-day-time">
+                          <div class="daybox">
+                            <div class="day-box"> Mon-Sat </div>
+                            <div class="time-box">
+                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
+                            </div>
+                          </div>
+                        </div>
+                        <div class="doctors-time-boox">
+                          <div class="daybox">
+                            <a href="#" class="save-profile">
+                              Save Profile
+                            </a>
+                            <a href="#" class="book-appointment">
+                              Enquire Now
+                            </a>
                           </div>
                         </div>
                       </div>
-                      <div class="doctors-day-time">
-                        <div class="daybox">
-                          <div class="day-box"> Mon-Sat </div>
-                          <div class="time-box">
-                            8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
-                          </div>
-                        </div>
-                      </div>
-                      <div class="doctors-time-boox">
-                        <div class="daybox">
-                          <a href="#" class="save-profile">
-                            Save Profile
-                          </a>
-                          <a href="#" class="book-appointment">
-                            Enquire Now
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
 
-                  <div class="item">
-                    <div class="doctors-hospital-item">
-                      <div class="doctors-box-item">
-                        <div class="doctor-img">
-                          <img src="images/2023/05/1.jpg" />
+                      <div class="doctors-hospital-item">
+                        <div class="doctors-box-item">
+                          <div class="doctor-img">
+                            <img src="images/2023/05/1.jpg" />
+                          </div>
+                          <div class="doctorprofile-head">
+                            Dr. Oleg Goncharov
+                            <div class="department">
+                              Spine and Pain Specialist
+                            </div>
+                          </div>
                         </div>
-                        <div class="doctorprofile-head">
-                          Dr. Oleg Goncharov
-                          <div class="department">
-                            Spine and Pain Specialist
+                        <div class="doctors-day-time">
+                          <div class="daybox">
+                            <div class="day-box"> Mon-Sat </div>
+                            <div class="time-box">
+                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
+                            </div>
+                          </div>
+                        </div>
+                        <div class="doctors-time-boox">
+                          <div class="daybox">
+                            <a href="#" class="save-profile">
+                              Save Profile
+                            </a>
+                            <a href="#" class="book-appointment">
+                              Enquire Now
+                            </a>
                           </div>
                         </div>
                       </div>
-                      <div class="doctors-day-time">
-                        <div class="daybox">
-                          <div class="day-box"> Mon-Sat </div>
-                          <div class="time-box">
-                            8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
-                          </div>
-                        </div>
-                      </div>
-                      <div class="doctors-time-boox">
-                        <div class="daybox">
-                          <a href="#" class="save-profile">
-                            Save Profile
-                          </a>
-                          <a href="#" class="book-appointment">
-                            Enquire Now
-                          </a>
-                        </div>
-                      </div>
-                    </div>
 
-                    <div class="doctors-hospital-item">
-                      <div class="doctors-box-item">
-                        <div class="doctor-img">
-                          <img src="images/2023/05/1.jpg" />
-                        </div>
-                        <div class="doctorprofile-head">
-                          Dr. Oleg Goncharov
-                          <div class="department">
-                            Spine and Pain Specialist
+                      <div class="doctors-hospital-item">
+                        <div class="doctors-box-item">
+                          <div class="doctor-img">
+                            <img src="images/2023/05/1.jpg" />
+                          </div>
+                          <div class="doctorprofile-head">
+                            Dr. Oleg Goncharov
+                            <div class="department">
+                              Spine and Pain Specialist
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="doctors-day-time">
-                        <div class="daybox">
-                          <div class="day-box"> Mon-Sat </div>
-                          <div class="time-box">
-                            8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
+                        <div class="doctors-day-time">
+                          <div class="daybox">
+                            <div class="day-box"> Mon-Sat </div>
+                            <div class="time-box">
+                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="doctors-time-boox">
-                        <div class="daybox">
-                          <a href="#" class="save-profile">
-                            Save Profile
-                          </a>
-                          <a href="#" class="book-appointment">
-                            Enquire Now
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="doctors-hospital-item">
-                      <div class="doctors-box-item">
-                        <div class="doctor-img">
-                          <img src="images/2023/05/1.jpg" />
-                        </div>
-                        <div class="doctorprofile-head">
-                          Dr. Oleg Goncharov
-                          <div class="department">
-                            Spine and Pain Specialist
+                        <div class="doctors-time-boox">
+                          <div class="daybox">
+                            <a href="#" class="save-profile">
+                              Save Profile
+                            </a>
+                            <a href="#" class="book-appointment">
+                              Enquire Now
+                            </a>
                           </div>
-                        </div>
-                      </div>
-                      <div class="doctors-day-time">
-                        <div class="daybox">
-                          <div class="day-box"> Mon-Sat </div>
-                          <div class="time-box">
-                            8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
-                          </div>
-                        </div>
-                      </div>
-                      <div class="doctors-time-boox">
-                        <div class="daybox">
-                          <a href="#" class="save-profile">
-                            Save Profile
-                          </a>
-                          <a href="#" class="book-appointment">
-                            Enquire Now
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="item">
-                    <div class="doctors-hospital-item">
-                      <div class="doctors-box-item">
-                        <div class="doctor-img">
-                          <img src="images/2023/05/1.jpg" />
-                        </div>
-                        <div class="doctorprofile-head">
-                          Dr. Oleg Goncharov
-                          <div class="department">
-                            Spine and Pain Specialist
-                          </div>
-                        </div>
-                      </div>
-                      <div class="doctors-day-time">
-                        <div class="daybox">
-                          <div class="day-box"> Mon-Sat </div>
-                          <div class="time-box">
-                            8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
-                          </div>
-                        </div>
-                      </div>
-                      <div class="doctors-time-boox">
-                        <div class="daybox">
-                          <a href="#" class="save-profile">
-                            Save Profile
-                          </a>
-                          <a href="#" class="book-appointment">
-                            Enquire Now
-                          </a>
                         </div>
                       </div>
                     </div>
 
-                    <div class="doctors-hospital-item">
-                      <div class="doctors-box-item">
-                        <div class="doctor-img">
-                          <img src="images/2023/05/1.jpg" />
+                    <div class="item">
+                      <div class="doctors-hospital-item">
+                        <div class="doctors-box-item">
+                          <div class="doctor-img">
+                            <img src="images/2023/05/1.jpg" />
+                          </div>
+                          <div class="doctorprofile-head">
+                            Dr. Oleg Goncharov
+                            <div class="department">
+                              Spine and Pain Specialist
+                            </div>
+                          </div>
                         </div>
-                        <div class="doctorprofile-head">
-                          Dr. Oleg Goncharov
-                          <div class="department">
-                            Spine and Pain Specialist
+                        <div class="doctors-day-time">
+                          <div class="daybox">
+                            <div class="day-box"> Mon-Sat </div>
+                            <div class="time-box">
+                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
+                            </div>
+                          </div>
+                        </div>
+                        <div class="doctors-time-boox">
+                          <div class="daybox">
+                            <a href="#" class="save-profile">
+                              Save Profile
+                            </a>
+                            <a href="#" class="book-appointment">
+                              Enquire Now
+                            </a>
                           </div>
                         </div>
                       </div>
-                      <div class="doctors-day-time">
-                        <div class="daybox">
-                          <div class="day-box"> Mon-Sat </div>
-                          <div class="time-box">
-                            8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
-                          </div>
-                        </div>
-                      </div>
-                      <div class="doctors-time-boox">
-                        <div class="daybox">
-                          <a href="#" class="save-profile">
-                            Save Profile
-                          </a>
-                          <a href="#" class="book-appointment">
-                            Enquire Now
-                          </a>
-                        </div>
-                      </div>
-                    </div>
 
-                    <div class="doctors-hospital-item">
-                      <div class="doctors-box-item">
-                        <div class="doctor-img">
-                          <img src="images/2023/05/1.jpg" />
+                      <div class="doctors-hospital-item">
+                        <div class="doctors-box-item">
+                          <div class="doctor-img">
+                            <img src="images/2023/05/1.jpg" />
+                          </div>
+                          <div class="doctorprofile-head">
+                            Dr. Oleg Goncharov
+                            <div class="department">
+                              Spine and Pain Specialist
+                            </div>
+                          </div>
                         </div>
-                        <div class="doctorprofile-head">
-                          Dr. Oleg Goncharov
-                          <div class="department">
-                            Spine and Pain Specialist
+                        <div class="doctors-day-time">
+                          <div class="daybox">
+                            <div class="day-box"> Mon-Sat </div>
+                            <div class="time-box">
+                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
+                            </div>
+                          </div>
+                        </div>
+                        <div class="doctors-time-boox">
+                          <div class="daybox">
+                            <a href="#" class="save-profile">
+                              Save Profile
+                            </a>
+                            <a href="#" class="book-appointment">
+                              Enquire Now
+                            </a>
                           </div>
                         </div>
                       </div>
-                      <div class="doctors-day-time">
-                        <div class="daybox">
-                          <div class="day-box"> Mon-Sat </div>
-                          <div class="time-box">
-                            8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
-                          </div>
-                        </div>
-                      </div>
-                      <div class="doctors-time-boox">
-                        <div class="daybox">
-                          <a href="#" class="save-profile">
-                            Save Profile
-                          </a>
-                          <a href="#" class="book-appointment">
-                            Enquire Now
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
 
-                  <div class="item">
-                    <div class="doctors-hospital-item">
-                      <div class="doctors-box-item">
-                        <div class="doctor-img">
-                          <img src="images/2023/05/1.jpg" />
-                        </div>
-                        <div class="doctorprofile-head">
-                          Dr. Oleg Goncharov
-                          <div class="department">
-                            Spine and Pain Specialist
+                      <div class="doctors-hospital-item">
+                        <div class="doctors-box-item">
+                          <div class="doctor-img">
+                            <img src="images/2023/05/1.jpg" />
+                          </div>
+                          <div class="doctorprofile-head">
+                            Dr. Oleg Goncharov
+                            <div class="department">
+                              Spine and Pain Specialist
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="doctors-day-time">
-                        <div class="daybox">
-                          <div class="day-box"> Mon-Sat </div>
-                          <div class="time-box">
-                            8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
+                        <div class="doctors-day-time">
+                          <div class="daybox">
+                            <div class="day-box"> Mon-Sat </div>
+                            <div class="time-box">
+                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="doctors-time-boox">
-                        <div class="daybox">
-                          <a href="#" class="save-profile">
-                            Save Profile
-                          </a>
-                          <a href="#" class="book-appointment">
-                            Enquire Now
-                          </a>
+                        <div class="doctors-time-boox">
+                          <div class="daybox">
+                            <a href="#" class="save-profile">
+                              Save Profile
+                            </a>
+                            <a href="#" class="book-appointment">
+                              Enquire Now
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </div>
-
-                    <div class="doctors-hospital-item">
-                      <div class="doctors-box-item">
-                        <div class="doctor-img">
-                          <img src="images/2023/05/1.jpg" />
-                        </div>
-                        <div class="doctorprofile-head">
-                          Dr. Oleg Goncharov
-                          <div class="department">
-                            Spine and Pain Specialist
-                          </div>
-                        </div>
-                      </div>
-                      <div class="doctors-day-time">
-                        <div class="daybox">
-                          <div class="day-box"> Mon-Sat </div>
-                          <div class="time-box">
-                            8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
-                          </div>
-                        </div>
-                      </div>
-                      <div class="doctors-time-boox">
-                        <div class="daybox">
-                          <a href="#" class="save-profile">
-                            Save Profile
-                          </a>
-                          <a href="#" class="book-appointment">
-                            Enquire Now
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="doctors-hospital-item">
-                      <div class="doctors-box-item">
-                        <div class="doctor-img">
-                          <img src="images/2023/05/1.jpg" />
-                        </div>
-                        <div class="doctorprofile-head">
-                          Dr. Oleg Goncharov
-                          <div class="department">
-                            Spine and Pain Specialist
-                          </div>
-                        </div>
-                      </div>
-                      <div class="doctors-day-time">
-                        <div class="daybox">
-                          <div class="day-box"> Mon-Sat </div>
-                          <div class="time-box">
-                            8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
-                          </div>
-                        </div>
-                      </div>
-                      <div class="doctors-time-boox">
-                        <div class="daybox">
-                          <a href="#" class="save-profile">
-                            Save Profile
-                          </a>
-                          <a href="#" class="book-appointment">
-                            Enquire Now
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  </Carousel>
                 </div>
               </div>
 
@@ -744,41 +794,17 @@ const HospitalProfile = () => {
 
             <div id="amenitie" class="profile-data-section">
               <h2>Amenities</h2>
-              <div class="amenities-name">Treatment</div>
+              {/* <div class="amenities-name">Treatment</div> */}
               <div class="medical-box">
-                <a href="#" target="_self">
-                  Bone Marrow Transplant
-                </a>
-                <a href="#" target="_self">
-                  Breast Cancer Management{" "}
-                </a>
-                <a href="#" target="_self">
-                  Breast Cancer Treatment{" "}
-                </a>
-                <a href="#" target="_self">
-                  Chemotherapy Of Haematological Malignancies{" "}
-                </a>
-                <a href="#" target="_self">
-                  Cancer Surgery{" "}
-                </a>
-                <a href="#" target="_self">
-                  Chemotherapy Of Solid Tumors{" "}
-                </a>
-                <a href="#" target="_self">
-                  Multiple Myeloma{" "}
-                </a>
-                <a href="#" target="_self">
-                  Picc Line Insertion
-                </a>
-                <a href="#" target="_self">
-                  Prostate Cancer Surgery
-                </a>
-                <a href="#" target="_self">
-                  Prostate Cancer
-                </a>
+                {hospitalDetails.amenities &&
+                  hospitalDetails.amenities
+                    .split(",")
+                    .map((amenity, index) => (
+                      <Link key={index}>{amenity.trim()}</Link>
+                    ))}
               </div>
 
-              <div class="amenities-name">Treatment</div>
+              {/* <div class="amenities-name">Speciality</div>
               <div class="medical-box">
                 <a href="#" target="_self">
                   Document legalisation
@@ -798,29 +824,26 @@ const HospitalProfile = () => {
                 <a href="#" target="_self">
                   Rehabilitation
                 </a>
-              </div>
+              </div> */}
 
               <div class="amenities-name">Food</div>
               <div class="medical-box">
-                <a href="#" target="_self">
-                  Diet on Request
-                </a>
-                <a href="#" target="_self">
-                  International Cuisine
-                </a>
-                <a href="#" target="_self">
-                  Restaurant
-                </a>
+                {hospitalDetails.food &&
+                  hospitalDetails.food
+                    .split(",")
+                    .map((amenity, index) => (
+                      <Link key={index}>{amenity.trim()}</Link>
+                    ))}
               </div>
 
               <div class="amenities-name">Language</div>
               <div class="medical-box">
-                <a href="#" target="_self">
-                  Interpreter
-                </a>
-                <a href="#" target="_self">
-                  Translation services
-                </a>
+                {hospitalDetails.language_spoken &&
+                  hospitalDetails.language_spoken
+                    .split(",")
+                    .map((amenity, index) => (
+                      <Link key={index}>{amenity.trim()}</Link>
+                    ))}
               </div>
             </div>
 

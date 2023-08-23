@@ -2652,3 +2652,17 @@ pre code {
 .but-mobile {
   display: none;
 }
+
+.thumbs-wrapper .thumb {
+  width: 60px !important;
+
+ border: none !important;
+}
+
+.control-dots {
+  display: none;
+}
+
+.slider-wrapper .slide div {
+  border: none !important;
+}

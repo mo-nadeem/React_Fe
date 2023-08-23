@@ -24,7 +24,7 @@ const ExplorHealth = () => {
     setActiveTab(tabId);
   };
 
-  // const navigation = treatment || [];
+
   const filteredSpecialities = Array.isArray(treatment)
     ? treatment.filter((speciality) => speciality.featured === "1")
     : [];

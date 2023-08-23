@@ -1,7 +1,61 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Homelayout from "../../components/Homelayout/Homelayout";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import img1 from "../../assests/images/05/05/1.jpg";
+import img2 from "../../assests/images/05/05/2.jpg";
+import img3 from "../../assests/images/05/05/3.jpg";
+import bookIcon from "../../assests/images/05/book.png";
+import profileIcon from "../../assests/images/05/profile.png";
+import shareIcon from "../../assests/images/05/share-profile.png";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
+import iconImg from "../../assests/images/05/loc.png";
+import { Link } from "react-router-dom";
 
 const HospitalList = () => {
+  const { slug, country } = useParams();
+  const [hospital, setHospital] = useState([]);
+  const [info, setInfo] = useState([]);
+  const [images, setImages] = useState([]);
+  const [activeImage, setActiveImage] = useState();
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_BASE_URL}/api/hospitals/${slug}/${country}`)
+      .then((response) => {
+        setHospital(response.data.hospital_list.hospital_list);
+        setInfo(response.data.hospital_list.treatment_name);
+        setImages(response.data.hospital_list.hospital_gallery);
+        if (response.data.hospital_list.hospital_gallery.length > 0) {
+          setActiveImage(
+            `${process.env.REACT_APP_BASE_URL}/hospital/${response.data.hospital_list.hospital_gallery[0].icon}`
+          );
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, [slug, country]);
+
+  // const images = [
+  //   {
+  //     id: 1,
+  //     src: himg1,
+  //   },
+  //   {
+  //     id: 2,
+  //     src: himg2,
+  //   },
+  //   {
+  //     id: 3,
+  //     src: himg3,
+  //   },
+  //   // Add more image objects as needed
+  // ];
+
+  const handleImageClick = (imageSrc) => {
+    setActiveImage(imageSrc);
+  };
   return (
     <>
       <Homelayout>
@@ -94,153 +148,185 @@ const HospitalList = () => {
 
             <div class="hospital-midbox">
               <div class="hospital-midbox-left">
-                <div class="hospital-item-list">
-                  <div class="hospital-item-img">
-                    <div class="tabs_wrapper">
-                      <div class="tabs_container">
-                        <div class="tab_content active" data-tab="tab1">
-                          <img src="images/2023/05/06/1.jpg" />
+                {/* {hospital.map((e) => (
+                  <div class="hospital-item-list" key={e.id}>
+                    <div class="hospital-item-img">
+                      <div class="tabs_wrapper">
+                        <div class="tabs_container">
+                          {images.map((image) => (
+                            <div
+                              key={image.id}
+                              className={`tab_content ${
+                                activeImage === image.src ? "active" : ""
+                              }`}
+                              data-tab={image.id}
+                            >
+                              <img
+                                src={image.src}
+                                onClick={() => handleImageClick(image.src)}
+                                alt="Hospital"
+                              />
+                            </div>
+                          ))}
                         </div>
-                        <div class="tab_content" data-tab="tab2">
-                          <img src="images/2023/05/06/2.jpg" />
-                        </div>
-                        <div class="tab_content" data-tab="tab3">
-                          <img src="images/2023/05/06/3.jpg" />
-                        </div>
+
+                        <ul class="tabs tab-h">
+                          {images.map((image) => (
+                            <li
+                              key={image.id}
+                              className={
+                                activeImage === image.src ? "active" : ""
+                              }
+                              id={image.id}
+                            >
+                              <img
+                                src={image.src}
+                                onClick={() => handleImageClick(image.src)}
+                                alt="Hospital"
+                              />
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="hospital-item-doc">
+                      <h3>{e.name}</h3>
+                      <div class="department-sub">
+                        Oncologist, Medical Oncologist
+                      </div>
+                      <div class="rating-star">
+                        <i class="fa fa-star"></i> 5 (523)
                       </div>
 
-                      <ul class="tabs tab-h">
-                        <li class="active" id="tab1">
-                          <img src="images/2023/05/06/1.jpg" />{" "}
-                        </li>
-                        <li id="tab2">
-                          <img src="images/2023/05/06/2.jpg" />
-                        </li>
-                        <li id="tab3">
-                          <img src="images/2023/05/06/3.jpg" />
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="hospital-item-doc">
-                    <h3>Hospital Name</h3>
-                    <div class="department-sub">
-                      Oncologist, Medical Oncologist
-                    </div>
-                    <div class="rating-star">
-                      <i class="fa fa-star"></i> 5 (523)
-                    </div>
-
-                    <div class="ho-docimg">
-                      <img src="images/2023/05/05/1.jpg" />
-                      <img src="images/2023/05/05/2.jpg" />
-                      <img src="images/2023/05/05/3.jpg" />
-                    </div>
-
-                    <div class="hos-no">
-                      <strong>Doctors:</strong> 300
-                    </div>
-                    <div class="hos-no">
-                      <strong>Beds:</strong> 560
-                    </div>
-                    <div class="hos-no">
-                      <strong>Ambulances:</strong> 560{" "}
-                    </div>
-                  </div>
-                  <div class="hospital-item-button">
-                    <a href="#" class="book-app">
-                      Book Appointment <img src="images/2023/05/book.png" />
-                    </a>
-                    <a href="#" class="view-profile">
-                      View Profile <img src="images/2023/05/profile.png" />
-                    </a>
-                    <a href="#" class="share-profile">
-                      Share Profile{" "}
-                      <img src="images/2023/05/share-profile.png" />
-                    </a>
-
-                    <div class="hospital-location-box">
-                      22 W 15TH ST <br />
-                      New York, NY 10011
-                      <img src="images/2023/05/loc.png" />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="hospital-item-list">
-                  <div class="hospital-item-img">
-                    <div class="tabs_wrapper">
-                      <div class="tabs_container">
-                        <div class="tab_content active" data-tab="tab4">
-                          <img src="images/2023/05/06/1.jpg" />
-                        </div>
-                        <div class="tab_content" data-tab="tab5">
-                          <img src="images/2023/05/06/2.jpg" />
-                        </div>
-                        <div class="tab_content" data-tab="tab6">
-                          <img src="images/2023/05/06/3.jpg" />
-                        </div>
+                      <div class="ho-docimg">
+                        <img src={img1} />
+                        <img src={img2} />
+                        <img src={img3} />
                       </div>
 
-                      <ul class="tabs tab-h">
-                        <li class="active" id="tab4">
-                          <img src="images/2023/05/06/1.jpg" />{" "}
-                        </li>
-                        <li id="tab5">
-                          <img src="images/2023/05/06/2.jpg" />
-                        </li>
-                        <li id="tab6">
-                          <img src="images/2023/05/06/3.jpg" />
-                        </li>
-                      </ul>
+                      <div class="hos-no">
+                        <strong>Doctors:</strong> {e.doc}
+                      </div>
+                      <div class="hos-no">
+                        <strong>Beds:</strong> {e.bed}
+                      </div>
+                      <div class="hos-no">
+                        <strong>Ambulances:</strong> {e.ambulance}
+                      </div>
+                    </div>
+                    <div class="hospital-item-button">
+                      <a href="#" class="book-app">
+                        Book Appointment <img src={bookIcon} />
+                      </a>
+                      <a href="#" class="view-profile">
+                        View Profile <img src={profileIcon} />
+                      </a>
+                      <a href="#" class="share-profile">
+                        Share Profile <img src={shareIcon} />
+                      </a>
+
+                      <div class="hospital-location-box">
+                        22 W 15TH ST <br />
+                        New York, NY 10011
+                        <img src="images/2023/05/loc.png" />
+                      </div>
                     </div>
                   </div>
-                  <div class="hospital-item-doc">
-                    <h3>Hospital Name</h3>
-                    <div class="department-sub">
-                      Oncologist, Medical Oncologist
-                    </div>
-                    <div class="rating-star">
-                      <i class="fa fa-star"></i> 5 (523)
-                    </div>
+                ))} */}
+                {hospital.map((hospital) => {
+                  // Filter gallery items that match the current hospital's id
+                  const galleryImages = images.filter(
+                    (gallery) => gallery.hospital_id === String(hospital.id)
+                  );
 
-                    <div class="ho-docimg">
-                      <img src="images/2023/05/05/1.jpg" />
-                      <img src="images/2023/05/05/2.jpg" />
-                      <img src="images/2023/05/05/3.jpg" />
-                    </div>
+                  return (
+                    <div class="hospital-item-list">
+                      <div class="hospital-item-img">
+                        <div class="tabs_wrapper">
+                          <div class="tabs_container">
+                            <Carousel
+                              swipeable={true}
+                              centerMode={false}
+                              infiniteLoop={true}
+                              showArrows={false}
+                              autoPlay={true}
+                            >
+                              <div
+                                data-hash="one"
+                                key={hospital.id}
+                                style={{ border: "1px solid #464646" }}
+                              >
+                                <img
+                                  src={`${process.env.REACT_APP_BASE_URL}/hospital/${hospital.image}`}
+                                  alt={hospital.name}
+                                  width="100%"
+                                />
+                              </div>
 
-                    <div class="hos-no">
-                      <strong>Doctors:</strong> 300
-                    </div>
-                    <div class="hos-no">
-                      <strong>Beds:</strong> 560
-                    </div>
-                    <div class="hos-no">
-                      <strong>Ambulances:</strong> 560{" "}
-                    </div>
-                  </div>
-                  <div class="hospital-item-button">
-                    <a href="#" class="book-app">
-                      Book Appointment <img src="images/2023/05/book.png" />
-                    </a>
-                    <a href="#" class="view-profile">
-                      View Profile <img src="images/2023/05/profile.png" />
-                    </a>
-                    <a href="#" class="share-profile">
-                      Share Profile{" "}
-                      <img src="images/2023/05/share-profile.png" />
-                    </a>
+                              {galleryImages.map((e) => (
+                                <div
+                                  className=" activeImage"
+                                  data-hash="two"
+                                  key={e.id}
+                                >
+                                  <img
+                                    src={`${process.env.REACT_APP_BASE_URL}/hospital/${e.icon}`}
+                                    alt="name"
+                                    width="50%"
+                                  />
+                                </div>
+                              ))}
+                            </Carousel>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="hospital-item-doc">
+                        <h3>{hospital.name}</h3>
+                        <div class="department-sub">
+                          Oncologist, Medical Oncologist
+                        </div>
+                        <div class="rating-star">
+                          <i class="fa fa-star"></i> 5 (523)
+                        </div>
 
-                    <div class="hospital-location-box">
-                      22 W 15TH ST <br />
-                      New York, NY 10011
-                      <img src="images/2023/05/loc.png" />
-                    </div>
-                  </div>
-                </div>
+                        <div class="ho-docimg">
+                          <img src={img1} />
+                          <img src={img2} />
+                          <img src={img3} />
+                        </div>
 
-                <div class="hospital-item-list">
+                        <div class="hos-no">
+                          <strong>Doctors:</strong> {hospital.doc}
+                        </div>
+                        <div class="hos-no">
+                          <strong>Beds:</strong> {hospital.bed}
+                        </div>
+                        <div class="hos-no">
+                          <strong>Ambulances:</strong> {hospital.ambulance}
+                        </div>
+                      </div>
+                      <div class="hospital-item-button">
+                        <a href="#" class="book-app">
+                          Book Appointment <img src={bookIcon} alt="icon" />
+                        </a>
+                        <Link to={`/hospital/${hospital.slug}/${hospital.country}`} class="view-profile">
+                          View Profile <img src={profileIcon} alt="icon" />
+                        </Link>
+                        <Link  class="share-profile">
+                          Share Profile <img src={shareIcon} alt="icon" />
+                        </Link>
+
+                        <div class="hospital-location-box">
+                          22 W 15TH ST <br />
+                          New York, NY 10011
+                          <img src={iconImg} alt="icon" />
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+
+                {/* <div class="hospital-item-list">
                   <div class="hospital-item-img">
                     <div class="tabs_wrapper">
                       <div class="tabs_container">
@@ -384,7 +470,7 @@ const HospitalList = () => {
                       <img src="images/2023/05/loc.png" />
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
 
               <div class="hospital-midbox-right">
