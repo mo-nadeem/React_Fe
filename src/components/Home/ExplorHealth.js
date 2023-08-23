@@ -38,7 +38,7 @@ const ExplorHealth = () => {
             <h4>Treatments</h4>
 
             <div className="tab">
-              {speciality.map((filteredSpecialities) => (
+              {speciality && speciality.map((filteredSpecialities) => (
                 <button
                   className={`tablinks ${
                     activeTab === filteredSpecialities.id ? "active" : ""
