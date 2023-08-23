@@ -2666,3 +2666,16 @@ pre code {
 .slider-wrapper .slide div {
   border: none !important;
 }
+
+.home-form select {
+  border: 1px solid #dcdee2;
+  height: 55px;
+  padding-left: 15px;
+  width: 100%;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 8px;
+  background-color: #fff;
+  outline: none;
+  text-align: left;
+}

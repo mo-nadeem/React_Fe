@@ -2,21 +2,22 @@ import React, { useState, useEffect } from "react";
 import Homelayout from "../../components/Homelayout/Homelayout";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import bookIcon from "../../assests/images/05/book.png"
-import profileIcon from "../../assests/images/05/profile.png"
-import shareIcon from "../../assests/images/05/share-profile.png"
-import hospitalImg from "../../assests/images/05/02/1.png"
-import { Link } from "react-router-dom"; 
-
+import bookIcon from "../../assests/images/05/book.png";
+import profileIcon from "../../assests/images/05/profile.png";
+import shareIcon from "../../assests/images/05/share-profile.png";
+import hospitalImg from "../../assests/images/05/02/1.png";
+import { Link } from "react-router-dom";
 
 const DoctorList = () => {
   const { slug, country } = useParams();
   const [doctor, setDoctor] = useState([]);
+  const [hospitalIcon, setHospitalIcon] = useState([]);
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/api/doctors/${slug}/${country}`) // Replace with your API endpoint
       .then((response) => {
         setDoctor(response.data.doctors_list.doctors_list);
+        setHospitalIcon(response.data.doctors_list.hospital_image);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -58,7 +59,7 @@ const DoctorList = () => {
         <section id="find-doctors-list">
           <div class="midbox-inner  wiki-mk">
             <h2>
-              Doctors <span>(234 Results)</span>
+              Doctors <span>({doctor.length} Results)</span>
             </h2>
             <div class="doctors-list-find">
               <div class="ding">
@@ -120,23 +121,26 @@ const DoctorList = () => {
                   doctor.map((e) => (
                     <div class="doctor-item-list" key={e.id}>
                       <div class="doctor-item-img">
-                        <img src={`${process.env.REACT_APP_BASE_URL}/doctor/${e.image}`} alt={e.slug} />
+                        <img
+                          src={`${process.env.REACT_APP_BASE_URL}/doctor/${e.image}`}
+                          alt={e.slug}
+                        />
                       </div>
                       <div class="doctor-item-doc">
                         <h3>
                           {e.prefix} {e.first_name} {e.last_name}
                         </h3>
-                        <div class="department-sub">
-                          {e.designation}
-                        </div>
+                        <div class="department-sub">{e.designation}</div>
                         <div class="rating-star">
                           <i class="fa fa-star"></i> 5 (523)
                         </div>
 
                         <div class="doc-experience">
-                          <div class="years-exper">{e.experience_year}+ Years of Experience </div>
+                          <div class="years-exper">
+                            {e.experience_year}+ Years of Experience{" "}
+                          </div>
                           <div class="successful-plus">
-                          {e.surgery_treatment}+ Successful Surgeries{" "}
+                            {e.surgery_treatment}+ Successful Surgeries{" "}
                           </div>
                         </div>
                       </div>
@@ -148,378 +152,22 @@ const DoctorList = () => {
                           View Profile <img src={profileIcon} alt="icon" />
                         </Link>
                         <a href="#" class="share-profile">
-                          Share Profile{" "}
-                          <img src={shareIcon} alt="icon" />
+                          Share Profile <img src={shareIcon} alt="icon" />
                         </a>
 
                         <div class="doc-Hospital">
-                          22 W 15TH ST <br />
-                          New York, NY 10011
-                          <img src={hospitalImg} alt="icon" />
+                          {e.location}
+                          {hospitalIcon.map((e) => (
+                            <img
+                              key={e.id}
+                              src={`${process.env.REACT_APP_BASE_URL}/hospital/${e.icon}`}
+                              alt="icon"
+                            />
+                          ))}
                         </div>
                       </div>
                     </div>
                   ))}
-
-                {/* <div class="doctor-item-list">
-                  <div class="doctor-item-img">
-                    <img src="images/2023/05/04/1.jpg" />
-                  </div>
-                  <div class="doctor-item-doc">
-                    <h3>Doctor Name</h3>
-                    <div class="department-sub">
-                      Oncologist, Medical Oncologist
-                    </div>
-                    <div class="rating-star">
-                      <i class="fa fa-star"></i> 5 (523)
-                    </div>
-
-                    <div class="doc-experience">
-                      <div class="years-exper">5 Years of Experience </div>
-                      <div class="successful-plus">
-                        500+ Successful Surgeries{" "}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="doctor-item-button">
-                    <a href="#" class="book-app">
-                      Book Appointment <img src="images/2023/05/book.png" />
-                    </a>
-                    <a href="#" class="view-profile">
-                      View Profile <img src="images/2023/05/profile.png" />
-                    </a>
-                    <a href="#" class="share-profile">
-                      Share Profile{" "}
-                      <img src="images/2023/05/share-profile.png" />
-                    </a>
-
-                    <div class="doc-Hospital">
-                      22 W 15TH ST <br />
-                      New York, NY 10011
-                      <img src="images/2023/05/02/1.png" />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="doctor-item-list">
-                  <div class="doctor-item-img">
-                    <img src="images/2023/05/04/1.jpg" />
-                  </div>
-                  <div class="doctor-item-doc">
-                    <h3>Doctor Name</h3>
-                    <div class="department-sub">
-                      Oncologist, Medical Oncologist
-                    </div>
-                    <div class="rating-star">
-                      <i class="fa fa-star"></i> 5 (523)
-                    </div>
-
-                    <div class="doc-experience">
-                      <div class="years-exper">5 Years of Experience </div>
-                      <div class="successful-plus">
-                        500+ Successful Surgeries{" "}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="doctor-item-button">
-                    <a href="#" class="book-app">
-                      Book Appointment <img src="images/2023/05/book.png" />
-                    </a>
-                    <a href="#" class="view-profile">
-                      View Profile <img src="images/2023/05/profile.png" />
-                    </a>
-                    <a href="#" class="share-profile">
-                      Share Profile{" "}
-                      <img src="images/2023/05/share-profile.png" />
-                    </a>
-
-                    <div class="doc-Hospital">
-                      22 W 15TH ST <br />
-                      New York, NY 10011
-                      <img src="images/2023/05/02/1.png" />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="doctor-item-list">
-                  <div class="doctor-item-img">
-                    <img src="images/2023/05/04/1.jpg" />
-                  </div>
-                  <div class="doctor-item-doc">
-                    <h3>Doctor Name</h3>
-                    <div class="department-sub">
-                      Oncologist, Medical Oncologist
-                    </div>
-                    <div class="rating-star">
-                      <i class="fa fa-star"></i> 5 (523)
-                    </div>
-
-                    <div class="doc-experience">
-                      <div class="years-exper">5 Years of Experience </div>
-                      <div class="successful-plus">
-                        500+ Successful Surgeries{" "}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="doctor-item-button">
-                    <a href="#" class="book-app">
-                      Book Appointment <img src="images/2023/05/book.png" />
-                    </a>
-                    <a href="#" class="view-profile">
-                      View Profile <img src="images/2023/05/profile.png" />
-                    </a>
-                    <a href="#" class="share-profile">
-                      Share Profile{" "}
-                      <img src="images/2023/05/share-profile.png" />
-                    </a>
-
-                    <div class="doc-Hospital">
-                      22 W 15TH ST <br />
-                      New York, NY 10011
-                      <img src="images/2023/05/02/1.png" />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="doctor-item-list">
-                  <div class="doctor-item-img">
-                    <img src="images/2023/05/04/1.jpg" />
-                  </div>
-                  <div class="doctor-item-doc">
-                    <h3>Doctor Name</h3>
-                    <div class="department-sub">
-                      Oncologist, Medical Oncologist
-                    </div>
-                    <div class="rating-star">
-                      <i class="fa fa-star"></i> 5 (523)
-                    </div>
-
-                    <div class="doc-experience">
-                      <div class="years-exper">5 Years of Experience </div>
-                      <div class="successful-plus">
-                        500+ Successful Surgeries{" "}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="doctor-item-button">
-                    <a href="#" class="book-app">
-                      Book Appointment <img src="images/2023/05/book.png" />
-                    </a>
-                    <a href="#" class="view-profile">
-                      View Profile <img src="images/2023/05/profile.png" />
-                    </a>
-                    <a href="#" class="share-profile">
-                      Share Profile{" "}
-                      <img src="images/2023/05/share-profile.png" />
-                    </a>
-
-                    <div class="doc-Hospital">
-                      22 W 15TH ST <br />
-                      New York, NY 10011
-                      <img src="images/2023/05/02/1.png" />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="doctor-item-list">
-                  <div class="doctor-item-img">
-                    <img src="images/2023/05/04/1.jpg" />
-                  </div>
-                  <div class="doctor-item-doc">
-                    <h3>Doctor Name</h3>
-                    <div class="department-sub">
-                      Oncologist, Medical Oncologist
-                    </div>
-                    <div class="rating-star">
-                      <i class="fa fa-star"></i> 5 (523)
-                    </div>
-
-                    <div class="doc-experience">
-                      <div class="years-exper">5 Years of Experience </div>
-                      <div class="successful-plus">
-                        500+ Successful Surgeries{" "}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="doctor-item-button">
-                    <a href="#" class="book-app">
-                      Book Appointment <img src="images/2023/05/book.png" />
-                    </a>
-                    <a href="#" class="view-profile">
-                      View Profile <img src="images/2023/05/profile.png" />
-                    </a>
-                    <a href="#" class="share-profile">
-                      Share Profile{" "}
-                      <img src="images/2023/05/share-profile.png" />
-                    </a>
-
-                    <div class="doc-Hospital">
-                      22 W 15TH ST <br />
-                      New York, NY 10011
-                      <img src="images/2023/05/02/1.png" />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="doctor-item-list">
-                  <div class="doctor-item-img">
-                    <img src="images/2023/05/04/1.jpg" />
-                  </div>
-                  <div class="doctor-item-doc">
-                    <h3>Doctor Name</h3>
-                    <div class="department-sub">
-                      Oncologist, Medical Oncologist
-                    </div>
-                    <div class="rating-star">
-                      <i class="fa fa-star"></i> 5 (523)
-                    </div>
-
-                    <div class="doc-experience">
-                      <div class="years-exper">5 Years of Experience </div>
-                      <div class="successful-plus">
-                        500+ Successful Surgeries{" "}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="doctor-item-button">
-                    <a href="#" class="book-app">
-                      Book Appointment <img src="images/2023/05/book.png" />
-                    </a>
-                    <a href="#" class="view-profile">
-                      View Profile <img src="images/2023/05/profile.png" />
-                    </a>
-                    <a href="#" class="share-profile">
-                      Share Profile{" "}
-                      <img src="images/2023/05/share-profile.png" />
-                    </a>
-
-                    <div class="doc-Hospital">
-                      22 W 15TH ST <br />
-                      New York, NY 10011
-                      <img src="images/2023/05/02/1.png" />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="doctor-item-list">
-                  <div class="doctor-item-img">
-                    <img src="images/2023/05/04/1.jpg" />
-                  </div>
-                  <div class="doctor-item-doc">
-                    <h3>Doctor Name</h3>
-                    <div class="department-sub">
-                      Oncologist, Medical Oncologist
-                    </div>
-                    <div class="rating-star">
-                      <i class="fa fa-star"></i> 5 (523)
-                    </div>
-
-                    <div class="doc-experience">
-                      <div class="years-exper">5 Years of Experience </div>
-                      <div class="successful-plus">
-                        500+ Successful Surgeries{" "}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="doctor-item-button">
-                    <a href="#" class="book-app">
-                      Book Appointment <img src="images/2023/05/book.png" />
-                    </a>
-                    <a href="#" class="view-profile">
-                      View Profile <img src="images/2023/05/profile.png" />
-                    </a>
-                    <a href="#" class="share-profile">
-                      Share Profile{" "}
-                      <img src="images/2023/05/share-profile.png" />
-                    </a>
-
-                    <div class="doc-Hospital">
-                      22 W 15TH ST <br />
-                      New York, NY 10011
-                      <img src="images/2023/05/02/1.png" />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="doctor-item-list">
-                  <div class="doctor-item-img">
-                    <img src="images/2023/05/04/1.jpg" />
-                  </div>
-                  <div class="doctor-item-doc">
-                    <h3>Doctor Name</h3>
-                    <div class="department-sub">
-                      Oncologist, Medical Oncologist
-                    </div>
-                    <div class="rating-star">
-                      <i class="fa fa-star"></i> 5 (523)
-                    </div>
-
-                    <div class="doc-experience">
-                      <div class="years-exper">5 Years of Experience </div>
-                      <div class="successful-plus">
-                        500+ Successful Surgeries{" "}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="doctor-item-button">
-                    <a href="#" class="book-app">
-                      Book Appointment <img src="images/2023/05/book.png" />
-                    </a>
-                    <a href="#" class="view-profile">
-                      View Profile <img src="images/2023/05/profile.png" />
-                    </a>
-                    <a href="#" class="share-profile">
-                      Share Profile{" "}
-                      <img src="images/2023/05/share-profile.png" />
-                    </a>
-
-                    <div class="doc-Hospital">
-                      22 W 15TH ST <br />
-                      New York, NY 10011
-                      <img src="images/2023/05/02/1.png" />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="doctor-item-list">
-                  <div class="doctor-item-img">
-                    <img src="images/2023/05/04/1.jpg" />
-                  </div>
-                  <div class="doctor-item-doc">
-                    <h3>Doctor Name</h3>
-                    <div class="department-sub">
-                      Oncologist, Medical Oncologist
-                    </div>
-                    <div class="rating-star">
-                      <i class="fa fa-star"></i> 5 (523)
-                    </div>
-
-                    <div class="doc-experience">
-                      <div class="years-exper">5 Years of Experience </div>
-                      <div class="successful-plus">
-                        500+ Successful Surgeries{" "}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="doctor-item-button">
-                    <a href="#" class="book-app">
-                      Book Appointment <img src="images/2023/05/book.png" />
-                    </a>
-                    <a href="#" class="view-profile">
-                      View Profile <img src="images/2023/05/profile.png" />
-                    </a>
-                    <a href="#" class="share-profile">
-                      Share Profile{" "}
-                      <img src="images/2023/05/share-profile.png" />
-                    </a>
-
-                    <div class="doc-Hospital">
-                      22 W 15TH ST <br />
-                      New York, NY 10011
-                      <img src="images/2023/05/02/1.png" />
-                    </div>
-                  </div>
-                </div> */}
               </div>
 
               <div class="doctor-midbox-right">

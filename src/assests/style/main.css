@@ -1641,7 +1641,7 @@ section {
   border: 1px solid #f36c22;
 }
 .home-form input,
-textarea {
+textarea select {
   border: 1px solid #dcdee2;
   height: 55px;
   padding-left: 15px;
@@ -1653,6 +1653,7 @@ textarea {
   outline: none;
   text-align: left;
 }
+
 .home-form label {
   font-family: Helvetica Neue Medium;
   font-size: 16px;

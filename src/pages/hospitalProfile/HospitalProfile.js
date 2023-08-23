@@ -54,12 +54,14 @@ const HospitalProfile = () => {
   const { slug, country } = useParams();
   const [hospitalDetails, setHospitalDetails] = useState([]);
   const [gallery, setGallery] = useState([]);
+  const [speciality, setSpeciality] = useState([]);
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/api/hospital/${slug}/${country}`)
       .then((response) => {
         setHospitalDetails(response.data.data.hospital_info);
         setGallery(response.data.data.hospital_gallery);
+        setSpeciality(response.data.data.speciality);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -844,6 +846,15 @@ const HospitalProfile = () => {
                     .map((amenity, index) => (
                       <Link key={index}>{amenity.trim()}</Link>
                     ))}
+              </div>
+            </div>
+            <div id="amenitie" class="profile-data-section">
+              <h2>Speciality</h2>
+
+              {/* <div class="amenities-name">Speciality</div> */}
+              <div class="medical-box">
+                {speciality &&
+                  speciality.map((e) => <Link key={e.id}>{e.name}</Link>)}
               </div>
             </div>
 

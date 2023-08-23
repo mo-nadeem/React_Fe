@@ -92,7 +92,7 @@ const HospitalList = () => {
         <section id="find-hospital-list">
           <div class="midbox-inner  wiki-mk">
             <h2>
-              Hospital <span>(234 Results)</span>
+              Hospital <span>({hospital.length} Results)</span>
             </h2>
             <div class="hospital-list-find">
               <div class="ding">

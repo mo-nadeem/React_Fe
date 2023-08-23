@@ -5,17 +5,23 @@ import { useParams } from "react-router-dom";
 import experienceIcon from "../../assests/images/05/experience.png";
 import saveIcon from "../../assests/images/05/save.png";
 import bookIcon from "../../assests/images/05/book.png";
+import { AiTwotoneStar } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const DoctorProfile = () => {
   const { slug } = useParams();
   const [docotorDetails, setDocotorDetails] = useState([]);
   const [qa, setQa] = useState([]);
+  const [treament, setTreament] = useState([]);
+  const [hospitals, setHospitals] = useState([]);
 
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/api/doctor/${slug}`)
       .then((response) => {
         setDocotorDetails(response.data.data.doctor_info);
+        setTreament(response.data.data.treatments);
+        setHospitals(response.data.data.hospital);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -283,10 +289,9 @@ const DoctorProfile = () => {
               <div className="education-box">
                 <h2>Hospital Affiliations</h2>
                 <ul>
-                  <li>
-                    New York-Presbyterian / Columbia University Irving Medical
-                    Center
-                  </li>
+                  {hospitals.map((e) => (
+                    <li key={e.id}>{e.name}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -294,22 +299,30 @@ const DoctorProfile = () => {
             <div id="specializations" className="profile-data-section">
               <h2>Specialization</h2>
               <div className="medical-box">
-                <a href="#" target="_self">
+                {docotorDetails.specialization &&
+                  docotorDetails.specialization
+                    .split(",")
+                    .map((amenity, index) => (
+                      <Link key={index}>{amenity.trim()}</Link>
+                    ))}
+                {/* <a href="#" target="_self">
                   Oncology
                 </a>
                 <a href="#" target="_self">
                   Medical Oncology{" "}
-                </a>
+                </a> */}
               </div>
             </div>
 
             <div id="services" className="profile-data-section">
               <h2>Services</h2>
               <div className="medical-box">
-                <a href="#" target="_self">
-                  Bone Marrow Transplant
-                </a>
-                <a href="#" target="_self">
+                {treament.map((e) => (
+                  <a href="#" target="_self" key={e.id}>
+                    {e.name}
+                  </a>
+                ))}
+                {/* <a href="#" target="_self">
                   Breast Cancer Management{" "}
                 </a>
                 <a href="#" target="_self">
@@ -335,7 +348,7 @@ const DoctorProfile = () => {
                 </a>
                 <a href="#" target="_self">
                   Prostate Cancer
-                </a>
+                </a> */}
               </div>
             </div>
 
@@ -354,7 +367,9 @@ const DoctorProfile = () => {
 
               <div className="reviews-top-box">
                 <div className="star-rating-box">
-                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star">
+                    <AiTwotoneStar />
+                  </i>
                   <i className="fa fa-star"></i>
                   <i className="fa fa-star"></i>
                   <i className="fa fa-star"></i>
