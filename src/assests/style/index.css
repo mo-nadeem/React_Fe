@@ -2679,3 +2679,11 @@ pre code {
   outline: none;
   text-align: left;
 }
+
+.activeImage img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 0px;
+  padding: 0px;
+}

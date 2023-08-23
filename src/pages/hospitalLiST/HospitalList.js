@@ -286,7 +286,7 @@ const HospitalList = () => {
 
                               {galleryImages.map((e) => (
                                 <div
-                                  className=" activeImage"
+                                  className="activeImage"
                                   data-hash="two"
                                   key={e.id}
                                 >
