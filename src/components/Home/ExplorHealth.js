@@ -116,40 +116,42 @@ const ExplorHealth = () => {
             </div> */}
 
             <div className="tab tab1">
-              {speciality.map((filteredSpecialities) => (
-                <button
-                  className={`tab tab1 ${
+              {speciality &&
+                speciality.map((filteredSpecialities) => (
+                  <button
+                    className={`tab tab1 ${
+                      activeTab === filteredSpecialities.id ? "active" : ""
+                    }`}
+                    onMouseOver={() => handleTabChange(filteredSpecialities.id)}
+                  >
+                    {filteredSpecialities.name}
+                    <img src="images/2023/01/treatments-arrow.png" />
+                  </button>
+                ))}
+            </div>
+            {speciality &&
+              speciality.map((filteredSpecialities) => (
+                <div
+                  id={filteredSpecialities.id}
+                  className={`tabcontent ${
                     activeTab === filteredSpecialities.id ? "active" : ""
                   }`}
-                  onMouseOver={() => handleTabChange(filteredSpecialities.id)}
+                  key={filteredSpecialities.slug}
                 >
-                  {filteredSpecialities.name}
-                  <img src="images/2023/01/treatments-arrow.png" />
-                </button>
-              ))}
-            </div>
-            {speciality.map((filteredSpecialities) => (
-              <div
-                id={filteredSpecialities.id}
-                className={`tabcontent ${
-                  activeTab === filteredSpecialities.id ? "active" : ""
-                }`}
-                key={filteredSpecialities.slug}
-              >
-                <div className="explore-pro">
-                  <img className="pd-img3" src="images/2023/01/05/02.jpg" />
-                  <div className="explore-box ex-pro">
-                    <h3>{filteredSpecialities.name}</h3>
-                    <p>{filteredSpecialities.short_description}</p>
-                    <Link className="more-img" to="/">
-                      <i>
-                        <BsArrowRight style={{color:"#fff"}} />
-                      </i>
-                    </Link>
+                  <div className="explore-pro">
+                    <img className="pd-img3" src="images/2023/01/05/02.jpg" />
+                    <div className="explore-box ex-pro">
+                      <h3>{filteredSpecialities.name}</h3>
+                      <p>{filteredSpecialities.short_description}</p>
+                      <Link className="more-img" to="/">
+                        <i>
+                          <BsArrowRight style={{ color: "#fff" }} />
+                        </i>
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
 
             {/* 
             <div className="tab tab1">

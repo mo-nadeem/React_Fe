@@ -25,8 +25,7 @@ const HealthQuerys = () => {
   }, [fetchHomedata]);
   const limitedData = qa?.slice(0, 4) ?? [];
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [query, setQuery] = useState("");
@@ -45,11 +44,9 @@ const HealthQuerys = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    const fullName = `${firstName} ${lastName}`;
     // Create the data object to be sent in the API request
     const data = {
-      pname: fullName,
-
+      name: name,
       age: age,
       gender: gender,
       askq: query,
@@ -164,49 +161,71 @@ const HealthQuerys = () => {
 
           <div className="questions-form">
             <div className="homeform-left">
-              <div className="home-form">
-                <div className="inputbox">
-                  <label>Name</label>
-                  <input type="text" placeholder="" name="name" required="" />
+              <form onSubmit={handleFormSubmit}>
+                <div className="home-form">
+                  <div className="inputbox">
+                    <label>Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <div className="home-form">
-                <div className="inputbox1">
-                  <label>Age</label>
-                  <input type="text" placeholder="" name="name" required="" />
+                <div className="home-form">
+                  <div className="inputbox1">
+                    <label>Age</label>
+                    <input
+                      type="text"
+                      placeholder=""
+                      name="age"
+                      value={age}
+                      onChange={handleAgeChange}
+                      required
+                    />
+                  </div>
+
+                  <div className="inputbox1">
+                    <label>Gender</label>
+                    <select
+                      name="gender"
+                      value={gender}
+                      onChange={(e) => setGender(e.target.value)}
+                      required
+                    >
+                      <option value="">Select Gender</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
                 </div>
 
-                <div className="inputbox1">
-                  <label>Gender</label>
-                  <select name="gender" required>
-                    <option value="">Select Gender</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
-                  </select>
+                <div className="home-form">
+                  <div className="homequery">
+                    <label>Your Query</label>
+                    <textarea
+                      className="magbox"
+                      type="textarea"
+                      name="query"
+                      placeholder=""
+                      rows="2"
+                      value={query}
+                      onChange={(e) => setQuery(e.target.value)}
+                    ></textarea>
+                  </div>
                 </div>
-              </div>
 
-              <div className="home-form">
-                <div className="homequery">
-                  <label>Your Query</label>
-                  <textarea
-                    className="magbox"
-                    type="textarea"
-                    name="query"
-                    placeholder=""
-                    rows="2"
-                  ></textarea>
+                <div className="home-form">
+                  <button type="submit" name="en" className="home-button">
+                    {isLoading ? "Submitting..." : "Submit Now"}{" "}
+                    <img src={iconImg2} alt="icon" />
+                  </button>
                 </div>
-              </div>
-
-              <div className="home-form">
-                <button type="submit" name="en" className="home-button">
-                  {" "}
-                  Submit Now <img src={iconImg2} alt="icon" />
-                </button>
-              </div>
+              </form>
             </div>
             <div className="homeform-right">
               <img src={formDoctorImg} alt="form-img" />
