@@ -100,10 +100,10 @@ const Header = () => {
                     </a>
                     <div className="dropdown-content">
                       <ul>
-                        {treatment &&
-                          treatment.map((e) => (
+                        {speciality &&
+                          speciality.map((e) => (
                             <li key={e.id}>
-                              <Link  to={`/hospitals/${e.slug}/${e.country}`}>
+                              <Link to={`/hospitals/${e.slug}/${e.country}`}>
                                 <img src={navIcon} alt="Brand Logo" />
                                 {e.name} Hospitals
                                 <span>Medflick</span>
@@ -123,10 +123,10 @@ const Header = () => {
                     </a>
                     <div className="dropdown-content">
                       <ul>
-                        {treatment &&
-                          treatment.map((e) => (
+                        {speciality &&
+                          speciality.map((e) => (
                             <li key={e.id}>
-                              <Link  to={`/doctors/${e.slug}/${e.country}`}>
+                              <Link to={`/doctors/${e.slug}/${e.country}`}>
                                 <img src={navIcon} alt="Brand Logo" />
                                 {e.name} Doctors
                                 <span>Medflick</span>

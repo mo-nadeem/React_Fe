@@ -13,6 +13,7 @@ import profileIcon from "../../assests/images/05/profile.png";
 import Select from "react-select";
 import { AiTwotoneStar } from "react-icons/ai";
 import { AiOutlineStar } from "react-icons/ai";
+import loadingImg from "../../assests/images/05/loading.png"
 
 const responsive = {
   superLargeDesktop: {
@@ -460,9 +461,9 @@ const HospitalProfile = () => {
                 </div>
 
                 <div className="refresh-box">
-                  <a href="#">
-                    <img src="images/2023/05/loading.png" />
-                  </a>
+                  <span onClick={handleClearSelection}>
+                    <img src={loadingImg} alt="loading-Icon" />
+                  </span>
                 </div>
               </div>
               {doctor &&

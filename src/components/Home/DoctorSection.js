@@ -1,9 +1,10 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, useRef } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchHome } from "../../Api/action/HomeAction";
 import { Link } from "react-router-dom";
+
 
 const responsive = {
   superLargeDesktop: {
@@ -26,6 +27,7 @@ const responsive = {
 };
 
 const DoctorSection = () => {
+  const carouselRef = useRef(null);
   const dispatch = useDispatch();
 
   const { doctor } = useSelector((state) => state.data);
@@ -37,6 +39,30 @@ const DoctorSection = () => {
   useEffect(() => {
     fetchHomedata();
   }, [fetchHomedata]);
+
+  const handleNext = () => {
+    if (carouselRef.current) {
+      carouselRef.current.next();
+    }
+  };
+
+  // const handlePrevious = () => {
+  //   if (carouselRef.current) {
+  //     carouselRef.current.previous();
+  //   }
+  // };
+  // const CustomButtonGroup = ({ handleNext, handlePrevious }) => {
+  //   return (
+  //     <div className="custom-button-group">
+  //       <button onClick={handlePrevious} className="prev">
+  //         <span style={{ color: "orange !imporatnt" }}>
+  //           <GrLinkNext />
+  //         </span>
+  //       </button>
+  //       <button onClick={handleNext}>Next</button>
+  //     </div>
+  //   );
+  // };
 
   let doctorSection = null;
   if (doctor?.length > 0) {
@@ -50,6 +76,7 @@ const DoctorSection = () => {
               infinite={true}
               autoPlay={true}
               autoPlaySpeed={2000}
+              ref={carouselRef}
             >
               {doctor &&
                 doctor.map((e) => (
@@ -86,6 +113,10 @@ const DoctorSection = () => {
                   </div>
                 ))}
             </Carousel>
+            {/* <CustomButtonGroup
+              handleNext={handleNext}
+              handlePrevious={handlePrevious}
+            /> */}
           </div>
         </div>
       </>

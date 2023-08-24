@@ -5,7 +5,7 @@ import axios from "axios";
 import bookIcon from "../../assests/images/05/book.png";
 import profileIcon from "../../assests/images/05/profile.png";
 import shareIcon from "../../assests/images/05/share-profile.png";
-import hospitalImg from "../../assests/images/05/02/1.png";
+import arrowCIcon from "../../assests/images/2023/01/arrow-c.png";
 import { Link } from "react-router-dom";
 import Select from "react-select";
 import loadingImg from "../../assests/images/05/loading.png";
@@ -44,10 +44,18 @@ const DoctorList = () => {
     setSelectedOption(null); // Clear the selected option
   };
 
-  const findHospitalIcon = (hospitalId) => {
-    const hospital = hospitalIcon.find((h) => h.id === hospitalId);
-    return hospital ? hospital.icon : ""; // Return the icon URL or an empty string if no match is found
-  };
+  //  Search filteration top
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredDoctors, setFilteredDoctors] = useState([]);
+  useEffect(() => {
+    // Filter the 'doctors' based on the 'searchQuery'
+    const filtered = doctor.filter((doctor) => {
+      const fullName = `${doctor.first_name} ${doctor.last_name}`;
+      return fullName.toLowerCase().includes(searchQuery.toLowerCase());
+    });
+    setFilteredDoctors(filtered);
+  }, [doctor, searchQuery]);
 
   return (
     <>
@@ -64,6 +72,8 @@ const DoctorList = () => {
                     placeholder="Search Doctor"
                     name="name"
                     required=""
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
                   />
                 </div>
                 <div class="location-box">
@@ -189,7 +199,7 @@ const DoctorList = () => {
                 {doctor &&
                   doctor.map((e) => {
                     // Find the hospital that matches the doctor's hospital_id
-                    const matchedHospital = hospitalIcon.find(
+                    const matchedHospital = hospitalIcon?.find(
                       (hospital) => String(hospital.id) === e.hospital_id
                     );
                     return (
@@ -345,8 +355,7 @@ const DoctorList = () => {
                   </div>
 
                   <button type="submit" name="en" class="home-button">
-                    {" "}
-                    Submit Now <img src="images/2023/01/arrow-c.png" alt="" />
+                    Submit Now <img src={arrowCIcon} alt="arrow-Icon" />
                   </button>
                 </div>
               </div>

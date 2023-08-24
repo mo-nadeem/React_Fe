@@ -14,6 +14,7 @@ import iconImg from "../../assests/images/05/loc.png";
 import { Link } from "react-router-dom";
 import Select from "react-select";
 import loadingImg from "../../assests/images/05/loading.png";
+import arrowCIcon from "../../assests/images/2023/01/arrow-c.png"
 
 const HospitalList = () => {
   const { slug, country } = useParams();
@@ -593,7 +594,7 @@ const HospitalList = () => {
 
                   <button type="submit" name="en" class="home-button">
                     {" "}
-                    Submit Now <img src="images/2023/01/arrow-c.png" alt="" />
+                    Submit Now <img src={arrowCIcon} alt="arrow-Icon" />
                   </button>
                 </div>
               </div>
