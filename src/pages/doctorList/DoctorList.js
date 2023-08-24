@@ -44,6 +44,11 @@ const DoctorList = () => {
     setSelectedOption(null); // Clear the selected option
   };
 
+  const findHospitalIcon = (hospitalId) => {
+    const hospital = hospitalIcon.find((h) => h.id === hospitalId);
+    return hospital ? hospital.icon : ""; // Return the icon URL or an empty string if no match is found
+  };
+
   return (
     <>
       <Homelayout>
@@ -182,56 +187,61 @@ const DoctorList = () => {
             <div class="doctor-midbox">
               <div class="doctor-midbox-left">
                 {doctor &&
-                  doctor.map((e) => (
-                    <div class="doctor-item-list" key={e.id}>
-                      <div class="doctor-item-img">
-                        <img
-                          src={`${process.env.REACT_APP_BASE_URL}/doctor/${e.image}`}
-                          alt={e.slug}
-                        />
-                      </div>
-                      <div class="doctor-item-doc">
-                        <h3>
-                          {e.prefix} {e.first_name} {e.last_name}
-                        </h3>
-                        <div class="department-sub">{e.designation}</div>
-                        <div class="rating-star">
-                          <i class="fa fa-star"></i> 5 (523)
+                  doctor.map((e) => {
+                    // Find the hospital that matches the doctor's hospital_id
+                    const matchedHospital = hospitalIcon.find(
+                      (hospital) => String(hospital.id) === e.hospital_id
+                    );
+                    return (
+                      <div class="doctor-item-list" key={e.id}>
+                        <div class="doctor-item-img">
+                          <img
+                            src={`${process.env.REACT_APP_BASE_URL}/doctor/${e.image}`}
+                            alt={e.slug}
+                          />
                         </div>
-
-                        <div class="doc-experience">
-                          <div class="years-exper">
-                            {e.experience_year}+ Years of Experience{" "}
+                        <div class="doctor-item-doc">
+                          <h3>
+                            {e.prefix} {e.first_name} {e.last_name}
+                          </h3>
+                          <div class="department-sub">{e.designation}</div>
+                          <div class="rating-star">
+                            <i class="fa fa-star"></i> 5 (523)
                           </div>
-                          <div class="successful-plus">
-                            {e.surgery_treatment}+ Successful Surgeries{" "}
+
+                          <div class="doc-experience">
+                            <div class="years-exper">
+                              {e.experience_year}+ Years of Experience{" "}
+                            </div>
+                            <div class="successful-plus">
+                              {e.surgery_treatment}+ Successful Surgeries{" "}
+                            </div>
+                          </div>
+                        </div>
+                        <div class="doctor-item-button">
+                          <a href="#" class="book-app">
+                            Book Appointment <img src={bookIcon} alt="icon" />
+                          </a>
+                          <Link to={`/doctor/${e.slug}`} class="view-profile">
+                            View Profile <img src={profileIcon} alt="icon" />
+                          </Link>
+                          <a href="#" class="share-profile">
+                            Share Profile <img src={shareIcon} alt="icon" />
+                          </a>
+
+                          <div class="doc-Hospital">
+                            {e.location}
+                            {matchedHospital && (
+                              <img
+                                src={`${process.env.REACT_APP_BASE_URL}/hospital/${matchedHospital.icon}`}
+                                alt="icon"
+                              />
+                            )}
                           </div>
                         </div>
                       </div>
-                      <div class="doctor-item-button">
-                        <a href="#" class="book-app">
-                          Book Appointment <img src={bookIcon} alt="icon" />
-                        </a>
-                        <Link to={`/doctor/${e.slug}`} class="view-profile">
-                          View Profile <img src={profileIcon} alt="icon" />
-                        </Link>
-                        <a href="#" class="share-profile">
-                          Share Profile <img src={shareIcon} alt="icon" />
-                        </a>
-
-                        <div class="doc-Hospital">
-                          {e.location}
-                          {hospitalIcon.map((e) => (
-                            <img
-                              key={e.id}
-                              src={`${process.env.REACT_APP_BASE_URL}/hospital/${e.icon}`}
-                              alt="icon"
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
               </div>
 
               <div class="doctor-midbox-right">

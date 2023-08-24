@@ -147,7 +147,7 @@ const HealthPackage = () => {
                               <div className="cost">$ {items.price}</div>
                             </div>
                             <div className="packages-details">
-                              {items.short_description}
+                              {items.short_description.slice(0, 110)}....
                             </div>
                             <Link to="/">
                               <img

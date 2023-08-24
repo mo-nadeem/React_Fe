@@ -18,21 +18,16 @@ import loadingImg from "../../assests/images/05/loading.png";
 const HospitalList = () => {
   const { slug, country } = useParams();
   const [hospital, setHospital] = useState([]);
-  const [info, setInfo] = useState([]);
+
   const [images, setImages] = useState([]);
-  const [activeImage, setActiveImage] = useState();
+
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/api/hospitals/${slug}/${country}`)
       .then((response) => {
         setHospital(response.data.hospital_list.hospital_list);
-        setInfo(response.data.hospital_list.treatment_name);
         setImages(response.data.hospital_list.hospital_gallery);
-        if (response.data.hospital_list.hospital_gallery.length > 0) {
-          setActiveImage(
-            `${process.env.REACT_APP_BASE_URL}/hospital/${response.data.hospital_list.hospital_gallery[0].icon}`
-          );
-        }
+      
       })
       .catch((error) => {
         console.error("Error fetching data:", error);

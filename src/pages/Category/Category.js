@@ -100,12 +100,13 @@ const Category = () => {
       </Helmet>
       <Homelayout>
         <section id="category-slider">
-          <img src={sliperImg} alt="Category" />
+          <img
+            src={`${process.env.REACT_APP_BASE_URL}/speciality/${info.image}`}
+            alt="Category"
+          />
           <div className="category-slidertext">
             <h1>{info.name}</h1>
-            <p>
-             {info.short_description}
-            </p>
+            <p>{info.short_description}</p>
           </div>
         </section>
 
@@ -131,12 +132,8 @@ const Category = () => {
 
         <section id="category-mid">
           <div className="midbox-inner  wiki-mk">
-            <h2>
-              {info.menu_name}
-            </h2>
-            <p>
-              {info.quote}
-            </p>
+            <h2>{info.menu_name}</h2>
+            <p>{info.quote}</p>
             <a href="#">
               {" "}
               Ask FREE Question <img src={arrowImg} alt="ask-a-questions" />
@@ -166,13 +163,16 @@ const Category = () => {
                           <div className="pack-name">{e.name} </div>
                           <div className="cost">${e.price}</div>
                         </div>
+                        <div className="packages-details">
+                          {e.short_description.slice(0, 130)}....
+                        </div>
 
-                        <div
+                        {/* <div
                           className="packages-details"
                           dangerouslySetInnerHTML={{
                             __html: e.short_description,
                           }}
-                        />
+                        /> */}
                         <a href="#">
                           <img
                             src={arrowTrans}

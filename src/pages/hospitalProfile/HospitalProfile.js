@@ -9,6 +9,7 @@ import establishIcon from "../../assests/images/05/established.png";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Link } from "react-router-dom";
+import profileIcon from "../../assests/images/05/profile.png";
 
 const responsive = {
   superLargeDesktop: {
@@ -55,6 +56,7 @@ const HospitalProfile = () => {
   const [hospitalDetails, setHospitalDetails] = useState([]);
   const [gallery, setGallery] = useState([]);
   const [speciality, setSpeciality] = useState([]);
+  const [doctor, setDoctor] = useState([]);
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/api/hospital/${slug}/${country}`)
@@ -62,6 +64,7 @@ const HospitalProfile = () => {
         setHospitalDetails(response.data.data.hospital_info);
         setGallery(response.data.data.hospital_gallery);
         setSpeciality(response.data.data.speciality);
+        setDoctor(response.data.data.doctors);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -90,49 +93,49 @@ const HospitalProfile = () => {
     <>
       <Homelayout>
         <section id="hospitalprofile-section">
-          <div class="midbox-inner  wiki-mk">
-            <div class="hospitalprofile">
-              <div class="hospitalprofile-left">
-                <div class="hospitalprofile-img">
+          <div className="midbox-inner  wiki-mk">
+            <div className="hospitalprofile">
+              <div className="hospitalprofile-left">
+                <div className="hospitalprofile-img">
                   <img
                     src={`${process.env.REACT_APP_BASE_URL}/hospital/${hospitalDetails.icon}`}
                     alt={hospitalDetails.slug}
                   />
                 </div>
-                <div class="hospitalprofile-head">
+                <div className="hospitalprofile-head">
                   <h1>{hospitalDetails.name}</h1>
-                  <div class="location">{hospitalDetails.location}</div>
+                  <div className="location">{hospitalDetails.location}</div>
                 </div>
               </div>
-              <div class="hospitalprofile-right">
-                <div class="rating-Overall">
-                  <div class="rating-box">
-                    <i class="fa fa-star"></i> Overall rating
+              <div className="hospitalprofile-right">
+                <div className="rating-Overall">
+                  <div className="rating-box">
+                    <i className="fa fa-star"></i> Overall rating
                   </div>
-                  <div class="rating-no">4.90</div>
-                  <a href="#" class="verified-link">
+                  <div className="rating-no">4.90</div>
+                  <a href="#" className="verified-link">
                     1,650 verified reviews
                   </a>
                 </div>
-                <div class="experience-total">
-                  <div class="experience-text">
+                <div className="experience-total">
+                  <div className="experience-text">
                     <img src={doctorIcon} alt="doctor-icon" /> Doctors
                   </div>
-                  <div class="experience-years">{hospitalDetails.doc}</div>
+                  <div className="experience-years">{hospitalDetails.doc}</div>
                 </div>
-                <div class="experience-total">
-                  <div class="experience-text">
+                <div className="experience-total">
+                  <div className="experience-text">
                     <img src={establishIcon} alt="doctor-icon" /> Established
                   </div>
-                  <div class="experience-years">
+                  <div className="experience-years">
                     {hospitalDetails.established}
                   </div>
                 </div>
-                <div class="doctor-book-an">
-                  <a href="#" class="save-profile">
+                <div className="doctor-book-an">
+                  <a href="#" className="save-profile">
                     Save Profile <img src={saveIcon} alt="icon" />
                   </a>
-                  <a href="#" class="book-appointment">
+                  <a href="#" className="book-appointment">
                     Enquire Now <img src={bookIcon} alt="icon" />
                   </a>
                 </div>
@@ -148,7 +151,7 @@ const HospitalProfile = () => {
           >
             <ul>
               <li>
-                <a href="#reviews" target="_self" class="active">
+                <a href="#reviews" target="_self" className="active">
                   Reviews
                 </a>
               </li>
@@ -179,10 +182,10 @@ const HospitalProfile = () => {
               </li>
             </ul>
 
-            <div class="expert-profilebox">
-              <div class="hospital-boxright">
-                <div class="hos-profile">
-                  <div class="hosprofile-img">
+            <div className="expert-profilebox">
+              <div className="hospital-boxright">
+                <div className="hos-profile">
+                  <div className="hosprofile-img">
                     <img
                       src={`${process.env.REACT_APP_BASE_URL}/hospital/${hospitalDetails.icon}`}
                       alt={hospitalDetails.name}
@@ -190,7 +193,7 @@ const HospitalProfile = () => {
                   </div>{" "}
                   <span>{hospitalDetails.name}</span>
                 </div>
-                <a href="#" class="book-appointment">
+                <a href="#" className="book-appointment">
                   Enquire Now <img src={bookIcon} />
                 </a>
               </div>
@@ -199,30 +202,30 @@ const HospitalProfile = () => {
         </section>
 
         <section id="profile-data-section">
-          <div class="midbox-inner  wiki-mk">
-            <div class="reviews-section">
-              <div class="overall-rating">
-                <div class="overall-rating-left">
+          <div className="midbox-inner  wiki-mk">
+            <div className="reviews-section">
+              <div className="overall-rating">
+                <div className="overall-rating-left">
                   <h3>Overall Rating</h3>
-                  <div class="star-rating">
-                    <div class="rating-nobox">5.00</div>
-                    <div class="star-rating-box">
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
+                  <div className="star-rating">
+                    <div className="rating-nobox">5.00</div>
+                    <div className="star-rating-box">
+                      <i className="fa fa-star"></i>
+                      <i className="fa fa-star"></i>
+                      <i className="fa fa-star"></i>
+                      <i className="fa fa-star"></i>
+                      <i className="fa fa-star"></i>
                       <span>
                         Based on <a href="#">31 Reviews</a>
                       </span>
                     </div>
                   </div>
 
-                  <div class="star-reviews-box">
-                    <div class="leave-review">Leave a review</div>
+                  <div className="star-reviews-box">
+                    <div className="leave-review">Leave a review</div>
                     <p>How likely are you to recommend Dr. Oleg Goncharov?</p>
-                    <div class="star-box1">
-                      <div class="rating">
+                    <div className="star-box1">
+                      <div className="rating">
                         <input
                           type="radio"
                           name="rating"
@@ -253,67 +256,67 @@ const HospitalProfile = () => {
                           id="rating-5"
                           value="5"
                         />
-                        <div class="rating__box">
-                          <label for="rating-1" class="rating__star">
-                            <i class="fa fa-star"></i>
+                        <div className="rating__box">
+                          <label for="rating-1" className="rating__star">
+                            <i className="fa fa-star"></i>
                           </label>
-                          <label for="rating-2" class="rating__star">
-                            <i class="fa fa-star"></i>
+                          <label for="rating-2" className="rating__star">
+                            <i className="fa fa-star"></i>
                           </label>
-                          <label for="rating-3" class="rating__star">
-                            <i class="fa fa-star"></i>
+                          <label for="rating-3" className="rating__star">
+                            <i className="fa fa-star"></i>
                           </label>
-                          <label for="rating-4" class="rating__star">
-                            <i class="fa fa-star"></i>
+                          <label for="rating-4" className="rating__star">
+                            <i className="fa fa-star"></i>
                           </label>
-                          <label for="rating-5" class="rating__star">
-                            <i class="fa fa-star"></i>
+                          <label for="rating-5" className="rating__star">
+                            <i className="fa fa-star"></i>
                           </label>
                         </div>
                       </div>
-                      <div class="star-box2">(Select a Rating)</div>
+                      <div className="star-box2">(Select a Rating)</div>
                     </div>
                   </div>
                 </div>
 
-                <div class="overall-rating-right">
+                <div className="overall-rating-right">
                   <h3>Recent Reviews</h3>
 
-                  <div class="reviews-top-box">
-                    <p class="more">
+                  <div className="reviews-top-box">
+                    <p className="more">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor incididunt ut labore Ut enim ad
                       minim veniam, quis nostrud exercitati.
                     </p>
-                    <div class="name-month-box">
+                    <div className="name-month-box">
                       Name
-                      <div class="month-box">
+                      <div className="month-box">
                         <span></span>1 Month Ago
                       </div>
                     </div>
                   </div>
 
-                  <div class="reviews-top-box">
-                    <p class="more">
+                  <div className="reviews-top-box">
+                    <p className="more">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor incididunt ut labore Ut enim ad
                       minim veniam, quis nostrud exercitati.
                     </p>
-                    <div class="name-month-box">
+                    <div className="name-month-box">
                       Name
-                      <div class="month-box">
+                      <div className="month-box">
                         <span></span>1 Month Ago
                       </div>
                     </div>
                   </div>
-                  <a href="#reviews" class="read-mor-reviews">
+                  <a href="#reviews" className="read-mor-reviews">
                     Read More Reviews
                   </a>
                 </div>
               </div>
             </div>
 
-            <div id="overview" class="profile-data-section">
+            <div id="overview" className="profile-data-section">
               <h2>Overview</h2>
               <div
                 dangerouslySetInnerHTML={{
@@ -322,15 +325,15 @@ const HospitalProfile = () => {
               />
             </div>
 
-            <div id="gallery" class="profile-data-section">
+            <div id="gallery" className="profile-data-section">
               <h2>Gallery</h2>
 
-              <div class="owl-slider">
-                <div id="gallery-list" class="owl-carousel">
+              <div className="owl-slider">
+                <div id="gallery-list" className="owl-carousel">
                   <Carousel responsive={responsive} arrows={false}>
                     {gallery.map((e) => (
                       <div
-                        class="item"
+                        className="item"
                         key={e.id}
                         style={{ marginRight: "20px" }}
                       >
@@ -345,460 +348,329 @@ const HospitalProfile = () => {
               </div>
             </div>
 
-            <div id="Search-doctor" class="profile-data-section">
-              <h2>Search Doctor</h2>
+            <div id="doctor" className="profile-data-section">
+              <h2>
+                Search Doctor <span>({doctor.length} Doctors)</span>
+              </h2>
 
-              <div class="search-doctor">
-                <div class="select-department">
-                  <div class="ding">
-                    <div className=""></div>
-                    <select id="wiki">
-                      <option value="none" selected>
-                        Search by Department
-                      </option>
-                      <option value="">Neurology</option>
-                      <option value="">Neurosurgery</option>
-                      <option value="">Neuromodulation</option>
-                      <option value="">Orthopedics</option>
-                      <option value="">Spine Surgeries</option>
-                    </select>
-                  </div>
+              <div className="hospital-list-find">
+                <div className="hospital-Searchbox">
+                  <input
+                    type="text"
+                    placeholder="Search"
+                    name="name"
+                    required=""
+                  />
                 </div>
 
-                <div class="select-doctor">
-                  <div class="ding">
-                    <select id="wiki1">
-                      <option value="none" selected>
-                        Select by Doctor
-                      </option>
-                      <option value=""> Dr. Sachin Kandhari</option>
-                      <option value=""> Dr. Dewaker Sharma</option>
-                      <option value=""> Dr. Pervez Ahmed Khan</option>
-                      <option value=""> Dr. Vikas Gupta</option>
-                      <option value=""> Dr. Kishan Raj</option>
-                    </select>
-                  </div>
+                <div className="ding">
+                  <select id="wiki">
+                    <option value="none" selected>
+                      Department
+                    </option>
+                  </select>
+                </div>
+                <div className="ding">
+                  <select id="wiki1">
+                    <option value="none" selected>
+                      Location
+                    </option>
+                  </select>
+                </div>
+                <div className="ding">
+                  <select id="wiki2">
+                    <option value="none" selected>
+                      Gender
+                    </option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">other</option>
+                  </select>
+                </div>
+                <div className="ding">
+                  <select id="wiki3">
+                    <option value="none" selected>
+                      Rating
+                    </option>
+                  </select>
+                </div>
+                <div className="ding">
+                  <select id="wiki4">
+                    <option value="none" selected>
+                      Experience
+                    </option>
+                    <option value="">5 Year's</option>
+                    <option value="">10 Year's</option>
+                    <option value="">15 Year's</option>
+                    <option value="">20 Year's</option>
+                    <option value="">20 Year's</option>
+                  </select>
                 </div>
 
-                <div class="search-box">
-                  <button type="submit" name="en" class="search-now">
-                    Search Now
-                  </button>
+                <div className="refresh-box">
+                  <a href="#">
+                    <img src="images/2023/05/loading.png" />
+                  </a>
                 </div>
               </div>
-            </div>
-
-            <div id="doctor" class="profile-data-section">
-              <h2>Doctors</h2>
-
-              <div class="owl-slider">
-                <div id="doctors-list-hospital" class="owl-carousel">
-                  <Carousel responsive={responsiveDoctor} arrows={false}>
-                    <div class="item">
-                      <div class="doctors-hospital-item">
-                        <div class="doctors-box-item">
-                          <div class="doctor-img">
-                            <img src="images/2023/05/1.jpg" />
-                          </div>
-                          <div class="doctorprofile-head">
-                            Dr. Oleg Goncharov
-                            <div class="department">
-                              Spine and Pain Specialist
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-day-time">
-                          <div class="daybox">
-                            <div class="day-box"> Mon-Sat </div>
-                            <div class="time-box">
-                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-time-boox">
-                          <div class="daybox">
-                            <a href="#" class="save-profile">
-                              Save Profile
-                            </a>
-                            <a href="#" class="book-appointment">
-                              Enquire Now
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="doctors-hospital-item">
-                        <div class="doctors-box-item">
-                          <div class="doctor-img">
-                            <img src="images/2023/05/1.jpg" />
-                          </div>
-                          <div class="doctorprofile-head">
-                            Dr. Oleg Goncharov
-                            <div class="department">
-                              Spine and Pain Specialist
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-day-time">
-                          <div class="daybox">
-                            <div class="day-box"> Mon-Sat </div>
-                            <div class="time-box">
-                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-time-boox">
-                          <div class="daybox">
-                            <a href="#" class="save-profile">
-                              Save Profile
-                            </a>
-                            <a href="#" class="book-appointment">
-                              Enquire Now
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="doctors-hospital-item">
-                        <div class="doctors-box-item">
-                          <div class="doctor-img">
-                            <img src="images/2023/05/1.jpg" />
-                          </div>
-                          <div class="doctorprofile-head">
-                            Dr. Oleg Goncharov
-                            <div class="department">
-                              Spine and Pain Specialist
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-day-time">
-                          <div class="daybox">
-                            <div class="day-box"> Mon-Sat </div>
-                            <div class="time-box">
-                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-time-boox">
-                          <div class="daybox">
-                            <a href="#" class="save-profile">
-                              Save Profile
-                            </a>
-                            <a href="#" class="book-appointment">
-                              Enquire Now
-                            </a>
-                          </div>
-                        </div>
+              {doctor &&
+                doctor.map((e) => (
+                  <div className="exparts-item-h" key={e.id}>
+                    <div className="doctor-item-img">
+                      <img
+                        src={`${process.env.REACT_APP_BASE_URL}/doctor/${e.image}`}
+                        alt={e.name}
+                      />
+                    </div>
+                    <div className="doctor-item-doc">
+                      <h3>
+                        {e.prefix} {e.first_name} {e.last_name}
+                      </h3>
+                      <div className="department-sub">{e.designation}</div>
+                      <div className="rating-star">
+                        <i className="fa fa-star"></i> 5 (523)
                       </div>
                     </div>
-
-                    <div class="item">
-                      <div class="doctors-hospital-item">
-                        <div class="doctors-box-item">
-                          <div class="doctor-img">
-                            <img src="images/2023/05/1.jpg" />
-                          </div>
-                          <div class="doctorprofile-head">
-                            Dr. Oleg Goncharov
-                            <div class="department">
-                              Spine and Pain Specialist
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-day-time">
-                          <div class="daybox">
-                            <div class="day-box"> Mon-Sat </div>
-                            <div class="time-box">
-                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-time-boox">
-                          <div class="daybox">
-                            <a href="#" class="save-profile">
-                              Save Profile
-                            </a>
-                            <a href="#" class="book-appointment">
-                              Enquire Now
-                            </a>
-                          </div>
-                        </div>
+                    <div className="doc-experience">
+                      <div className="years-exper">
+                        {e.experience_year}+ Years of Experience{" "}
                       </div>
-
-                      <div class="doctors-hospital-item">
-                        <div class="doctors-box-item">
-                          <div class="doctor-img">
-                            <img src="images/2023/05/1.jpg" />
-                          </div>
-                          <div class="doctorprofile-head">
-                            Dr. Oleg Goncharov
-                            <div class="department">
-                              Spine and Pain Specialist
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-day-time">
-                          <div class="daybox">
-                            <div class="day-box"> Mon-Sat </div>
-                            <div class="time-box">
-                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-time-boox">
-                          <div class="daybox">
-                            <a href="#" class="save-profile">
-                              Save Profile
-                            </a>
-                            <a href="#" class="book-appointment">
-                              Enquire Now
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="doctors-hospital-item">
-                        <div class="doctors-box-item">
-                          <div class="doctor-img">
-                            <img src="images/2023/05/1.jpg" />
-                          </div>
-                          <div class="doctorprofile-head">
-                            Dr. Oleg Goncharov
-                            <div class="department">
-                              Spine and Pain Specialist
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-day-time">
-                          <div class="daybox">
-                            <div class="day-box"> Mon-Sat </div>
-                            <div class="time-box">
-                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-time-boox">
-                          <div class="daybox">
-                            <a href="#" class="save-profile">
-                              Save Profile
-                            </a>
-                            <a href="#" class="book-appointment">
-                              Enquire Now
-                            </a>
-                          </div>
-                        </div>
+                      <div className="successful-plus">
+                        {e.surgery_treatment}+ Successful Surgeries{" "}
                       </div>
                     </div>
-
-                    <div class="item">
-                      <div class="doctors-hospital-item">
-                        <div class="doctors-box-item">
-                          <div class="doctor-img">
-                            <img src="images/2023/05/1.jpg" />
-                          </div>
-                          <div class="doctorprofile-head">
-                            Dr. Oleg Goncharov
-                            <div class="department">
-                              Spine and Pain Specialist
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-day-time">
-                          <div class="daybox">
-                            <div class="day-box"> Mon-Sat </div>
-                            <div class="time-box">
-                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-time-boox">
-                          <div class="daybox">
-                            <a href="#" class="save-profile">
-                              Save Profile
-                            </a>
-                            <a href="#" class="book-appointment">
-                              Enquire Now
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="doctors-hospital-item">
-                        <div class="doctors-box-item">
-                          <div class="doctor-img">
-                            <img src="images/2023/05/1.jpg" />
-                          </div>
-                          <div class="doctorprofile-head">
-                            Dr. Oleg Goncharov
-                            <div class="department">
-                              Spine and Pain Specialist
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-day-time">
-                          <div class="daybox">
-                            <div class="day-box"> Mon-Sat </div>
-                            <div class="time-box">
-                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-time-boox">
-                          <div class="daybox">
-                            <a href="#" class="save-profile">
-                              Save Profile
-                            </a>
-                            <a href="#" class="book-appointment">
-                              Enquire Now
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="doctors-hospital-item">
-                        <div class="doctors-box-item">
-                          <div class="doctor-img">
-                            <img src="images/2023/05/1.jpg" />
-                          </div>
-                          <div class="doctorprofile-head">
-                            Dr. Oleg Goncharov
-                            <div class="department">
-                              Spine and Pain Specialist
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-day-time">
-                          <div class="daybox">
-                            <div class="day-box"> Mon-Sat </div>
-                            <div class="time-box">
-                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-time-boox">
-                          <div class="daybox">
-                            <a href="#" class="save-profile">
-                              Save Profile
-                            </a>
-                            <a href="#" class="book-appointment">
-                              Enquire Now
-                            </a>
-                          </div>
-                        </div>
-                      </div>
+                    <div className="day-itembox">
+                      {/* <div className="day-exper">Mon - Sat </div>
+                      <div className="time-exper">8:00 Am - 9:00 AM </div> */}
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: e.opd_time,
+                        }}
+                      />
                     </div>
-
-                    <div class="item">
-                      <div class="doctors-hospital-item">
-                        <div class="doctors-box-item">
-                          <div class="doctor-img">
-                            <img src="images/2023/05/1.jpg" />
-                          </div>
-                          <div class="doctorprofile-head">
-                            Dr. Oleg Goncharov
-                            <div class="department">
-                              Spine and Pain Specialist
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-day-time">
-                          <div class="daybox">
-                            <div class="day-box"> Mon-Sat </div>
-                            <div class="time-box">
-                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-time-boox">
-                          <div class="daybox">
-                            <a href="#" class="save-profile">
-                              Save Profile
-                            </a>
-                            <a href="#" class="book-appointment">
-                              Enquire Now
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="doctors-hospital-item">
-                        <div class="doctors-box-item">
-                          <div class="doctor-img">
-                            <img src="images/2023/05/1.jpg" />
-                          </div>
-                          <div class="doctorprofile-head">
-                            Dr. Oleg Goncharov
-                            <div class="department">
-                              Spine and Pain Specialist
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-day-time">
-                          <div class="daybox">
-                            <div class="day-box"> Mon-Sat </div>
-                            <div class="time-box">
-                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-time-boox">
-                          <div class="daybox">
-                            <a href="#" class="save-profile">
-                              Save Profile
-                            </a>
-                            <a href="#" class="book-appointment">
-                              Enquire Now
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="doctors-hospital-item">
-                        <div class="doctors-box-item">
-                          <div class="doctor-img">
-                            <img src="images/2023/05/1.jpg" />
-                          </div>
-                          <div class="doctorprofile-head">
-                            Dr. Oleg Goncharov
-                            <div class="department">
-                              Spine and Pain Specialist
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-day-time">
-                          <div class="daybox">
-                            <div class="day-box"> Mon-Sat </div>
-                            <div class="time-box">
-                              8:00 AM- 9:00 AM, 4:00 PM- 6:00 PM{" "}
-                            </div>
-                          </div>
-                        </div>
-                        <div class="doctors-time-boox">
-                          <div class="daybox">
-                            <a href="#" class="save-profile">
-                              Save Profile
-                            </a>
-                            <a href="#" class="book-appointment">
-                              Enquire Now
-                            </a>
-                          </div>
-                        </div>
-                      </div>
+                    <div className="doctor-item-button">
+                      <a href="#" className="book-app">
+                        Book Appointment <img src={bookIcon} alt="icons" />
+                      </a>
+                      <Link to={`/doctor/${e.slug}`} className="view-profile">
+                        View Profile <img src={profileIcon} alt="icons" />
+                      </Link>
                     </div>
-                  </Carousel>
+                  </div>
+                ))}
+
+              {/* <div className="exparts-item-h">
+                <div className="doctor-item-img">
+                  <img src="images/2023/05/04/1.jpg" />
+                </div>
+                <div className="doctor-item-doc">
+                  <h3>Doctor Name</h3>
+                  <div className="department-sub">
+                    Oncologist, Medical Oncologist
+                  </div>
+                  <div className="rating-star">
+                    <i className="fa fa-star"></i> 5 (523)
+                  </div>
+                </div>
+                <div className="doc-experience">
+                  <div className="years-exper">5 Years of Experience </div>
+                  <div className="successful-plus">500+ Successful Surgeries </div>
+                </div>
+                <div className="day-itembox">
+                  <div className="day-exper">Mon - Sat </div>
+                  <div className="time-exper">8:00 Am - 9:00 AM </div>
+                </div>
+                <div className="doctor-item-button">
+                  <a href="#" className="book-app">
+                    Book Appointment <img src="images/2023/05/book.png" />
+                  </a>
+                  <a href="#" className="view-profile">
+                    View Profile <img src="images/2023/05/profile.png" />
+                  </a>
                 </div>
               </div>
 
-              <a href="#" class="more-doctors">
+              <div className="exparts-item-h">
+                <div className="doctor-item-img">
+                  <img src="images/2023/05/04/1.jpg" />
+                </div>
+                <div className="doctor-item-doc">
+                  <h3>Doctor Name</h3>
+                  <div className="department-sub">
+                    Oncologist, Medical Oncologist
+                  </div>
+                  <div className="rating-star">
+                    <i className="fa fa-star"></i> 5 (523)
+                  </div>
+                </div>
+                <div className="doc-experience">
+                  <div className="years-exper">5 Years of Experience </div>
+                  <div className="successful-plus">500+ Successful Surgeries </div>
+                </div>
+                <div className="day-itembox">
+                  <div className="day-exper">Mon - Sat </div>
+                  <div className="time-exper">8:00 Am - 9:00 AM </div>
+                </div>
+                <div className="doctor-item-button">
+                  <a href="#" className="book-app">
+                    Book Appointment <img src="images/2023/05/book.png" />
+                  </a>
+                  <a href="#" className="view-profile">
+                    View Profile <img src="images/2023/05/profile.png" />
+                  </a>
+                </div>
+              </div>
+
+              <div className="exparts-item-h">
+                <div className="doctor-item-img">
+                  <img src="images/2023/05/04/1.jpg" />
+                </div>
+                <div className="doctor-item-doc">
+                  <h3>Doctor Name</h3>
+                  <div className="department-sub">
+                    Oncologist, Medical Oncologist
+                  </div>
+                  <div className="rating-star">
+                    <i className="fa fa-star"></i> 5 (523)
+                  </div>
+                </div>
+                <div className="doc-experience">
+                  <div className="years-exper">5 Years of Experience </div>
+                  <div className="successful-plus">500+ Successful Surgeries </div>
+                </div>
+                <div className="day-itembox">
+                  <div className="day-exper">Mon - Sat </div>
+                  <div className="time-exper">8:00 Am - 9:00 AM </div>
+                </div>
+                <div className="doctor-item-button">
+                  <a href="#" className="book-app">
+                    Book Appointment <img src="images/2023/05/book.png" />
+                  </a>
+                  <a href="#" className="view-profile">
+                    View Profile <img src="images/2023/05/profile.png" />
+                  </a>
+                </div>
+              </div>
+
+              <div className="exparts-item-h">
+                <div className="doctor-item-img">
+                  <img src="images/2023/05/04/1.jpg" />
+                </div>
+                <div className="doctor-item-doc">
+                  <h3>Doctor Name</h3>
+                  <div className="department-sub">
+                    Oncologist, Medical Oncologist
+                  </div>
+                  <div className="rating-star">
+                    <i className="fa fa-star"></i> 5 (523)
+                  </div>
+                </div>
+                <div className="doc-experience">
+                  <div className="years-exper">5 Years of Experience </div>
+                  <div className="successful-plus">500+ Successful Surgeries </div>
+                </div>
+                <div className="day-itembox">
+                  <div className="day-exper">Mon - Sat </div>
+                  <div className="time-exper">8:00 Am - 9:00 AM </div>
+                </div>
+                <div className="doctor-item-button">
+                  <a href="#" className="book-app">
+                    Book Appointment <img src="images/2023/05/book.png" />
+                  </a>
+                  <a href="#" className="view-profile">
+                    View Profile <img src="images/2023/05/profile.png" />
+                  </a>
+                </div>
+              </div>
+
+              <div className="exparts-item-h">
+                <div className="doctor-item-img">
+                  <img src="images/2023/05/04/1.jpg" />
+                </div>
+                <div className="doctor-item-doc">
+                  <h3>Doctor Name</h3>
+                  <div className="department-sub">
+                    Oncologist, Medical Oncologist
+                  </div>
+                  <div className="rating-star">
+                    <i className="fa fa-star"></i> 5 (523)
+                  </div>
+                </div>
+                <div className="doc-experience">
+                  <div className="years-exper">5 Years of Experience </div>
+                  <div className="successful-plus">500+ Successful Surgeries </div>
+                </div>
+                <div className="day-itembox">
+                  <div className="day-exper">Mon - Sat </div>
+                  <div className="time-exper">8:00 Am - 9:00 AM </div>
+                </div>
+                <div className="doctor-item-button">
+                  <a href="#" className="book-app">
+                    Book Appointment <img src="images/2023/05/book.png" />
+                  </a>
+                  <a href="#" className="view-profile">
+                    View Profile <img src="images/2023/05/profile.png" />
+                  </a>
+                </div>
+              </div>
+
+              <div className="exparts-item-h">
+                <div className="doctor-item-img">
+                  <img src="images/2023/05/04/1.jpg" />
+                </div>
+                <div className="doctor-item-doc">
+                  <h3>Doctor Name</h3>
+                  <div className="department-sub">
+                    Oncologist, Medical Oncologist
+                  </div>
+                  <div className="rating-star">
+                    <i className="fa fa-star"></i> 5 (523)
+                  </div>
+                </div>
+                <div className="doc-experience">
+                  <div className="years-exper">5 Years of Experience </div>
+                  <div className="successful-plus">500+ Successful Surgeries </div>
+                </div>
+                <div className="day-itembox">
+                  <div className="day-exper">Mon - Sat </div>
+                  <div className="time-exper">8:00 Am - 9:00 AM </div>
+                </div>
+                <div className="doctor-item-button">
+                  <a href="#" className="book-app">
+                    Book Appointment <img src="images/2023/05/book.png" />
+                  </a>
+                  <a href="#" className="view-profile">
+                    View Profile <img src="images/2023/05/profile.png" />
+                  </a>
+                </div>
+              </div> */}
+
+              <a href="#" className="more-doctors">
                 {" "}
                 View More Doctors <img src="images/2023/05/more-d.png" />
               </a>
             </div>
 
-            <div id="amenitie" class="profile-data-section">
+            <div id="specialists" className="profile-data-section">
+              <h2>Specialists</h2>
+
+              <div className="specialists-item">
+                {speciality &&
+                  speciality.map((e) => (
+                    <div className="specialists-boxitem" key={e.id}>
+                      <div className="boxitem">
+                        <img src="images/2023/05/07/1.png" />
+                        <h4>{e.name}</h4>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </div>
+
+            <div id="amenitie" className="profile-data-section">
               <h2>Amenities</h2>
-              {/* <div class="amenities-name">Treatment</div> */}
-              <div class="medical-box">
+              {/* <div className="amenities-name">Treatment</div> */}
+              <div className="medical-box">
                 {hospitalDetails.amenities &&
                   hospitalDetails.amenities
                     .split(",")
@@ -807,8 +679,8 @@ const HospitalProfile = () => {
                     ))}
               </div>
 
-              {/* <div class="amenities-name">Speciality</div>
-              <div class="medical-box">
+              {/* <div className="amenities-name">Speciality</div>
+              <div className="medical-box">
                 <a href="#" target="_self">
                   Document legalisation
                 </a>
@@ -829,8 +701,8 @@ const HospitalProfile = () => {
                 </a>
               </div> */}
 
-              <div class="amenities-name">Food</div>
-              <div class="medical-box">
+              <div className="amenities-name">Food</div>
+              <div className="medical-box">
                 {hospitalDetails.food &&
                   hospitalDetails.food
                     .split(",")
@@ -839,8 +711,8 @@ const HospitalProfile = () => {
                     ))}
               </div>
 
-              <div class="amenities-name">Language</div>
-              <div class="medical-box">
+              <div className="amenities-name">Language</div>
+              <div className="medical-box">
                 {hospitalDetails.language_spoken &&
                   hospitalDetails.language_spoken
                     .split(",")
@@ -849,227 +721,221 @@ const HospitalProfile = () => {
                     ))}
               </div>
             </div>
-            <div id="amenitie" class="profile-data-section">
-              <h2>Speciality</h2>
 
-              {/* <div class="amenities-name">Speciality</div> */}
-              <div class="medical-box">
-                {speciality &&
-                  speciality.map((e) => <Link key={e.id}>{e.name}</Link>)}
-              </div>
-            </div>
-
-            <div id="reviews" class="profile-data-section">
+            <div id="reviews" className="profile-data-section">
               <h2>Reviews</h2>
-              <div class="most-reviews">
-                <select class="reviews-dropdown " aria-label="Sort dropdown">
+              <div className="most-reviews">
+                <select
+                  className="reviews-dropdown "
+                  aria-label="Sort dropdown"
+                >
                   <option value="select-language">Most Relevant</option>
                   <option value=""> Oncology</option>
                   <option value=""> Medical Oncology</option>
                 </select>
               </div>
 
-              <div class="reviews-top-box">
-                <div class="star-rating-box">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
+              <div className="reviews-top-box">
+                <div className="star-rating-box">
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
                 </div>
                 <p>
                   Been going here for 7 years. Dr Oleg is great and the staff is
                   fantastic. Druity is the best hygienist I’ve ever had.
                 </p>
-                <div class="name-month-box">
+                <div className="name-month-box">
                   Patient Name
-                  <div class="month-box">
+                  <div className="month-box">
                     <span></span>1 Month Ago
                   </div>
                 </div>
               </div>
 
-              <div class="reviews-top-box">
-                <div class="star-rating-box">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
+              <div className="reviews-top-box">
+                <div className="star-rating-box">
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
                 </div>
                 <p>
                   Been going here for 7 years. Dr Oleg is great and the staff is
                   fantastic. Druity is the best hygienist I’ve ever had.
                 </p>
-                <div class="name-month-box">
+                <div className="name-month-box">
                   Patient Name
-                  <div class="month-box">
+                  <div className="month-box">
                     <span></span>1 Month Ago
                   </div>
                 </div>
               </div>
 
-              <div class="reviews-top-box">
-                <div class="star-rating-box">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
+              <div className="reviews-top-box">
+                <div className="star-rating-box">
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
                 </div>
                 <p>
                   Been going here for 7 years. Dr Oleg is great and the staff is
                   fantastic. Druity is the best hygienist I’ve ever had.
                 </p>
-                <div class="name-month-box">
+                <div className="name-month-box">
                   Patient Name
-                  <div class="month-box">
+                  <div className="month-box">
                     <span></span>1 Month Ago
                   </div>
                 </div>
               </div>
 
-              <div class="reviews-top-box">
-                <div class="star-rating-box">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
+              <div className="reviews-top-box">
+                <div className="star-rating-box">
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
                 </div>
                 <p>
                   Been going here for 7 years. Dr Oleg is great and the staff is
                   fantastic. Druity is the best hygienist I’ve ever had.
                 </p>
-                <div class="name-month-box">
+                <div className="name-month-box">
                   Patient Name
-                  <div class="month-box">
+                  <div className="month-box">
                     <span></span>1 Month Ago
                   </div>
                 </div>
               </div>
 
-              <div class="reviews-top-box">
-                <div class="star-rating-box">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
+              <div className="reviews-top-box">
+                <div className="star-rating-box">
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
                 </div>
                 <p>
                   Been going here for 7 years. Dr Oleg is great and the staff is
                   fantastic. Druity is the best hygienist I’ve ever had.
                 </p>
-                <div class="name-month-box">
+                <div className="name-month-box">
                   Patient Name
-                  <div class="month-box">
+                  <div className="month-box">
                     <span></span>1 Month Ago
                   </div>
                 </div>
               </div>
 
-              <div class="reviews-top-box">
-                <div class="star-rating-box">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
+              <div className="reviews-top-box">
+                <div className="star-rating-box">
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
                 </div>
                 <p>
                   Been going here for 7 years. Dr Oleg is great and the staff is
                   fantastic. Druity is the best hygienist I’ve ever had.
                 </p>
-                <div class="name-month-box">
+                <div className="name-month-box">
                   Patient Name
-                  <div class="month-box">
+                  <div className="month-box">
                     <span></span>1 Month Ago
                   </div>
                 </div>
               </div>
 
-              <div class="reviews-top-box">
-                <div class="star-rating-box">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
+              <div className="reviews-top-box">
+                <div className="star-rating-box">
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
                 </div>
                 <p>
                   Been going here for 7 years. Dr Oleg is great and the staff is
                   fantastic. Druity is the best hygienist I’ve ever had.
                 </p>
-                <div class="name-month-box">
+                <div className="name-month-box">
                   Patient Name
-                  <div class="month-box">
+                  <div className="month-box">
                     <span></span>1 Month Ago
                   </div>
                 </div>
               </div>
 
-              <div class="reviews-top-box">
-                <div class="star-rating-box">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
+              <div className="reviews-top-box">
+                <div className="star-rating-box">
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
                 </div>
                 <p>
                   Been going here for 7 years. Dr Oleg is great and the staff is
                   fantastic. Druity is the best hygienist I’ve ever had.
                 </p>
-                <div class="name-month-box">
+                <div className="name-month-box">
                   Patient Name
-                  <div class="month-box">
+                  <div className="month-box">
                     <span></span>1 Month Ago
                   </div>
                 </div>
               </div>
 
-              <div class="reviews-top-box">
-                <div class="star-rating-box">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
+              <div className="reviews-top-box">
+                <div className="star-rating-box">
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
                 </div>
                 <p>
                   Been going here for 7 years. Dr Oleg is great and the staff is
                   fantastic. Druity is the best hygienist I’ve ever had.
                 </p>
-                <div class="name-month-box">
+                <div className="name-month-box">
                   Patient Name
-                  <div class="month-box">
+                  <div className="month-box">
                     <span></span>1 Month Ago
                   </div>
                 </div>
               </div>
 
-              <div class="reviews-top-box">
-                <div class="star-rating-box">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
+              <div className="reviews-top-box">
+                <div className="star-rating-box">
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
+                  <i className="fa fa-star"></i>
                 </div>
                 <p>
                   Been going here for 7 years. Dr Oleg is great and the staff is
                   fantastic. Druity is the best hygienist I’ve ever had.
                 </p>
-                <div class="name-month-box">
+                <div className="name-month-box">
                   Patient Name
-                  <div class="month-box">
+                  <div className="month-box">
                     <span></span>1 Month Ago
                   </div>
                 </div>
               </div>
 
-              <a href="#" class="read-mor-reviews">
+              <a href="#" className="read-mor-reviews">
                 Read More Reviews
               </a>
             </div>
