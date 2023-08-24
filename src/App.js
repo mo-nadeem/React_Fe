@@ -9,6 +9,8 @@ import DoctorProfile from "./pages/doctorProfile/DoctorProfile";
 import HospitalProfile from "./pages/hospitalProfile/HospitalProfile";
 import DoctorList from "./pages/doctorList/DoctorList";
 import HospitalList from "./pages/hospitalLiST/HospitalList";
+import Login from "./pages/auth/Login";
+import SignUp from "./pages/auth/SignUp";
 
 const ScrollToTop = () => {
   const location = useLocation();
@@ -35,11 +37,14 @@ function App() {
           element={<HospitalProfile />}
         ></Route>
         <Route path="/doctors/:slug/:country" element={<DoctorList />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/sign-up" element={<SignUp />}></Route>
         <Route
           path="/hospitals/:slug/:country"
           element={<HospitalList />}
         ></Route>
       </Routes>
+      
     </>
   );
 }
