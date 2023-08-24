@@ -7,6 +7,10 @@ import saveIcon from "../../assests/images/05/save.png";
 import bookIcon from "../../assests/images/05/book.png";
 import { AiTwotoneStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import icon1 from "../../assests/images/05/01/1.png";
+import icon2 from "../../assests/images/05/01/2.png";
+import icon3 from "../../assests/images/05/01/3.png";
+import DoctorVideo from "./DoctorVideo";
 
 const DoctorProfile = () => {
   const { slug } = useParams();
@@ -271,7 +275,10 @@ const DoctorProfile = () => {
 
             <div className="doctor-education">
               <div className="education-box">
-                <h2>Education</h2>
+                <h2>
+                  <img src={icon1} alt="icon" />
+                  Education
+                </h2>
                 <div
                   dangerouslySetInnerHTML={{
                     __html: docotorDetails && docotorDetails.qualification,
@@ -280,14 +287,20 @@ const DoctorProfile = () => {
               </div>
 
               <div className="education-box">
-                <h2>Titles and Positions</h2>
+                <h2>
+                  <img src={icon2} alt="icon" />
+                  Titles and Positions
+                </h2>
                 <ul>
                   <li>{docotorDetails.designation}</li>
                 </ul>
               </div>
 
               <div className="education-box">
-                <h2>Hospital Affiliations</h2>
+                <h2>
+                  <img src={icon3} alt="icon" />
+                  Hospital Affiliations
+                </h2>
                 <ul>
                   {hospitals.map((e) => (
                     <li key={e.id}>{e.name}</li>
@@ -295,6 +308,10 @@ const DoctorProfile = () => {
                 </ul>
               </div>
             </div>
+
+            {/* Doctor video section */}
+            <DoctorVideo />
+            {/* End */}
 
             <div id="specializations" className="profile-data-section">
               <h2>Specialization</h2>
