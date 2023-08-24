@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Homelayout from "../../components/Homelayout/Homelayout";
 import DoctorExpert from "../../components/Home/DoctorExpert";
 import Testimonials from "../../components/Home/Testimonials";
-import sliperImg from "../../assests/images/02/slider.jpg";
 import { useParams } from "react-router-dom";
 import arrowImg from "../../assests/images/2023/01/arrow-c.png";
 import arrow2Img from "../../assests/images/2023/01/arrow-w.png";

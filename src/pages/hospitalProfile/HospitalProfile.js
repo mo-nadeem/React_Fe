@@ -10,6 +10,9 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Link } from "react-router-dom";
 import profileIcon from "../../assests/images/05/profile.png";
+import Select from "react-select";
+import { AiTwotoneStar } from "react-icons/ai";
+import { AiOutlineStar } from "react-icons/ai";
 
 const responsive = {
   superLargeDesktop: {
@@ -57,6 +60,10 @@ const HospitalProfile = () => {
   const [gallery, setGallery] = useState([]);
   const [speciality, setSpeciality] = useState([]);
   const [doctor, setDoctor] = useState([]);
+  const [rating, setRating] = useState(0);
+  const handleRatingClick = (selectedRating) => {
+    setRating(selectedRating);
+  };
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/api/hospital/${slug}/${country}`)
@@ -89,6 +96,24 @@ const HospitalProfile = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const options = [
+    { value: "apple", label: "Apple" },
+    { value: "banana", label: "Banana" },
+    { value: "cherry", label: "Cherry" },
+    { value: "date", label: "Date" },
+    { value: "elderberry", label: "Elderberry" },
+  ];
+
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleSelectChange = (selectedOption) => {
+    setSelectedOption(selectedOption);
+  };
+
+  const handleClearSelection = () => {
+    setSelectedOption(null);
+  };
   return (
     <>
       <Homelayout>
@@ -210,11 +235,21 @@ const HospitalProfile = () => {
                   <div className="star-rating">
                     <div className="rating-nobox">5.00</div>
                     <div className="star-rating-box">
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
+                      <i>
+                        <AiTwotoneStar />
+                      </i>
+                      <i>
+                        <AiTwotoneStar />
+                      </i>
+                      <i>
+                        <AiTwotoneStar />
+                      </i>
+                      <i>
+                        <AiTwotoneStar />
+                      </i>
+                      <i>
+                        <AiTwotoneStar />
+                      </i>
                       <span>
                         Based on <a href="#">31 Reviews</a>
                       </span>
@@ -225,54 +260,26 @@ const HospitalProfile = () => {
                     <div className="leave-review">Leave a review</div>
                     <p>How likely are you to recommend Dr. Oleg Goncharov?</p>
                     <div className="star-box1">
-                      <div className="rating">
-                        <input
-                          type="radio"
-                          name="rating"
-                          id="rating-1"
-                          value="1"
-                        />
-                        <input
-                          type="radio"
-                          name="rating"
-                          id="rating-2"
-                          value="2"
-                        />
-                        <input
-                          type="radio"
-                          name="rating"
-                          id="rating-3"
-                          value="3"
-                        />
-                        <input
-                          type="radio"
-                          name="rating"
-                          id="rating-4"
-                          value="4"
-                        />
-                        <input
-                          type="radio"
-                          name="rating"
-                          id="rating-5"
-                          value="5"
-                        />
-                        <div className="rating__box">
-                          <label for="rating-1" className="rating__star">
-                            <i className="fa fa-star"></i>
-                          </label>
-                          <label for="rating-2" className="rating__star">
-                            <i className="fa fa-star"></i>
-                          </label>
-                          <label for="rating-3" className="rating__star">
-                            <i className="fa fa-star"></i>
-                          </label>
-                          <label for="rating-4" className="rating__star">
-                            <i className="fa fa-star"></i>
-                          </label>
-                          <label for="rating-5" className="rating__star">
-                            <i className="fa fa-star"></i>
-                          </label>
-                        </div>
+                      <div>
+                        {[1, 2, 3, 4, 5].map((star) => (
+                          <span
+                            key={star}
+                            onClick={() => handleRatingClick(star)}
+                            style={{
+                              fontSize: "4rem",
+                              cursor: "pointer",
+                              color: "#ff6800",
+                            }}
+                          >
+                            {star <= rating ? (
+                              <i>
+                                <AiTwotoneStar />
+                              </i>
+                            ) : (
+                              <i><AiOutlineStar /></i>
+                            )}
+                          </span>
+                        ))}
                       </div>
                       <div className="star-box2">(Select a Rating)</div>
                     </div>
@@ -364,38 +371,83 @@ const HospitalProfile = () => {
                 </div>
 
                 <div className="ding">
-                  <select id="wiki">
+                  <Select
+                    id="wiki"
+                    value={selectedOption}
+                    onChange={handleSelectChange}
+                    options={options}
+                    isSearchable={true} // Enables search
+                    placeholder="Department"
+                    maxMenuHeight={150}
+                  />
+                  {/* <select id="wiki">
                     <option value="none" selected>
                       Department
                     </option>
-                  </select>
+                  </select> */}
                 </div>
                 <div className="ding">
-                  <select id="wiki1">
+                  <Select
+                    id="wiki"
+                    value={selectedOption}
+                    onChange={handleSelectChange}
+                    options={options}
+                    isSearchable={true} // Enables search
+                    placeholder=" Location"
+                    maxMenuHeight={150}
+                  />
+                  {/* <select id="wiki1">
                     <option value="none" selected>
                       Location
                     </option>
-                  </select>
+                  </select> */}
                 </div>
                 <div className="ding">
-                  <select id="wiki2">
+                  <Select
+                    id="wiki"
+                    value={selectedOption}
+                    onChange={handleSelectChange}
+                    options={options}
+                    isSearchable={true} // Enables search
+                    placeholder="Gender"
+                    maxMenuHeight={150}
+                  />
+                  {/* <select id="wiki2">
                     <option value="none" selected>
                       Gender
                     </option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="other">other</option>
-                  </select>
+                  </select> */}
                 </div>
                 <div className="ding">
-                  <select id="wiki3">
+                  <Select
+                    id="wiki"
+                    value={selectedOption}
+                    onChange={handleSelectChange}
+                    options={options}
+                    isSearchable={true} // Enables search
+                    placeholder="Rating.."
+                    maxMenuHeight={150}
+                  />
+                  {/* <select id="wiki3">
                     <option value="none" selected>
                       Rating
                     </option>
-                  </select>
+                  </select> */}
                 </div>
                 <div className="ding">
-                  <select id="wiki4">
+                  <Select
+                    id="wiki"
+                    value={selectedOption}
+                    onChange={handleSelectChange}
+                    options={options}
+                    isSearchable={true} // Enables search
+                    placeholder="Experience.."
+                    maxMenuHeight={150}
+                  />
+                  {/* <select id="wiki4">
                     <option value="none" selected>
                       Experience
                     </option>
@@ -404,7 +456,7 @@ const HospitalProfile = () => {
                     <option value="">15 Year's</option>
                     <option value="">20 Year's</option>
                     <option value="">20 Year's</option>
-                  </select>
+                  </select> */}
                 </div>
 
                 <div className="refresh-box">

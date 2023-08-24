@@ -53,7 +53,7 @@ const HospitalList = () => {
   };
 
   const handleClearSelection = () => {
-    setSelectedOption(null); // Clear the selected option
+    setSelectedOption(null); 
   };
   return (
     <>
