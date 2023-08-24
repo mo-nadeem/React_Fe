@@ -34,11 +34,12 @@ const Section1 = () => {
             </h2>
             <div className="home-topnav">
               <Link to="/" className="home-nav-left">
-                Ask FREE Question{" "}
+                Explore Now
                 <img src="images/2023/01/arrow-c.png" alt="" />
               </Link>
               <Link to="/" className="home-nav-right">
-                Treatments Lorem <img src="images/2023/01/arrow-w.png" alt="" />
+                Free Treatment Plan{" "}
+                <img src="images/2023/01/arrow-w.png" alt="" />
               </Link>
             </div>
           </div>

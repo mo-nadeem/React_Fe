@@ -266,7 +266,7 @@ const HospitalProfile = () => {
                             key={star}
                             onClick={() => handleRatingClick(star)}
                             style={{
-                              fontSize: "4rem",
+                              fontSize: "3rem",
                               cursor: "pointer",
                               color: "#ff6800",
                             }}

@@ -45,7 +45,7 @@ const Blog = () => {
         <div className="midbox-inner  wiki-mk">
           <div className="blog-homebox">
             <div className="homeblog-left">
-              <h2>MedBlog | Your Source for Health Knowledge</h2>
+              <h2>MedBlog: Your Source for Health Knowledge</h2>
               <p>
                 A journey of knowledge and inspiration through our comprehensive
                 blog. From expert perspectives to practical tips, explore
