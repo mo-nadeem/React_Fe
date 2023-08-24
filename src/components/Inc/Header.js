@@ -148,7 +148,7 @@ const Header = () => {
             </nav>
           </div>
           <div className="navbar__buttons">
-            <Link className="navbar__buttons-login" to="/">
+            <Link className="navbar__buttons-login" to="/login">
               Log In
             </Link>
             <div className="most-recent">
