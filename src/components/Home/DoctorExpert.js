@@ -38,7 +38,7 @@ const DoctorExpert = () => {
     fetchHomedata();
   }, [fetchHomedata]);
 
-  console.log(video);
+ 
 
   let doctorVideoSection = null;
   if (video?.length > 0) {

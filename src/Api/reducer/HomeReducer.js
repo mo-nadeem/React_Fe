@@ -19,7 +19,7 @@ const initialState = {
   navigationfooter: null,
   video: null,
   banner: null,
-
+  testominials: null,
   error: null,
 };
 
@@ -48,6 +48,7 @@ const HomeReducer = (state = initialState, action) => {
         navigationfooter: action.payload.data.navigationfooter,
         banner: action.payload.data.banner,
         blog: action.payload.data.blogs,
+        testominials: action.payload.data.testominials,
         video: action.payload.data.doctor_videos,
       };
     case FETCH_HOME_FAILURE:

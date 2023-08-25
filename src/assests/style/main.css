@@ -1818,7 +1818,7 @@ textarea {
 }
 .testimonials-item {
   position: relative;
-  width: 100%;
+  width: 98%;
   z-index: 1;
 }
 .testimonials-item::before {
