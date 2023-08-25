@@ -1,31 +1,30 @@
-import React from 'react'
+import React from "react";
 import comunityImg from "../../assests/images/02/community.jpg";
 import vectorImg from "../../assests/images/02/Vector 85.png";
 const Community = () => {
   return (
     <>
       <section id="community-section">
-          <div className="midbox-inner  wiki-mk">
-            <div className="community-pro">
-              <img className="community-img" src={comunityImg} alt="changes" />
-              <div className="community-box">
-                <h3>Join our Community!</h3>
-                <p>
-                  Lorem ipsum dolor amet, consecte adipiscing elit, sed do
-                  eiusmod tempor incididunt ut enim ad minim veniam, quis Lorem
-                  ipsum dolor amet, consecte adipiscing elit, sed do eiusmod
-                  tempor incididunt ut enim ad minim veniam, quis tempor
-                  incididunt
-                </p>
-                <a className="more-img" href="#">
-                  Lorem Ipsum <img src={vectorImg} alt="icon" />
-                </a>
-              </div>
+        <div className="midbox-inner  wiki-mk">
+          <div className="community-pro">
+            <img className="community-img" src={comunityImg} alt="changes" />
+            <div className="community-box">
+              <h3>Find Your Community. Empower Your Knowledge.</h3>
+              <p>
+                The world's most trusted personalized health community with more
+                than 1,00, 000 members that share their journey, experiences and
+                health insights. Join your community and get access to make
+                informed health decisions.
+              </p>
+              <a className="more-img" href="#">
+                Lorem Ipsum <img src={vectorImg} alt="icon" />
+              </a>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
     </>
-  )
-}
+  );
+};
 
-export default Community
+export default Community;

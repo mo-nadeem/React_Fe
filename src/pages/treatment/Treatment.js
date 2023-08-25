@@ -12,13 +12,12 @@ import icon1 from "../../assests/images/03/line-icon1.png";
 import icon2 from "../../assests/images/03/line-icon2.png";
 import arrowIcon from "../../assests/images/2023/01/arrow-c.png";
 import logo from "../../assests/images/02/logo.png";
-import qaIcon from "../../assests/images/2023/01/arrow-w.png";
-import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import TreatmentBlog from "./TreatmentBlog";
 import TreatmentQA from "./TreatmentQA";
 import Community from "../../components/community/Community";
 import TreatmentFAQ from "./TreatmentFAQ";
+import DontPay from "../../components/DontPay/DontPay";
 const responsiveHospital = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -139,8 +138,16 @@ const Treatment = () => {
 
         <section id="treatment-banner">
           <div className="treatment-bannerimg">
-            <img src={`${process.env.REACT_APP_BASE_URL}/treatments/${info.image}`} width="50%" style={{width:"50%"}}/>
-            <img src={`${process.env.REACT_APP_BASE_URL}/treatments/${info.image}`} width="50%" style={{width:"50%"}}/>
+            <img
+              src={`${process.env.REACT_APP_BASE_URL}/treatments/${info.image}`}
+              width="50%"
+              style={{ width: "50%" }}
+            />
+            <img
+              src={`${process.env.REACT_APP_BASE_URL}/treatments/${info.image}`}
+              width="50%"
+              style={{ width: "50%" }}
+            />
             {/* <img src={hoemImg2} /> */}
             {/* <img src={hoemImg2} /> */}
           </div>
@@ -334,29 +341,10 @@ const Treatment = () => {
 
         {/* End */}
 
-        <section id="pay-section">
-          <div className="midbox-inner  wiki-mk">
-            <div className="pay-box">
-              <div className="medflick-payleft">
-                <h2>You don’t pay Medflick</h2>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore Ut enim minim
-                </p>
-              </div>
-              <div className="medflick-payright">
-                <Link to="/" className="consultation">
-                  {" "}
-                  Request a free consultation <img src={qaIcon} alt="" />
-                </Link>
-                <Link to="/" className="contact">
-                  {" "}
-                  Contact Us <img src={arrowIcon} alt="" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Dont pay section */}
+        <DontPay />
+
+        {/* end */}
         {/* Day Wise  */}
 
         <DayWise />

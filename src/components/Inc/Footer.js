@@ -135,7 +135,7 @@ const Footer = () => {
                   speciality.map((e) => (
                     <li key={e.id}>
                       <a href="#" target="_self">
-                        {e.menu_name}
+                        {e.name}
                       </a>
                     </li>
                   ))}

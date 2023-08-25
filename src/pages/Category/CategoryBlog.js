@@ -94,12 +94,12 @@ const CategoryBlog = ({ blog }) => {
         <div className="midbox-inner  wiki-mk">
           <div className="blog-homebox">
             <div className="homeblog-left">
-              <h2>Helpful Resources</h2>
+              <h2>MedBlog: Your Source for Health Knowledge</h2>
               <p>
-                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-                aut fugit, sed quia consequuntur ma Sed ut perspiciatis Nemo
-                enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-                fugit..
+                A journey of knowledge and inspiration through our comprehensive
+                blog. From expert perspectives to practical tips, explore
+                diverse topics that empower your well-being. Uncover valuable
+                insights for a healthier life.
               </p>
 
               <h3>Sign up to get latest updates</h3>

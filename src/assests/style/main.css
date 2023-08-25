@@ -2699,6 +2699,7 @@ div.active {
   border-radius: 20px;
   inset: auto 0px 0px;
   z-index: 1;
+  width: 95%;
   padding: 4rem 1rem 1rem;
   display: flex;
   flex-direction: column;
