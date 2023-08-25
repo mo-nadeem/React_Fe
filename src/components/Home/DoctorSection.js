@@ -6,6 +6,7 @@ import { fetchHome } from "../../Api/action/HomeAction";
 import { Link } from "react-router-dom";
 
 
+
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -40,11 +41,11 @@ const DoctorSection = () => {
     fetchHomedata();
   }, [fetchHomedata]);
 
-  const handleNext = () => {
-    if (carouselRef.current) {
-      carouselRef.current.next();
-    }
-  };
+  // const handleNext = () => {
+  //   if (carouselRef.current) {
+  //     carouselRef.current.next();
+  //   }
+  // };
 
   // const handlePrevious = () => {
   //   if (carouselRef.current) {

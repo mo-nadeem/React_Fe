@@ -6,6 +6,7 @@ import img1 from "../../assests/images/2023/01/home-icon1.png";
 import img2 from "../../assests/images/2023/01/home-icon2.png";
 import img3 from "../../assests/images/2023/01/home-icon2.png";
 import formDoctorImg from "../../assests/images/2023/01/home-q.jpg";
+import arrowC from "../../assests/images/2023/01/arrow-w.png"
 
 const CategoryQA = ({qa}) => {
   return (  
@@ -24,7 +25,7 @@ const CategoryQA = ({qa}) => {
             <div className="querieshead-right">
               <Link to="/" className="queries-ask">
                 Ask FREE Question{" "}
-                <img src="images/2023/01/arrow-w.png" alt="" />
+                <img src={arrowC} alt="arrow-icon" />
               </Link>
             </div>
           </div>

@@ -34,14 +34,27 @@ const DoctorList = () => {
     { value: "elderberry", label: "Elderberry" },
   ];
 
+  const gender = [
+    { value: "male", label: "male" },
+    { value: "female", label: "female" },
+    { value: "other", label: "other" },
+
+  ];
+
   const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedGender,setSelectedGender] = useState(null)
 
   const handleSelectChange = (selectedOption) => {
     setSelectedOption(selectedOption);
   };
+  const handleSelectgenderChange = (selectedGender) => {
+    setSelectedGender(selectedGender);
+  };
+console.log(selectedGender)
 
   const handleClearSelection = () => {
-    setSelectedOption(null); // Clear the selected option
+    setSelectedOption(null);
+    setSelectedGender(null) // Clear the selected option
   };
 
   //  Search filteration top
@@ -117,9 +130,9 @@ const DoctorList = () => {
               <div class="ding">
                 <Select
                   id="wiki"
-                  value={selectedOption}
-                  onChange={handleSelectChange}
-                  options={options}
+                  value={selectedGender}
+                  onChange={handleSelectgenderChange}
+                  options={gender}
                   isSearchable={true} // Enables search
                   placeholder="Gender"
                   maxMenuHeight={150}

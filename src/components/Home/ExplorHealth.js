@@ -143,7 +143,13 @@ const ExplorHealth = () => {
                     <img className="pd-img3" src="images/2023/01/05/02.jpg" />
                     <div className="explore-box ex-pro">
                       <h3>{filteredSpecialities.name}</h3>
-                      <p>{filteredSpecialities.short_description}</p>
+                      {/* <p>{filteredSpecialities.short_description}</p> */}
+                       <div
+                        className="doctors-bio"
+                        dangerouslySetInnerHTML={{
+                          __html: filteredSpecialities.short_description,
+                        }}
+                      />
                       <Link className="more-img" to="/">
                         <i>
                           <BsArrowRight style={{ color: "#fff" }} />
