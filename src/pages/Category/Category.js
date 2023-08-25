@@ -168,7 +168,7 @@ const Category = () => {
               {speciality &&
                 speciality.map((e) => (
                   <li key={e.id}>
-                    <img src={img1} alt="" />
+                    <img src={`${process.env.REACT_APP_BASE_URL}/treatments/${e.home_image}`} alt="" />
                     <Link to={`/treatment/${e.slug}/${e.country}`}>
                       <div className="packages-text">
                         <div className="pack-cost">
