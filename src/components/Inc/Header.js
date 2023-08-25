@@ -148,9 +148,9 @@ const Header = () => {
             </nav>
           </div>
           <div className="navbar__buttons">
-            <Link className="navbar__buttons-login" to="/login">
+            {/* <Link className="navbar__buttons-login" to="/login">
               Log In
-            </Link>
+            </Link> */}
             <div className="most-recent">
               <select className="jdgm-sort-dropdown" aria-label="Sort dropdown">
                 <option value="select-language">Select Language</option>
@@ -215,7 +215,7 @@ const Header = () => {
                               to={`/speciality/${e.slug}/${e.country}`}
                               className="dropbtn"
                             >
-                              {e.name}
+                              {e.menu_name}
                             </Link>{" "}
                           </li>
                         ))}
@@ -233,7 +233,7 @@ const Header = () => {
                         speciality.map((e) => (
                           <li className="menu-child-item" key={e.id}>
                             <Link
-                              to={`hospitals/speciality/${e.slug}/${e.country}`}
+                              to={`hospitals/${e.slug}/${e.country}`}
                               className="dropbtn"
                             >
                               {e.name} Hospitals
@@ -254,7 +254,7 @@ const Header = () => {
                         speciality.map((e) => (
                           <li className="menu-child-item" key={e.id}>
                             <Link
-                              to={`doctors/speciality/${e.slug}/${e.country}`}
+                              to={`doctors/${e.slug}/${e.country}`}
                               className="dropbtn"
                             >
                               {e.name} Doctors
@@ -263,9 +263,9 @@ const Header = () => {
                         ))}
                     </ul>
                   </li>
-                  <li className="menu-item has-collapsible">
+                  {/* <li className="menu-item has-collapsible">
                     <Link to="/">Testimonials</Link>
-                  </li>
+                  </li> */}
                   <li className="menu-item has-collapsible">
                     <Link to="/">Book an Appointment</Link>
                   </li>
@@ -274,18 +274,18 @@ const Header = () => {
                       Quick info
                     </Link>
                   </li>
-                  <li className="menu-item">
+                  {/* <li className="menu-item">
                     <Link href="careers.html" className="submenu-link">
                       Careers
                     </Link>
-                  </li>
-                  <li className="menu-item">
+                  </li> */}
+                  {/* <li className="menu-item">
                     <Link to="/" className="submenu-link">
                       News & Events
                     </Link>
-                  </li>
+                  </li> */}
                   <li className="menu-item">
-                    <Link to="/" className="submenu-link">
+                    <Link to="/blogs" className="submenu-link">
                       Blog
                     </Link>
                   </li>

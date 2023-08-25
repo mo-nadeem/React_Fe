@@ -105,7 +105,13 @@ const Category = () => {
           />
           <div className="category-slidertext">
             <h1>{info.name}</h1>
-            <p>{info.short_description}</p>
+            {/* <p>{info.short_description}</p> */}
+            <div
+              className="doctors-bio"
+              dangerouslySetInnerHTML={{
+                __html: info.short_description,
+              }}
+            />
           </div>
         </section>
 

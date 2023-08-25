@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import Homelayout from "../../components/Homelayout/Homelayout";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import img1 from "../../assests/images/05/05/1.jpg";
-import img2 from "../../assests/images/05/05/2.jpg";
-import img3 from "../../assests/images/05/05/3.jpg";
 import bookIcon from "../../assests/images/05/book.png";
 import profileIcon from "../../assests/images/05/profile.png";
 import shareIcon from "../../assests/images/05/share-profile.png";
@@ -14,7 +11,7 @@ import iconImg from "../../assests/images/05/loc.png";
 import { Link } from "react-router-dom";
 import Select from "react-select";
 import loadingImg from "../../assests/images/05/loading.png";
-import arrowCIcon from "../../assests/images/2023/01/arrow-c.png"
+import arrowCIcon from "../../assests/images/2023/01/arrow-c.png";
 
 const HospitalList = () => {
   const { slug, country } = useParams();
@@ -28,7 +25,6 @@ const HospitalList = () => {
       .then((response) => {
         setHospital(response.data.hospital_list.hospital_list);
         setImages(response.data.hospital_list.hospital_gallery);
-      
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -44,7 +40,6 @@ const HospitalList = () => {
     { value: "cherry", label: "Cherry" },
     { value: "date", label: "Date" },
     { value: "elderberry", label: "Elderberry" },
-
   ];
 
   const [selectedOption, setSelectedOption] = useState(null);
@@ -54,7 +49,7 @@ const HospitalList = () => {
   };
 
   const handleClearSelection = () => {
-    setSelectedOption(null); 
+    setSelectedOption(null);
   };
   return (
     <>
@@ -156,9 +151,13 @@ const HospitalList = () => {
                 </select>
               </div> */}
 
-              <div class="refresh-box">
+              <div class="refresh-box-hospital">
                 <a onClick={handleClearSelection} href="#">
-                  <img src={loadingImg} alt="changes" />
+                  <img
+                    src={loadingImg}
+                    alt="changes"
+                    style={{ width: "68%" }}
+                  />
                 </a>
               </div>
             </div>
@@ -307,9 +306,22 @@ const HospitalList = () => {
                         </div>
 
                         <div class="ho-docimg">
-                          <img src={img1} />
-                          <img src={img2} />
-                          <img src={img3} />
+                          {hospital.nabl && (
+                            <img
+                              src={`${process.env.REACT_APP_BASE_URL}/hospital/${hospital.nabl}`}
+                            />
+                          )}
+                          {hospital.nabh && (
+                            <img
+                              src={`${process.env.REACT_APP_BASE_URL}/hospital/${hospital.nabh}`}
+                            />
+                          )}
+                          {hospital.jci && (
+                            <img
+                              src={`${process.env.REACT_APP_BASE_URL}/hospital/${hospital.jci}`}
+                            />
+                          )}
+
                         </div>
 
                         <div class="hos-no">

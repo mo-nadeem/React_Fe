@@ -34,6 +34,28 @@ const Footer = () => {
   // const contentStyle = {
   //   display: isOpen ? "none" : "block",
   // };
+
+  // active in active
+  const [activeButton, setActiveButton] = useState(null);
+
+  const handleButtonClick = (event) => {
+    const button = event.currentTarget;
+    const targetFooterbox = button.nextElementSibling;
+
+    // Close all open windows
+    document.querySelectorAll(".footerbox").forEach((footerbox) => {
+      if (footerbox !== targetFooterbox) {
+        footerbox.style.display = "none";
+      }
+    });
+
+    // Toggle this window open/close
+    targetFooterbox.style.display =
+      targetFooterbox.style.display === "block" ? "none" : "block";
+
+    // Set the active button
+    setActiveButton(button);
+  };
   return (
     <>
       <footer>
@@ -59,7 +81,10 @@ const Footer = () => {
 
           <div className="footer-links">
             <div className="footer-navbox">
-              <h4 className="but">
+              <h4
+                className={`but ${activeButton === "button1" ? "active" : ""}`}
+                onClick={handleButtonClick}
+              >
                 About{" "}
                 <i className="fotter-icon">
                   <GoChevronDown style={{ fontSize: "22px" }} />
@@ -100,7 +125,10 @@ const Footer = () => {
               </ul>
             </div>
             <div className="footer-navbox">
-              <h4 className="but">
+              <h4
+                className={`but ${activeButton === "button2" ? "active" : ""}`}
+                onClick={handleButtonClick}
+              >
                 Treatments
                 <i className="fotter-icon">
                   <GoChevronDown style={{ fontSize: "22px" }} />
@@ -118,7 +146,10 @@ const Footer = () => {
               </ul>
             </div>
             <div className="footer-navbox">
-              <h4 className="but">
+              <h4
+                className={`but ${activeButton === "button3" ? "active" : ""}`}
+                onClick={handleButtonClick}
+              >
                 Quick Links{" "}
                 <i className="fotter-icon">
                   <GoChevronDown style={{ fontSize: "22px" }} />
@@ -158,7 +189,10 @@ const Footer = () => {
               </ul>
             </div>
             <div className="footer-navbox">
-              <h4 className="but">
+              <h4
+                className={`but ${activeButton === "button4" ? "active" : ""}`}
+                onClick={handleButtonClick}
+              >
                 Company{" "}
                 <i className="fotter-icon">
                   <GoChevronDown style={{ fontSize: "22px" }} />
@@ -198,7 +232,10 @@ const Footer = () => {
               </ul>
             </div>
             <div className="footer-navbox">
-              <h4 className="but">
+              <h4
+                className={`but ${activeButton === "button5" ? "active" : ""}`}
+                onClick={handleButtonClick}
+              >
                 Help & Support{" "}
                 <i className="fotter-icon">
                   <GoChevronDown style={{ fontSize: "22px" }} />
