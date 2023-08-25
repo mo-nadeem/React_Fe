@@ -4,7 +4,6 @@ import DoctorExpert from "../../components/Home/DoctorExpert";
 import Testimonials from "../../components/Home/Testimonials";
 import { useParams } from "react-router-dom";
 import arrowImg from "../../assests/images/2023/01/arrow-c.png";
-import arrow2Img from "../../assests/images/2023/01/arrow-w.png";
 import img1 from "../../assests/images/02/01/1.jpg";
 import axios from "axios";
 import DoctorCarousel from "./DoctorCarousel";
@@ -16,6 +15,7 @@ import { Helmet } from "react-helmet";
 import CategoryBlog from "./CategoryBlog";
 import Community from "../../components/community/Community";
 import CategoryQA from "./CategoryQA";
+import DontPay from "../../components/DontPay/DontPay";
 
 const Category = () => {
   const { slug, country } = useParams();
@@ -151,11 +151,17 @@ const Category = () => {
             <h2>
               {info.name} treatments in <span>{info.country}</span>
             </h2>
-            <p>
+            <div
+            
+              dangerouslySetInnerHTML={{
+                __html: info.long_description,
+              }}
+            />
+            {/* <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis
               nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo
-            </p>
+            </p> */}
 
             <ul>
               {speciality &&
@@ -368,30 +374,10 @@ const Category = () => {
           </div>
         </section>
 
-        <section id="pay-section">
-          <div className="midbox-inner  wiki-mk">
-            <div className="pay-box">
-              <div className="medflick-payleft">
-                <h2>You don’t pay Medflick</h2>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore Ut enim minim
-                </p>
-              </div>
+       {/* Dont pay */}
+       <DontPay />
 
-              <div className="medflick-payright">
-                <a href="#" className="consultation">
-                  {" "}
-                  Request a free consultation <img src={arrow2Img} alt="" />
-                </a>
-                <a href="#" className="contact">
-                  {" "}
-                  Contact Us <img src={arrowImg} alt="" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
+       {/* end */}
         {/* doctor section */}
         <DoctorCarousel doctor={doctor} />
 

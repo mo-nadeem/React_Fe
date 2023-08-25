@@ -81,7 +81,7 @@ const Header = () => {
                           speciality.map((e) => (
                             <li key={e.id}>
                               <Link to={`/speciality/${e.slug}/${e.country}`}>
-                                <img src={navIcon} alt="Brand Logo" />
+                                <img src={`${process.env.REACT_APP_BASE_URL}/speciality/${e.icon}`} alt="Brand Logo" />
                                 {e.menu_name}
                                 <span>Medflick</span>
                               </Link>
@@ -104,7 +104,7 @@ const Header = () => {
                           speciality.map((e) => (
                             <li key={e.id}>
                               <Link to={`/hospitals/${e.slug}/${e.country}`}>
-                                <img src={navIcon} alt="Brand Logo" />
+                                <img src={`${process.env.REACT_APP_BASE_URL}/speciality/${e.icon}`} alt="Brand Logo" />
                                 {e.name} Hospitals
                                 <span>Medflick</span>
                               </Link>
@@ -127,7 +127,7 @@ const Header = () => {
                           speciality.map((e) => (
                             <li key={e.id}>
                               <Link to={`/doctors/${e.slug}/${e.country}`}>
-                                <img src={navIcon} alt="Brand Logo" />
+                                <img src={`${process.env.REACT_APP_BASE_URL}/speciality/${e.icon}`} alt="Brand Logo" />
                                 {e.name} Doctors
                                 <span>Medflick</span>
                               </Link>

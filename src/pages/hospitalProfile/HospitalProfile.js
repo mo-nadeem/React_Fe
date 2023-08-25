@@ -712,7 +712,7 @@ const HospitalProfile = () => {
                   speciality.map((e) => (
                     <div className="specialists-boxitem" key={e.id}>
                       <div className="boxitem">
-                        <img src="images/2023/05/07/1.png" />
+                        <img src={`${process.env.REACT_APP_BASE_URL}/speciality/${e.icon}`} alt="speciality-icons" />
                         <h4>{e.name}</h4>
                       </div>
                     </div>
@@ -775,7 +775,7 @@ const HospitalProfile = () => {
               </div>
             </div>
 
-            <div id="reviews" className="profile-data-section">
+            {/* <div id="reviews" className="profile-data-section">
               <h2>Reviews</h2>
               <div className="most-reviews">
                 <select
@@ -991,7 +991,7 @@ const HospitalProfile = () => {
               <a href="#" className="read-mor-reviews">
                 Read More Reviews
               </a>
-            </div>
+            </div> */}
           </div>
         </section>
       </Homelayout>

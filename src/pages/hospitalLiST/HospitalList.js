@@ -55,12 +55,12 @@ const HospitalList = () => {
     <>
       <Homelayout>
         <section id="find-doctors">
-          <div class="midbox-inner  wiki-mk">
-            <div class="find-doctor-box">
+          <div className="midbox-inner  wiki-mk">
+            <div className="find-doctor-box">
               <h1>Find Hospitals</h1>
 
-              <div class="find-box">
-                <div class="search-box">
+              <div className="find-box">
+                <div className="search-box">
                   <input
                     type="text"
                     placeholder="Search Doctor"
@@ -68,7 +68,7 @@ const HospitalList = () => {
                     required=""
                   />
                 </div>
-                <div class="location-box">
+                <div className="location-box">
                   <input
                     type="text"
                     placeholder="Any Location"
@@ -76,7 +76,7 @@ const HospitalList = () => {
                     required=""
                   />
                 </div>
-                <button type="submit" name="en" class="find-doctor">
+                <button type="submit" name="en" className="find-doctor">
                   Find Doctor
                 </button>
               </div>
@@ -84,12 +84,13 @@ const HospitalList = () => {
           </div>
         </section>
         <section id="find-hospital-list">
-          <div class="midbox-inner  wiki-mk">
+          <div className="midbox-inner  wiki-mk">
             <h2>
-              Hospital <span>({hospital.length} Results)</span>
+              Medflick Assured Hospitals In India{" "}
+              <span>({hospital.length} Results)</span>
             </h2>
-            <div class="hospital-list-find">
-              <div class="ding">
+            <div className="hospital-list-find">
+              <div className="ding">
                 <Select
                   id="wiki"
                   value={selectedOption}
@@ -105,7 +106,7 @@ const HospitalList = () => {
                   </option>
                 </select> */}
               </div>
-              <div class="ding">
+              <div className="ding">
                 <Select
                   id="wiki"
                   value={selectedOption}
@@ -124,14 +125,14 @@ const HospitalList = () => {
                   <option value="other">other</option>
                 </select> */}
               </div>
-              {/* <div class="ding">
+              {/* <div className="ding">
                 <select id="wiki2">
                   <option value="none" selected>
                     Rating
                   </option>
                 </select>
               </div>
-              <div class="ding">
+              <div className="ding">
                 <select id="wiki3">
                   <option value="none" selected>
                     Experience
@@ -143,7 +144,7 @@ const HospitalList = () => {
                   <option value="">20 Year's</option>
                 </select>
               </div>
-              <div class="ding">
+              <div className="ding">
                 <select id="wiki4">
                   <option value="none" selected>
                     Hospital
@@ -151,7 +152,7 @@ const HospitalList = () => {
                 </select>
               </div> */}
 
-              <div class="refresh-box-hospital">
+              <div className="refresh-box-hospital">
                 <a onClick={handleClearSelection} href="#">
                   <img
                     src={loadingImg}
@@ -162,13 +163,13 @@ const HospitalList = () => {
               </div>
             </div>
 
-            <div class="hospital-midbox">
-              <div class="hospital-midbox-left">
+            <div className="hospital-midbox">
+              <div className="hospital-midbox-left">
                 {/* {hospital.map((e) => (
-                  <div class="hospital-item-list" key={e.id}>
-                    <div class="hospital-item-img">
-                      <div class="tabs_wrapper">
-                        <div class="tabs_container">
+                  <div className="hospital-item-list" key={e.id}>
+                    <div className="hospital-item-img">
+                      <div className="tabs_wrapper">
+                        <div className="tabs_container">
                           {images.map((image) => (
                             <div
                               key={image.id}
@@ -186,7 +187,7 @@ const HospitalList = () => {
                           ))}
                         </div>
 
-                        <ul class="tabs tab-h">
+                        <ul className="tabs tab-h">
                           {images.map((image) => (
                             <li
                               key={image.id}
@@ -205,43 +206,43 @@ const HospitalList = () => {
                         </ul>
                       </div>
                     </div>
-                    <div class="hospital-item-doc">
+                    <div className="hospital-item-doc">
                       <h3>{e.name}</h3>
-                      <div class="department-sub">
+                      <div className="department-sub">
                         Oncologist, Medical Oncologist
                       </div>
-                      <div class="rating-star">
-                        <i class="fa fa-star"></i> 5 (523)
+                      <div className="rating-star">
+                        <i className="fa fa-star"></i> 5 (523)
                       </div>
 
-                      <div class="ho-docimg">
+                      <div className="ho-docimg">
                         <img src={img1} />
                         <img src={img2} />
                         <img src={img3} />
                       </div>
 
-                      <div class="hos-no">
+                      <div className="hos-no">
                         <strong>Doctors:</strong> {e.doc}
                       </div>
-                      <div class="hos-no">
+                      <div className="hos-no">
                         <strong>Beds:</strong> {e.bed}
                       </div>
-                      <div class="hos-no">
+                      <div className="hos-no">
                         <strong>Ambulances:</strong> {e.ambulance}
                       </div>
                     </div>
-                    <div class="hospital-item-button">
-                      <a href="#" class="book-app">
+                    <div className="hospital-item-button">
+                      <a href="#" className="book-app">
                         Book Appointment <img src={bookIcon} />
                       </a>
-                      <a href="#" class="view-profile">
+                      <a href="#" className="view-profile">
                         View Profile <img src={profileIcon} />
                       </a>
-                      <a href="#" class="share-profile">
+                      <a href="#" className="share-profile">
                         Share Profile <img src={shareIcon} />
                       </a>
 
-                      <div class="hospital-location-box">
+                      <div className="hospital-location-box">
                         22 W 15TH ST <br />
                         New York, NY 10011
                         <img src="images/2023/05/loc.png" />
@@ -256,10 +257,10 @@ const HospitalList = () => {
                   );
 
                   return (
-                    <div class="hospital-item-list">
-                      <div class="hospital-item-img">
-                        <div class="tabs_wrapper">
-                          <div class="tabs_container">
+                    <div className="hospital-item-list">
+                      <div className="hospital-item-img">
+                        <div className="tabs_wrapper">
+                          <div className="tabs_container">
                             <Carousel
                               swipeable={true}
                               centerMode={false}
@@ -296,16 +297,16 @@ const HospitalList = () => {
                           </div>
                         </div>
                       </div>
-                      <div class="hospital-item-doc">
+                      <div className="hospital-item-doc">
                         <h3>{hospital.name}</h3>
-                        <div class="department-sub">
+                        <div className="department-sub">
                           Oncologist, Medical Oncologist
                         </div>
-                        <div class="rating-star">
-                          <i class="fa fa-star"></i> 5 (523)
+                        <div className="rating-star">
+                          <i className="fa fa-star"></i> 5 (523)
                         </div>
 
-                        <div class="ho-docimg">
+                        <div className="ho-docimg">
                           {hospital.nabl && (
                             <img
                               src={`${process.env.REACT_APP_BASE_URL}/hospital/${hospital.nabl}`}
@@ -321,34 +322,33 @@ const HospitalList = () => {
                               src={`${process.env.REACT_APP_BASE_URL}/hospital/${hospital.jci}`}
                             />
                           )}
-
                         </div>
 
-                        <div class="hos-no">
+                        <div className="hos-no">
                           <strong>Doctors:</strong> {hospital.doc}
                         </div>
-                        <div class="hos-no">
+                        <div className="hos-no">
                           <strong>Beds:</strong> {hospital.bed}
                         </div>
-                        <div class="hos-no">
+                        <div className="hos-no">
                           <strong>Ambulances:</strong> {hospital.ambulance}
                         </div>
                       </div>
-                      <div class="hospital-item-button">
-                        <a href="#" class="book-app">
+                      <div className="hospital-item-button">
+                        <a href="#" className="book-app">
                           Book Appointment <img src={bookIcon} alt="icon" />
                         </a>
                         <Link
                           to={`/hospital/${hospital.slug}/${hospital.country}`}
-                          class="view-profile"
+                          className="view-profile"
                         >
                           View Profile <img src={profileIcon} alt="icon" />
                         </Link>
-                        <Link class="share-profile">
+                        <Link className="share-profile">
                           Share Profile <img src={shareIcon} alt="icon" />
                         </Link>
 
-                        <div class="hospital-location-box">
+                        <div className="hospital-location-box">
                           {hospital.location}
                           <img src={iconImg} alt="icon" />
                         </div>
@@ -357,23 +357,23 @@ const HospitalList = () => {
                   );
                 })}
 
-                {/* <div class="hospital-item-list">
-                  <div class="hospital-item-img">
-                    <div class="tabs_wrapper">
-                      <div class="tabs_container">
-                        <div class="tab_content active" data-tab="tab7">
+                {/* <div className="hospital-item-list">
+                  <div className="hospital-item-img">
+                    <div className="tabs_wrapper">
+                      <div className="tabs_container">
+                        <div className="tab_content active" data-tab="tab7">
                           <img src="images/2023/05/06/1.jpg" />
                         </div>
-                        <div class="tab_content" data-tab="tab8">
+                        <div className="tab_content" data-tab="tab8">
                           <img src="images/2023/05/06/2.jpg" />
                         </div>
-                        <div class="tab_content" data-tab="tab9">
+                        <div className="tab_content" data-tab="tab9">
                           <img src="images/2023/05/06/3.jpg" />
                         </div>
                       </div>
 
-                      <ul class="tabs tab-h">
-                        <li class="active" id="tab7">
+                      <ul className="tabs tab-h">
+                        <li className="active" id="tab7">
                           <img src="images/2023/05/06/1.jpg" />{" "}
                         </li>
                         <li id="tab8">
@@ -385,44 +385,44 @@ const HospitalList = () => {
                       </ul>
                     </div>
                   </div>
-                  <div class="hospital-item-doc">
+                  <div className="hospital-item-doc">
                     <h3>Hospital Name</h3>
-                    <div class="department-sub">
+                    <div className="department-sub">
                       Oncologist, Medical Oncologist
                     </div>
-                    <div class="rating-star">
-                      <i class="fa fa-star"></i> 5 (523)
+                    <div className="rating-star">
+                      <i className="fa fa-star"></i> 5 (523)
                     </div>
 
-                    <div class="ho-docimg">
+                    <div className="ho-docimg">
                       <img src="images/2023/05/05/1.jpg" />
                       <img src="images/2023/05/05/2.jpg" />
                       <img src="images/2023/05/05/3.jpg" />
                     </div>
 
-                    <div class="hos-no">
+                    <div className="hos-no">
                       <strong>Doctors:</strong> 300
                     </div>
-                    <div class="hos-no">
+                    <div className="hos-no">
                       <strong>Beds:</strong> 560
                     </div>
-                    <div class="hos-no">
+                    <div className="hos-no">
                       <strong>Ambulances:</strong> 560{" "}
                     </div>
                   </div>
-                  <div class="hospital-item-button">
-                    <a href="#" class="book-app">
+                  <div className="hospital-item-button">
+                    <a href="#" className="book-app">
                       Book Appointment <img src="images/2023/05/book.png" />
                     </a>
-                    <a href="#" class="view-profile">
+                    <a href="#" className="view-profile">
                       View Profile <img src="images/2023/05/profile.png" />
                     </a>
-                    <a href="#" class="share-profile">
+                    <a href="#" className="share-profile">
                       Share Profile{" "}
                       <img src="images/2023/05/share-profile.png" />
                     </a>
 
-                    <div class="hospital-location-box">
+                    <div className="hospital-location-box">
                       22 W 15TH ST <br />
                       New York, NY 10011
                       <img src="images/2023/05/loc.png" />
@@ -430,23 +430,23 @@ const HospitalList = () => {
                   </div>
                 </div>
 
-                <div class="hospital-item-list">
-                  <div class="hospital-item-img">
-                    <div class="tabs_wrapper">
-                      <div class="tabs_container">
-                        <div class="tab_content active" data-tab="tab10">
+                <div className="hospital-item-list">
+                  <div className="hospital-item-img">
+                    <div className="tabs_wrapper">
+                      <div className="tabs_container">
+                        <div className="tab_content active" data-tab="tab10">
                           <img src="images/2023/05/06/1.jpg" />
                         </div>
-                        <div class="tab_content" data-tab="tab11">
+                        <div className="tab_content" data-tab="tab11">
                           <img src="images/2023/05/06/2.jpg" />
                         </div>
-                        <div class="tab_content" data-tab="tab12">
+                        <div className="tab_content" data-tab="tab12">
                           <img src="images/2023/05/06/3.jpg" />
                         </div>
                       </div>
 
-                      <ul class="tabs tab-h">
-                        <li class="active" id="tab10">
+                      <ul className="tabs tab-h">
+                        <li className="active" id="tab10">
                           <img src="images/2023/05/06/1.jpg" />{" "}
                         </li>
                         <li id="tab11">
@@ -458,44 +458,44 @@ const HospitalList = () => {
                       </ul>
                     </div>
                   </div>
-                  <div class="hospital-item-doc">
+                  <div className="hospital-item-doc">
                     <h3>Hospital Name</h3>
-                    <div class="department-sub">
+                    <div className="department-sub">
                       Oncologist, Medical Oncologist
                     </div>
-                    <div class="rating-star">
-                      <i class="fa fa-star"></i> 5 (523)
+                    <div className="rating-star">
+                      <i className="fa fa-star"></i> 5 (523)
                     </div>
 
-                    <div class="ho-docimg">
+                    <div className="ho-docimg">
                       <img src="images/2023/05/05/1.jpg" />
                       <img src="images/2023/05/05/2.jpg" />
                       <img src="images/2023/05/05/3.jpg" />
                     </div>
 
-                    <div class="hos-no">
+                    <div className="hos-no">
                       <strong>Doctors:</strong> 300
                     </div>
-                    <div class="hos-no">
+                    <div className="hos-no">
                       <strong>Beds:</strong> 560
                     </div>
-                    <div class="hos-no">
+                    <div className="hos-no">
                       <strong>Ambulances:</strong> 560{" "}
                     </div>
                   </div>
-                  <div class="hospital-item-button">
-                    <a href="#" class="book-app">
+                  <div className="hospital-item-button">
+                    <a href="#" className="book-app">
                       Book Appointment <img src="images/2023/05/book.png" />
                     </a>
-                    <a href="#" class="view-profile">
+                    <a href="#" className="view-profile">
                       View Profile <img src="images/2023/05/profile.png" />
                     </a>
-                    <a href="#" class="share-profile">
+                    <a href="#" className="share-profile">
                       Share Profile{" "}
                       <img src="images/2023/05/share-profile.png" />
                     </a>
 
-                    <div class="hospital-location-box">
+                    <div className="hospital-location-box">
                       22 W 15TH ST <br />
                       New York, NY 10011
                       <img src="images/2023/05/loc.png" />
@@ -504,12 +504,12 @@ const HospitalList = () => {
                 </div> */}
               </div>
 
-              <div class="hospital-midbox-right">
-                <div class="treatment-right">
+              <div className="hospital-midbox-right">
+                <div className="treatment-right">
                   <h2>Need Assistance?</h2>
 
-                  <div class="treatment-form">
-                    <div class="inputbox">
+                  <div className="treatment-form">
+                    <div className="inputbox">
                       <label>Name</label>
                       <input
                         type="text"
@@ -520,14 +520,14 @@ const HospitalList = () => {
                     </div>
                   </div>
 
-                  <div class="treatment-form">
-                    <div class="inputbox">
+                  <div className="treatment-form">
+                    <div className="inputbox">
                       <label>Phone</label>
-                      <div class="phone-form">
-                        <div class="phone-box1">
+                      <div className="phone-form">
+                        <div className="phone-box1">
                           <select
                             aria-label="Sort dropdown"
-                            class="phone-dropdown"
+                            className="phone-dropdown"
                           >
                             <option value="">Choose Code</option>
                             <option value="1">UK (+44)</option>
@@ -567,7 +567,7 @@ const HospitalList = () => {
                             <option value="855">Cambodia (+855)</option>
                           </select>
                         </div>
-                        <div class="phone-box2">
+                        <div className="phone-box2">
                           <input
                             type="text"
                             placeholder=""
@@ -579,8 +579,8 @@ const HospitalList = () => {
                     </div>
                   </div>
 
-                  <div class="treatment-form">
-                    <div class="inputbox">
+                  <div className="treatment-form">
+                    <div className="inputbox">
                       <label>Email</label>
                       <input
                         type="text"
@@ -591,11 +591,11 @@ const HospitalList = () => {
                     </div>
                   </div>
 
-                  <div class="treatment-form">
-                    <div class="inputbox">
+                  <div className="treatment-form">
+                    <div className="inputbox">
                       <label>Your Query</label>
                       <textarea
-                        class="querybox"
+                        className="querybox"
                         type="textarea"
                         name="query"
                         placeholder=""
@@ -604,7 +604,7 @@ const HospitalList = () => {
                     </div>
                   </div>
 
-                  <button type="submit" name="en" class="home-button">
+                  <button type="submit" name="en" className="home-button">
                     {" "}
                     Submit Now <img src={arrowCIcon} alt="arrow-Icon" />
                   </button>

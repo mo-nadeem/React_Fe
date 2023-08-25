@@ -6,8 +6,8 @@ const ConsultationForm = () => {
     <>
       <Homelayout>
         <section id="get-free-consultation">
-          <div class="midbox-inner  wiki-mk">
-            <div class="contact-box">
+          <div className="midbox-inner  wiki-mk">
+            <div className="contact-box">
               <h1>Get a free Consultation</h1>
               <p>
                 orem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -15,11 +15,11 @@ const ConsultationForm = () => {
                 quis nostrud exercitation ullamco laboris nisi ut aliquip
               </p>
 
-              <div class="questions-form">
-                <div class="homeform-left">
-                  <div class="treatment-right">
-                    <div class="treatment-form">
-                      <div class="inputbox">
+              <div className="questions-form">
+                <div className="homeform-left">
+                  <div className="treatment-right">
+                    <div className="treatment-form">
+                      <div className="inputbox">
                         <label>Name</label>
                         <input
                           type="text"
@@ -30,14 +30,14 @@ const ConsultationForm = () => {
                       </div>
                     </div>
 
-                    <div class="treatment-form">
-                      <div class="inputbox">
+                    <div className="treatment-form">
+                      <div className="inputbox">
                         <label>Phone</label>
-                        <div class="phone-form">
-                          <div class="phone-box1">
+                        <div className="phone-form">
+                          <div className="phone-box1">
                             <select
                               aria-label="Sort dropdown"
-                              class="phone-dropdown"
+                              className="phone-dropdown"
                             >
                               <option value="">Choose Code</option>
                               <option value="1">UK (+44)</option>
@@ -77,7 +77,7 @@ const ConsultationForm = () => {
                               <option value="855">Cambodia (+855)</option>
                             </select>
                           </div>
-                          <div class="phone-box2">
+                          <div className="phone-box2">
                             <input
                               type="text"
                               placeholder=""
@@ -89,8 +89,8 @@ const ConsultationForm = () => {
                       </div>
                     </div>
 
-                    <div class="treatment-form">
-                      <div class="inputbox">
+                    <div className="treatment-form">
+                      <div className="inputbox">
                         <label>Email</label>
                         <input
                           type="text"
@@ -101,10 +101,10 @@ const ConsultationForm = () => {
                       </div>
                     </div>
 
-                    <div class="treatment-form">
-                      <div class="most-reviews">
+                    <div className="treatment-form">
+                      <div className="most-reviews">
                         <select
-                          class="reviews-dropdown "
+                          className="reviews-dropdown "
                           aria-label="Sort dropdown"
                         >
                           <option value="select-language">
@@ -114,11 +114,11 @@ const ConsultationForm = () => {
                       </div>
                     </div>
 
-                    <div class="treatment-form">
-                      <div class="inputbox">
+                    <div className="treatment-form">
+                      <div className="inputbox">
                         <label>Short Description</label>
                         <textarea
-                          class="querybox"
+                          className="querybox"
                           type="textarea"
                           name="query"
                           placeholder=""
@@ -127,17 +127,17 @@ const ConsultationForm = () => {
                       </div>
                     </div>
 
-                    <button type="submit" name="en" class="home-button">
+                    <button type="submit" name="en" className="home-button">
                       {" "}
                       Submit Now <img src="images/2023/01/arrow-c.png" alt="" />
                     </button>
                   </div>
                 </div>
 
-                <div class="homeform-right">
+                <div className="homeform-right">
                   <img src="images/2023/01/home-q.jpg" alt="" />
 
-                  <div class="home-drbox">
+                  <div className="home-drbox">
                     <h4>We value your Privacy</h4>
 
                     <ul>

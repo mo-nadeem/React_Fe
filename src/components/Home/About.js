@@ -30,8 +30,7 @@ const About = () => {
           <div className="homeabout-box">
             <div className="homeabout-left">
               <h2>
-                Your Health,
-                <span>our Purpose</span>
+                Your Health, <span>Our Purpose</span>
               </h2>
               <p>
                 From diagnosis to recovery, our commitment is to provide you

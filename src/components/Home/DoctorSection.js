@@ -5,8 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchHome } from "../../Api/action/HomeAction";
 import { Link } from "react-router-dom";
 
-
-
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -128,8 +126,7 @@ const DoctorSection = () => {
       <section id="doctors-section">
         <div className="midbox-inner  wiki-mk">
           <h2>
-            Expertise You Can
-            <span>Trust</span>
+            Expertise You Can <span>Trust</span>
           </h2>
           <p>
             Get connected to India's best doctors/ surgeons from top hospitals.

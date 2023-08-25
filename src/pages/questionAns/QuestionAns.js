@@ -43,16 +43,16 @@ const QuestionAns = () => {
     <>
       <Homelayout>
         <section id="questions-ans-section">
-          <div class="midbox-inner wiki-mk">
-            <div class="questions-ans">
-              <div class="questions-ans-left">
-                <div class="search-suestions">
+          <div className="midbox-inner wiki-mk">
+            <div className="questions-ans">
+              <div className="questions-ans-left">
+                <div className="search-suestions">
                   <h1>Search for Questions</h1>
 
-                  <div class="search-medflick">
-                    <div class="search-box-medflick">
+                  <div className="search-medflick">
+                    <div className="search-box-medflick">
                       <span>Search Terms:</span>
-                      <div class="search-terms">
+                      <div className="search-terms">
                         <input
                           type="text"
                           placeholder="Search Medflick"
@@ -82,10 +82,10 @@ const QuestionAns = () => {
                     }`}
                     style={hiddenMenuStyle}
                   >
-                    <div class="search-medflick">
-                      <div class="search-box-medflick">
+                    <div className="search-medflick">
+                      <div className="search-box-medflick">
                         <span>Search Terms:</span>
-                        <div class="search-terms">
+                        <div className="search-terms">
                           <input
                             type="text"
                             placeholder="Search Medflick"
@@ -96,10 +96,10 @@ const QuestionAns = () => {
                       </div>
                     </div>
 
-                    <div class="search-medflick">
-                      <div class="search-box-medflick">
+                    <div className="search-medflick">
+                      <div className="search-box-medflick">
                         <span>Date Range:</span>
-                        <div class="date-range">
+                        <div className="date-range">
                           <input
                             type="text"
                             placeholder="DD/MM/YYYY"
@@ -107,7 +107,7 @@ const QuestionAns = () => {
                             required=""
                           />
                         </div>
-                        <div class="date-range1">
+                        <div className="date-range1">
                           <span>To:</span>
                           <input
                             type="text"
@@ -118,17 +118,17 @@ const QuestionAns = () => {
                         </div>
                       </div>
 
-                      <div class="search-button">
+                      <div className="search-button">
                         <button>Search Now</button>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div class="search-question">
-                  <div class="search-question-left">
-                    <div class="ding">
-                      {/* <div class="sort">Sort:</div> */}
+                <div className="search-question">
+                  <div className="search-question-left">
+                    <div className="ding">
+                      {/* <div className="sort">Sort:</div> */}
                       <Select
                         id="wiki"
                         value={selectedOption}
@@ -144,8 +144,8 @@ const QuestionAns = () => {
                         </option>
                       </select> */}
                     </div>
-                    <div class="ding">
-                      {/* <div class="sort">Category:</div> */}
+                    <div className="ding">
+                      {/* <div className="sort">Category:</div> */}
                       <Select
                         id="wiki"
                         value={selectedOption}
@@ -162,10 +162,10 @@ const QuestionAns = () => {
                       </select> */}
                     </div>
                   </div>
-                  <div class="search-question-right">
+                  <div className="search-question-right">
                     <span>Have any Questions?</span>
                     <span
-                      class="ask-question"
+                      className="ask-question"
                       data-popup-open="popup-2"
                       onClick={togglePopup}
                       style={{cursor:"pointer"}}
@@ -283,9 +283,9 @@ const QuestionAns = () => {
                   </div>
                 )}
 
-                <div class="comments-box">
-                  <div class="comments-profile">
-                    <div class="comments-profileimg">
+                <div className="comments-box">
+                  <div className="comments-profile">
+                    <div className="comments-profileimg">
                       <img src="images/2023/07/man.png" />
                     </div>
                     <h3>
@@ -307,22 +307,22 @@ const QuestionAns = () => {
                     laudantium unde omnis iste natus error sit voluptatem acc
                   </p>
 
-                  <div class="comments-button">
-                    <a class="ask-comments" href="#">
-                      <i class="fa fa-heart"></i> Likes
+                  <div className="comments-button">
+                    <a className="ask-comments" href="#">
+                      <i className="fa fa-heart"></i> Likes
                     </a>
-                    <a class="ask-comments" href="#">
-                      <i class="fa fa-comments"></i> Comments
+                    <a className="ask-comments" href="#">
+                      <i className="fa fa-comments"></i> Comments
                     </a>
-                    <a class="ask-comments" href="#">
-                      <i class="fa fa-share"></i> Share
+                    <a className="ask-comments" href="#">
+                      <i className="fa fa-share"></i> Share
                     </a>
                   </div>
                 </div>
 
-                <div class="comments-box">
-                  <div class="comments-profile">
-                    <div class="comments-profileimg">
+                <div className="comments-box">
+                  <div className="comments-profile">
+                    <div className="comments-profileimg">
                       <img src="images/2023/07/man.png" />
                     </div>
                     <h3>
@@ -344,26 +344,26 @@ const QuestionAns = () => {
                     laudantium unde omnis iste natus error sit voluptatem acc
                   </p>
 
-                  <div class="comments-button">
-                    <a class="ask-comments" href="#">
-                      <i class="fa fa-heart"></i> Likes
+                  <div className="comments-button">
+                    <a className="ask-comments" href="#">
+                      <i className="fa fa-heart"></i> Likes
                     </a>
-                    <a class="ask-comments" href="#">
-                      <i class="fa fa-comments"></i> Comments
+                    <a className="ask-comments" href="#">
+                      <i className="fa fa-comments"></i> Comments
                     </a>
-                    <a class="ask-comments" href="#">
-                      <i class="fa fa-share"></i> Share
+                    <a className="ask-comments" href="#">
+                      <i className="fa fa-share"></i> Share
                     </a>
                   </div>
 
-                  <div class="comments-box1">
-                    <div class="comments-profile">
-                      <div class="comments-profileimg">
+                  <div className="comments-box1">
+                    <div className="comments-profile">
+                      <div className="comments-profileimg">
                         <img src="images/2023/07/wo.png" />
                       </div>
                       <h3>
                         Dr. Lorem Ipsum
-                        <div class="comments-dr-yers">
+                        <div className="comments-dr-yers">
                           20 yrs of experience
                           <span>
                             <img src="images/2023/07/dotted.png" /> General
@@ -383,25 +383,25 @@ const QuestionAns = () => {
                       voluptatem acc
                     </p>
 
-                    <div class="comments-button1">
-                      <a class="ask-comments" href="#">
-                        <i class="fa fa-heart"></i> Likes
+                    <div className="comments-button1">
+                      <a className="ask-comments" href="#">
+                        <i className="fa fa-heart"></i> Likes
                       </a>
-                      <a class="ask-comments" href="#">
-                        <i class="fa fa-reply"></i> Reply
+                      <a className="ask-comments" href="#">
+                        <i className="fa fa-reply"></i> Reply
                       </a>
                     </div>
                   </div>
 
-                  <a class="more-replies" href="#">
-                    <i class="fa fa-comments"></i> View 24 more Replies
-                    <i class="fa fa-angle-down"></i>
+                  <a className="more-replies" href="#">
+                    <i className="fa fa-comments"></i> View 24 more Replies
+                    <i className="fa fa-angle-down"></i>
                   </a>
                 </div>
 
-                <div class="comments-box">
-                  <div class="comments-profile">
-                    <div class="comments-profileimg">
+                <div className="comments-box">
+                  <div className="comments-profile">
+                    <div className="comments-profileimg">
                       <img src="images/2023/07/man.png" />
                     </div>
                     <h3>
@@ -423,22 +423,22 @@ const QuestionAns = () => {
                     laudantium unde omnis iste natus error sit voluptatem acc
                   </p>
 
-                  <div class="comments-button">
-                    <a class="ask-comments" href="#">
-                      <i class="fa fa-heart"></i> Likes
+                  <div className="comments-button">
+                    <a className="ask-comments" href="#">
+                      <i className="fa fa-heart"></i> Likes
                     </a>
-                    <a class="ask-comments" href="#">
-                      <i class="fa fa-comments"></i> Comments
+                    <a className="ask-comments" href="#">
+                      <i className="fa fa-comments"></i> Comments
                     </a>
-                    <a class="ask-comments" href="#">
-                      <i class="fa fa-share"></i> Share
+                    <a className="ask-comments" href="#">
+                      <i className="fa fa-share"></i> Share
                     </a>
                   </div>
                 </div>
 
-                <div class="comments-box">
-                  <div class="comments-profile">
-                    <div class="comments-profileimg">
+                <div className="comments-box">
+                  <div className="comments-profile">
+                    <div className="comments-profileimg">
                       <img src="images/2023/07/man.png" />
                     </div>
                     <h3>
@@ -460,26 +460,26 @@ const QuestionAns = () => {
                     laudantium unde omnis iste natus error sit voluptatem acc
                   </p>
 
-                  <div class="comments-button">
-                    <a class="ask-comments" href="#">
-                      <i class="fa fa-heart"></i> Likes
+                  <div className="comments-button">
+                    <a className="ask-comments" href="#">
+                      <i className="fa fa-heart"></i> Likes
                     </a>
-                    <a class="ask-comments" href="#">
-                      <i class="fa fa-comments"></i> Comments
+                    <a className="ask-comments" href="#">
+                      <i className="fa fa-comments"></i> Comments
                     </a>
-                    <a class="ask-comments" href="#">
-                      <i class="fa fa-share"></i> Share
+                    <a className="ask-comments" href="#">
+                      <i className="fa fa-share"></i> Share
                     </a>
                   </div>
 
-                  <div class="comments-box1">
-                    <div class="comments-profile">
-                      <div class="comments-profileimg">
+                  <div className="comments-box1">
+                    <div className="comments-profile">
+                      <div className="comments-profileimg">
                         <img src="images/2023/07/wo.png" />
                       </div>
                       <h3>
                         Dr. Lorem Ipsum
-                        <div class="comments-dr-yers">
+                        <div className="comments-dr-yers">
                           20 yrs of experience
                           <span>
                             <img src="images/2023/07/dotted.png" /> General
@@ -499,19 +499,19 @@ const QuestionAns = () => {
                       voluptatem acc
                     </p>
 
-                    <div class="comments-button1">
-                      <a class="ask-comments" href="#">
-                        <i class="fa fa-heart"></i> Likes
+                    <div className="comments-button1">
+                      <a className="ask-comments" href="#">
+                        <i className="fa fa-heart"></i> Likes
                       </a>
-                      <a class="ask-comments" href="#">
-                        <i class="fa fa-reply"></i> Reply
+                      <a className="ask-comments" href="#">
+                        <i className="fa fa-reply"></i> Reply
                       </a>
                     </div>
                   </div>
 
-                  <div class="comments-box2">
-                    <div class="comments-profile">
-                      <div class="comments-profileimg">
+                  <div className="comments-box2">
+                    <div className="comments-profile">
+                      <div className="comments-profileimg">
                         <img src="images/2023/07/man.png" />
                       </div>
                       <h3>Dr. Lorem Ipsum</h3>
@@ -527,29 +527,29 @@ const QuestionAns = () => {
                       voluptatem acc
                     </p>
 
-                    <div class="comments-button1">
-                      <a class="ask-comments" href="#">
-                        <i class="fa fa-heart"></i> Likes
+                    <div className="comments-button1">
+                      <a className="ask-comments" href="#">
+                        <i className="fa fa-heart"></i> Likes
                       </a>
-                      <a class="ask-comments" href="#">
-                        <i class="fa fa-reply"></i> Reply
+                      <a className="ask-comments" href="#">
+                        <i className="fa fa-reply"></i> Reply
                       </a>
                     </div>
 
-                    <a class="show-replies" href="#">
-                      Show 12 more replies <i class="fa fa-angle-down"></i>
+                    <a className="show-replies" href="#">
+                      Show 12 more replies <i className="fa fa-angle-down"></i>
                     </a>
                   </div>
 
-                  <a class="more-replies" href="#">
-                    <i class="fa fa-comments"></i> View 24 more Replies
-                    <i class="fa fa-angle-down"></i>
+                  <a className="more-replies" href="#">
+                    <i className="fa fa-comments"></i> View 24 more Replies
+                    <i className="fa fa-angle-down"></i>
                   </a>
                 </div>
 
-                <div class="comments-box">
-                  <div class="comments-profile">
-                    <div class="comments-profileimg">
+                <div className="comments-box">
+                  <div className="comments-profile">
+                    <div className="comments-profileimg">
                       <img src="images/2023/07/man.png" />
                     </div>
                     <h3>
@@ -571,26 +571,26 @@ const QuestionAns = () => {
                     laudantium unde omnis iste natus error sit voluptatem acc
                   </p>
 
-                  <div class="comments-button">
-                    <a class="ask-comments" href="#">
-                      <i class="fa fa-heart"></i> Likes
+                  <div className="comments-button">
+                    <a className="ask-comments" href="#">
+                      <i className="fa fa-heart"></i> Likes
                     </a>
-                    <a class="ask-comments" href="#">
-                      <i class="fa fa-comments"></i> Comments
+                    <a className="ask-comments" href="#">
+                      <i className="fa fa-comments"></i> Comments
                     </a>
-                    <a class="ask-comments" href="#">
-                      <i class="fa fa-share"></i> Share
+                    <a className="ask-comments" href="#">
+                      <i className="fa fa-share"></i> Share
                     </a>
                   </div>
                 </div>
               </div>
 
-              <div class="questions-ans-right">
-                <div class="treatment-right">
+              <div className="questions-ans-right">
+                <div className="treatment-right">
                   <h2>Need Assistance?</h2>
 
-                  <div class="treatment-form">
-                    <div class="inputbox">
+                  <div className="treatment-form">
+                    <div className="inputbox">
                       <label>Name</label>
                       <input
                         type="text"
@@ -601,14 +601,14 @@ const QuestionAns = () => {
                     </div>
                   </div>
 
-                  <div class="treatment-form">
-                    <div class="inputbox">
+                  <div className="treatment-form">
+                    <div className="inputbox">
                       <label>Phone</label>
-                      <div class="phone-form">
-                        <div class="phone-box1">
+                      <div className="phone-form">
+                        <div className="phone-box1">
                           <select
                             aria-label="Sort dropdown"
-                            class="phone-dropdown"
+                            className="phone-dropdown"
                           >
                             <option value="">Choose Code</option>
                             <option value="1">UK (+44)</option>
@@ -648,7 +648,7 @@ const QuestionAns = () => {
                             <option value="855">Cambodia (+855)</option>
                           </select>
                         </div>
-                        <div class="phone-box2">
+                        <div className="phone-box2">
                           <input
                             type="text"
                             placeholder=""
@@ -660,8 +660,8 @@ const QuestionAns = () => {
                     </div>
                   </div>
 
-                  <div class="treatment-form">
-                    <div class="inputbox">
+                  <div className="treatment-form">
+                    <div className="inputbox">
                       <label>Email</label>
                       <input
                         type="text"
@@ -672,11 +672,11 @@ const QuestionAns = () => {
                     </div>
                   </div>
 
-                  <div class="treatment-form">
-                    <div class="inputbox">
+                  <div className="treatment-form">
+                    <div className="inputbox">
                       <label>Your Query</label>
                       <textarea
-                        class="querybox"
+                        className="querybox"
                         type="textarea"
                         name="query"
                         placeholder=""
@@ -685,7 +685,7 @@ const QuestionAns = () => {
                     </div>
                   </div>
 
-                  <button type="submit" name="en" class="home-button">
+                  <button type="submit" name="en" className="home-button">
                     Submit Now <img src="images/2023/01/arrow-c.png" alt="" />
                   </button>
                 </div>

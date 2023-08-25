@@ -6,31 +6,31 @@ const QueryForm = () => {
     <>
       <Homelayout>
         <section id="query-form">
-          <div class="midbox-inner  wiki-mk">
+          <div className="midbox-inner  wiki-mk">
             <img
               src="images/2023/02/logo.png"
-              class="logo-med"
+              className="logo-med"
               alt="Brand Logo"
             />
-            <div class="query-form">
+            <div className="query-form">
               <h1>Query Form</h1>
 
-              <div class="treatment-right">
-                <div class="treatment-form">
-                  <div class="inputbox">
+              <div className="treatment-right">
+                <div className="treatment-form">
+                  <div className="inputbox">
                     <label>Full Name</label>
                     <input type="text" placeholder="" name="name" required="" />
                   </div>
                 </div>
 
-                <div class="treatment-form">
-                  <div class="inputbox">
+                <div className="treatment-form">
+                  <div className="inputbox">
                     <label>Phone Number</label>
-                    <div class="phone-form">
-                      <div class="phone-box1">
+                    <div className="phone-form">
+                      <div className="phone-box1">
                         <select
                           aria-label="Sort dropdown"
-                          class="phone-dropdown"
+                          className="phone-dropdown"
                         >
                           <option value="">Choose Code</option>
                           <option value="1">UK (+44)</option>
@@ -68,7 +68,7 @@ const QueryForm = () => {
                           <option value="855">Cambodia (+855)</option>
                         </select>
                       </div>
-                      <div class="phone-box2">
+                      <div className="phone-box2">
                         <input
                           type="text"
                           placeholder=""
@@ -80,18 +80,18 @@ const QueryForm = () => {
                   </div>
                 </div>
 
-                <div class="treatment-form">
-                  <div class="inputbox">
+                <div className="treatment-form">
+                  <div className="inputbox">
                     <label>Email Address</label>
                     <input type="text" placeholder="" name="name" required="" />
                   </div>
                 </div>
 
-                <div class="treatment-form">
-                  <div class="inputbox">
+                <div className="treatment-form">
+                  <div className="inputbox">
                     <label>Your Query</label>
                     <textarea
-                      class="querybox"
+                      className="querybox"
                       type="textarea"
                       name="query"
                       placeholder=""
@@ -105,7 +105,7 @@ const QueryForm = () => {
                   receive marketing letters that may be of interest.
                 </p>
 
-                <button type="submit" name="en" class="home-button">
+                <button type="submit" name="en" className="home-button">
                   {" "}
                   Submit Now <img src="images/2023/01/arrow-c.png" alt="" />
                 </button>

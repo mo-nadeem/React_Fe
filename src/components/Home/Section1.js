@@ -27,7 +27,7 @@ const Section1 = () => {
           </video>
 
           <div className="ababslider-text">
-            <h1 className="cs-heading"> Watch, Learn & Choose wisely</h1>
+            <h1 className="cs-heading"> Watch, Learn & Choose Wisely</h1>
             <h2 className="cs-heading1">
               Empowering Health through Online Learning: Your Path to Informed
               Choices. Trusted health information when you need it most.
@@ -45,7 +45,7 @@ const Section1 = () => {
           </div>
 
           <div className="ababslider-rightext">
-            Over 24,000 patients helped. Compassionate care, affordable
+            Over 2000+ patients helped. Compassionate care, affordable
             treatments.
           </div>
         </div>

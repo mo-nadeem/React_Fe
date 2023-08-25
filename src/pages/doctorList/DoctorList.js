@@ -38,11 +38,10 @@ const DoctorList = () => {
     { value: "male", label: "male" },
     { value: "female", label: "female" },
     { value: "other", label: "other" },
-
   ];
 
   const [selectedOption, setSelectedOption] = useState(null);
-  const [selectedGender,setSelectedGender] = useState(null)
+  const [selectedGender, setSelectedGender] = useState(null);
 
   const handleSelectChange = (selectedOption) => {
     setSelectedOption(selectedOption);
@@ -51,10 +50,9 @@ const DoctorList = () => {
     setSelectedGender(selectedGender);
   };
 
-
   const handleClearSelection = () => {
     setSelectedOption(null);
-    setSelectedGender(null) // Clear the selected option
+    setSelectedGender(null); // Clear the selected option
   };
 
   //  Search filteration top
@@ -74,12 +72,12 @@ const DoctorList = () => {
     <>
       <Homelayout>
         <section id="find-doctors">
-          <div class="midbox-inner  wiki-mk">
-            <div class="find-doctor-box">
+          <div className="midbox-inner  wiki-mk">
+            <div className="find-doctor-box">
               <h1>Find Doctors</h1>
 
-              <div class="find-box">
-                <div class="search-box">
+              <div className="find-box">
+                <div className="search-box">
                   <input
                     type="text"
                     placeholder="Search Doctor"
@@ -89,7 +87,7 @@ const DoctorList = () => {
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
                 </div>
-                <div class="location-box">
+                <div className="location-box">
                   <input
                     type="text"
                     placeholder="Any Location"
@@ -97,7 +95,7 @@ const DoctorList = () => {
                     required=""
                   />
                 </div>
-                <button type="submit" name="en" class="find-doctor">
+                <button type="submit" name="en" className="find-doctor">
                   Find Doctor
                 </button>
               </div>
@@ -106,12 +104,12 @@ const DoctorList = () => {
         </section>
 
         <section id="find-doctors-list">
-          <div class="midbox-inner  wiki-mk">
+          <div className="midbox-inner  wiki-mk">
             <h2>
-              Doctors <span>({doctor.length} Results)</span>
+              Medflick Assured Doctors <span>({doctor.length} Results)</span>
             </h2>
-            <div class="doctors-list-find">
-              <div class="ding">
+            <div className="doctors-list-find">
+              <div className="ding">
                 <Select
                   id="wiki"
                   value={selectedOption}
@@ -127,7 +125,7 @@ const DoctorList = () => {
                     </option>
                   </select> */}
               </div>
-              <div class="ding">
+              <div className="ding">
                 <Select
                   id="wiki"
                   value={selectedGender}
@@ -146,7 +144,7 @@ const DoctorList = () => {
                   <option value="other">other</option>
                 </select> */}
               </div>
-              <div class="ding">
+              <div className="ding">
                 <Select
                   id="wiki"
                   value={selectedOption}
@@ -162,7 +160,7 @@ const DoctorList = () => {
                   </option>
                 </select> */}
               </div>
-              <div class="ding">
+              <div className="ding">
                 <Select
                   id="wiki"
                   value={selectedOption}
@@ -183,7 +181,7 @@ const DoctorList = () => {
                   <option value="">20 Year's</option>
                 </select> */}
               </div>
-              <div class="ding">
+              <div className="ding">
                 <Select
                   id="wiki"
                   value={selectedOption}
@@ -200,59 +198,61 @@ const DoctorList = () => {
                 </select> */}
               </div>
 
-              <div class="refresh-box">
+              <div className="refresh-box">
                 <span onClick={handleClearSelection}>
                   <img src={loadingImg} alt="icon" />
                 </span>
               </div>
             </div>
 
-            <div class="doctor-midbox">
-              <div class="doctor-midbox-left">
+            <div className="doctor-midbox">
+              <div className="doctor-midbox-left">
                 {doctor &&
                   doctor.map((e) => {
-                    // Find the hospital that matches the doctor's hospital_id
                     const matchedHospital = hospitalIcon?.find(
                       (hospital) => String(hospital.id) === e.hospital_id
                     );
                     return (
-                      <div class="doctor-item-list" key={e.id}>
-                        <div class="doctor-item-img">
+                      <div className="doctor-item-list" key={e.id}>
+                        <div className="doctor-item-img">
                           <img
                             src={`${process.env.REACT_APP_BASE_URL}/doctor/${e.image}`}
                             alt={e.slug}
                           />
                         </div>
-                        <div class="doctor-item-doc">
+                        <div className="doctor-item-doc">
                           <h3>
                             {e.prefix} {e.first_name} {e.last_name}
                           </h3>
-                          <div class="department-sub">{e.designation}</div>
-                          <div class="rating-star">
-                            <i class="fa fa-star"></i> 5 (523)
+                          <div className="department-sub">{e.designation}</div>
+                          <div className="rating-star">
+                            <i className="fa fa-star"></i> 5 (523)
                           </div>
 
-                          <div class="doc-experience">
-                            <div class="years-exper">
+                          <div className="doc-experience">
+                            <div className="years-exper">
                               {e.experience_year}+ Years of Experience{" "}
                             </div>
-                            <div class="successful-plus">
+                            <div className="successful-plus">
                               {e.surgery_treatment}+ Successful Surgeries{" "}
                             </div>
                           </div>
                         </div>
-                        <div class="doctor-item-button">
-                          <a href="#" class="book-app">
+                        <div className="doctor-item-button">
+                          <a href="#" className="book-app">
                             Book Appointment <img src={bookIcon} alt="icon" />
                           </a>
-                          <Link to={`/doctor/${e.slug}`} class="view-profile">
+                          <Link
+                            to={`/doctor/${e.slug}`}
+                            className="view-profile"
+                          >
                             View Profile <img src={profileIcon} alt="icon" />
                           </Link>
-                          <a href="#" class="share-profile">
+                          <a href="#" className="share-profile">
                             Share Profile <img src={shareIcon} alt="icon" />
                           </a>
 
-                          <div class="doc-Hospital">
+                          <div className="doc-Hospital">
                             {e.location}
                             {matchedHospital && (
                               <img
@@ -267,12 +267,12 @@ const DoctorList = () => {
                   })}
               </div>
 
-              <div class="doctor-midbox-right">
-                <div class="treatment-right">
+              <div className="doctor-midbox-right">
+                <div className="treatment-right">
                   <h2>Need Assistance?</h2>
 
-                  <div class="treatment-form">
-                    <div class="inputbox">
+                  <div className="treatment-form">
+                    <div className="inputbox">
                       <label>Name</label>
                       <input
                         type="text"
@@ -283,14 +283,14 @@ const DoctorList = () => {
                     </div>
                   </div>
 
-                  <div class="treatment-form">
-                    <div class="inputbox">
+                  <div className="treatment-form">
+                    <div className="inputbox">
                       <label>Phone</label>
-                      <div class="phone-form">
-                        <div class="phone-box1">
+                      <div className="phone-form">
+                        <div className="phone-box1">
                           <select
                             aria-label="Sort dropdown"
-                            class="phone-dropdown"
+                            className="phone-dropdown"
                           >
                             <option value="">Choose Code</option>
                             <option value="1">UK (+44)</option>
@@ -330,7 +330,7 @@ const DoctorList = () => {
                             <option value="855">Cambodia (+855)</option>
                           </select>
                         </div>
-                        <div class="phone-box2">
+                        <div className="phone-box2">
                           <input
                             type="text"
                             placeholder=""
@@ -342,8 +342,8 @@ const DoctorList = () => {
                     </div>
                   </div>
 
-                  <div class="treatment-form">
-                    <div class="inputbox">
+                  <div className="treatment-form">
+                    <div className="inputbox">
                       <label>Email</label>
                       <input
                         type="text"
@@ -354,11 +354,11 @@ const DoctorList = () => {
                     </div>
                   </div>
 
-                  <div class="treatment-form">
-                    <div class="inputbox">
+                  <div className="treatment-form">
+                    <div className="inputbox">
                       <label>Your Query</label>
                       <textarea
-                        class="querybox"
+                        className="querybox"
                         type="textarea"
                         name="query"
                         placeholder=""
@@ -367,7 +367,7 @@ const DoctorList = () => {
                     </div>
                   </div>
 
-                  <button type="submit" name="en" class="home-button">
+                  <button type="submit" name="en" className="home-button">
                     Submit Now <img src={arrowCIcon} alt="arrow-Icon" />
                   </button>
                 </div>

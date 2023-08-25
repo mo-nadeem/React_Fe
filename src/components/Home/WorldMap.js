@@ -5,11 +5,12 @@ const WorldMap = () => {
     <>
       <section id="home-contact">
         <div className="midbox-inner  wiki-mk">
-          <h2>Stay Informed, Stay Healthy</h2>
+          <h2>Visa & Travel Support</h2>
           <p>
-            Subscribe to our Newsletter and make your informed health decisions.
-            Get essential health insights and updates delivered straight to your
-            inbox. Join now for a healthier you
+            We assist in planning your trip to India for medical treatment,
+            ensuring that you are comfortable throughout your care with us. We
+            handle your visa, itinerary, and ensure your well-being every step
+            of the way.
           </p>
           <a href="#">
             {" "}
@@ -22,7 +23,7 @@ const WorldMap = () => {
         <div className="midbox-inner  wiki-mk">
           <img src="images/2023/01/world-map.gif" alt="" />
           <h2>
-            Trusted by happy clients in <span>10+ Countries</span>
+            Mark countries more than <span>10</span>
           </h2>
         </div>
       </section>

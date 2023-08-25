@@ -67,11 +67,12 @@ const Footer = () => {
               </a>
             </div>
             <div className="footer-customer">
-              <h2>24/7 Support</h2>
+              <h2>24X7 Support:</h2>
               <p>
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                qui officia deserunt mollit anim id es Lorem ipsum dolor sit
-                amet, consectetur
+                Beyond Boundaries, Around the Clock Healthcare knows no
+                boundaries, and neither does our support. Medflick's 24/7
+                availability ensures that whether you're at home or halfway
+                across the world, we're here to provide the guidance you need.
               </p>
               <a href="#">
                 Contact us <img src={arrowImg} alt="" />
@@ -94,30 +95,29 @@ const Footer = () => {
               <ul className="footerbox">
                 <li>
                   <a href="#" target="_self">
-                  About
+                    About
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                  Contact
+                    Contact
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                  Careers
+                    Careers
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                  For Doctors
+                    For Doctors
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                  Partners
+                    Partners
                   </a>
                 </li>
-              
               </ul>
             </div>
             <div className="footer-navbox">
@@ -154,22 +154,22 @@ const Footer = () => {
               <ul className="footerbox">
                 <li>
                   <a href="#" target="_self">
-                  Blogs
+                    Blogs
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                  Q&A
+                    Q&A
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                  Community
+                    Community
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                  Request a free quote
+                    Request a free quote
                   </a>
                 </li>
                 {/* <li>
@@ -197,20 +197,19 @@ const Footer = () => {
               <ul className="footerbox">
                 <li>
                   <a href="#" target="_self">
-                  Expert Videos
+                    Expert Videos
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                  Testimonials
+                    Testimonials
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                  Technological Updates
+                    Technological Updates
                   </a>
                 </li>
-           
               </ul>
             </div>
             <div className="footer-navbox">
@@ -218,7 +217,7 @@ const Footer = () => {
                 className={`but ${activeButton === "button5" ? "active" : ""}`}
                 onClick={handleButtonClick}
               >
-            Support
+                Support
                 <i className="fotter-icon">
                   <GoChevronDown style={{ fontSize: "22px" }} />
                 </i>
@@ -226,25 +225,24 @@ const Footer = () => {
               <ul className="footerbox">
                 <li>
                   <a href="#" target="_self">
-                  Write to us
+                    Write to us
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                  Terms and Conditions
+                    Terms and Conditions
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                  Privacy Policy
+                    Privacy Policy
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                  Disclaimer
+                    Disclaimer
                   </a>
                 </li>
-             
               </ul>
             </div>
           </div>

@@ -28,7 +28,7 @@ const Testimonials = () => {
       <section id="home-testimonials">
         <div className="midbox-inner  wiki-mk">
           <h2>
-            Real Stories, Real Impact: Voices of <span>Trust</span>
+            Real Stories, Real Impact Voices of <span>Trust</span>
           </h2>
           <p>
             Expert care that speaks for itself. Watch heartfelt stories coming

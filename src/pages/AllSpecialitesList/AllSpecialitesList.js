@@ -1,169 +1,50 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Homelayout from "../../components/Homelayout/Homelayout";
 import img1 from "../../assests/images/02/01/1.jpg";
 import { Link } from "react-router-dom";
 import arrowTrans from "../../assests/images/2023/01/pack-arrow.png";
+import axios from "axios";
 
 const AllSpecialitesList = () => {
+  const [speciality, setSpeciality] = useState([]);
+  const [treatment, setTreament] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_BASE_URL}/api/speciality/list`) // Replace with your API endpoint
+      .then((response) => {
+        setSpeciality(response.data.specialityList.speciality_list);
+        setTreament(response.data.treatemen_list);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+  //   console.log(speciality);
   return (
     <>
       <Homelayout>
-        <section id="treatments-section">
-          <div className="midbox-inner wiki-mk">
-            {/* <h2>
-              {info.name} treatments in <span>{info.country}</span>
-            </h2> */}
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo
-            </p>
+        {speciality.map((e) => {
+          // Filter gallery items that match the current hospital's id
+          const galleryImages = treatment.filter(
+            (gallery) => gallery.speciality_id === String(e.id)
+          );
+          return (
+            <div style={{ marginTop: "2rem" }}>
+              <Link to={`/speciality/${e.slug}/${e.country}`}>
+                <h1>{e.name}</h1>
+              </Link>
 
-            <ul>
-              {/* {speciality &&
-                speciality.map((e) => (
-                  <li key={e.id}>
-                    <img src={img1} alt="" />
-                    <Link to={`/treatment/${e.slug}/${e.country}`}>
-                      <div className="packages-text">
-                        <div className="pack-cost">
-                          <div className="pack-name">{e.name} </div>
-                          <div className="cost">${e.price}</div>
-                        </div>
-                        <div className="packages-details">
-                          {e.short_description.slice(0, 130)}....
-                        </div>
-
-                   
-                        <a href="#">
-                          <img
-                            src={arrowTrans}
-                            className="arrow-link"
-                            alt="arrow"
-                          />
-                        </a>
-                      </div>
+              <ul>
+                {galleryImages &&
+                  galleryImages.map((p) => (
+                    <Link to={`/treatment/${p.slug}/${p.country}`} key={p.id}>
+                      <li>{p.name}</li>
                     </Link>
-                  </li>
-                ))} */}
-              {/* 
-              <li>
-                <img src={img2} alt="" />
-                <div className="packages-text">
-                  <div className="pack-cost">
-                    <div className="pack-name">Breast Cancer </div>
-                    <div className="cost">$4000</div>
-                  </div>
-                  <div className="packages-details">
-                    Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed
-                    do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit
-                    amet, consectetur elit, sed do eiusmod tempor incididunt ut
-                    labore Lorem ipsum dolor sit amet
-                  </div>
-                  <a href="#">
-                    <img
-                      src="images/2023/01/pack-arrow.png"
-                      className="arrow-link"
-                      alt=""
-                    />
-                  </a>
-                </div>
-              </li>
-
-              <li>
-                <img src={img3} alt="" />
-                <div className="packages-text">
-                  <div className="pack-cost">
-                    <div className="pack-name">Breast Cancer </div>
-                    <div className="cost">$4000</div>
-                  </div>
-                  <div className="packages-details">
-                    Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed
-                    do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit
-                    amet, consectetur elit, sed do eiusmod tempor incididunt ut
-                    labore Lorem ipsum dolor sit amet
-                  </div>
-                  <a href="#">
-                    <img
-                      src="images/2023/01/pack-arrow.png"
-                      className="arrow-link"
-                      alt=""
-                    />
-                  </a>
-                </div>
-              </li>
-
-              <li>
-                <img src={img4} alt="" />
-                <div className="packages-text">
-                  <div className="pack-cost">
-                    <div className="pack-name">Radiation Therapy </div>
-                    <div className="cost">$4000</div>
-                  </div>
-                  <div className="packages-details">
-                    Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed
-                    do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit
-                    amet, consectetur elit, sed do eiusmod tempor incididunt ut
-                    labore Lorem ipsum dolor sit amet
-                  </div>
-                  <a href="#">
-                    <img
-                      src="images/2023/01/pack-arrow.png"
-                      className="arrow-link"
-                      alt=""
-                    />
-                  </a>
-                </div>
-              </li>
-
-              <li>
-                <img src={img5} alt="" />
-                <div className="packages-text">
-                  <div className="pack-cost">
-                    <div className="pack-name">Chemoterapy </div>
-                    <div className="cost">$4000</div>
-                  </div>
-                  <div className="packages-details">
-                    Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed
-                    do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit
-                    amet, consectetur elit, sed do eiusmod tempor incididunt ut
-                    labore Lorem ipsum dolor sit amet
-                  </div>
-                  <a href="#">
-                    <img
-                      src="images/2023/01/pack-arrow.png"
-                      className="arrow-link"
-                      alt=""
-                    />
-                  </a>
-                </div>
-              </li>
-
-              <li>
-                <img src={img6} alt="" />
-                <div className="packages-text">
-                  <div className="pack-cost">
-                    <div className="pack-name">Immunity Therapy </div>
-                    <div className="cost">$4000</div>
-                  </div>
-                  <div className="packages-details">
-                    Lorem ipsum dolor sit amet, consectetur adipiscin elit, sed
-                    do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit
-                    amet, consectetur elit, sed do eiusmod tempor incididunt ut
-                    labore Lorem ipsum dolor sit amet
-                  </div>
-                  <a href="#">
-                    <img
-                      src="images/2023/01/pack-arrow.png"
-                      className="arrow-link"
-                      alt=""
-                    />
-                  </a>
-                </div>
-              </li> */}
-            </ul>
-          </div>
-        </section>
+                  ))}
+              </ul>
+            </div>
+          );
+        })}
       </Homelayout>
     </>
   );

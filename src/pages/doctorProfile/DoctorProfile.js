@@ -369,7 +369,7 @@ const DoctorProfile = () => {
               </div>
             </div>
 
-            <div id="reviews" className="profile-data-section">
+            {/* <div id="reviews" className="profile-data-section">
               <h2>Reviews</h2>
               <div className="most-reviews">
                 <select
@@ -587,7 +587,7 @@ const DoctorProfile = () => {
               <a href="#" className="read-mor-reviews">
                 Read More Reviews
               </a>
-            </div>
+            </div> */}
           </div>
         </section>
       </Homelayout>

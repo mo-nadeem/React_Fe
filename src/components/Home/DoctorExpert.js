@@ -42,7 +42,7 @@ const DoctorExpert = () => {
               </h4>
             </div>
             <div className="go-text1">
-              <h3>2300+</h3>
+              <h3>2000+</h3>
               <span>Patients</span>
             </div>
           </div>
