@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useEffect, useCallback } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Link } from "react-router-dom";
-import img1 from "../../assests/images/2023/01/04/1.jpg";
-import img2 from "../../assests/images/2023/01/04/2.jpg";
-import img3 from "../../assests/images/2023/01/04/3.jpg";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchHome } from "../../Api/action/HomeAction";
 
 const responsiveHospital = {
   superLargeDesktop: {
@@ -27,6 +26,66 @@ const responsiveHospital = {
 };
 
 const DoctorExpert = () => {
+  const dispatch = useDispatch();
+
+  const { video } = useSelector((state) => state.data);
+
+  const fetchHomedata = useCallback(() => {
+    dispatch(fetchHome());
+  }, [dispatch]);
+
+  useEffect(() => {
+    fetchHomedata();
+  }, [fetchHomedata]);
+
+  console.log(video);
+
+  let doctorVideoSection = null;
+  if (video?.length > 0) {
+    doctorVideoSection = (
+      <>
+        <div className="owl-slider">
+          <div id="experience">
+            <Carousel
+              responsive={responsiveHospital}
+              autoPlaySpeed={1000}
+              arrows={false}
+              infinite={true}
+            >
+              {video &&
+                video.map((e) => (
+                  <div
+                    className="item"
+                    style={{ marginRight: "20px" }}
+                    key={e.id}
+                  >
+                    <div className="item-experience">
+                      {/* <img src={img1} alt="doctor-expert" /> */}
+                      <video
+                        autoPlay
+                        loop
+                        muted
+                        // poster="https://wgrowth.partners/wwpl/ibshospital_site/images/slider1.jpg"
+                      >
+                        <source src={e.teaser} type="video/mp4" />
+                      </video>
+                    </div>
+                    <div className="experience-text">
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: e.short_description,
+                        }}
+                      />
+                      <p>{e.name}</p>
+                    </div>
+                  </div>
+                ))}
+            </Carousel>
+          </div>
+        </div>
+      </>
+    );
+  }
   return (
     <>
       <section id="expert-section">
@@ -34,7 +93,7 @@ const DoctorExpert = () => {
           <div className="expert-boxtop">
             <div className="go-text">
               <h2>MedTalk</h2>
-              <h4 style={{color:"#fff"}}>
+              <h4 style={{ color: "#fff" }}>
                 Watch authentic medical information with up-to-the-minute
                 advancements, techniques, and patient-centered approaches coming
                 directly from India's top rated doctors/ surgeons/ experts and
@@ -46,64 +105,7 @@ const DoctorExpert = () => {
               <span>Patients</span>
             </div>
           </div>
-
-          <div className="owl-slider">
-            <div id="experience">
-              <Carousel
-                responsive={responsiveHospital}
-                autoPlaySpeed={1000}
-                arrows={false}
-                infinite={true}
-              >
-                <div className="item" style={{ marginRight: "20px" }}>
-                  <div className="item-experience">
-                    <img src={img1} alt="doctor-expert" />
-                  </div>
-                  <div className="experience-text">
-                    <h3>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,{" "}
-                    </h3>
-                    <p>Lorem ipsum</p>
-                  </div>
-                </div>
-                <div className="item" style={{ marginRight: "20px" }}>
-                  <div className="item-experience">
-                    <img src={img2} alt="doctor-expert" />
-                  </div>
-                  <div className="experience-text">
-                    <h3>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,{" "}
-                    </h3>
-                    <p>Lorem ipsum</p>
-                  </div>
-                </div>
-
-                <div className="item" style={{ marginRight: "20px" }}>
-                  <div className="item-experience">
-                    <img src={img3} alt="doctor-expert" />
-                  </div>
-                  <div className="experience-text">
-                    <h3>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,{" "}
-                    </h3>
-                    <p>Lorem ipsum</p>
-                  </div>
-                </div>
-
-                <div className="item" style={{ marginRight: "20px" }}>
-                  <div className="item-experience">
-                    <img src={img3} alt="doctor-expert" />
-                  </div>
-                  <div className="experience-text">
-                    <h3>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,{" "}
-                    </h3>
-                    <p>Lorem ipsum</p>
-                  </div>
-                </div>
-              </Carousel>
-            </div>
-          </div>
+          {doctorVideoSection}
 
           <Link className="see-more" to="/">
             View more expert video{" "}

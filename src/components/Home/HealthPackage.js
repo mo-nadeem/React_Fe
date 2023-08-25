@@ -10,11 +10,11 @@ const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
-    items: 3.3,
+    items: 3.4,
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 3.3,
+    items: 3.4,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
@@ -69,7 +69,7 @@ const HealthPackage = () => {
     <>
       <section id="health-packages">
         <div className="midbox-inner  wiki-mk">
-          <h2>Treatment</h2>
+          <h2>Cost Comparison</h2>
 
           <div className="health-tab">
             {speciality &&
@@ -115,7 +115,7 @@ const HealthPackage = () => {
                         >
                           <div className="packages-item">
                             <img
-                              src="images/2023/01/07/01/1.jpg"
+                              src={`${process.env.REACT_APP_BASE_URL}/treatments/${items.home_image}`}
                               alt="tratment-pic"
                             />
                             <div className="packages-text">

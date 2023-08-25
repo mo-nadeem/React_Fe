@@ -10,7 +10,10 @@ import img2 from "../../assests/images/2023/01/home-icon2.png";
 import img3 from "../../assests/images/2023/01/home-icon2.png";
 import formDoctorImg from "../../assests/images/2023/01/home-q.jpg";
 import axios from "axios";
-import arrowC from "../../assests/images/2023/01/arrow-w.png"
+import arrowC from "../../assests/images/2023/01/arrow-w.png";
+import complianceImg from "../../assests/images/compliance helpline.png";
+import confidentialityImg from "../../assests/images/confidentiality.png";
+import transparentImg from "../../assests/images/transparent policie.png";
 
 const HealthQuerys = () => {
   const dispatch = useDispatch();
@@ -126,8 +129,7 @@ const HealthQuerys = () => {
             </div>
             <div className="querieshead-right">
               <Link to="/question-answer" className="queries-ask">
-                Ask FREE Question{" "}
-                <img src={arrowC} alt="arrow-icon" />
+                Ask FREE Question <img src={arrowC} alt="arrow-icon" />
               </Link>
             </div>
           </div>
@@ -236,16 +238,16 @@ const HealthQuerys = () => {
 
                 <ul>
                   <li>
-                    <img src={img3} alt="icon1" />
-                    <h5>Lorem ipsum dolor sitconsec</h5>
+                    <img src={confidentialityImg} alt="icon1" />
+                    <h5>Confidentiality</h5>
                   </li>
                   <li>
-                    <img src={img2} alt="icon2" />
-                    <h5>Lorem ipsum dolor sitconsec</h5>
+                    <img src={transparentImg} alt="icon2" />
+                    <h5>Transparent Policies</h5>
                   </li>
                   <li>
-                    <img src={img1} alt="icon3" />
-                    <h5>Lorem ipsum dolor sitconsec</h5>
+                    <img src={complianceImg} alt="icon3" />
+                    <h5>Compliance Helpline</h5>
                   </li>
                 </ul>
               </div>
