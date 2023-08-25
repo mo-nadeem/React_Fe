@@ -16,6 +16,8 @@ import CategoryBlog from "./CategoryBlog";
 import Community from "../../components/community/Community";
 import CategoryQA from "./CategoryQA";
 import DontPay from "../../components/DontPay/DontPay";
+import HealthQuerys from "../../components/Home/HealthQuerys";
+import Blog from "../../components/Home/Blog";
 
 const Category = () => {
   const { slug, country } = useParams();
@@ -139,10 +141,10 @@ const Category = () => {
           <div className="midbox-inner  wiki-mk">
             <h2>{info.menu_name}</h2>
             <p>{info.quote}</p>
-            <a href="#">
+            <Link to="/question-answer">
               {" "}
               Ask FREE Question <img src={arrowImg} alt="ask-a-questions" />
-            </a>
+            </Link>
           </div>
         </section>
 
@@ -152,7 +154,6 @@ const Category = () => {
               {info.name} treatments in <span>{info.country}</span>
             </h2>
             <div
-            
               dangerouslySetInnerHTML={{
                 __html: info.long_description,
               }}
@@ -374,10 +375,10 @@ const Category = () => {
           </div>
         </section>
 
-       {/* Dont pay */}
-       <DontPay />
+        {/* Dont pay */}
+        <DontPay />
 
-       {/* end */}
+        {/* end */}
         {/* doctor section */}
         <DoctorCarousel doctor={doctor} />
 
@@ -388,7 +389,8 @@ const Category = () => {
         {/* end */}
 
         {/* query components */}
-        <CategoryQA qa={qa} />
+        {/* <CategoryQA qa={qa} /> */}
+        <HealthQuerys />
 
         <Testimonials />
         {/* end */}
@@ -399,6 +401,7 @@ const Category = () => {
 
         {/* end */}
         {/* Blog Section */}
+
         <CategoryBlog blog={blog} />
         {/* Blog end */}
       </Homelayout>

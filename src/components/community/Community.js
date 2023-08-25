@@ -1,6 +1,7 @@
 import React from "react";
 import comunityImg from "../../assests/images/02/community.jpg";
 import vectorImg from "../../assests/images/02/Vector 85.png";
+import { Link } from "react-router-dom";
 const Community = () => {
   return (
     <>
@@ -16,9 +17,9 @@ const Community = () => {
                 health insights. Join your community and get access to make
                 informed health decisions.
               </p>
-              <a className="more-img" href="#">
-                Lorem Ipsum <img src={vectorImg} alt="icon" />
-              </a>
+              <Link className="more-img" to="/question-answer">
+                Explore <img src={vectorImg} alt="icon" />
+              </Link>
             </div>
           </div>
         </div>

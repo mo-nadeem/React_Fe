@@ -239,9 +239,9 @@ const DoctorList = () => {
                           </div>
                         </div>
                         <div className="doctor-item-button">
-                          <a href="#" className="book-app">
+                          <Link to="/query" className="book-app">
                             Book Appointment <img src={bookIcon} alt="icon" />
-                          </a>
+                          </Link>
                           <Link
                             to={`/doctor/${e.slug}`}
                             className="view-profile"

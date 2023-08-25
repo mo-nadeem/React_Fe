@@ -23,7 +23,7 @@ const CategoryQA = ({qa}) => {
               </p>
             </div>
             <div className="querieshead-right">
-              <Link to="/" className="queries-ask">
+              <Link to="/question-answer" className="queries-ask">
                 Ask FREE Question{" "}
                 <img src={arrowC} alt="arrow-icon" />
               </Link>

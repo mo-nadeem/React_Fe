@@ -335,9 +335,9 @@ const HospitalList = () => {
                         </div>
                       </div>
                       <div className="hospital-item-button">
-                        <a href="#" className="book-app">
+                        <Link to="/query" className="book-app">
                           Book Appointment <img src={bookIcon} alt="icon" />
-                        </a>
+                        </Link>
                         <Link
                           to={`/hospital/${hospital.slug}/${hospital.country}`}
                           className="view-profile"

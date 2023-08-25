@@ -104,7 +104,7 @@ const DoctorSection = () => {
                           __html: e.short_description,
                         }}
                       /> */}
-                      <Link to="/" className="contact-now">
+                      <Link to={`/doctor/${e.slug}`} className="contact-now">
                         Contact Now{" "}
                         <img src="images/2023/01/arrow-c.png" alt="" />
                       </Link>

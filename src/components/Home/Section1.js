@@ -27,17 +27,21 @@ const Section1 = () => {
           </video>
 
           <div className="ababslider-text">
-            <h1 className="cs-heading"> Watch, Learn & Choose Wisely</h1>
+            <h1 className="cs-heading">
+              {" "}
+              Inspiring
+              <br /> Better Health
+            </h1>
             <h2 className="cs-heading1">
-              Empowering Health through Online Learning: Your Path to Informed
-              Choices. Trusted health information when you need it most.
+              Your Path to informed health decisions.<br/> Trusted health information
+              when you need<br/>  it most.
             </h2>
             <div className="home-topnav">
-              <Link to="/" className="home-nav-left">
+              <Link to="/specialities" className="home-nav-left">
                 Explore Now
                 <img src="images/2023/01/arrow-c.png" alt="" />
               </Link>
-              <Link to="/" className="home-nav-right">
+              <Link to="/query" className="home-nav-right">
                 Free Treatment Plan{" "}
                 <img src="images/2023/01/arrow-w.png" alt="" />
               </Link>

@@ -717,10 +717,10 @@ const NavSection = ({ doctor, hospital, info }) => {
                                 {e.prefix} {e.first_name} {e.last_name}
                               </h3>
                               <div className="doctors-sub">{e.designation}</div>
-                              <a href="#" className="contact-now">
+                              <Link to={`/doctor/${e.slug}`}className="contact-now">
                                 Contact Now{" "}
                                 <img src={arrowIcon} alt="arrow-icon" />
-                              </a>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -730,9 +730,9 @@ const NavSection = ({ doctor, hospital, info }) => {
                 </div>
 
                 <div className="treatment-view">
-                  <a className="viewmore" href="#">
+                  <Link className="viewmore" to="/doctors">
                     View more{" "}
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -769,9 +769,9 @@ const NavSection = ({ doctor, hospital, info }) => {
                               <div className="hospitals-sub">
                                 Lorem ipsum dolor sit amet
                               </div>
-                              <a href="#" className="contact-now">
+                              <Link to={`/hospital/${e.slug}/${e.country}`} className="contact-now">
                                 Contact Now <img src={arrowIcon} alt="" />
-                              </a>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -781,9 +781,9 @@ const NavSection = ({ doctor, hospital, info }) => {
                 </div>
 
                 <div className="treatment-view">
-                  <a className="viewmore" href="#">
+                <Link className="viewmore" to="/hospitals">
                     View more{" "}
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

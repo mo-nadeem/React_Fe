@@ -1,6 +1,7 @@
 import React from "react";
 import arrowImg from "../../assests/images/2023/01/arrow-c.png";
 import arrow2Img from "../../assests/images/2023/01/arrow-w.png";
+import { Link } from "react-router-dom";
 const DontPay = () => {
   return (
     <>
@@ -15,10 +16,10 @@ const DontPay = () => {
             </div>
 
             <div className="medflick-payright">
-              <a href="#" className="consultation">
+              <Link to="/free-consultation" className="consultation">
                 {" "}
                 Request a free consultation <img src={arrow2Img} alt="" />
-              </a>
+              </Link>
               <a href="#" className="contact">
                 {" "}
                 Contact Us <img src={arrowImg} alt="" />

@@ -39,7 +39,7 @@ const About = () => {
                 Commitment, Trust, Excellence, and Quality Standards, that drive
                 us to exceed boundaries for your well-being.
               </p>
-              <Link to="/">
+              <Link to="/question-answer">
                 {" "}
                 Ask FREE Question{" "}
                 <img src="images/2023/01/arrow-c.png" alt="" />

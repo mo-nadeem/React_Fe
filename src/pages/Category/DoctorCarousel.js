@@ -63,7 +63,7 @@ const DoctorCarousel = ({ doctor }) => {
                           __html: e.short_description,
                         }}
                       /> */}
-                      <Link to="/" className="contact-now">
+                      <Link to={`/doctor/${e.slug}`} className="contact-now">
                         Contact Now <img src={arrowIcon} alt="" />
                       </Link>
                     </div>

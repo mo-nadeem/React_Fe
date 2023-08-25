@@ -26,7 +26,7 @@ const Section3 = () => {
                 best doctors, ask questions and get all your queries sorted to
                 make an informed decision
               </p>
-              <Link className="learn-more" to="/">
+              <Link className="learn-more" to="/question-answer">
                 Learn More <img src="images/2023/01/learn-more.png" />
               </Link>
             </div>
@@ -63,7 +63,7 @@ const Section3 = () => {
                 comprehensive and personalized treatment plan to ensure the best
                 recovery for you and your loved ones.
               </p>
-              <Link className="learn-more" to="/">
+              <Link className="learn-more" to="/specialities">
                 Learn More <img src="images/2023/01/learn-more.png" />
               </Link>
             </div>
@@ -107,7 +107,7 @@ const Section3 = () => {
                 health insights. Join your community and get access to make
                 informed health decisions.
               </p>
-              <Link className="learn-more" to="/">
+              <Link className="learn-more" to="/question-answer">
                 Learn More <img src="images/2023/01/learn-more.png" />
               </Link>
             </div>

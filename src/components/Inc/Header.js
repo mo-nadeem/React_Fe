@@ -161,7 +161,7 @@ const Header = () => {
               </select>
             </div>
 
-            <Link className="qsk-question" to="/">
+            <Link className="qsk-question" to="/question-answer">
               Ask FREE Question <img src={arrow} alt="" />
             </Link>
           </div>
