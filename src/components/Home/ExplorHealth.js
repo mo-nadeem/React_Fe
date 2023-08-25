@@ -144,15 +144,24 @@ const ExplorHealth = () => {
                     <div className="explore-box ex-pro">
                       <h3>{filteredSpecialities.name}</h3>
                       {/* <p>{filteredSpecialities.short_description}</p> */}
-                       <div
+                      <div
                         className="doctors-bio"
                         dangerouslySetInnerHTML={{
                           __html: filteredSpecialities.short_description,
                         }}
                       />
-                      <Link className="more-img" to="/">
+                      <Link
+                        className="more-img"
+                        to={`/speciality/${filteredSpecialities.slug}/${filteredSpecialities.country}`}
+                      >
                         <i>
-                          <BsArrowRight style={{ color: "#fff" }} />
+                          <BsArrowRight
+                            style={{
+                              color: "#000",
+                              fontSize: "28px",
+                              marginTop: "12rem",
+                            }}
+                          />
                         </i>
                       </Link>
                     </div>

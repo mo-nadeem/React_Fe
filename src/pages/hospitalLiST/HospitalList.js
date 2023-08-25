@@ -349,7 +349,7 @@ const HospitalList = () => {
                         </Link>
 
                         <div className="hospital-location-box">
-                          {hospital.location}
+                          {hospital.address}
                           <img src={iconImg} alt="icon" />
                         </div>
                       </div>

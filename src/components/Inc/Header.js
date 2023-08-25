@@ -9,7 +9,7 @@ import navIcon from "../../assests/images/nav/icon1.png";
 const Header = () => {
   const dispatch = useDispatch();
 
-  const { speciality, treatment } = useSelector((state) => state.data);
+  const { speciality } = useSelector((state) => state.data);
 
   const fetchHomedata = useCallback(() => {
     dispatch(fetchHome());
