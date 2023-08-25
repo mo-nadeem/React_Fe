@@ -13,6 +13,10 @@ import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
 import QuestionAns from "./pages/questionAns/QuestionAns";
 import QueryForm from "./pages/QueryForm/QueryForm";
+import ConsultationForm from "./pages/ConsultationForm/ConsultationForm";
+import AllHospitalList from "./pages/AllHospitalList/AllHospitalList";
+import AllDoctorsList from "./pages/AllDoctorsList/AllDoctorsList";
+import AllSpecialitesList from "./pages/AllSpecialitesList/AllSpecialitesList";
 
 const ScrollToTop = () => {
   const location = useLocation();
@@ -41,8 +45,12 @@ function App() {
         <Route path="/doctors/:slug/:country" element={<DoctorList />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/sign-up" element={<SignUp />}></Route>
-        <Route path="/question-ans" element={<QuestionAns />}></Route>
+        <Route path="/question-answer" element={<QuestionAns />}></Route>
         <Route path="/query" element={<QueryForm />}></Route>
+        <Route path="/free-consultation" element={<ConsultationForm />}></Route>
+        <Route path="/hospitals" element={<AllHospitalList />}></Route>
+        <Route path="/doctors" element={<AllDoctorsList />}></Route>
+        <Route path="/specialities" element={<AllSpecialitesList />}></Route>
         <Route
           path="/hospitals/:slug/:country"
           element={<HospitalList />}

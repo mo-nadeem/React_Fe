@@ -9,6 +9,8 @@ import img1 from "../../assests/images/04/02/1.jpg";
 import img2 from "../../assests/images/04/02/2.jpg";
 import img3 from "../../assests/images/04/02/3.jpg";
 import arrowW from "../../assests/images/2023/01/arrow-w.png";
+import arrowC from "../../assests/images/2023/01/arrow-c.png"
+import relatedImg from "../../assests/images/04/01/1.jpg"
 
 const BlogDetails = () => {
   const { slug } = useParams();
@@ -152,7 +154,7 @@ const BlogDetails = () => {
                   Talk to a Doctor
                   <a className="free-quote" href="#">
                     View Doctors Listing
-                    <img src="images/2023/01/arrow-c.png" />
+                    <img src={arrowC} alt="arrow-icon" />
                   </a>
                 </div>
 
@@ -160,15 +162,15 @@ const BlogDetails = () => {
                   Related Articles
                   <ul>
                     <li>
-                      <img src="images/2023/04/01/1.jpg" /> Lorem ipsum dolor
+                      <img src={relatedImg} alt="blog-related" /> Lorem ipsum dolor
                       sit amet lorem aliquia ex
                     </li>
                     <li>
-                      <img src="images/2023/04/01/1.jpg" /> Lorem ipsum dolor
+                      <img src={relatedImg} alt="blog-related" /> Lorem ipsum dolor
                       sit amet lorem aliquia ex
                     </li>
                     <li>
-                      <img src="images/2023/04/01/1.jpg" /> Lorem ipsum dolor
+                      <img src={relatedImg} alt="blog-related" /> Lorem ipsum dolor
                       sit amet lorem aliquia ex
                     </li>
                   </ul>
@@ -414,8 +416,8 @@ const BlogDetails = () => {
                   </div>
 
                   <button type="submit" name="en" className="home-button">
-                    {" "}
-                    Submit Now <img src="images/2023/01/arrow-c.png" alt="" />
+       
+                    Submit Now <img src={arrowC} alt="arrow-c" />
                   </button>
                 </div>
               </div>

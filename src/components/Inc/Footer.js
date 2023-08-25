@@ -85,7 +85,7 @@ const Footer = () => {
                 className={`but ${activeButton === "button1" ? "active" : ""}`}
                 onClick={handleButtonClick}
               >
-                About{" "}
+                Medflick{" "}
                 <i className="fotter-icon">
                   <GoChevronDown style={{ fontSize: "22px" }} />
                 </i>
@@ -94,34 +94,30 @@ const Footer = () => {
               <ul className="footerbox">
                 <li>
                   <a href="#" target="_self">
-                    Lorem Ipsum
+                  About
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    Dolor Sit
+                  Contact
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    Exceptur{" "}
+                  Careers
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    Occaecat sint{" "}
+                  For Doctors
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    Non Proident{" "}
+                  Partners
                   </a>
                 </li>
-                <li>
-                  <a href="#" target="_self">
-                    Anim ipsum
-                  </a>
-                </li>
+              
               </ul>
             </div>
             <div className="footer-navbox">
@@ -158,25 +154,25 @@ const Footer = () => {
               <ul className="footerbox">
                 <li>
                   <a href="#" target="_self">
-                    Lorem Ipsum
+                  Blogs
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    Dolor Sit
+                  Q&A
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    Exceptur{" "}
+                  Community
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    Occaecat sint{" "}
+                  Request a free quote
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a href="#" target="_self">
                     Non Proident{" "}
                   </a>
@@ -185,7 +181,7 @@ const Footer = () => {
                   <a href="#" target="_self">
                     Anim ipsum
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
             <div className="footer-navbox">
@@ -193,7 +189,7 @@ const Footer = () => {
                 className={`but ${activeButton === "button4" ? "active" : ""}`}
                 onClick={handleButtonClick}
               >
-                Company{" "}
+                Watch
                 <i className="fotter-icon">
                   <GoChevronDown style={{ fontSize: "22px" }} />
                 </i>
@@ -201,34 +197,20 @@ const Footer = () => {
               <ul className="footerbox">
                 <li>
                   <a href="#" target="_self">
-                    Lorem Ipsum
+                  Expert Videos
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    Dolor Sit
+                  Testimonials
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    Exceptur{" "}
+                  Technological Updates
                   </a>
                 </li>
-                <li>
-                  <a href="#" target="_self">
-                    Occaecat sint{" "}
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_self">
-                    Non Proident{" "}
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_self">
-                    Anim ipsum
-                  </a>
-                </li>
+           
               </ul>
             </div>
             <div className="footer-navbox">
@@ -236,7 +218,7 @@ const Footer = () => {
                 className={`but ${activeButton === "button5" ? "active" : ""}`}
                 onClick={handleButtonClick}
               >
-                Help & Support{" "}
+            Support
                 <i className="fotter-icon">
                   <GoChevronDown style={{ fontSize: "22px" }} />
                 </i>
@@ -244,34 +226,25 @@ const Footer = () => {
               <ul className="footerbox">
                 <li>
                   <a href="#" target="_self">
-                    Lorem Ipsum
+                  Write to us
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    Dolor Sit
+                  Terms and Conditions
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    Exceptur{" "}
+                  Privacy Policy
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_self">
-                    Occaecat sint{" "}
+                  Disclaimer
                   </a>
                 </li>
-                <li>
-                  <a href="#" target="_self">
-                    Non Proident{" "}
-                  </a>
-                </li>
-                <li>
-                  <a href="#" target="_self">
-                    Anim ipsum
-                  </a>
-                </li>
+             
               </ul>
             </div>
           </div>

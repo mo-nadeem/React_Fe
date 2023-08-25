@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Homelayout from "../../components/Homelayout/Homelayout";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 import bookIcon from "../../assests/images/05/book.png";
 import profileIcon from "../../assests/images/05/profile.png";
@@ -10,66 +9,62 @@ import { Link } from "react-router-dom";
 import Select from "react-select";
 import loadingImg from "../../assests/images/05/loading.png";
 
-const DoctorList = () => {
-  const { slug, country } = useParams();
-  const [doctor, setDoctor] = useState([]);
-  const [hospitalIcon, setHospitalIcon] = useState([]);
-  useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_BASE_URL}/api/doctors/${slug}/${country}`) // Replace with your API endpoint
-      .then((response) => {
-        setDoctor(response.data.doctors_list.doctors_list);
-        setHospitalIcon(response.data.doctors_list.hospital_image);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
+const AllDoctorsList = () => {
+    const [doctor, setDoctor] = useState([]);
+    const [hospitalIcon, setHospitalIcon] = useState([]);
+    useEffect(() => {
+      axios
+        .get(`${process.env.REACT_APP_BASE_URL}/api/doctors`) // Replace with your API endpoint
+        .then((response) => {
+          setDoctor(response.data.data.doctors);
+          setHospitalIcon(response.data.doctors_list.hospital_image);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    }, []);
+  
+    const options = [
+      { value: "apple", label: "Apple" },
+      { value: "banana", label: "Banana" },
+      { value: "cherry", label: "Cherry" },
+      { value: "date", label: "Date" },
+      { value: "elderberry", label: "Elderberry" },
+    ];
+  
+    const gender = [
+      { value: "male", label: "male" },
+      { value: "female", label: "female" },
+      { value: "other", label: "other" },
+  
+    ];
+  
+    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedGender,setSelectedGender] = useState(null)
+  
+    const handleSelectChange = (selectedOption) => {
+      setSelectedOption(selectedOption);
+    };
+    const handleSelectgenderChange = (selectedGender) => {
+      setSelectedGender(selectedGender);
+    };
+  
+  
+    const handleClearSelection = () => {
+      setSelectedOption(null);
+      setSelectedGender(null) // Clear the selected option
+    };
+
+    const [searchQuery, setSearchQuery] = useState("");
+    const [filteredDoctors, setFilteredDoctors] = useState([]);
+    useEffect(() => {
+      // Filter the 'doctors' based on the 'searchQuery'
+      const filtered = doctor.filter((doctor) => {
+        const fullName = `${doctor.first_name} ${doctor.last_name}`;
+        return fullName.toLowerCase().includes(searchQuery.toLowerCase());
       });
-  }, [slug, country]);
-
-  const options = [
-    { value: "apple", label: "Apple" },
-    { value: "banana", label: "Banana" },
-    { value: "cherry", label: "Cherry" },
-    { value: "date", label: "Date" },
-    { value: "elderberry", label: "Elderberry" },
-  ];
-
-  const gender = [
-    { value: "male", label: "male" },
-    { value: "female", label: "female" },
-    { value: "other", label: "other" },
-
-  ];
-
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [selectedGender,setSelectedGender] = useState(null)
-
-  const handleSelectChange = (selectedOption) => {
-    setSelectedOption(selectedOption);
-  };
-  const handleSelectgenderChange = (selectedGender) => {
-    setSelectedGender(selectedGender);
-  };
-
-
-  const handleClearSelection = () => {
-    setSelectedOption(null);
-    setSelectedGender(null) // Clear the selected option
-  };
-
-  //  Search filteration top
-
-  const [searchQuery, setSearchQuery] = useState("");
-  const [filteredDoctors, setFilteredDoctors] = useState([]);
-  useEffect(() => {
-    // Filter the 'doctors' based on the 'searchQuery'
-    const filtered = doctor.filter((doctor) => {
-      const fullName = `${doctor.first_name} ${doctor.last_name}`;
-      return fullName.toLowerCase().includes(searchQuery.toLowerCase());
-    });
-    setFilteredDoctors(filtered);
-  }, [doctor, searchQuery]);
-
+      setFilteredDoctors(filtered);
+    }, [doctor, searchQuery]);
   return (
     <>
       <Homelayout>
@@ -104,7 +99,6 @@ const DoctorList = () => {
             </div>
           </div>
         </section>
-
         <section id="find-doctors-list">
           <div class="midbox-inner  wiki-mk">
             <h2>
@@ -380,4 +374,4 @@ const DoctorList = () => {
   );
 };
 
-export default DoctorList;
+export default AllDoctorsList;

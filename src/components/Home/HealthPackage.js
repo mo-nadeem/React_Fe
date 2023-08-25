@@ -39,7 +39,10 @@ const HealthPackage = () => {
     fetchHomedata();
   }, [fetchHomedata]);
 
-  const [activePackage, setActivePackage] = useState(); // Initial active package category
+  // for active first slug
+  const initialActivePackage =
+    speciality && speciality.length > 0 ? speciality[0].slug : null;
+  const [activePackage, setActivePackage] = useState(initialActivePackage);
 
   const handlePackageClick = (packageId) => {
     setActivePackage(packageId);
@@ -82,7 +85,61 @@ const HealthPackage = () => {
                   {e.name}
                 </button>
               ))}
-            {/* <button
+          </div>
+          {speciality &&
+            speciality.map((e) => (
+              <div
+                key={e.id}
+                id={e.id}
+                className={`packagesbox ${
+                  activePackage === e.slug ? "active" : ""
+                }`}
+                style={{
+                  display: activePackage === e.slug ? "block" : "none",
+                }}
+              >
+                <div className="owl-slider">
+                  <div id="packages-1" className="owl-carousel">
+                    <Carousel
+                      responsive={responsive}
+                      arrows={false}
+                      infinite={true}
+                      autoPlay={true}
+                      autoPlaySpeed={2000}
+                    >
+                      {details.map((items) => (
+                        <div
+                          className="item"
+                          style={{ marginRight: "20px" }}
+                          key={items.id}
+                        >
+                          <div className="packages-item">
+                            <img
+                              src="images/2023/01/07/01/1.jpg"
+                              alt="tratment-pic"
+                            />
+                            <div className="packages-text">
+                              <div className="pack-cost">
+                                <div className="pack-name">{items.name}</div>
+                                <div className="cost">$ {items.price}</div>
+                              </div>
+                              <div className="packages-details">
+                                {items.short_description.slice(0, 110)}....
+                              </div>
+                              <Link
+                                to={`/treatment/${items.slug}/${e.country}`}
+                              >
+                                <img
+                                  src={arrowIcon}
+                                  className="arrow-link"
+                                  alt="rrow"
+                                />
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                      {/* <button
               className={`packageslinks ${
                 activePackage === "packages2" ? "active" : ""
               }`}
@@ -109,59 +166,8 @@ const HealthPackage = () => {
               {" "}
               Neuromodulation{" "}
             </button> */}
-          </div>
-          {speciality && speciality.map((e) => (
-            <div
-              key={e.id}
-              id={e.id}
-              className={`packagesbox ${
-                activePackage === e.slug ? "active" : ""
-              }`}
-              style={{
-                display: activePackage === e.slug ? "block" : "none",
-              }}
-            >
-              <div className="owl-slider">
-                <div id="packages-1" className="owl-carousel">
-                  <Carousel
-                    responsive={responsive}
-                    arrows={false}
-                    infinite={true}
-                    autoPlay={true}
-                    autoPlaySpeed={2000}
-                  >
-                    {details.map((items) => (
-                      <div
-                        className="item"
-                        style={{ marginRight: "20px" }}
-                        key={items.id}
-                      >
-                        <div className="packages-item">
-                          <img
-                            src="images/2023/01/07/01/1.jpg"
-                            alt="tratment-pic"
-                          />
-                          <div className="packages-text">
-                            <div className="pack-cost">
-                              <div className="pack-name">{items.name}</div>
-                              <div className="cost">$ {items.price}</div>
-                            </div>
-                            <div className="packages-details">
-                              {items.short_description.slice(0, 110)}....
-                            </div>
-                            <Link to="/">
-                              <img
-                                src={arrowIcon}
-                                className="arrow-link"
-                                alt="rrow"
-                              />
-                            </Link>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
 
-                    {/* <div className="item" style={{ marginRight: "20px" }}>
+                      {/* <div className="item" style={{ marginRight: "20px" }}>
                     <div className="packages-item">
                       <img src="images/2023/01/07/01/2.jpg" />
                       <div className="packages-text">
@@ -229,11 +235,11 @@ const HealthPackage = () => {
                       </div>
                     </div>
                   </div> */}
-                  </Carousel>
+                    </Carousel>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
           {/* 
           <div
             id="packages2"

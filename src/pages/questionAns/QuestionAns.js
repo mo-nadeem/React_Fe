@@ -164,13 +164,14 @@ const QuestionAns = () => {
                   </div>
                   <div class="search-question-right">
                     <span>Have any Questions?</span>
-                    <a
+                    <span
                       class="ask-question"
                       data-popup-open="popup-2"
                       onClick={togglePopup}
+                      style={{cursor:"pointer"}}
                     >
                       <img src="images/2023/07/ask.png" alt="" /> Ask Question
-                    </a>
+                    </span>
                   </div>
                 </div>
                 {isPopupOpen && (

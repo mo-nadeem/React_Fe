@@ -141,7 +141,7 @@ const Header = () => {
                     <Link to="/blogs">Blogs</Link>
                   </li>
                   <li>
-                    <a href="#"> Q&A </a>
+                    <Link to="/question-answer"> Q&A </Link>
                   </li>
                 </ul>
               </div>
