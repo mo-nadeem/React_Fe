@@ -152,10 +152,10 @@ const Category = () => {
           <div className="midbox-inner  wiki-mk">
             <h2>{info.menu_name}</h2>
             <p>{info.quote}</p>
-            <span onClick={togglePopup}>
+            <a onClick={togglePopup}>
               {" "}
               Get Cost Estimate <img src={arrowImg} alt="ask-a-questions" />
-            </span>
+            </a>
           </div>
         </section>
 

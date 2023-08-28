@@ -134,11 +134,9 @@ const Footer = () => {
               <ul className="footerbox">
                 {speciality &&
                   speciality.map((e) => (
-                    <li key={e.id}>
-                      <Link to={`/speciality/${e.slug}/${e.country}`}>
-                        {e.name}
-                      </Link>
-                    </li>
+                    <Link to={`/speciality/${e.slug}/${e.country}`} key={e.id}>
+                      <li>{e.name}</li>
+                    </Link>
                   ))}
               </ul>
             </div>
