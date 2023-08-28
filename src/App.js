@@ -19,6 +19,8 @@ import AllDoctorsList from "./pages/AllDoctorsList/AllDoctorsList";
 import AllSpecialitesList from "./pages/AllSpecialitesList/AllSpecialitesList";
 import ContactUs from "./pages/contactUs/ContactUs";
 import AboutUs from "./pages/aboutUs/AboutUs";
+import Disclaimer from "./pages/disclaimerPage/Disclaimer";
+import PrivacyStatement from "./pages/privacyStatement/PrivacyStatement"
 
 const ScrollToTop = () => {
   const location = useLocation();
@@ -55,6 +57,8 @@ function App() {
         <Route path="/about-us" element={<AboutUs />}></Route>
         <Route path="/doctors" element={<AllDoctorsList />}></Route>
         <Route path="/specialities" element={<AllSpecialitesList />}></Route>
+        <Route path="/disclaimer" element={<Disclaimer />}></Route>
+        <Route path="/privacy-policy" element={<PrivacyStatement />}></Route>
         <Route
           path="/hospitals/:slug/:country"
           element={<HospitalList />}

@@ -105,14 +105,14 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <a href="#" target="_self">
+                  <Link href="#" target="_self">
                     Careers
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" target="_self">
+                  <Link to="/doctors" target="_self">
                     For Doctors
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a href="#" target="_self">
@@ -152,14 +152,14 @@ const Footer = () => {
               </h4>
               <ul className="footerbox">
                 <li>
-                  <a href="#" target="_self">
+                  <Link to="/blogs" target="_self">
                     Blogs
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" target="_self">
+                  <Link to="/question-answer" target="_self">
                     Q&A
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a href="#" target="_self">
@@ -233,14 +233,14 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="#" target="_self">
+                  <Link to="/privacy-policy" target="_self">
                     Privacy Policy
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" target="_self">
+                  <Link to="/disclaimer" target="_self">
                     Disclaimer
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

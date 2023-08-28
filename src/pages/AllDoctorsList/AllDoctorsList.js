@@ -10,77 +10,116 @@ import Select from "react-select";
 import loadingImg from "../../assests/images/05/loading.png";
 
 const AllDoctorsList = () => {
-    const [doctor, setDoctor] = useState([]);
-    const [hospitalIcon, setHospitalIcon] = useState([]);
-    const [location,setLocation] = useState([])
-    useEffect(() => {
-      axios
-        .get(`${process.env.REACT_APP_BASE_URL}/api/doctors`) // Replace with your API endpoint
-        .then((response) => {
-          setDoctor(response.data.data.doctors);
-          setHospitalIcon(response.data.doctors_list.hospital_image);
+  const [doctor, setDoctor] = useState([]);
+  const [doctorList, setDoctorList] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState(null);
+  const [selectedGender, setSelectedGender] = useState(null);
+  const [location, setLocation] = useState([]);
+  const [showFilteredDoctors, setShowFilteredDoctors] = useState(false);
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_BASE_URL}/api/doctors`)
+      .then((response) => {
+        setDoctor(response.data.data.doctors);
 
-          const mappedLocation  = response.data.data.doctors.map(e=>({
-            value:e.id,
-            
-          }))
-        })
-        .catch((error) => {
-          console.error("Error fetching data:", error);
-        });
-    }, []);
-  
-    const options = [
-      { value: "apple", label: "Apple" },
-      { value: "banana", label: "Banana" },
-      { value: "cherry", label: "Cherry" },
-      { value: "date", label: "Date" },
-      { value: "elderberry", label: "Elderberry" },
-    ];
-  
-    const gender = [
-      { value: "male", label: "Male" },
-      { value: "female", label: "Female" },
-      { value: "other", label: "other" },
-  
-    ];
-  
-    const [selectedOption, setSelectedOption] = useState(null);
-    const [selectedGender,setSelectedGender] = useState(null)
-  
-    const handleSelectChange = (selectedOption) => {
-      setSelectedOption(selectedOption);
-    };
-    const handleSelectgenderChange = (selectedGender) => {
-      setSelectedGender(selectedGender);
-    };
-  
-  
-    const handleClearSelection = () => {
-      setSelectedOption(null);
-      setSelectedGender(null) // Clear the selected option
-    };
+        const doctorsData = response.data.data.doctors;
 
-    const [searchQuery, setSearchQuery] = useState("");
-    const [filteredDoctors, setFilteredDoctors] = useState([]);
-    useEffect(() => {
-      // Filter the 'doctors' based on the 'searchQuery'
-      const filtered = doctor.filter((doctor) => {
-        const fullName = `${doctor.first_name} ${doctor.last_name}`;
-        return fullName.toLowerCase().includes(searchQuery.toLowerCase());
+        // Check if doctorsData is available and not empty
+        if (doctorsData && doctorsData.length > 0) {
+          // Extract unique locations from the doctorsData
+          const uniqueLocations = Array.from(
+            new Set(doctorsData.map((doctor) => doctor.location))
+          );
+
+          // Create options array with value and label properties
+          const locationOptions = uniqueLocations.map((loc) => ({
+            value: loc,
+            label: loc,
+          }));
+
+          setLocation(locationOptions);
+        } else {
+          console.error("No doctor data found in the API response.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
       });
-      setFilteredDoctors(filtered);
-    }, [doctor, searchQuery]);
+  }, []);
+
+  // searching query
+
+  useEffect(() => {
+    // Create the API URL with filters
+    const apiUrl = `${process.env.REACT_APP_BASE_URL}/api/doctors?${
+      selectedLocation
+        ? `location=${encodeURIComponent(selectedLocation.value)}`
+        : ""
+    }${
+      selectedGender
+        ? `&gender=${encodeURIComponent(selectedGender.value)}`
+        : ""
+    }`;
+
+    // Fetch the filtered data
+    axios
+      .get(apiUrl)
+      .then((response) => {
+        setDoctorList(response.data.data.doctors);
+      })
+      .catch((error) => {
+        console.error("Error fetching filtered data:", error);
+      });
+  }, [selectedLocation, selectedGender]);
+
+  console.log(doctorList);
+
+  const options = [
+    { value: "apple", label: "Apple" },
+    { value: "banana", label: "Banana" },
+    { value: "cherry", label: "Cherry" },
+    { value: "date", label: "Date" },
+    { value: "elderberry", label: "Elderberry" },
+  ];
+
+  const gender = [
+    { value: "male", label: "Male" },
+    { value: "female", label: "Female" },
+    { value: "other", label: "other" },
+  ];
+
+  const handleSelectLocation = (selectedLocation) => {
+    setSelectedLocation(selectedLocation);
+  };
+  const handleSelectgenderChange = (selectedGender) => {
+    setSelectedGender(selectedGender);
+  };
+
+  const handleClearSelection = () => {
+    setSelectedLocation(null);
+    setSelectedGender(null); // Clear the selected option
+  };
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredDoctors, setFilteredDoctors] = useState([]);
+  useEffect(() => {
+    // Filter the 'doctors' based on the 'searchQuery'
+    const filtered = doctor.filter((doctor) => {
+      const fullName = `${doctor.first_name} ${doctor.last_name}`;
+      return fullName.toLowerCase().includes(searchQuery.toLowerCase());
+    });
+    setFilteredDoctors(filtered);
+  }, [doctor, searchQuery]);
   return (
     <>
       <Homelayout>
         <section id="find-doctors">
-          <div class="midbox-inner  wiki-mk">
-            <div class="find-doctor-box">
+          <div className="midbox-inner  wiki-mk">
+            <div className="find-doctor-box">
               <h1>Find Doctors</h1>
 
-              <div class="find-box">
-                <div class="search-box">
+              <div className="find-box">
+                <div className="search-box">
                   <input
                     type="text"
                     placeholder="Search Doctor"
@@ -90,7 +129,7 @@ const AllDoctorsList = () => {
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
                 </div>
-                <div class="location-box">
+                <div className="location-box">
                   <input
                     type="text"
                     placeholder="Any Location"
@@ -98,7 +137,7 @@ const AllDoctorsList = () => {
                     required=""
                   />
                 </div>
-                <button type="submit" name="en" class="find-doctor">
+                <button type="submit" name="en" className="find-doctor">
                   Find Doctor
                 </button>
               </div>
@@ -106,24 +145,23 @@ const AllDoctorsList = () => {
           </div>
         </section>
         <section id="find-doctors-list">
-          <div class="midbox-inner  wiki-mk">
+          <div className="midbox-inner  wiki-mk">
             <h2>
               Doctors <span>({doctor.length} Results)</span>
             </h2>
-            <div class="doctors-list-find">
-              <div class="ding">
+            <div className="doctors-list-find">
+              <div className="ding">
                 <Select
                   id="wiki"
-                  value={selectedOption}
-                  onChange={handleSelectChange}
-                  options={options}
+                  value={selectedLocation}
+                  onChange={handleSelectLocation}
+                  options={location}
                   isSearchable={true} // Enables search
                   placeholder=" Location"
                   maxMenuHeight={150}
                 />
-       
               </div>
-              <div class="ding">
+              <div className="ding">
                 <Select
                   id="wiki"
                   value={selectedGender}
@@ -133,9 +171,8 @@ const AllDoctorsList = () => {
                   placeholder="Gender"
                   maxMenuHeight={150}
                 />
-           
               </div>
-              <div class="ding">
+              {/* <div className="ding">
                 <Select
                   id="wiki"
                   value={selectedOption}
@@ -145,9 +182,8 @@ const AllDoctorsList = () => {
                   placeholder="Rating"
                   maxMenuHeight={150}
                 />
-         
-              </div>
-              <div class="ding">
+              </div> */}
+              {/* <div className="ding">
                 <Select
                   id="wiki"
                   value={selectedOption}
@@ -157,9 +193,8 @@ const AllDoctorsList = () => {
                   placeholder="Experience"
                   maxMenuHeight={150}
                 />
-            
-              </div>
-              <div class="ding">
+              </div> */}
+              {/* <div className="ding">
                 <Select
                   id="wiki"
                   value={selectedOption}
@@ -169,82 +204,73 @@ const AllDoctorsList = () => {
                   placeholder="Hospital"
                   maxMenuHeight={150}
                 />
-          
-              </div>
+              </div> */}
 
-              <div class="refresh-box">
+              <div className="refresh-box">
                 <span onClick={handleClearSelection}>
                   <img src={loadingImg} alt="icon" />
                 </span>
               </div>
             </div>
-
-            <div class="doctor-midbox">
-              <div class="doctor-midbox-left">
+            <div className="doctor-midbox">
+              <div className="doctor-midbox-left">
                 {doctor &&
-                  doctor.map((e) => {
-                    // Find the hospital that matches the doctor's hospital_id
-                    const matchedHospital = hospitalIcon?.find(
-                      (hospital) => String(hospital.id) === e.hospital_id
-                    );
-                    return (
-                      <div class="doctor-item-list" key={e.id}>
-                        <div class="doctor-item-img">
-                          <img
-                            src={`${process.env.REACT_APP_BASE_URL}/doctor/${e.image}`}
-                            alt={e.slug}
-                          />
+                  doctor.map((e) => (
+                    <div className="doctor-item-list" key={e.id}>
+                      <div className="doctor-item-img">
+                        <img
+                          src={`${process.env.REACT_APP_BASE_URL}/doctor/${e.image}`}
+                          alt={e.slug}
+                        />
+                      </div>
+                      <div className="doctor-item-doc">
+                        <h3>
+                          {e.prefix} {e.first_name} {e.last_name}
+                        </h3>
+                        <div className="department-sub">{e.designation}</div>
+                        <div className="rating-star">
+                          <i className="fa fa-star"></i> 5 (523)
                         </div>
-                        <div class="doctor-item-doc">
-                          <h3>
-                            {e.prefix} {e.first_name} {e.last_name}
-                          </h3>
-                          <div class="department-sub">{e.designation}</div>
-                          <div class="rating-star">
-                            <i class="fa fa-star"></i> 5 (523)
-                          </div>
 
-                          <div class="doc-experience">
-                            <div class="years-exper">
-                              {e.experience_year}+ Years of Experience{" "}
-                            </div>
-                            <div class="successful-plus">
-                              {e.surgery_treatment}+ Successful Surgeries{" "}
-                            </div>
+                        <div className="doc-experience">
+                          <div className="years-exper">
+                            {e.experience_year}+ Years of Experience{" "}
                           </div>
-                        </div>
-                        <div class="doctor-item-button">
-                          <a href="#" class="book-app">
-                            Book Appointment <img src={bookIcon} alt="icon" />
-                          </a>
-                          <Link to={`/doctor/${e.slug}`} class="view-profile">
-                            View Profile <img src={profileIcon} alt="icon" />
-                          </Link>
-                          <a href="#" class="share-profile">
-                            Share Profile <img src={shareIcon} alt="icon" />
-                          </a>
-
-                          <div class="doc-Hospital">
-                            {e.location}
-                            {matchedHospital && (
-                              <img
-                                src={`${process.env.REACT_APP_BASE_URL}/hospital/${matchedHospital.icon}`}
-                                alt="icon"
-                              />
-                            )}
+                          <div className="successful-plus">
+                            {e.surgery_treatment}+ Successful Surgeries{" "}
                           </div>
                         </div>
                       </div>
-                    );
-                  })}
+                      <div className="doctor-item-button">
+                        <a href="#" className="book-app">
+                          Book Appointment <img src={bookIcon} alt="icon" />
+                        </a>
+                        <Link to={`/doctor/${e.slug}`} className="view-profile">
+                          View Profile <img src={profileIcon} alt="icon" />
+                        </Link>
+                        <a href="#" className="share-profile">
+                          Share Profile <img src={shareIcon} alt="icon" />
+                        </a>
+
+                        <div className="doc-Hospital">
+                          {e.location}
+
+                          <img
+                            src={`${process.env.REACT_APP_BASE_URL}/hospital/${e.hospitalicon}`}
+                            alt="icon"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
               </div>
 
-              <div class="doctor-midbox-right">
-                <div class="treatment-right">
+              <div className="doctor-midbox-right">
+                <div className="treatment-right">
                   <h2>Need Assistance?</h2>
 
-                  <div class="treatment-form">
-                    <div class="inputbox">
+                  <div className="treatment-form">
+                    <div className="inputbox">
                       <label>Name</label>
                       <input
                         type="text"
@@ -255,14 +281,14 @@ const AllDoctorsList = () => {
                     </div>
                   </div>
 
-                  <div class="treatment-form">
-                    <div class="inputbox">
+                  <div className="treatment-form">
+                    <div className="inputbox">
                       <label>Phone</label>
-                      <div class="phone-form">
-                        <div class="phone-box1">
+                      <div className="phone-form">
+                        <div className="phone-box1">
                           <select
                             aria-label="Sort dropdown"
-                            class="phone-dropdown"
+                            className="phone-dropdown"
                           >
                             <option value="">Choose Code</option>
                             <option value="1">UK (+44)</option>
@@ -302,7 +328,7 @@ const AllDoctorsList = () => {
                             <option value="855">Cambodia (+855)</option>
                           </select>
                         </div>
-                        <div class="phone-box2">
+                        <div className="phone-box2">
                           <input
                             type="text"
                             placeholder=""
@@ -314,8 +340,8 @@ const AllDoctorsList = () => {
                     </div>
                   </div>
 
-                  <div class="treatment-form">
-                    <div class="inputbox">
+                  <div className="treatment-form">
+                    <div className="inputbox">
                       <label>Email</label>
                       <input
                         type="text"
@@ -326,11 +352,11 @@ const AllDoctorsList = () => {
                     </div>
                   </div>
 
-                  <div class="treatment-form">
-                    <div class="inputbox">
+                  <div className="treatment-form">
+                    <div className="inputbox">
                       <label>Your Query</label>
                       <textarea
-                        class="querybox"
+                        className="querybox"
                         type="textarea"
                         name="query"
                         placeholder=""
@@ -339,7 +365,7 @@ const AllDoctorsList = () => {
                     </div>
                   </div>
 
-                  <button type="submit" name="en" class="home-button">
+                  <button type="submit" name="en" className="home-button">
                     Submit Now <img src={arrowCIcon} alt="arrow-Icon" />
                   </button>
                 </div>
