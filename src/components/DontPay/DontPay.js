@@ -31,11 +31,10 @@ const DontPay = () => {
 
             <div className="medflick-payright">
               <a className="consultation" onClick={togglePopup}>
-                Request a free consultation <img src={arrow2Img} alt="" />
+                Request a free consultation <img src={arrow2Img} alt="arrow-icon" />
               </a>
               <Link to="/contact-us" className="contact">
-                {" "}
-                Contact Us <img src={arrowImg} alt="" />
+                Contact Us <img src={arrowImg} alt="contact-us" />
               </Link>
             </div>
           </div>

@@ -12,12 +12,18 @@ import loadingImg from "../../assests/images/05/loading.png";
 const AllDoctorsList = () => {
     const [doctor, setDoctor] = useState([]);
     const [hospitalIcon, setHospitalIcon] = useState([]);
+    const [location,setLocation] = useState([])
     useEffect(() => {
       axios
         .get(`${process.env.REACT_APP_BASE_URL}/api/doctors`) // Replace with your API endpoint
         .then((response) => {
           setDoctor(response.data.data.doctors);
           setHospitalIcon(response.data.doctors_list.hospital_image);
+
+          const mappedLocation  = response.data.data.doctors.map(e=>({
+            value:e.id,
+            
+          }))
         })
         .catch((error) => {
           console.error("Error fetching data:", error);
@@ -33,8 +39,8 @@ const AllDoctorsList = () => {
     ];
   
     const gender = [
-      { value: "male", label: "male" },
-      { value: "female", label: "female" },
+      { value: "male", label: "Male" },
+      { value: "female", label: "Female" },
       { value: "other", label: "other" },
   
     ];
@@ -115,11 +121,7 @@ const AllDoctorsList = () => {
                   placeholder=" Location"
                   maxMenuHeight={150}
                 />
-                {/* <select id="wiki">
-                    <option value="none" selected>
-                      Delhi
-                    </option>
-                  </select> */}
+       
               </div>
               <div class="ding">
                 <Select
@@ -131,14 +133,7 @@ const AllDoctorsList = () => {
                   placeholder="Gender"
                   maxMenuHeight={150}
                 />
-                {/* <select id="wiki1">
-                  <option value="none" selected>
-                    Gender
-                  </option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="other">other</option>
-                </select> */}
+           
               </div>
               <div class="ding">
                 <Select
@@ -150,11 +145,7 @@ const AllDoctorsList = () => {
                   placeholder="Rating"
                   maxMenuHeight={150}
                 />
-                {/* <select id="wiki2">
-                  <option value="none" selected>
-                    Rating
-                  </option>
-                </select> */}
+         
               </div>
               <div class="ding">
                 <Select
@@ -166,16 +157,7 @@ const AllDoctorsList = () => {
                   placeholder="Experience"
                   maxMenuHeight={150}
                 />
-                {/* <select id="wiki3">
-                  <option value="none" selected>
-                    Experience
-                  </option>
-                  <option value="">5 Year's</option>
-                  <option value="">10 Year's</option>
-                  <option value="">15 Year's</option>
-                  <option value="">20 Year's</option>
-                  <option value="">20 Year's</option>
-                </select> */}
+            
               </div>
               <div class="ding">
                 <Select
@@ -187,11 +169,7 @@ const AllDoctorsList = () => {
                   placeholder="Hospital"
                   maxMenuHeight={150}
                 />
-                {/* <select id="wiki4">
-                  <option value="none" selected>
-                    Hospital
-                  </option>
-                </select> */}
+          
               </div>
 
               <div class="refresh-box">

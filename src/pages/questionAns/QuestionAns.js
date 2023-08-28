@@ -1,8 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Homelayout from "../../components/Homelayout/Homelayout";
 import Select from "react-select";
-
+import { useDispatch, useSelector } from "react-redux";
+import { fetchHome } from "../../Api/action/HomeAction";
+import { AiOutlineHeart } from "react-icons/ai";
+import {AiTwotoneHeart} from "react-icons/ai"
 const QuestionAns = () => {
+  const dispatch = useDispatch();
+
+  const { qa } = useSelector((state) => state.data);
+
+  const fetchHomedata = useCallback(() => {
+    dispatch(fetchHome());
+  }, [dispatch]);
+
+  useEffect(() => {
+    fetchHomedata();
+  }, [fetchHomedata]);
+
+  // Like mange
+  const [likes, setLikes] = useState({});
+  const handleLike = (questionId) => {
+    // Check if the questionId is already in the state, if not initialize it with 1 like, otherwise increment the like count.
+    setLikes((prevLikes) => ({
+      ...prevLikes,
+      [questionId]: (prevLikes[questionId] || 0) + 1,
+    }));
+  };
+  // Search script
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const togglePopup = () => {
@@ -168,7 +193,7 @@ const QuestionAns = () => {
                       className="ask-question"
                       data-popup-open="popup-2"
                       onClick={togglePopup}
-                      style={{cursor:"pointer"}}
+                      style={{ cursor: "pointer" }}
                     >
                       <img src="images/2023/07/ask.png" alt="" /> Ask Question
                     </span>
@@ -282,45 +307,50 @@ const QuestionAns = () => {
                     </div>
                   </div>
                 )}
+                {qa &&
+                  qa.map((e) => (
+                    <div className="comments-box" key={e.id}>
+                      <div className="comments-profile">
+                        {/* <div className="comments-profileimg">
+                          <img src="images/2023/07/man.png" />
+                        </div> */}
+                        {/* <h3>
+                          Lorem Ipsum <span>india</span>
+                        </h3> */}
+                      </div>
 
-                <div className="comments-box">
-                  <div className="comments-profile">
-                    <div className="comments-profileimg">
-                      <img src="images/2023/07/man.png" />
+                      <h2>Q. {e.short_description}</h2>
+                      <div
+                        dangerouslySetInnerHTML={{ __html: e.long_description }}
+                      />
+
+                      <div className="comments-button">
+                        <a
+                          className="ask-comments"
+                          onClick={() => handleLike(e.id)}
+                        >
+                          {likes[e.id] ? (
+                            <i>
+                              <AiTwotoneHeart style={{color:"red",fontSize:"23px"}}/>
+                            </i>
+                          ) : (
+                            <i>
+                              <AiOutlineHeart style={{color:"red",fontSize:"23px"}}/>
+                            </i>
+                          )}
+                          Likes {likes[e.id] || 0}
+                        </a>
+                        <a className="ask-comments" href="#">
+                          <i className="fa fa-comments"></i> Comments
+                        </a>
+                        <a className="ask-comments" href="#">
+                          <i className="fa fa-share"></i> Share
+                        </a>
+                      </div>
                     </div>
-                    <h3>
-                      Lorem Ipsum <span>india</span>
-                    </h3>
-                  </div>
+                  ))}
 
-                  <h2>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore onsectetur adipiscing
-                    elit, sed do eiusmod
-                  </h2>
-                  <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit
-                    voluptatem accusantium doloremque laudantium, to Excepteur
-                    sint occaecat cupidatat non proident, sunt in culpa qui
-                    officia deserunt mollit anim sed ut perspiciatis unde omnis
-                    iste natus error sit voluptatem accusantium doloremque
-                    laudantium unde omnis iste natus error sit voluptatem acc
-                  </p>
-
-                  <div className="comments-button">
-                    <a className="ask-comments" href="#">
-                      <i className="fa fa-heart"></i> Likes
-                    </a>
-                    <a className="ask-comments" href="#">
-                      <i className="fa fa-comments"></i> Comments
-                    </a>
-                    <a className="ask-comments" href="#">
-                      <i className="fa fa-share"></i> Share
-                    </a>
-                  </div>
-                </div>
-
-                <div className="comments-box">
+                {/* <div className="comments-box">
                   <div className="comments-profile">
                     <div className="comments-profileimg">
                       <img src="images/2023/07/man.png" />
@@ -582,7 +612,7 @@ const QuestionAns = () => {
                       <i className="fa fa-share"></i> Share
                     </a>
                   </div>
-                </div>
+                </div> */}
               </div>
 
               <div className="questions-ans-right">

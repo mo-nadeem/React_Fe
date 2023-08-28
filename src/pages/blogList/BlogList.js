@@ -350,7 +350,7 @@ const BlogList = () => {
                     </p>
                   </div> */}
                 </div>
-
+{/* 
                 <div className="bloglist-itembottom">
                   <h3>Lorem ipsum dolor amet fugit</h3>
                   <div className="bloglist-itemmid">
@@ -413,10 +413,10 @@ const BlogList = () => {
                       </ul>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
 
-              <div className="bloglist-rightbottom">
+              {/* <div className="bloglist-rightbottom">
                 <h3>Lorem ipsum </h3>
                 <div className="bloglist-item">
                   <img src="images/2023/04/04/20.jpg" />
@@ -443,12 +443,12 @@ const BlogList = () => {
                     et. Sunt qui esse pariatur
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
 
-        <section id="newslette-section">
+        {/* <section id="newslette-section">
           <div className="midbox-inner  wiki-mk">
             <div className="newslette-box">
               <div className="newslette-left">
@@ -474,7 +474,7 @@ const BlogList = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </Homelayout>
     </>
   );
