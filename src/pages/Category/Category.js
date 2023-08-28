@@ -18,7 +18,29 @@ import CategoryQA from "./CategoryQA";
 import DontPay from "../../components/DontPay/DontPay";
 import HealthQuerys from "../../components/Home/HealthQuerys";
 import Blog from "../../components/Home/Blog";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import manImg from "../../assests/images/07/man.jpg"
 
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 1,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 1,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 1,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
 const Category = () => {
   const { slug, country } = useParams();
   const [speciality, setSpecliality] = useState([]);
@@ -78,7 +100,6 @@ const Category = () => {
       image: "images/2023/02/02/4.jpg",
     },
   ];
-
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -153,7 +174,6 @@ const Category = () => {
             <h2>{info.menu_name}</h2>
             <p>{info.quote}</p>
             <a onClick={togglePopup}>
-              {" "}
               Get Cost Estimate <img src={arrowImg} alt="ask-a-questions" />
             </a>
           </div>
@@ -304,206 +324,210 @@ const Category = () => {
         <CategoryBlog blog={blog} />
         {/* Blog end */}
       </Homelayout>
+      {isPopupOpen && (
+        <div className="popup" data-popup="popup-5" style={popupStyle}>
+          <div className="popup-inner5">
+            <div className="modal-content">
+              <div className="modal-header">
+                <button
+                  type="button"
+                  className="popup-close"
+                  data-popup-close="popup-5"
+                  data-dismiss="modal"
+                  onClick={togglePopup}
+                >
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
 
-      <div class="popup" data-popup="popup-5">
-        <div class="popup-inner5">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button
-                type="button"
-                class="popup-close"
-                data-popup-close="popup-5"
-                data-dismiss="modal"
-              >
-                <span aria-hidden="true">×</span>
-              </button>
-            </div>
-
-            <div Class="cost-estimate-form">
-              <div Class="cost-estimate-form-left">
-                <div class="owl-slider">
-                  <div id="cost-estimate" class="owl-carousel">
-                    <div class="item">
-                      <img src="images/2023/07/man.jpg" />
-                      <div class="cost-estimate-box">
-                        <div Class="cost-estimate-items">
-                          <p>
-                            {" "}
-                            “Lorem ipsum dolor sit amet, consectetur adipiscin
-                            elit, sed do eiusmod tempor incididunt ut labore
-                            consectetur ipsum dolor sit amet, consectetur elit,
-                            sed do eiusmod tempor incidid Lorem ipsum dolor sit
-                            amet adipiscin elit”{" "}
-                          </p>
-                          <h3>Ellen Richardson</h3>
+              <div className="cost-estimate-form">
+                <div className="cost-estimate-form-left">
+                  <div className="owl-slider">
+                    <div id="cost-estimate" className="owl-carousel">
+                      <Carousel responsive={responsive} arrows={false} infinite={true} autoPlay={true} autoPlaySpeed={1500} showDots={true}>
+                        <div className="item">
+                          <img src={manImg} />
+                          <div className="cost-estimate-box">
+                            <div className="cost-estimate-items">
+                              <p>
+                                {" "}
+                                “Lorem ipsum dolor sit amet, consectetur
+                                adipiscin elit, sed do eiusmod tempor incididunt
+                                ut labore consectetur ipsum dolor sit amet,
+                                consectetur elit, sed do eiusmod tempor incidid
+                                Lorem ipsum dolor sit amet adipiscin elit”{" "}
+                              </p>
+                              <h3>Ellen Richardson</h3>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
 
-                    <div class="item">
-                      <img src="images/2023/07/man.jpg" />
-                      <div class="cost-estimate-box">
-                        <div Class="cost-estimate-items">
-                          <p>
-                            {" "}
-                            “Lorem ipsum dolor sit amet, consectetur adipiscin
-                            elit, sed do eiusmod tempor incididunt ut labore
-                            consectetur ipsum dolor sit amet, consectetur elit,
-                            sed do eiusmod tempor incidid Lorem ipsum dolor sit
-                            amet adipiscin elit”{" "}
-                          </p>
-                          <h3>Ellen Richardson</h3>
+                        <div className="item">
+                          <img src={manImg} />
+                          <div className="cost-estimate-box">
+                            <div className="cost-estimate-items">
+                              <p>
+                                {" "}
+                                “Lorem ipsum dolor sit amet, consectetur
+                                adipiscin elit, sed do eiusmod tempor incididunt
+                                ut labore consectetur ipsum dolor sit amet,
+                                consectetur elit, sed do eiusmod tempor incidid
+                                Lorem ipsum dolor sit amet adipiscin elit”{" "}
+                              </p>
+                              <h3>Ellen Richardson</h3>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
 
-                    <div class="item">
-                      <img src="images/2023/07/man.jpg" />
-                      <div class="cost-estimate-box">
-                        <div Class="cost-estimate-items">
-                          <p>
-                            {" "}
-                            “Lorem ipsum dolor sit amet, consectetur adipiscin
-                            elit, sed do eiusmod tempor incididunt ut labore
-                            consectetur ipsum dolor sit amet, consectetur elit,
-                            sed do eiusmod tempor incidid Lorem ipsum dolor sit
-                            amet adipiscin elit”{" "}
-                          </p>
-                          <h3>Ellen Richardson</h3>
+                        <div className="item">
+                          <img src={manImg} />
+                          <div className="cost-estimate-box">
+                            <div className="cost-estimate-items">
+                              <p>
+                                {" "}
+                                “Lorem ipsum dolor sit amet, consectetur
+                                adipiscin elit, sed do eiusmod tempor incididunt
+                                ut labore consectetur ipsum dolor sit amet,
+                                consectetur elit, sed do eiusmod tempor incidid
+                                Lorem ipsum dolor sit amet adipiscin elit”{" "}
+                              </p>
+                              <h3>Ellen Richardson</h3>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
 
-                    <div class="item">
-                      <img src="images/2023/07/man.jpg" />
-                      <div class="cost-estimate-box">
-                        <div Class="cost-estimate-items">
-                          <p>
-                            {" "}
-                            “Lorem ipsum dolor sit amet, consectetur adipiscin
-                            elit, sed do eiusmod tempor incididunt ut labore
-                            consectetur ipsum dolor sit amet, consectetur elit,
-                            sed do eiusmod tempor incidid Lorem ipsum dolor sit
-                            amet adipiscin elit”{" "}
-                          </p>
-                          <h3>Ellen Richardson</h3>
+                        <div className="item">
+                          <img src={manImg} />
+                          <div className="cost-estimate-box">
+                            <div className="cost-estimate-items">
+                              <p>
+                                {" "}
+                                “Lorem ipsum dolor sit amet, consectetur
+                                adipiscin elit, sed do eiusmod tempor incididunt
+                                ut labore consectetur ipsum dolor sit amet,
+                                consectetur elit, sed do eiusmod tempor incidid
+                                Lorem ipsum dolor sit amet adipiscin elit”{" "}
+                              </p>
+                              <h3>Ellen Richardson</h3>
+                            </div>
+                          </div>
                         </div>
-                      </div>
+                      </Carousel>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div Class="cost-estimate-form-right">
-                <h2> Get Cost Estimate</h2>
-                <div class="treatment-right">
-                  <div class="treatment-form">
-                    <div class="inputbox">
-                      <label>Full Name</label>
-                      <input
-                        type="text"
-                        placeholder=""
-                        name="name"
-                        required=""
-                      />
+                <div className="cost-estimate-form-right">
+                  <h2> Get Cost Estimate</h2>
+                  <div className="treatment-right">
+                    <div className="treatment-form">
+                      <div className="inputbox">
+                        <label>Full Name</label>
+                        <input
+                          type="text"
+                          placeholder=""
+                          name="name"
+                          required=""
+                        />
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="treatment-form">
-                    <div class="inputbox">
-                      <label>Phone Number</label>
-                      <div class="phone-form">
-                        <div class="phone-box1">
-                          <select
-                            aria-label="Sort dropdown"
-                            class="phone-dropdown"
-                          >
-                            <option value="">Choose Code</option>
-                            <option value="1">UK (+44)</option>
-                            <option value="213">Algeria (+213)</option>
-                            <option value="376">Andorra (+376)</option>
-                            <option value="244">Angola (+244)</option>
-                            <option value="1264">Anguilla (+1264)</option>
-                            <option value="1268">
-                              Antigua &amp; Barbuda (+1268)
-                            </option>
-                            <option value="54">Argentina (+54)</option>
-                            <option value="374">Armenia (+374)</option>
-                            <option value="297">Aruba (+297)</option>
-                            <option value="61">Australia (+61)</option>
-                            <option value="43">Austria (+43)</option>
-                            <option value="994">Azerbaijan (+994)</option>
-                            <option value="1242">Bahamas (+1242)</option>
-                            <option value="973">Bahrain (+973)</option>
-                            <option value="880">Bangladesh (+880)</option>
-                            <option value="1246">Barbados (+1246)</option>
-                            <option value="375">Belarus (+375)</option>
-                            <option value="32">Belgium (+32)</option>
-                            <option value="501">Belize (+501)</option>
-                            <option value="229">Benin (+229)</option>
-                            <option value="1441">Bermuda (+1441)</option>
-                            <option value="975">Bhutan (+975)</option>
-                            <option value="591">Bolivia (+591)</option>
-                            <option value="387">
-                              Bosnia Herzegovina (+387)
-                            </option>
-                            <option value="267">Botswana (+267)</option>
-                            <option value="55">Brazil (+55)</option>
-                            <option value="673">Brunei (+673)</option>
-                            <option value="359">Bulgaria (+359)</option>
-                            <option value="226">Burkina Faso (+226)</option>
-                            <option value="257">Burundi (+257)</option>
-                            <option value="855">Cambodia (+855)</option>
-                          </select>
-                        </div>
+                    <div className="treatment-form">
+                      <div className="inputbox">
+                        <label>Phone Number</label>
+                        <div className="phone-form">
+                          <div className="phone-box1">
+                            <select
+                              aria-label="Sort dropdown"
+                              className="phone-dropdown"
+                            >
+                              <option value="">Choose Code</option>
+                              <option value="1">UK (+44)</option>
+                              <option value="213">Algeria (+213)</option>
+                              <option value="376">Andorra (+376)</option>
+                              <option value="244">Angola (+244)</option>
+                              <option value="1264">Anguilla (+1264)</option>
+                              <option value="1268">
+                                Antigua &amp; Barbuda (+1268)
+                              </option>
+                              <option value="54">Argentina (+54)</option>
+                              <option value="374">Armenia (+374)</option>
+                              <option value="297">Aruba (+297)</option>
+                              <option value="61">Australia (+61)</option>
+                              <option value="43">Austria (+43)</option>
+                              <option value="994">Azerbaijan (+994)</option>
+                              <option value="1242">Bahamas (+1242)</option>
+                              <option value="973">Bahrain (+973)</option>
+                              <option value="880">Bangladesh (+880)</option>
+                              <option value="1246">Barbados (+1246)</option>
+                              <option value="375">Belarus (+375)</option>
+                              <option value="32">Belgium (+32)</option>
+                              <option value="501">Belize (+501)</option>
+                              <option value="229">Benin (+229)</option>
+                              <option value="1441">Bermuda (+1441)</option>
+                              <option value="975">Bhutan (+975)</option>
+                              <option value="591">Bolivia (+591)</option>
+                              <option value="387">
+                                Bosnia Herzegovina (+387)
+                              </option>
+                              <option value="267">Botswana (+267)</option>
+                              <option value="55">Brazil (+55)</option>
+                              <option value="673">Brunei (+673)</option>
+                              <option value="359">Bulgaria (+359)</option>
+                              <option value="226">Burkina Faso (+226)</option>
+                              <option value="257">Burundi (+257)</option>
+                              <option value="855">Cambodia (+855)</option>
+                            </select>
+                          </div>
 
-                        <div class="phone-box2">
-                          <input
-                            type="text"
-                            placeholder=""
-                            name="name"
-                            required=""
-                          />
+                          <div className="phone-box2">
+                            <input
+                              type="text"
+                              placeholder=""
+                              name="name"
+                              required=""
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div class="treatment-form">
-                    <div class="inputbox">
-                      <label>Email Address</label>
-                      <input
-                        type="text"
-                        placeholder=""
-                        name="name"
-                        required=""
-                      />
+                    <div className="treatment-form">
+                      <div className="inputbox">
+                        <label>Email Address</label>
+                        <input
+                          type="text"
+                          placeholder=""
+                          name="name"
+                          required=""
+                        />
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="treatment-form">
-                    <div class="inputbox">
-                      <label>Your Query</label>
-                      <textarea
-                        class="querybox"
-                        type="textarea"
-                        name="query"
-                        placeholder=""
-                        rows="2"
-                      ></textarea>
+                    <div className="treatment-form">
+                      <div className="inputbox">
+                        <label>Your Query</label>
+                        <textarea
+                          className="querybox"
+                          type="textarea"
+                          name="query"
+                          placeholder=""
+                          rows="2"
+                        ></textarea>
+                      </div>
                     </div>
-                  </div>
 
-                  <button type="submit" name="en" class="home-button">
-                    {" "}
-                    Continue{" "}
-                  </button>
+                    <button type="submit" name="en" className="home-button">
+                      {" "}
+                      Continue{" "}
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
+            </div>{" "}
           </div>{" "}
-        </div>{" "}
-      </div>
+        </div>
+      )}
     </>
   );
 };
