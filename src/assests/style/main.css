@@ -530,7 +530,7 @@ section {
   line-height: 76px;
   color: #fff;
   text-align: left;
-  padding-bottom: 48px;
+  padding-bottom: 10px;
   font-family: Helvetica Neue Medium;
   z-index: 1;
   position: relative;
@@ -1321,7 +1321,6 @@ section {
   z-index: 1;
   padding: 4rem 1rem 1rem;
   display: flex;
-  width: 95%;
   flex-direction: column;
   -moz-box-pack: end;
   justify-content: flex-end;
@@ -1772,8 +1771,8 @@ textarea {
   padding-top: 0px;
 }
 .home-drbox li img {
-  width: 30px;
-  height: 27px;
+  width: 20px;
+  height: 20px;
   border-radius: 0px;
   margin-bottom: 10px;
 }
@@ -1818,7 +1817,7 @@ textarea {
 }
 .testimonials-item {
   position: relative;
-  width: 98%;
+  width: 100%;
   z-index: 1;
 }
 .testimonials-item::before {
@@ -2353,7 +2352,7 @@ textarea {
   color: #7c7c7c;
   width: 80%;
   margin: 20px auto;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
   text-align: center;
 }
 #category-mid a {
@@ -2699,7 +2698,6 @@ div.active {
   border-radius: 20px;
   inset: auto 0px 0px;
   z-index: 1;
-  width: 95%;
   padding: 4rem 1rem 1rem;
   display: flex;
   flex-direction: column;
@@ -3676,8 +3674,8 @@ table strong {
   top: 14px;
 }
 .navbox h4 {
-  font-size: 18px !important;
-  line-height: 20px !important;
+  font-size: 16px !important;
+  line-height: 18px !important;
   margin: 5px 0;
 }
 .navbox p {
@@ -3710,7 +3708,6 @@ table strong {
   background: #ff6800;
   font-family: Helvetica Neue Medium;
   color: #ffffff !important;
-  font-weight: Bold;
   font-size: 18px;
   border-radius: 0 0 16px 16px;
   padding: 12px 82px 12px 10px;
@@ -7468,6 +7465,146 @@ ul.tabs li.active {
 
 /*------END questions-----*/
 
+/*------END questions-----*/
+
+#medical-treatments {
+  width: 100%;
+  height: auto;
+  padding: 60px 0 60px;
+  display: flex;
+  position: relative;
+  background: #fff;
+  border-top: 1px solid #d3d3d3;
+}
+#medical-treatments h1 {
+  font-size: 65px;
+  color: #090909;
+  font-weight: 400;
+  width: 60%;
+  margin: 0px auto;
+  font-family: Helvetica Neue Medium;
+  text-align: center;
+}
+#medical-treatments p {
+  font-size: 18px;
+  color: #7c7c7c;
+  width: 60%;
+  margin: 0px auto;
+  padding-bottom: 60px;
+  text-align: center;
+}
+
+.medical-treatments {
+  display: flex;
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.medical-treatments-box {
+  flex: 0 0 31.33%;
+  margin: 0px;
+  padding: 20px;
+  position: relative;
+  border-radius: 16px;
+  border: 1px solid #e7e7e7;
+  border-top: 10px solid #ff6800 !important;
+}
+.medical-treatments-box h2 {
+  font-size: 30px;
+  color: #090909;
+  margin: 10px 0 20px;
+  padding: 0px;
+  font-family: Helvetica Neue Medium;
+}
+
+.medical-treatments-box ul {
+  margin-left: 20px;
+  text-align: justify;
+}
+.medical-treatments-box li {
+  position: relative;
+  margin-bottom: 7px;
+  font-size: 18px;
+  color: #7c7c7c;
+}
+.medical-treatments-box li::before {
+  position: absolute;
+  top: 9px;
+  left: -19px;
+  height: 8px;
+  width: 8px;
+  background: #ff6800;
+  border-radius: 100%;
+  content: "";
+}
+
+/*------END questions-----*/
+
+/*------medflick-disclaimer-----*/
+
+#medflick-disclaimer {
+  width: 100%;
+  height: auto;
+  padding: 60px 0 60px;
+  display: flex;
+  position: relative;
+  background: #fff;
+  border-top: 1px solid #d3d3d3;
+  border-bottom: 1px solid #d3d3d3;
+}
+#medflick-disclaimer h1 {
+  font-size: 65px;
+  color: #090909;
+  font-weight: 400;
+  width: 100%;
+  margin: 20px 0 40px;
+  font-family: Helvetica Neue Medium;
+  text-align: center;
+}
+#medflick-disclaimer h2 {
+  font-size: 25px;
+  color: #090909;
+  font-weight: 400;
+  width: 100%;
+  margin: 14px 0 14px;
+  font-family: Helvetica Neue Medium;
+}
+#medflick-disclaimer p {
+  font-size: 18px;
+  color: #7c7c7c;
+  margin: 0px;
+  padding-bottom: 14px;
+}
+
+#medflick-disclaimer ul {
+  margin-left: 20px;
+  text-align: justify;
+}
+#medflick-disclaimer li {
+  position: relative;
+  margin-bottom: 14px;
+  font-size: 18px;
+  color: #7c7c7c;
+}
+#medflick-disclaimer li strong {
+  color: #000000;
+}
+#medflick-disclaimer li::before {
+  position: absolute;
+  top: 9px;
+  left: -19px;
+  height: 8px;
+  width: 8px;
+  background: #000000;
+  border-radius: 100%;
+  content: "";
+}
+
+/*------END medflick-disclaimer-----*/
+
 /*------footer-----*/
 footer {
   max-width: 100%;
@@ -9491,6 +9628,54 @@ footer {
     margin-top: 15px;
   }
   /*------Query Form END-----*/
+
+  /*------medical-treatments-----*/
+  #medical-treatments {
+    padding: 30px 0 40px;
+  }
+  #medical-treatments h1 {
+    font-size: 30px;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  #medical-treatments p {
+    width: 100%;
+    font-size: 16px;
+  }
+  .medical-treatments-box h2 {
+    font-size: 22px;
+  }
+  .medical-treatments-box li {
+    font-size: 16px;
+  }
+  .medical-treatments {
+    flex-direction: column;
+    gap: 0px;
+  }
+  .medical-treatments-box {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  #medflick-disclaimer {
+    padding: 20px 0 40px;
+  }
+  #medflick-disclaimer h1 {
+    font-size: 30px;
+    width: 100%;
+    margin-bottom: 25px;
+  }
+  #medflick-disclaimer h2 {
+    font-size: 22px;
+  }
+  #medflick-disclaimer p {
+    width: 100%;
+    font-size: 16px;
+  }
+  #medflick-disclaimer li {
+    font-size: 16px;
+  }
+  /*------END medical-treatments-----*/
 
   /*------log-In-----*/
 

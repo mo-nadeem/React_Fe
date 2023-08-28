@@ -3613,3 +3613,24 @@ nav li:last-child {
 /* .custom-button-group button:hover {
   background-color: #555;
 } */
+
+
+@media screen and (max-width:880px) {
+  .form-group1{width:90%;float: left;height: 50px; margin: 6px 10px;}
+  .popup-inner {padding:0px;}.popup-inner4 h2{font-size:18px;}
+  .popup-close{top:5px; right:7px;}
+  .question-box7{flex-direction: column;}
+  .upload-report-box{width:100%;}.popup-inner1 .question-post-box{width:100%;}
+  .questions-form-box textarea{height:165px;}.popup-inner2 .treatment-right{display:block;}
+  .popup-inner3 li{width:35px;height:35px;}
+  .popup-inner3 .share-link{flex-direction: column;}.popup-inner3 .share-link .copy-link{position: relative;}
+  .popup-inner4 .free-consultation-form{flex-direction: column; gap: 0px;}
+  .popup-inner4 .consultation-form-left{display:none;}
+  .popup-inner4 .consultation-form-right{display:block; width:100%;}.popup-inner4 .treatment-right{display:block;}
+  
+  .popup-inner5 .cost-estimate-form{flex-direction: column; gap: 0px;}
+  .popup-inner5 .cost-estimate-form-left{display:none;}
+  .popup-inner5 .cost-estimate-form-right{display:block; width:100%;}.popup-inner5 .treatment-right{display:block;}
+  
+  
+  }
