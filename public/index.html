@@ -2,16 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-  
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <link rel="icon" type="image/png" href="./favicon.png">
-    
+    <link rel="icon" type="image/png" href="./favicon.png" />
+
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-   
+
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -22,6 +22,18 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Medflick</title>
+    <script
+      type="text/javascript"
+      src="https://prod-anuvadak.reverieinc.com/api/snippet/bundle/file"
+    ></script>
+    <script type="text/javascript">
+      anuvadak({
+        project: {
+          key: "619b57f6-3d40-4459-8641-10b306d23ede",
+        },
+        customWidget: false,
+      });
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

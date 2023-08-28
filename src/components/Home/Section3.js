@@ -86,7 +86,7 @@ const Section3 = () => {
                 from starting your journey to better health. Get in touch to
                 find expert care at affordable prices.
               </p>
-              <Link className="learn-more" to="/">
+              <Link className="learn-more" to="/contact-us">
                 Learn More <img src="images/2023/01/learn-more.png" />
               </Link>
             </div>

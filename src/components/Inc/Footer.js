@@ -10,6 +10,7 @@ import { fetchHome } from "../../Api/action/HomeAction";
 import { GoChevronDown } from "react-icons/go";
 import logo from "../../assests/images/2023/01/logo.png";
 import arrowImg from "../../assests/images/2023/01/arrow-c.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const dispatch = useDispatch();
@@ -94,14 +95,14 @@ const Footer = () => {
 
               <ul className="footerbox">
                 <li>
-                  <a href="#" target="_self">
+                  <Link to="/about-us" target="_self">
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" target="_self">
+                  <Link to="/contact-us" target="_self">
                     Contact
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a href="#" target="_self">
@@ -134,9 +135,9 @@ const Footer = () => {
                 {speciality &&
                   speciality.map((e) => (
                     <li key={e.id}>
-                      <a href="#" target="_self">
+                      <Link to={`/speciality/${e.slug}/${e.country}`}>
                         {e.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
               </ul>

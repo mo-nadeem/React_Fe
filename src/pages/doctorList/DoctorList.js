@@ -9,6 +9,7 @@ import arrowCIcon from "../../assests/images/2023/01/arrow-c.png";
 import { Link } from "react-router-dom";
 import Select from "react-select";
 import loadingImg from "../../assests/images/05/loading.png";
+import socialImg from "../../assests/images/08/1.png"
 
 const DoctorList = () => {
   const { slug, country } = useParams();
@@ -68,6 +69,14 @@ const DoctorList = () => {
     setFilteredDoctors(filtered);
   }, [doctor, searchQuery]);
 
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsPopupOpen(!isPopupOpen);
+  };
+  const popupStyle = {
+    display: isPopupOpen ? "block" : "none",
+  };
   return (
     <>
       <Homelayout>
@@ -248,9 +257,93 @@ const DoctorList = () => {
                           >
                             View Profile <img src={profileIcon} alt="icon" />
                           </Link>
-                          <a href="#" className="share-profile">
+                          <span
+                            onClick={togglePopup}
+                            style={{ cursor: "pointer" }}
+                            className="share-profile"
+                          >
                             Share Profile <img src={shareIcon} alt="icon" />
-                          </a>
+                          </span>
+                          {isPopupOpen && (
+                            <div class="popup" data-popup="popup-3" style={popupStyle}>
+                              <div class="popup-inner3">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button
+                                      type="button"
+                                      class="popup-close"
+                                      data-popup-close="popup-3"
+                                      data-dismiss="modal"
+                                      onClick={togglePopup}
+                                    >
+                                      <span aria-hidden="true">×</span>
+                                    </button>
+                                  </div>
+                                  <h2>Share Link</h2>
+                                  <p>Share this hospital with others via...</p>
+                                  <ul>
+                                    <li>
+                                      <a href="#">
+                                        <img
+                                          src={socialImg}
+                                          alt=""
+                                        />
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="#">
+                                        <img
+                                          src="images/2023/08/2.png"
+                                          alt=""
+                                        />
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="#">
+                                        <img
+                                          src="images/2023/08/3.png"
+                                          alt=""
+                                        />
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="#">
+                                        <img
+                                          src="images/2023/08/4.png"
+                                          alt=""
+                                        />
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="#">
+                                        <img
+                                          src="images/2023/08/5.png"
+                                          alt=""
+                                        />
+                                      </a>
+                                    </li>
+                                  </ul>
+
+                                  <div class="share-link">
+                                    <input
+                                      type="text"
+                                      placeholder="www.medflick.com/share/hospital"
+                                      name="name"
+                                      required=""
+                                 
+                                    />
+                                    <button
+                                      type="submit"
+                                      name="en"
+                                      class="copy-link"
+                                    >
+                                      Copy Link
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          )}
 
                           <div className="doc-Hospital">
                             {e.location}
