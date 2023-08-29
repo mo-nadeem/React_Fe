@@ -12,11 +12,12 @@ import { Link } from "react-router-dom";
 import Select from "react-select";
 import loadingImg from "../../assests/images/05/loading.png";
 import arrowCIcon from "../../assests/images/2023/01/arrow-c.png";
+import { Helmet } from "react-helmet";
 
 const HospitalList = () => {
   const { slug, country } = useParams();
   const [hospital, setHospital] = useState([]);
-
+  const [info, setInfo] = useState([]);
   const [images, setImages] = useState([]);
 
   useEffect(() => {
@@ -25,12 +26,20 @@ const HospitalList = () => {
       .then((response) => {
         setHospital(response.data.hospital_list.hospital_list);
         setImages(response.data.hospital_list.hospital_gallery);
-        // setInfo(response.data.hospital_list.treatment_name);
+        setInfo(response.data.hospital_list.specility_name);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
   }, [slug, country]);
+
+  const [showNotFoundMessage, setShowNotFoundMessage] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowNotFoundMessage(true);
+    }, 2000);
+  }, []);
 
   // const handleImageClick = (imageSrc) => {
   //   setActiveImage(imageSrc);
@@ -99,13 +108,13 @@ const HospitalList = () => {
   };
   return (
     <>
-      {/* <Helmet>
+      <Helmet>
         {info.hos_title ? (
           <title>{info.hos_title}</title>
         ) : (
           showNotFoundMessage && <title>null</title>
         )}
-        {info.doc_description ? (
+        {info.hos_description ? (
           <meta name="description" content={info.hos_description} />
         ) : (
           <meta name="description" content="null" />
@@ -128,7 +137,7 @@ const HospitalList = () => {
         <meta property="og:locale" content="en" />
 
         <meta property="og:site_name" content="Medflick" />
-      </Helmet> */}
+      </Helmet>
       <Homelayout>
         <section id="find-doctors">
           <div className="midbox-inner  wiki-mk">

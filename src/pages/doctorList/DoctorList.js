@@ -10,22 +10,33 @@ import { Link } from "react-router-dom";
 import Select from "react-select";
 import loadingImg from "../../assests/images/05/loading.png";
 import socialImg from "../../assests/images/08/1.png";
+import { Helmet } from "react-helmet";
 
 const DoctorList = () => {
   const { slug, country } = useParams();
   const [doctor, setDoctor] = useState([]);
   const [hospitalIcon, setHospitalIcon] = useState([]);
+  const [info, setInfo] = useState([]);
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/api/doctors/${slug}/${country}`) // Replace with your API endpoint
       .then((response) => {
         setDoctor(response.data.doctors_list.doctors_list);
         setHospitalIcon(response.data.doctors_list.hospital_image);
+        setInfo(response.data.doctors_list.specility_name);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
   }, [slug, country]);
+
+  const [showNotFoundMessage, setShowNotFoundMessage] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowNotFoundMessage(true);
+    }, 2000);
+  }, []);
 
   const options = [
     { value: "apple", label: "Apple" },
@@ -121,9 +132,47 @@ const DoctorList = () => {
         setIsLoading(false);
       });
   };
-  
+
   return (
     <>
+      <Helmet>
+        {info.doc_title ? (
+          <title>{info.doc_title}</title>
+        ) : (
+          showNotFoundMessage && <title>null</title>
+        )}
+        {info.doc_description ? (
+          <meta name="description" content={info.doc_description} />
+        ) : (
+          <meta name="description" content="null" />
+        )}
+
+        <link
+          rel="canonical"
+          href={
+            `https://medflick.com/doctors/speciality/${slug}/${country}` || null
+          }
+        />
+        <meta property="og:title" content={info.doc_title || null} />
+
+        <meta
+          property="og:description"
+          content={info.doc_description || null}
+        />
+
+        <meta
+          property="og:url"
+          content={
+            `https://medflick.com/doctors/speciality/${slug}/${country}` || null
+          }
+        />
+
+        <meta property="og:type" content="website" />
+
+        <meta property="og:locale" content="en" />
+
+        <meta property="og:site_name" content="Medflick" />
+      </Helmet>
       <Homelayout>
         <section id="find-doctors">
           <div className="midbox-inner  wiki-mk">
