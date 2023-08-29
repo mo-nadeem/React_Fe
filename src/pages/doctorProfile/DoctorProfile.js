@@ -157,14 +157,10 @@ const DoctorProfile = () => {
   return (
     <>
       <Helmet>
-        {treament.map((e) => (
-          <title>
-            {" "}
-            {docotorDetails.prefix} {docotorDetails.first_name}{" "}
-            {docotorDetails.last_name} | Best {e.name} in{" "}
-            {docotorDetails.location}, India | Medflick
-          </title>
-        ))}
+        <title>
+          {`${docotorDetails.prefix} ${docotorDetails.first_name} ${docotorDetails.last_name}| Best ${docotorDetails.dept} in ${docotorDetails.location}, India | Medflick`}
+        </title>
+
         {/* <title>{docotorDetails && docotorDetails.title}</title> */}
         <meta
           name="description"
