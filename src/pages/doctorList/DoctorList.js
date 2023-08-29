@@ -360,10 +360,11 @@ const DoctorList = () => {
                           </h3>
                           <div className="department-sub">{e.designation}</div>
                           <div className="rating-star">
+                            5{" "}
                             <i>
                               <AiTwotoneStar />
                             </i>{" "}
-                            5 (523)
+                            (523){" "}
                           </div>
 
                           <div className="doc-experience">

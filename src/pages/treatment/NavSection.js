@@ -822,9 +822,9 @@ const NavSection = ({ doctor, hospital, info }) => {
               <div className="treatmen-midnav" id="transplant-nav16">
                 <h2>Doctors</h2>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit
-                  amet, consectetur adipiscing
+                  Fostering expertise backed by commitment, resilience and years
+                  of experience, we connect you to a wide network of India’s
+                  best doctors
                 </p>
 
                 <div className="owl-slider">
@@ -877,9 +877,9 @@ const NavSection = ({ doctor, hospital, info }) => {
               <div className="treatmen-midnav" id="transplant-nav17">
                 <h2>Hospitals</h2>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit
-                  amet, consectetur adipiscing
+                  Explore the most advanced, reputable and trusted hospitals in
+                  India, offering the highest levels of clinical and surgical
+                  excellence
                 </p>
 
                 <div className="owl-slider">
@@ -944,7 +944,7 @@ const NavSection = ({ doctor, hospital, info }) => {
                 <Link to="/hospitals">
                   <h4>Hospitals</h4>
                 </Link>
-                <p>Lorem ipsum dolor sit aliqua sit labore minim venia</p>
+                <p>Explore MedFlick-accredited hospitals</p>
               </div>
 
               <div className="navbox">
@@ -952,7 +952,7 @@ const NavSection = ({ doctor, hospital, info }) => {
                 <Link to="/doctors">
                   <h4>Doctors</h4>
                 </Link>
-                <p>Lorem ipsum dolor sit aliqua sit labore minim venia</p>
+                <p>Meet MedFlick-endorsed doctors </p>
               </div>
 
               <div className="navbox">
@@ -960,7 +960,7 @@ const NavSection = ({ doctor, hospital, info }) => {
                 <Link to="/question-answer">
                   <h4> Q&A </h4>
                 </Link>
-                <p>Lorem ipsum dolor sit aliqua sit labore minim venia</p>
+                <p>Access MedFlick-verified information</p>
               </div>
 
               <div className="symptomsbox">

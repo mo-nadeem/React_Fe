@@ -3436,6 +3436,10 @@ textarea {
   display: none;
 }
 
+#gallery li:before {
+  display: none;
+}
+
 #experience li:before {
   display: none;
 }

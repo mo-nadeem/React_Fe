@@ -377,7 +377,7 @@ const Header = () => {
       </header>
 
       <button class="open-button" onClick={togglePopup}>
-        <img src={queryImg} alt="query-img"/>
+        <img src={queryImg} alt="query-img" />
       </button>
       <div class="form-popup" id="myForm" style={popupStyle}>
         <div class="form-container">
@@ -389,9 +389,8 @@ const Header = () => {
           <div Class="homeform-left">
             <h2>Get free Personalised Offer</h2>
             <p>
-              {" "}
-              Lorem ipsum dolor sit amet quis alenquen lorem ipsum dolor sit
-              amet quis alenquen lorem ipsum dolor sit amet quis alenquen.{" "}
+              Share your medical reports and get an exclusive offer tailored to
+              your needs, requirements and preferences
             </p>
             <form onSubmit={handleFormSubmit}>
               <div class="home-form">

@@ -75,7 +75,7 @@ const HospitalProfile = () => {
   const handleRatingClick = (selectedRating) => {
     setRating(selectedRating);
   };
-  
+
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/api/hospital/${slug}/${country}`)
@@ -496,19 +496,23 @@ const HospitalProfile = () => {
 
                   <div className="reviews-top-box">
                     <p className="more">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore Ut enim ad
-                      minim veniam, quis nostrud exercitati.
+                      In every aspect, this hospital exceeded my expectations.
+                      The staff's genuine concern and warmth made me feel like
+                      more than simply a patient. The doctors took the time to
+                      listen and properly explain everything to me, which gave
+                      me confidence in my treatment. It's more than a hospital;
+                      it's a place where healing is supported by compassion, and
+                      where everyone genuinely cares about your health.
                     </p>
-                    <div className="name-month-box">
+                    {/* <div className="name-month-box">
                       Name
                       <div className="month-box">
                         <span></span>1 Month Ago
                       </div>
-                    </div>
+                    </div> */}
                   </div>
 
-                  <div className="reviews-top-box">
+                  {/* <div className="reviews-top-box">
                     <p className="more">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor incididunt ut labore Ut enim ad
@@ -520,7 +524,7 @@ const HospitalProfile = () => {
                         <span></span>1 Month Ago
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                   <a href="#reviews" className="read-mor-reviews">
                     Read More Reviews
                   </a>

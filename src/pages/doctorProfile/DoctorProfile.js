@@ -14,6 +14,7 @@ import DoctorVideo from "./DoctorVideo";
 import { Helmet } from "react-helmet";
 import { AiOutlineStar } from "react-icons/ai";
 import DoctorExpert from "../../components/Home/DoctorExpert";
+
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -154,14 +155,28 @@ const DoctorProfile = () => {
     setSharedDoctorSlug(doctorSlug);
     togglePopup1();
   };
+  // for delay a condition for 2 sec
+
+  const [showNotFoundMessage, setShowNotFoundMessage] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowNotFoundMessage(true);
+    }, 2000);
+  }, []);
   return (
     <>
       <Helmet>
-        <title>
-          {`${docotorDetails.prefix} ${docotorDetails.first_name} ${docotorDetails.last_name}| Best ${docotorDetails.dept} in ${docotorDetails.location}, India | Medflick`}
-        </title>
+        {docotorDetails.title ? (
+          <title>{docotorDetails && docotorDetails.title}</title>
+        ) : (
+          showNotFoundMessage && (
+            <title>
+              {`${docotorDetails.prefix} ${docotorDetails.first_name} ${docotorDetails.last_name}| Best ${docotorDetails.seo_keyword} in ${docotorDetails.location}, India | Medflick`}
+            </title>
+          )
+        )}
 
-        {/* <title>{docotorDetails && docotorDetails.title}</title> */}
         <meta
           name="description"
           content={docotorDetails && docotorDetails.description}
@@ -422,30 +437,33 @@ const DoctorProfile = () => {
 
                   <div className="reviews-top-box">
                     <p className="more">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore Ut enim ad
-                      minim veniam, quis nostrud exercitati.
+                      I can't thank Medflick enough for leading me to an
+                      exceptional doctor who understood my health concerns.
+                      Through their platform, I found not just a doctor, but a
+                      compassionate guide who helped me through my recovery
+                      journey.
                     </p>
-                    <div className="name-month-box">
+                    {/* <div className="name-month-box">
                       Name
                       <div className="month-box">
                         <span></span>1 Month Ago
                       </div>
-                    </div>
+                    </div> */}
                   </div>
 
                   <div className="reviews-top-box">
                     <p className="more">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore Ut enim ad
-                      minim veniam, quis nostrud exercitati.
+                      Finding my doctor on Medflick was a great experience. The
+                      platform not only connected me to an expert but also
+                      empowered me with knowledge about my condition. Medflick
+                      truly bridges the gap between patients and expert care.
                     </p>
-                    <div className="name-month-box">
+                    {/* <div className="name-month-box">
                       Name
                       <div className="month-box">
                         <span></span>1 Month Ago
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                   <a href="#" className="read-mor-reviews">
                     Read More Reviews

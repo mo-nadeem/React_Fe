@@ -356,10 +356,11 @@ const HospitalList = () => {
                           Oncologist, Medical Oncologist
                         </div>
                         <div className="rating-star">
+                          5{" "}
                           <i>
                             <AiTwotoneStar />
                           </i>{" "}
-                          5 (523)
+                          (523)
                         </div>
 
                         <div className="ho-docimg">
