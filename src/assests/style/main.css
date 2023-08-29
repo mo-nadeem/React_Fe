@@ -6207,7 +6207,7 @@ ul.tabs li.active {
   position: relative;
 }
 .bloglist-itemleft {
-  width: 70%;
+  /* width: 70%; */
   padding: 0px;
   margin: 0px;
   position: relative;

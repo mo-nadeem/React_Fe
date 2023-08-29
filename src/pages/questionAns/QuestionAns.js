@@ -204,7 +204,7 @@ const QuestionAns = () => {
                         />
                       </div>
                     </div>
-                    <button id="show-hidden-menu" onClick={toggleMenu}>
+                    {/* <button id="show-hidden-menu" onClick={toggleMenu}>
                       Advanced Search
                       <img
                         className={menuVisible ? "plus1" : "plus"}
@@ -216,10 +216,10 @@ const QuestionAns = () => {
                         src="images/2023/07/plus1.png"
                         alt=""
                       />
-                    </button>
+                    </button> */}
                   </div>
 
-                  <div
+                  {/* <div
                     className={`hidden-menu ${
                       menuVisible ? "visible" : "hidden"
                     }`}
@@ -265,7 +265,7 @@ const QuestionAns = () => {
                         <button>Search Now</button>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="search-question">

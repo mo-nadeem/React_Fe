@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Homelayout from "../../components/Homelayout/Homelayout";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -14,12 +14,22 @@ import loadingImg from "../../assests/images/05/loading.png";
 import arrowCIcon from "../../assests/images/2023/01/arrow-c.png";
 import { Helmet } from "react-helmet";
 import { AiTwotoneStar } from "react-icons/ai";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  WhatsappIcon,
+} from "react-share";
 
 const HospitalList = () => {
   const { slug, country } = useParams();
   const [hospital, setHospital] = useState([]);
   const [info, setInfo] = useState([]);
   const [images, setImages] = useState([]);
+  const [sharedHospitalSlug, setSharedHospitalSlug] = useState("");
+  const [sharedHospitalCountry, setSharedHospitalCountry] = useState("");
 
   useEffect(() => {
     axios
@@ -33,6 +43,22 @@ const HospitalList = () => {
         console.error("Error fetching data:", error);
       });
   }, [slug, country]);
+
+  // share profile
+
+  const inputRef = useRef(null);
+
+  const copyToClipboard = () => {
+    // Select the text inside the input field
+    inputRef.current.select();
+    inputRef.current.setSelectionRange(0, 99999); // For mobile devices
+
+    // Copy the selected text to the clipboard
+    document.execCommand("copy");
+
+    // Deselect the text
+    inputRef.current.setSelectionRange(0, 0);
+  };
 
   const [showNotFoundMessage, setShowNotFoundMessage] = useState(false);
 
@@ -107,6 +133,34 @@ const HospitalList = () => {
         setIsLoading(false);
       });
   };
+
+  // Filter the 'Hospital' based on the 'searchQuery'
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredHospital, setFilteredHospital] = useState([]);
+
+  useEffect(() => {
+    const filtered = hospital.filter((doctor) => {
+      const fullName = `${doctor.name}`;
+      return fullName.toLowerCase().includes(searchQuery.toLowerCase());
+    });
+    setFilteredHospital(filtered);
+  }, [hospital, searchQuery]);
+
+  // popup for share profile
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const popupStyle = {
+    display: isPopupOpen ? "block" : "none",
+  };
+  const togglePopup = () => {
+    setIsPopupOpen(!isPopupOpen);
+  };
+
+  const shareHospitalProfile = (hospitalSlug, hospitalCountry) => {
+    setSharedHospitalSlug(hospitalSlug);
+    setSharedHospitalCountry(hospitalCountry);
+    togglePopup();
+  };
   return (
     <>
       <Helmet>
@@ -151,9 +205,33 @@ const HospitalList = () => {
                     type="text"
                     placeholder="Search Hospital"
                     name="name"
-                    required=""
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
                   />
+                  {filteredHospital.length > 0 ? (
+                    <ul className="search-box">
+                      {searchQuery &&
+                        filteredHospital.map((doctor) => (
+                          <Link
+                            to={`/hospital/${doctor.slug}/${doctor.country}`}
+                          >
+                            <li key={doctor.id}>
+                              <h6
+                                style={{ color: "black" }}
+                              >{`${doctor.name}`}</h6>
+                            </li>
+                          </Link>
+                        ))}
+                    </ul>
+                  ) : (
+                    showNotFoundMessage && (
+                      <>
+                        <h6> OOPS! No doctors found </h6>
+                      </>
+                    )
+                  )}
                 </div>
+
                 <div className="location-box">
                   <input
                     type="text"
@@ -322,9 +400,85 @@ const HospitalList = () => {
                         >
                           View Profile <img src={profileIcon} alt="icon" />
                         </Link>
-                        <Link className="share-profile">
+                        <span
+                          className="share-profile"
+                          onClick={() =>
+                            shareHospitalProfile(
+                              hospital.slug,
+                              hospital.country
+                            )
+                          }
+                          style={{ cursor: "pointer" }}
+                        >
                           Share Profile <img src={shareIcon} alt="icon" />
-                        </Link>
+                        </span>
+                        {isPopupOpen && (
+                          <div
+                            class="popup"
+                            data-popup="popup-3"
+                            style={popupStyle}
+                          >
+                            <div class="popup-inner3">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button
+                                    type="button"
+                                    class="popup-close"
+                                    data-popup-close="popup-3"
+                                    data-dismiss="modal"
+                                    onClick={togglePopup}
+                                  >
+                                    <span aria-hidden="true">×</span>
+                                  </button>
+                                </div>
+                                <h2>Share Link</h2>
+                                <p>Share this hospital with others via...</p>
+                                <ul>
+                                  <li>
+                                    <FacebookShareButton
+                                      url={`${window.location.origin}/hospital/${sharedHospitalSlug}/${sharedHospitalCountry}`}
+                                    >
+                                      <FacebookIcon size={50} round />
+                                    </FacebookShareButton>
+                                  </li>
+                                  <li>
+                                    <TwitterShareButton
+                                      url={`${window.location.origin}/hospital/${sharedHospitalSlug}/${sharedHospitalCountry}`}
+                                    >
+                                      <TwitterIcon size={50} round />
+                                    </TwitterShareButton>
+                                  </li>
+                                  <li>
+                                    <WhatsappShareButton
+                                      url={`${window.location.origin}/hospital/${sharedHospitalSlug}/${sharedHospitalCountry}`}
+                                    >
+                                      <WhatsappIcon size={50} round />
+                                    </WhatsappShareButton>
+                                  </li>
+                                </ul>
+
+                                <div class="share-link">
+                                  <input
+                                    type="text"
+                                    placeholder="www.medflick.com/share/hospital"
+                                    name="name"
+                                    required=""
+                                    value={`${window.location.origin}/hospital/${sharedHospitalSlug}/${sharedHospitalCountry}`}
+                                    ref={inputRef}
+                                  />
+                                  <button
+                                    type="submit"
+                                    name="en"
+                                    class="copy-link"
+                                    onClick={copyToClipboard}
+                                  >
+                                    Copy Link
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        )}
 
                         <div className="hospital-location-box">
                           {hospital.address}

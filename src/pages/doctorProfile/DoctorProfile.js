@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Homelayout from "../../components/Homelayout/Homelayout";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import experienceIcon from "../../assests/images/05/experience.png";
-import saveIcon from "../../assests/images/05/save.png";
+import shareIcon from "../../assests/images/05/share-profile.png";
 import bookIcon from "../../assests/images/05/book.png";
 import { AiTwotoneStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -12,6 +12,15 @@ import icon2 from "../../assests/images/05/01/2.png";
 import icon3 from "../../assests/images/05/01/3.png";
 import DoctorVideo from "./DoctorVideo";
 import { Helmet } from "react-helmet";
+import DoctorExpert from "../../components/Home/DoctorExpert";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  WhatsappIcon,
+} from "react-share";
 
 const DoctorProfile = () => {
   const { slug } = useParams();
@@ -19,6 +28,7 @@ const DoctorProfile = () => {
   const [qa, setQa] = useState([]);
   const [treament, setTreament] = useState([]);
   const [hospitals, setHospitals] = useState([]);
+  const [sharedDoctorSlug, setSharedDoctorSlug] = useState("");
 
   useEffect(() => {
     axios
@@ -95,6 +105,7 @@ const DoctorProfile = () => {
       });
   };
 
+  // form popup
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const togglePopup = () => {
@@ -103,6 +114,35 @@ const DoctorProfile = () => {
 
   const popupStyle = {
     display: isPopupOpen ? "block" : "none",
+  };
+
+  // share profile popup
+  const [isPopupOpen1, setIsPopupOpen1] = useState(false);
+
+  const inputRef = useRef(null);
+
+  const copyToClipboard = () => {
+    // Select the text inside the input field
+    inputRef.current.select();
+    inputRef.current.setSelectionRange(0, 99999); // For mobile devices
+
+    // Copy the selected text to the clipboard
+    document.execCommand("copy");
+
+    // Deselect the text
+    inputRef.current.setSelectionRange(0, 0);
+  };
+
+  const popupStyle1 = {
+    display: isPopupOpen1 ? "block" : "none",
+  };
+  const togglePopup1 = () => {
+    setIsPopupOpen1(!isPopupOpen1);
+  };
+
+  const shareDoctorProfile = (doctorSlug) => {
+    setSharedDoctorSlug(doctorSlug);
+    togglePopup1();
   };
   return (
     <>
@@ -173,9 +213,77 @@ const DoctorProfile = () => {
                   </div>
                 </div>
                 <div className="doctor-book-an">
-                  <a href="#" className="save-profile">
-                    Share Profile <img src={saveIcon} alt="icon" />
-                  </a>
+                  <span
+                    className="save-profile"
+                    onClick={() => shareDoctorProfile(docotorDetails.slug)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    Share Profile <img src={shareIcon} alt="icon" />
+                  </span>
+                  {isPopupOpen1 && (
+                    <div class="popup" data-popup="popup-3" style={popupStyle1}>
+                      <div class="popup-inner3">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button
+                              type="button"
+                              class="popup-close"
+                              data-popup-close="popup-3"
+                              data-dismiss="modal"
+                              onClick={togglePopup1}
+                            >
+                              <span aria-hidden="true">×</span>
+                            </button>
+                          </div>
+                          <h2>Share Link</h2>
+                          <p>Share this hospital with others via...</p>
+                          <ul>
+                            <li>
+                              <FacebookShareButton
+                                url={`${window.location.origin}/doctor/${sharedDoctorSlug}`}
+                              >
+                                <FacebookIcon size={50} round />
+                              </FacebookShareButton>
+                            </li>
+                            <li>
+                              <TwitterShareButton
+                                url={`${window.location.origin}/doctor/${sharedDoctorSlug}`}
+                              >
+                                <TwitterIcon size={50} round />
+                              </TwitterShareButton>
+                            </li>
+                            <li>
+                              <WhatsappShareButton
+                                url={`${window.location.origin}/doctor/${sharedDoctorSlug}`}
+                              >
+                                <WhatsappIcon size={50} round />
+                              </WhatsappShareButton>
+                            </li>
+                          </ul>
+
+                          <div class="share-link">
+                            <input
+                              type="text"
+                              placeholder="www.medflick.com/share/hospital"
+                              name="name"
+                              required=""
+                              value={`${window.location.origin}/doctor/${sharedDoctorSlug}`}
+                              ref={inputRef}
+                            />
+                            <button
+                              type="submit"
+                              name="en"
+                              class="copy-link"
+                              onClick={copyToClipboard}
+                            >
+                              Copy Link
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
                   <span
                     className="book-appointment"
                     onClick={togglePopup}
@@ -398,6 +506,7 @@ const DoctorProfile = () => {
 
             {/* Doctor video section */}
             <DoctorVideo />
+
             {/* End */}
 
             <div id="specializations" className="profile-data-section">

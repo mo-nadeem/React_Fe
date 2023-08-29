@@ -11,7 +11,6 @@ import icon from "../../assests/images/03/line-icon.png";
 import icon1 from "../../assests/images/03/line-icon1.png";
 import icon2 from "../../assests/images/03/line-icon2.png";
 import arrowIcon from "../../assests/images/2023/01/arrow-c.png";
-import logo from "../../assests/images/02/logo.png";
 import { Helmet } from "react-helmet";
 import TreatmentBlog from "./TreatmentBlog";
 import TreatmentQA from "./TreatmentQA";
@@ -65,40 +64,6 @@ const Treatment = () => {
         console.error("Error fetching data:", error);
       });
   }, [slug, country]);
-
-  // for active and non active section
-  const [activeContent, setActiveContent] = useState(1);
-
-  const handleContentClick = (contentNumber) => {
-    setActiveContent(activeContent === contentNumber ? null : contentNumber);
-  };
-
-  const contentItems = [
-    {
-      id: 1,
-      title: "Lorem ipsum dolor sit amet 1",
-      text: "Content for button 1",
-      image: "images/2023/02/02/1.jpg",
-    },
-    {
-      id: 2,
-      title: "Lorem ipsum dolor sit amet 2",
-      text: "Content for button 2",
-      image: "images/2023/02/02/2.jpg",
-    },
-    {
-      id: 3,
-      title: "Lorem ipsum dolor sit amet 3",
-      text: "Content for button 3",
-      image: "images/2023/02/02/3.jpg",
-    },
-    {
-      id: 4,
-      title: "Lorem ipsum dolor sit amet 4",
-      text: "Content for button 4",
-      image: "images/2023/02/02/4.jpg",
-    },
-  ];
 
   const [name, setName] = useState("");
   const [pcode, setPcode] = useState("");

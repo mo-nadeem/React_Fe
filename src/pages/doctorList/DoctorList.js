@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Homelayout from "../../components/Homelayout/Homelayout";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -9,15 +9,23 @@ import arrowCIcon from "../../assests/images/2023/01/arrow-c.png";
 import { Link } from "react-router-dom";
 import Select from "react-select";
 import loadingImg from "../../assests/images/05/loading.png";
-import socialImg from "../../assests/images/08/1.png";
 import { Helmet } from "react-helmet";
-import {AiTwotoneStar} from "react-icons/ai"
+import { AiTwotoneStar } from "react-icons/ai";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  WhatsappIcon,
+} from "react-share";
 
 const DoctorList = () => {
   const { slug, country } = useParams();
   const [doctor, setDoctor] = useState([]);
   const [hospitalIcon, setHospitalIcon] = useState([]);
   const [info, setInfo] = useState([]);
+  const [sharedDoctorSlug, setSharedDoctorSlug] = useState("");
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/api/doctors/${slug}/${country}`) // Replace with your API endpoint
@@ -31,6 +39,23 @@ const DoctorList = () => {
       });
   }, [slug, country]);
 
+  // share profile
+
+  const inputRef = useRef(null);
+
+  const copyToClipboard = () => {
+    // Select the text inside the input field
+    inputRef.current.select();
+    inputRef.current.setSelectionRange(0, 99999); // For mobile devices
+
+    // Copy the selected text to the clipboard
+    document.execCommand("copy");
+
+    // Deselect the text
+    inputRef.current.setSelectionRange(0, 0);
+  };
+
+  // show messgae after 2 second
   const [showNotFoundMessage, setShowNotFoundMessage] = useState(false);
 
   useEffect(() => {
@@ -83,11 +108,17 @@ const DoctorList = () => {
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
+ 
+  const popupStyle = {
+    display: isPopupOpen ? "block" : "none",
+  };
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen);
   };
-  const popupStyle = {
-    display: isPopupOpen ? "block" : "none",
+
+  const shareDoctorProfile = (doctorSlug) => {
+    setSharedDoctorSlug(doctorSlug);
+    togglePopup();
   };
 
   // form query post api
@@ -330,9 +361,10 @@ const DoctorList = () => {
                           </h3>
                           <div className="department-sub">{e.designation}</div>
                           <div className="rating-star">
-                          <i>
-                            <AiTwotoneStar />
-                          </i>{" "} 5 (523)
+                            <i>
+                              <AiTwotoneStar />
+                            </i>{" "}
+                            5 (523)
                           </div>
 
                           <div className="doc-experience">
@@ -355,7 +387,7 @@ const DoctorList = () => {
                             View Profile <img src={profileIcon} alt="icon" />
                           </Link>
                           <span
-                            onClick={togglePopup}
+                            onClick={() => shareDoctorProfile(e.slug)}
                             style={{ cursor: "pointer" }}
                             className="share-profile"
                           >
@@ -384,41 +416,25 @@ const DoctorList = () => {
                                   <p>Share this hospital with others via...</p>
                                   <ul>
                                     <li>
-                                      <a href="#">
-                                        <img src={socialImg} alt="" />
-                                      </a>
+                                      <FacebookShareButton
+                                        url={`${window.location.origin}/doctor/${sharedDoctorSlug}`}
+                                      >
+                                        <FacebookIcon size={50} round />
+                                      </FacebookShareButton>
                                     </li>
                                     <li>
-                                      <a href="#">
-                                        <img
-                                          src="images/2023/08/2.png"
-                                          alt=""
-                                        />
-                                      </a>
+                                      <TwitterShareButton
+                                        url={`${window.location.origin}/doctor/${sharedDoctorSlug}`}
+                                      >
+                                        <TwitterIcon size={50} round />
+                                      </TwitterShareButton>
                                     </li>
                                     <li>
-                                      <a href="#">
-                                        <img
-                                          src="images/2023/08/3.png"
-                                          alt=""
-                                        />
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="#">
-                                        <img
-                                          src="images/2023/08/4.png"
-                                          alt=""
-                                        />
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="#">
-                                        <img
-                                          src="images/2023/08/5.png"
-                                          alt=""
-                                        />
-                                      </a>
+                                      <WhatsappShareButton
+                                        url={`${window.location.origin}/doctor/${sharedDoctorSlug}`}
+                                      >
+                                        <WhatsappIcon size={50} round />
+                                      </WhatsappShareButton>
                                     </li>
                                   </ul>
 
@@ -428,11 +444,14 @@ const DoctorList = () => {
                                       placeholder="www.medflick.com/share/hospital"
                                       name="name"
                                       required=""
+                                      value={`${window.location.origin}/doctor/${sharedDoctorSlug}`}
+                                      ref={inputRef}
                                     />
                                     <button
                                       type="submit"
                                       name="en"
                                       class="copy-link"
+                                      onClick={copyToClipboard}
                                     >
                                       Copy Link
                                     </button>

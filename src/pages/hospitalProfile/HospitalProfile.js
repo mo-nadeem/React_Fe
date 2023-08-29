@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Homelayout from "../../components/Homelayout/Homelayout";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import saveIcon from "../../assests/images/05/save.png";
 import bookIcon from "../../assests/images/05/book.png";
 import doctorIcon from "../../assests/images/05/doctors.png";
 import establishIcon from "../../assests/images/05/established.png";
@@ -15,6 +14,16 @@ import { AiTwotoneStar } from "react-icons/ai";
 import { AiOutlineStar } from "react-icons/ai";
 import loadingImg from "../../assests/images/05/loading.png";
 import { Helmet } from "react-helmet";
+import shareIcon from "../../assests/images/05/share-profile.png";
+
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  WhatsappIcon,
+} from "react-share";
 
 const responsive = {
   superLargeDesktop: {
@@ -80,6 +89,7 @@ const HospitalProfile = () => {
       });
   }, [slug, country]);
 
+  // scrolled script
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -99,6 +109,7 @@ const HospitalProfile = () => {
     };
   }, []);
 
+  // selected filters
   const options = [
     { value: "apple", label: "Apple" },
     { value: "banana", label: "Banana" },
@@ -170,6 +181,39 @@ const HospitalProfile = () => {
   const popupStyle = {
     display: isPopupOpen ? "block" : "none",
   };
+
+  // share profile popup
+  const [sharedHospitalSlug, setSharedHospitalSlug] = useState("");
+  const [sharedHospitalCountry, setSharedHospitalCountry] = useState("");
+
+  const inputRef = useRef(null);
+
+  const copyToClipboard = () => {
+    // Select the text inside the input field
+    inputRef.current.select();
+    inputRef.current.setSelectionRange(0, 99999); // For mobile devices
+
+    // Copy the selected text to the clipboard
+    document.execCommand("copy");
+
+    // Deselect the text
+    inputRef.current.setSelectionRange(0, 0);
+  };
+
+  const [isPopupOpen1, setIsPopupOpen1] = useState(false);
+
+  const popupStyle1 = {
+    display: isPopupOpen1 ? "block" : "none",
+  };
+  const togglePopup1 = () => {
+    setIsPopupOpen1(!isPopupOpen1);
+  };
+
+  const shareHospitalProfile = (hospitalSlug, hospitalCountry) => {
+    setSharedHospitalSlug(hospitalSlug);
+    setSharedHospitalCountry(hospitalCountry);
+    togglePopup1();
+  };
   return (
     <>
       <Helmet>
@@ -239,9 +283,81 @@ const HospitalProfile = () => {
                   </div>
                 </div>
                 <div className="doctor-book-an">
-                  <a href="#" className="save-profile">
-                    Share Profile <img src={saveIcon} alt="icon" />
-                  </a>
+                  <span
+                    className="save-profile"
+                    onClick={() =>
+                      shareHospitalProfile(
+                        hospitalDetails.slug,
+                        hospitalDetails.country
+                      )
+                    }
+                    style={{ cursor: "pointer" }}
+                  >
+                    Share Profile <img src={shareIcon} alt="icon" />
+                  </span>
+                  {isPopupOpen1 && (
+                    <div class="popup" data-popup="popup-3" style={popupStyle1}>
+                      <div class="popup-inner3">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button
+                              type="button"
+                              class="popup-close"
+                              data-popup-close="popup-3"
+                              data-dismiss="modal"
+                              onClick={togglePopup1}
+                            >
+                              <span aria-hidden="true">×</span>
+                            </button>
+                          </div>
+                          <h2>Share Link</h2>
+                          <p>Share this hospital with others via...</p>
+                          <ul>
+                            <li>
+                              <FacebookShareButton
+                                url={`${window.location.origin}/hospital/${sharedHospitalSlug}/${sharedHospitalCountry}`}
+                              >
+                                <FacebookIcon size={50} round />
+                              </FacebookShareButton>
+                            </li>
+                            <li>
+                              <TwitterShareButton
+                                url={`${window.location.origin}/hospital/${sharedHospitalSlug}/${sharedHospitalCountry}`}
+                              >
+                                <TwitterIcon size={50} round />
+                              </TwitterShareButton>
+                            </li>
+                            <li>
+                              <WhatsappShareButton
+                                url={`${window.location.origin}/hospital/${sharedHospitalSlug}/${sharedHospitalCountry}`}
+                              >
+                                <WhatsappIcon size={50} round />
+                              </WhatsappShareButton>
+                            </li>
+                          </ul>
+
+                          <div class="share-link">
+                            <input
+                              type="text"
+                              placeholder="www.medflick.com/share/hospital"
+                              name="name"
+                              required=""
+                              value={`${window.location.origin}/hospital/${sharedHospitalSlug}/${sharedHospitalCountry}`}
+                              ref={inputRef}
+                            />
+                            <button
+                              type="submit"
+                              name="en"
+                              class="copy-link"
+                              onClick={copyToClipboard}
+                            >
+                              Copy Link
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                   <span
                     className="book-appointment"
                     onClick={togglePopup}

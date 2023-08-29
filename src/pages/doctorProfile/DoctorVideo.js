@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import doctorImg from "../../assests/images/05/doctors-v.jpg"
+import doctorImg from "../../assests/images/05/doctors-v.jpg";
+import { fetchHome } from "../../Api/action/HomeAction";
+import { useDispatch, useSelector } from "react-redux";
+
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -21,7 +24,21 @@ const responsive = {
     items: 1,
   },
 };
+
 const DoctorVideo = () => {
+  
+  const dispatch = useDispatch();
+
+  const { video } = useSelector((state) => state.data);
+
+  const fetchHomedata = useCallback(() => {
+    dispatch(fetchHome());
+  }, [dispatch]);
+
+  useEffect(() => {
+    fetchHomedata();
+  }, [fetchHomedata]);
+
   return (
     <>
       <div id="services" class="profile-data-section">
@@ -29,8 +46,13 @@ const DoctorVideo = () => {
 
         <div class="owl-slider">
           <div id="doctors-video">
-            <Carousel responsive={responsive} arrows={false} autoPlay={true} autoPlaySpeed={1500} >
-              <div class="item" style={{marginLeft:"20px"}}>
+            <Carousel
+              responsive={responsive}
+              arrows={false}
+              autoPlay={true}
+              autoPlaySpeed={1500}
+            >
+              <div class="item" style={{ marginLeft: "20px" }}>
                 <div class="item-doctors">
                   <img src={doctorImg} alt="doctor-img" />
                   <div class="doctorsvideo-text">
@@ -42,7 +64,7 @@ const DoctorVideo = () => {
                 </div>
               </div>
 
-              <div class="item"style={{marginLeft:"20px"}}>
+              <div class="item" style={{ marginLeft: "20px" }}>
                 <div class="item-doctors">
                   <img src={doctorImg} />
                   <div class="doctorsvideo-text">
@@ -54,7 +76,7 @@ const DoctorVideo = () => {
                 </div>
               </div>
 
-              <div class="item"style={{marginLeft:"20px"}}>
+              <div class="item" style={{ marginLeft: "20px" }}>
                 <div class="item-doctors">
                   <img src={doctorImg} />
                   <div class="doctorsvideo-text">
@@ -66,7 +88,7 @@ const DoctorVideo = () => {
                 </div>
               </div>
 
-              <div class="item"style={{marginLeft:"20px"}}>
+              <div class="item" style={{ marginLeft: "20px" }}>
                 <div class="item-doctors">
                   <img src={doctorImg} />
                   <div class="doctorsvideo-text">

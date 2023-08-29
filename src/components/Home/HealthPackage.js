@@ -58,7 +58,7 @@ const HealthPackage = () => {
         )
         .then((response) => {
           setDetails(response.data.data.treatment_list);
-          console.log(response.data);
+       
         })
         .catch((error) => {
           console.error("Error fetching details data:", error);
