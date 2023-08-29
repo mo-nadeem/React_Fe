@@ -20,7 +20,7 @@ import AllSpecialitesList from "./pages/AllSpecialitesList/AllSpecialitesList";
 import ContactUs from "./pages/contactUs/ContactUs";
 import AboutUs from "./pages/aboutUs/AboutUs";
 import Disclaimer from "./pages/disclaimerPage/Disclaimer";
-import PrivacyStatement from "./pages/privacyStatement/PrivacyStatement"
+import PrivacyStatement from "./pages/privacyStatement/PrivacyStatement";
 
 const ScrollToTop = () => {
   const location = useLocation();

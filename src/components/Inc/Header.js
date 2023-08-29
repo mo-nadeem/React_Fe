@@ -365,7 +365,7 @@ const Header = () => {
                     </Link>
                   </li>
                   <li className="menu-item">
-                    <Link to="/" className="submenu-link">
+                    <Link to="/contact-us" className="submenu-link">
                       Contact Us
                     </Link>
                   </li>
@@ -377,7 +377,7 @@ const Header = () => {
       </header>
 
       <button class="open-button" onClick={togglePopup}>
-        <img src={queryImg} />
+        <img src={queryImg} alt="query-img"/>
       </button>
       <div class="form-popup" id="myForm" style={popupStyle}>
         <div class="form-container">

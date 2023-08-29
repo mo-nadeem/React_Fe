@@ -3436,6 +3436,10 @@ textarea {
   display: none;
 }
 
+#experience li:before {
+  display: none;
+}
+
 .carousel-item {
   width: 357px;
 }

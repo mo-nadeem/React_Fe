@@ -6,12 +6,14 @@ import { fetchHome } from "../../Api/action/HomeAction";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiTwotoneHeart } from "react-icons/ai";
 import arrowCIcon from "../../assests/images/2023/01/arrow-c.png";
+import { FaComments } from "react-icons/fa";
+import { IoIosShareAlt } from "react-icons/io";
 import axios from "axios";
 import { Helmet } from "react-helmet";
 const QuestionAns = () => {
   const dispatch = useDispatch();
 
-  const { qa,navigationheader  } = useSelector((state) => state.data);
+  const { qa, navigationheader } = useSelector((state) => state.data);
 
   const fetchHomedata = useCallback(() => {
     dispatch(fetchHome());
@@ -111,9 +113,8 @@ const QuestionAns = () => {
       });
   };
 
+  // Assistance form post
 
-  // Assistance form post 
-  
   const [name1, setName1] = useState("");
   const [pcode1, setPcode1] = useState("");
   const [phone1, setPhone1] = useState("");
@@ -157,9 +158,6 @@ const QuestionAns = () => {
       });
   };
 
-
-
-
   // for title and descriptions
 
   const navigation = navigationheader || [];
@@ -174,7 +172,10 @@ const QuestionAns = () => {
 
         <meta property="og:description" content={itemWithId13.description} />
 
-        <meta property="og:url" content="https://medflick.com/question-answer" />
+        <meta
+          property="og:url"
+          content="https://medflick.com/question-answer"
+        />
 
         <meta property="og:type" content="website" />
 
@@ -546,10 +547,16 @@ const QuestionAns = () => {
                           Likes {likes[e.id] || 0}
                         </a>
                         <a className="ask-comments" href="#">
-                          <i className="fa fa-comments"></i> Comments
+                          <i>
+                            <FaComments />
+                          </i>{" "}
+                          Comments
                         </a>
                         <a className="ask-comments" href="#">
-                          <i className="fa fa-share"></i> Share
+                          <i>
+                            <IoIosShareAlt />
+                          </i>{" "}
+                          Share
                         </a>
                       </div>
                     </div>

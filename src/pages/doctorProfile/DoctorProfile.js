@@ -12,6 +12,7 @@ import icon2 from "../../assests/images/05/01/2.png";
 import icon3 from "../../assests/images/05/01/3.png";
 import DoctorVideo from "./DoctorVideo";
 import { Helmet } from "react-helmet";
+import { AiOutlineStar } from "react-icons/ai";
 import DoctorExpert from "../../components/Home/DoctorExpert";
 import {
   FacebookShareButton,
@@ -42,6 +43,15 @@ const DoctorProfile = () => {
         console.error("Error fetching data:", error);
       });
   }, [slug]);
+
+  // for rating
+
+  const [rating, setRating] = useState(0);
+  const handleRatingClick = (selectedRating) => {
+    setRating(selectedRating);
+  };
+
+  // scrolled screen script
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -352,11 +362,21 @@ const DoctorProfile = () => {
                   <div className="star-rating">
                     <div className="rating-nobox">5.00</div>
                     <div className="star-rating-box">
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
-                      <i className="fa fa-star"></i>
+                      <i>
+                        <AiTwotoneStar />
+                      </i>
+                      <i>
+                        <AiTwotoneStar />
+                      </i>
+                      <i>
+                        <AiTwotoneStar />
+                      </i>
+                      <i>
+                        <AiTwotoneStar />
+                      </i>
+                      <i>
+                        <AiTwotoneStar />
+                      </i>
                       <span>
                         Based on <a href="#">31 Reviews</a>
                       </span>
@@ -365,57 +385,30 @@ const DoctorProfile = () => {
 
                   <div className="star-reviews-box">
                     <div className="leave-review">Leave a review</div>
+                    {/* <input /> */}
                     <p>How likely are you to recommend Dr. Oleg Goncharov?</p>
                     <div className="star-box1">
-                      <div className="rating">
-                        <input
-                          type="radio"
-                          name="rating"
-                          id="rating-1"
-                          value="1"
-                        />
-                        <input
-                          type="radio"
-                          name="rating"
-                          id="rating-2"
-                          value="2"
-                        />
-                        <input
-                          type="radio"
-                          name="rating"
-                          id="rating-3"
-                          value="3"
-                        />
-                        <input
-                          type="radio"
-                          name="rating"
-                          id="rating-4"
-                          value="4"
-                        />
-                        <input
-                          type="radio"
-                          name="rating"
-                          id="rating-5"
-                          value="5"
-                        />
-                        <div className="rating__box">
-                          <label for="rating-1" className="rating__star">
-                            <i className="fa fa-star"></i>
-                          </label>
-                          <label for="rating-2" className="rating__star">
-                            <i className="fa fa-star"></i>
-                          </label>
-                          <label for="rating-3" className="rating__star">
-                            <i className="fa fa-star"></i>
-                          </label>
-                          <label for="rating-4" className="rating__star">
-                            <i className="fa fa-star"></i>
-                          </label>
-                          <label for="rating-5" className="rating__star">
-                            <i className="fa fa-star"></i>
-                          </label>
-                        </div>
-                      </div>
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <span
+                          key={star}
+                          onClick={() => handleRatingClick(star)}
+                          style={{
+                            fontSize: "3rem",
+                            cursor: "pointer",
+                            color: "#ff6800",
+                          }}
+                        >
+                          {star <= rating ? (
+                            <i>
+                              <AiTwotoneStar />
+                            </i>
+                          ) : (
+                            <i>
+                              <AiOutlineStar />
+                            </i>
+                          )}
+                        </span>
+                      ))}
                       <div className="star-box2">(Select a Rating)</div>
                     </div>
                   </div>
