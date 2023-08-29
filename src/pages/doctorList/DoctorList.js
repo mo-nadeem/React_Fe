@@ -108,7 +108,6 @@ const DoctorList = () => {
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
- 
   const popupStyle = {
     display: isPopupOpen ? "block" : "none",
   };

@@ -207,7 +207,10 @@ const DoctorProfile = () => {
               <div className="doctorprofile-right">
                 <div className="rating-Overall">
                   <div className="rating-box">
-                    <i className="fa fa-star"></i> Overall rating
+                    <i>
+                      <AiTwotoneStar />
+                    </i>{" "}
+                    Overall rating
                   </div>
                   <div className="rating-no">4.90</div>
                   <a href="#" className="verified-link">
@@ -501,24 +504,19 @@ const DoctorProfile = () => {
             <DoctorVideo />
 
             {/* End */}
-
-            <div id="specializations" className="profile-data-section">
-              <h2>Specialization</h2>
-              <div className="medical-box">
-                {docotorDetails.specialization &&
-                  docotorDetails.specialization
-                    .split(",")
-                    .map((amenity, index) => (
-                      <Link key={index}>{amenity.trim()}</Link>
-                    ))}
-                {/* <a href="#" target="_self">
-                  Oncology
-                </a>
-                <a href="#" target="_self">
-                  Medical Oncology{" "}
-                </a> */}
+            {docotorDetails.specialization && (
+              <div id="specializations" className="profile-data-section">
+                <h2>Specialization</h2>
+                <div className="medical-box">
+                  {docotorDetails.specialization &&
+                    docotorDetails.specialization
+                      .split(",")
+                      .map((amenity, index) => (
+                        <Link key={index}>{amenity.trim()}</Link>
+                      ))}
+                </div>
               </div>
-            </div>
+            )}
 
             <div id="services" className="profile-data-section">
               <h2>Services</h2>
@@ -528,33 +526,6 @@ const DoctorProfile = () => {
                     {e.name}
                   </a>
                 ))}
-                {/* <a href="#" target="_self">
-                  Breast Cancer Management{" "}
-                </a>
-                <a href="#" target="_self">
-                  Breast Cancer Treatment{" "}
-                </a>
-                <a href="#" target="_self">
-                  Chemotherapy Of Haematological Malignancies{" "}
-                </a>
-                <a href="#" target="_self">
-                  Cancer Surgery{" "}
-                </a>
-                <a href="#" target="_self">
-                  Chemotherapy Of Solid Tumors{" "}
-                </a>
-                <a href="#" target="_self">
-                  Multiple Myeloma{" "}
-                </a>
-                <a href="#" target="_self">
-                  Picc Line Insertion
-                </a>
-                <a href="#" target="_self">
-                  Prostate Cancer Surgery
-                </a>
-                <a href="#" target="_self">
-                  Prostate Cancer
-                </a> */}
               </div>
             </div>
 

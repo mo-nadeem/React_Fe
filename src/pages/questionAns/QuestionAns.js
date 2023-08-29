@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import Homelayout from "../../components/Homelayout/Homelayout";
 import Select from "react-select";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,6 +10,15 @@ import { FaComments } from "react-icons/fa";
 import { IoIosShareAlt } from "react-icons/io";
 import axios from "axios";
 import { Helmet } from "react-helmet";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  WhatsappIcon,
+} from "react-share";
+
 const QuestionAns = () => {
   const dispatch = useDispatch();
 
@@ -162,6 +171,30 @@ const QuestionAns = () => {
 
   const navigation = navigationheader || [];
   const itemWithId13 = navigation.find((e) => e.id === 14);
+
+  //  for share a pages
+  const inputRef = useRef(null);
+
+  const copyToClipboard = () => {
+    // Select the text inside the input field
+    inputRef.current.select();
+    inputRef.current.setSelectionRange(0, 99999); // For mobile devices
+
+    // Copy the selected text to the clipboard
+    document.execCommand("copy");
+
+    // Deselect the text
+    inputRef.current.setSelectionRange(0, 0);
+  };
+  const [isPopupOpenShare, setIsPopupOpenShare] = useState(false);
+
+  const togglePopupShare = () => {
+    setIsPopupOpenShare(!isPopupOpenShare);
+  };
+  const popupStyleShare = {
+    display: isPopupOpenShare ? "block" : "none",
+  };
+
   return (
     <>
       <Helmet>
@@ -552,12 +585,83 @@ const QuestionAns = () => {
                           </i>{" "}
                           Comments
                         </a>
-                        <a className="ask-comments" href="#">
+                        <span
+                          className="ask-comments"
+                          onClick={togglePopupShare}
+                          style={{ cursor: "pointer" }}
+                        >
                           <i>
                             <IoIosShareAlt />
                           </i>{" "}
                           Share
-                        </a>
+                        </span>
+                        {isPopupOpenShare && (
+                          <div
+                            class="popup"
+                            data-popup="popup-3"
+                            style={popupStyleShare}
+                          >
+                            <div class="popup-inner3">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button
+                                    type="button"
+                                    class="popup-close"
+                                    data-popup-close="popup-3"
+                                    data-dismiss="modal"
+                                    onClick={togglePopupShare}
+                                  >
+                                    <span aria-hidden="true">×</span>
+                                  </button>
+                                </div>
+                                <h2>Share Link</h2>
+                                <p>Share this hospital with others via...</p>
+                                <ul>
+                                  <li>
+                                    <FacebookShareButton
+                                      url={`${window.location.origin}/question-answer`}
+                                    >
+                                      <FacebookIcon size={50} round />
+                                    </FacebookShareButton>
+                                  </li>
+                                  <li>
+                                    <TwitterShareButton
+                                      url={`${window.location.origin}/question-answer`}
+                                    >
+                                      <TwitterIcon size={50} round />
+                                    </TwitterShareButton>
+                                  </li>
+                                  <li>
+                                    <WhatsappShareButton
+                                      url={`${window.location.origin}/question-answer`}
+                                    >
+                                      <WhatsappIcon size={50} round />
+                                    </WhatsappShareButton>
+                                  </li>
+                                </ul>
+
+                                <div class="share-link">
+                                  <input
+                                    type="text"
+                                    placeholder="www.medflick.com/share/hospital"
+                                    name="name"
+                                    required=""
+                                    value={`${window.location.origin}/question-answer`}
+                                    ref={inputRef}
+                                  />
+                                  <button
+                                    type="submit"
+                                    name="en"
+                                    class="copy-link"
+                                    onClick={copyToClipboard}
+                                  >
+                                    Copy Link
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
                   ))}
