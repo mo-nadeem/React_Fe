@@ -275,7 +275,7 @@ const ExplorHealth = () => {
               </div>
             </div> */}
 
-            <Link className="view-all" to="/">
+            <Link className="view-all" to="/specialities">
               View All
             </Link>
           </div>

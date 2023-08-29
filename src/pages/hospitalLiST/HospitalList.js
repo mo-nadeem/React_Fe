@@ -13,6 +13,7 @@ import Select from "react-select";
 import loadingImg from "../../assests/images/05/loading.png";
 import arrowCIcon from "../../assests/images/2023/01/arrow-c.png";
 import { Helmet } from "react-helmet";
+import { AiTwotoneStar } from "react-icons/ai";
 
 const HospitalList = () => {
   const { slug, country } = useParams();
@@ -148,7 +149,7 @@ const HospitalList = () => {
                 <div className="search-box">
                   <input
                     type="text"
-                    placeholder="Search Doctor"
+                    placeholder="Search Hospital"
                     name="name"
                     required=""
                   />
@@ -277,7 +278,10 @@ const HospitalList = () => {
                           Oncologist, Medical Oncologist
                         </div>
                         <div className="rating-star">
-                          <i className="fa fa-star"></i> 5 (523)
+                          <i>
+                            <AiTwotoneStar />
+                          </i>{" "}
+                          5 (523)
                         </div>
 
                         <div className="ho-docimg">

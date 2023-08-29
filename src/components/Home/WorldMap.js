@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const WorldMap = () => {
   return (
@@ -12,10 +13,10 @@ const WorldMap = () => {
             handle your visa, itinerary, and ensure your well-being every step
             of the way.
           </p>
-          <a href="#">
-            {" "}
+          <Link to="/contact-us">
+    
             Contact us <img src="images/2023/01/arrow-w.png" alt="" />
-          </a>
+          </Link>
         </div>
       </section>
 

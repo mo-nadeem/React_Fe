@@ -13,7 +13,7 @@ const InternationalPlatform = () => {
       <div className="platform-right">
         <h3>2000+</h3>
         <p>Patients have received our assistance since 2020</p>
-        <Link to="/" className="learn">
+        <Link to="/about-us" className="learn">
           Learn More <img src="images/2023/01/arrow-w.png" alt="" />
         </Link>
       </div>

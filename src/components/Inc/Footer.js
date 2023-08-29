@@ -75,9 +75,9 @@ const Footer = () => {
                 availability ensures that whether you're at home or halfway
                 across the world, we're here to provide the guidance you need.
               </p>
-              <a href="#">
+              <Link to="/contact-us">
                 Contact us <img src={arrowImg} alt="" />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -162,14 +162,14 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <a href="#" target="_self">
+                  <Link to="/question-answer" target="_self">
                     Community
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" target="_self">
+                  <Link to="/query" target="_self">
                     Request a free quote
-                  </a>
+                  </Link>
                 </li>
                 {/* <li>
                   <a href="#" target="_self">
@@ -223,9 +223,9 @@ const Footer = () => {
               </h4>
               <ul className="footerbox">
                 <li>
-                  <a href="#" target="_self">
+                  <Link to="/contact-us" target="_self">
                     Write to us
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a href="#" target="_self">

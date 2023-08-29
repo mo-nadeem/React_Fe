@@ -504,7 +504,7 @@ const NavSection = ({ doctor, hospital, info }) => {
                   />
 
                   <div className="consultation-box1">
-                  <Link className="free-quote" to="/query">
+                    <Link className="free-quote" to="/query">
                       Get a free quote <img src={arrowIcon} />
                     </Link>
                     <a
@@ -685,7 +685,7 @@ const NavSection = ({ doctor, hospital, info }) => {
                   />
 
                   <div className="consultation-box1">
-                  <Link className="free-quote" to="/query">
+                    <Link className="free-quote" to="/query">
                       Get a free quote <img src={arrowIcon} />
                     </Link>
                     <a
@@ -941,19 +941,25 @@ const NavSection = ({ doctor, hospital, info }) => {
 
               <div className="navbox">
                 <img src={icon1} />
-                <h4>Hospitals</h4>
+                <Link to="/hospitals">
+                  <h4>Hospitals</h4>
+                </Link>
                 <p>Lorem ipsum dolor sit aliqua sit labore minim venia</p>
               </div>
 
               <div className="navbox">
                 <img src={icon2} />
-                <h4>Doctors</h4>
+                <Link to="/doctors">
+                  <h4>Doctors</h4>
+                </Link>
                 <p>Lorem ipsum dolor sit aliqua sit labore minim venia</p>
               </div>
 
               <div className="navbox">
                 <img src={icon3} />
-                <h4> Q&A </h4>
+                <Link to="/question-answer">
+                  <h4> Q&A </h4>
+                </Link>
                 <p>Lorem ipsum dolor sit aliqua sit labore minim venia</p>
               </div>
 

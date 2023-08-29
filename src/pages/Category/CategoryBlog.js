@@ -81,7 +81,7 @@ const CategoryBlog = ({ blog }) => {
               </Carousel>
             </div>
           </div>
-          <Link className="see-more" to="/">
+          <Link className="see-more" to="/blogs">
             View more resources{" "}
           </Link>
         </div>

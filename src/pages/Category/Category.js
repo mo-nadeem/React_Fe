@@ -120,6 +120,7 @@ const Category = () => {
         setIsLoading(false);
       });
   };
+
   return (
     <>
       <Helmet>

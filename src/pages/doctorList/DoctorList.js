@@ -11,6 +11,7 @@ import Select from "react-select";
 import loadingImg from "../../assests/images/05/loading.png";
 import socialImg from "../../assests/images/08/1.png";
 import { Helmet } from "react-helmet";
+import {AiTwotoneStar} from "react-icons/ai"
 
 const DoctorList = () => {
   const { slug, country } = useParams();
@@ -329,7 +330,9 @@ const DoctorList = () => {
                           </h3>
                           <div className="department-sub">{e.designation}</div>
                           <div className="rating-star">
-                            <i className="fa fa-star"></i> 5 (523)
+                          <i>
+                            <AiTwotoneStar />
+                          </i>{" "} 5 (523)
                           </div>
 
                           <div className="doc-experience">

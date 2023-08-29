@@ -116,6 +116,60 @@ const HospitalProfile = () => {
   const handleClearSelection = () => {
     setSelectedOption(null);
   };
+
+  // form popup post method
+  const [name, setName] = useState("");
+  const [pcode, setPcode] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [query, setQuery] = useState("");
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    // Create the data object to be sent in the API request
+    const data = {
+      name: name,
+      phone_code: pcode,
+      phone: phone,
+      email: email,
+      messages: query,
+    };
+
+    // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
+    const apiEndpoint = `${process.env.REACT_APP_BASE_URL}/api/hospital_query`;
+
+    setIsLoading(true);
+
+    // Make the API call
+    axios
+      .post(apiEndpoint, data)
+      .then((response) => {
+        // Handle the API response here if needed
+        console.log(response);
+        alert("questions is susscefull submitted");
+      })
+      .catch((error) => {
+        // Handle any errors that occurred during the API call
+        console.error("Error:", error);
+      })
+      .finally(() => {
+        // Set loading back to false after the API call is complete
+        setIsLoading(false);
+      });
+  };
+
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsPopupOpen(!isPopupOpen);
+  };
+
+  const popupStyle = {
+    display: isPopupOpen ? "block" : "none",
+  };
   return (
     <>
       <Helmet>
@@ -160,7 +214,10 @@ const HospitalProfile = () => {
               <div className="hospitalprofile-right">
                 <div className="rating-Overall">
                   <div className="rating-box">
-                    <i className="fa fa-star"></i> Overall rating
+                    <i>
+                      <AiTwotoneStar />
+                    </i>{" "}
+                    Overall rating
                   </div>
                   <div className="rating-no">4.90</div>
                   <a href="#" className="verified-link">
@@ -183,11 +240,15 @@ const HospitalProfile = () => {
                 </div>
                 <div className="doctor-book-an">
                   <a href="#" className="save-profile">
-                    Save Profile <img src={saveIcon} alt="icon" />
+                    Share Profile <img src={saveIcon} alt="icon" />
                   </a>
-                  <a href="#" className="book-appointment">
+                  <span
+                    className="book-appointment"
+                    onClick={togglePopup}
+                    style={{ cursor: "pointer" }}
+                  >
                     Enquire Now <img src={bookIcon} alt="icon" />
-                  </a>
+                  </span>
                 </div>
               </div>
             </div>
@@ -1024,6 +1085,151 @@ const HospitalProfile = () => {
           </div>
         </section>
       </Homelayout>
+      {isPopupOpen && (
+        <div className="popup" data-popup="popup-1" style={popupStyle}>
+          <div className="popup-inner2">
+            <div className="modal-content">
+              <div className="modal-header">
+                <button
+                  type="button"
+                  className="popup-close"
+                  data-popup-close="popup-1"
+                  data-dismiss="modal"
+                  onClick={togglePopup}
+                >
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <h2>Ask Free Question</h2>
+              <form onSubmit={handleFormSubmit}>
+                <div className="treatment-right">
+                  <div className="treatment-form">
+                    <div className="inputbox">
+                      <label>Full Name</label>
+                      <input
+                        type="text"
+                        placeholder=""
+                        name="name"
+                        required
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="treatment-form">
+                    <div className="inputbox">
+                      <label>Phone Number</label>
+                      <div className="phone-form">
+                        <div className="phone-box1">
+                          <select
+                            aria-label="Sort dropdown"
+                            className="phone-dropdown"
+                            value={pcode}
+                            onChange={(e) => setPcode(e.target.value)}
+                          >
+                            <option value="">Choose Code</option>
+                            <option value="+91">India (+91)</option>
+                            <option value="1">UK (+44)</option>
+                            <option value="213">Algeria (+213)</option>
+                            <option value="376">Andorra (+376)</option>
+                            <option value="244">Angola (+244)</option>
+                            <option value="1264">Anguilla (+1264)</option>
+                            <option value="1268">
+                              Antigua &amp; Barbuda (+1268)
+                            </option>
+                            <option value="54">Argentina (+54)</option>
+                            <option value="374">Armenia (+374)</option>
+                            <option value="297">Aruba (+297)</option>
+                            <option value="61">Australia (+61)</option>
+                            <option value="43">Austria (+43)</option>
+                            <option value="994">Azerbaijan (+994)</option>
+                            <option value="1242">Bahamas (+1242)</option>
+                            <option value="973">Bahrain (+973)</option>
+                            <option value="880">Bangladesh (+880)</option>
+                            <option value="1246">Barbados (+1246)</option>
+                            <option value="375">Belarus (+375)</option>
+                            <option value="32">Belgium (+32)</option>
+                            <option value="501">Belize (+501)</option>
+                            <option value="229">Benin (+229)</option>
+                            <option value="1441">Bermuda (+1441)</option>
+                            <option value="975">Bhutan (+975)</option>
+                            <option value="591">Bolivia (+591)</option>
+                            <option value="387">
+                              Bosnia Herzegovina (+387)
+                            </option>
+                            <option value="267">Botswana (+267)</option>
+                            <option value="55">Brazil (+55)</option>
+                            <option value="673">Brunei (+673)</option>
+                            <option value="359">Bulgaria (+359)</option>
+                            <option value="226">Burkina Faso (+226)</option>
+                            <option value="257">Burundi (+257)</option>
+                            <option value="855">Cambodia (+855)</option>
+                            {/* ... Other options ... */}
+                          </select>
+                        </div>
+                        <div className="phone-box2">
+                          <input
+                            type="text"
+                            placeholder=""
+                            name="name"
+                            required
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="treatment-form">
+                    <div className="inputbox">
+                      <label>Email Address</label>
+                      <input
+                        type="text"
+                        placeholder=""
+                        name="name"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="treatment-form">
+                    <div className="inputbox">
+                      <label>Your Query</label>
+                      <textarea
+                        className="querybox"
+                        type="textarea"
+                        name="query"
+                        placeholder=""
+                        rows="2"
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                      ></textarea>
+                    </div>
+                  </div>
+
+                  {/* <div className="treatment-form">
+                            <div className="medical-report-wrapper">
+                              <button className="medical-report">
+                                <img src="images/2023/07/upload-icon1.png" />{" "}
+                                Upload medical report
+                              </button>
+                              <input type="file" name="file" />
+                            </div>
+                          </div> */}
+
+                  <button type="submit" name="en" className="home-button">
+                    {isLoading ? "Submitting..." : "Submit Now"}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
