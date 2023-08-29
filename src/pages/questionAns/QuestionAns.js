@@ -41,12 +41,9 @@ const QuestionAns = () => {
       [questionId]: (prevLikes[questionId] || 0) + 1,
     }));
   };
-  // Search script
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  const togglePopup = () => {
-    setIsPopupOpen(!isPopupOpen);
-  };
+  // filter selected script
+
   const options = [
     { value: "apple", label: "Apple" },
     { value: "banana", label: "Banana" },
@@ -65,6 +62,8 @@ const QuestionAns = () => {
     setSelectedOption(null);
   };
 
+  // Advance search options
+
   const [menuVisible, setMenuVisible] = useState(false);
 
   const toggleMenu = () => {
@@ -74,11 +73,18 @@ const QuestionAns = () => {
     display: menuVisible ? "block" : "none",
   };
 
+  // form popup scripts
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsPopupOpen(!isPopupOpen);
+  };
   const popupStyle = {
     display: isPopupOpen ? "block" : "none",
   };
 
   // form popup post method
+
   const [name, setName] = useState("");
   const [pcode, setPcode] = useState("");
   const [phone, setPhone] = useState("");
