@@ -11,6 +11,7 @@ import icon1 from "../../assests/images/05/01/1.png";
 import icon2 from "../../assests/images/05/01/2.png";
 import icon3 from "../../assests/images/05/01/3.png";
 import DoctorVideo from "./DoctorVideo";
+import { Helmet } from "react-helmet";
 
 const DoctorProfile = () => {
   const { slug } = useParams();
@@ -51,6 +52,34 @@ const DoctorProfile = () => {
   }, []);
   return (
     <>
+      <Helmet>
+        <title>{docotorDetails && docotorDetails.title}</title>
+        <meta
+          name="description"
+          content={docotorDetails && docotorDetails.description}
+        />
+        <link rel="canonical" href={`https://medflick.com/doctor/${slug}`} />
+        <meta
+          property="og:title"
+          content={docotorDetails && docotorDetails.title}
+        />
+
+        <meta
+          property="og:description"
+          content={docotorDetails && docotorDetails.description}
+        />
+
+        <meta
+          property="og:url"
+          content={`https://medflick.com/doctor/${slug}`}
+        />
+
+        <meta property="og:type" content="website" />
+
+        <meta property="og:locale" content="en" />
+
+        <meta property="og:site_name" content="Medflick" />
+      </Helmet>
       <Homelayout>
         <section id="doctorprofile-section">
           <div className="midbox-inner  wiki-mk">

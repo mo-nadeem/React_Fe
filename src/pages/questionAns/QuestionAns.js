@@ -7,10 +7,11 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { AiTwotoneHeart } from "react-icons/ai";
 import arrowCIcon from "../../assests/images/2023/01/arrow-c.png";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 const QuestionAns = () => {
   const dispatch = useDispatch();
 
-  const { qa } = useSelector((state) => state.data);
+  const { qa,navigationheader  } = useSelector((state) => state.data);
 
   const fetchHomedata = useCallback(() => {
     dispatch(fetchHome());
@@ -155,8 +156,34 @@ const QuestionAns = () => {
         setIsLoading1(false);
       });
   };
+
+
+
+
+  // for title and descriptions
+
+  const navigation = navigationheader || [];
+  const itemWithId13 = navigation.find((e) => e.id === 14);
   return (
     <>
+      <Helmet>
+        <title>{itemWithId13.title}</title>
+        <meta name="description" content={itemWithId13.description} />
+
+        <meta property="og:title" content={itemWithId13.title} />
+
+        <meta property="og:description" content={itemWithId13.description} />
+
+        <meta property="og:url" content="https://medflick.com/question-answer" />
+
+        <meta property="og:type" content="website" />
+
+        <meta property="og:locale" content="en" />
+
+        <meta property="og:site_name" content="Medflick" />
+
+        <link rel="canonical" href={`https://medflick.com/question-answer`} />
+      </Helmet>
       <Homelayout>
         <section id="questions-ans-section">
           <div className="midbox-inner wiki-mk">

@@ -4,12 +4,10 @@ import DoctorExpert from "../../components/Home/DoctorExpert";
 import Testimonials from "../../components/Home/Testimonials";
 import { useParams } from "react-router-dom";
 import arrowImg from "../../assests/images/2023/01/arrow-c.png";
-import img1 from "../../assests/images/02/01/1.jpg";
 import axios from "axios";
 import DoctorCarousel from "./DoctorCarousel";
 import HospitalCarousel from "./HospitalCarousel";
 import { Link } from "react-router-dom";
-import Brandlogoimg from "../../assests/images/02/logo.png";
 import arrowTrans from "../../assests/images/2023/01/pack-arrow.png";
 import { Helmet } from "react-helmet";
 import CategoryBlog from "./CategoryBlog";
@@ -22,6 +20,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import manImg from "../../assests/images/07/man.jpg";
 import arrowCIcon from "../../assests/images/2023/01/arrow-c.png";
+import HelpYou from "../../components/HelpYou/HelpYou";
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -67,39 +66,6 @@ const Category = () => {
         console.error("Error fetching data:", error);
       });
   }, [slug, country]);
-
-  const [activeContent, setActiveContent] = useState(1); // Initialize as null
-
-  const handleContentClick = (contentNumber) => {
-    setActiveContent(activeContent === contentNumber ? null : contentNumber); // Toggle content visibility
-  };
-
-  const contentItems = [
-    {
-      id: 1,
-      title: "Lorem ipsum dolor sit amet 1",
-      text: "Content for button 1",
-      image: img1,
-    },
-    {
-      id: 2,
-      title: "Lorem ipsum dolor sit amet 2",
-      text: "Content for button 2",
-      image: "images/2023/02/02/2.jpg",
-    },
-    {
-      id: 3,
-      title: "Lorem ipsum dolor sit amet 3",
-      text: "Content for button 3",
-      image: "images/2023/02/02/3.jpg",
-    },
-    {
-      id: 4,
-      title: "Lorem ipsum dolor sit amet 4",
-      text: "Content for button 4",
-      image: "images/2023/02/02/4.jpg",
-    },
-  ];
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -278,65 +244,14 @@ const Category = () => {
           </div>
         </section>
         {/* components section */}
+
         <DoctorExpert />
+
         {/* end */}
-        <section id="help-you">
-          <div className="midbox-inner  wiki-mk">
-            <img src={Brandlogoimg} className="logo-med" alt="Brand Logo" />
-            <h2>How can we help you?</h2>
+        {/* How I can Help You */}
 
-            <div className="we-help-box">
-              <div className="we-help-left">
-                <div className="button-wrap">
-                  {contentItems.map((item) => (
-                    <div
-                      className={`button ${
-                        activeContent === item.id ? "active" : ""
-                      }`}
-                      key={item.id}
-                    >
-                      <div
-                        className="arrow-icon"
-                        onClick={() => handleContentClick(item.id)}
-                      />
-                      <h3 onClick={() => handleContentClick(item.id)}>
-                        {item.title}
-                      </h3>
-                      {activeContent === item.id && ( // Render text and image only when activeContent matches item.id
-                        <React.Fragment>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore Ut
-                            enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea commodo con
-                            duis aute irure orem ipsum dolor sit amet,
-                            consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore Ut enim
-                          </p>
-                        </React.Fragment>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="we-help-right">
-                <div className="content">
-                  {contentItems.map((item) => (
-                    <div
-                      className={`content-${item.id} ${
-                        activeContent === item.id ? "active" : ""
-                      }`}
-                      key={item.id}
-                    >
-                      <img src={item.image} alt={`Content ${item.id}`} />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <HelpYou />
+        {/* End */}
 
         {/* Dont pay */}
         <DontPay />

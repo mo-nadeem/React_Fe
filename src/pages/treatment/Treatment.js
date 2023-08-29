@@ -18,6 +18,7 @@ import TreatmentQA from "./TreatmentQA";
 import Community from "../../components/community/Community";
 import TreatmentFAQ from "./TreatmentFAQ";
 import DontPay from "../../components/DontPay/DontPay";
+import HelpYou from "../../components/HelpYou/HelpYou";
 const responsiveHospital = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -421,63 +422,9 @@ const Treatment = () => {
 
         {/* end */}
 
-        <section id="help-you">
-          <div className="midbox-inner  wiki-mk">
-            <img src={logo} className="logo-med" alt="Brand Logo" />
-            <h2>How can we help you?</h2>
-
-            <div className="we-help-box">
-              <div className="we-help-left">
-                <div className="button-wrap">
-                  {contentItems.map((item) => (
-                    <div
-                      className={`button ${
-                        activeContent === item.id ? "active" : ""
-                      }`}
-                      key={item.id}
-                    >
-                      <div
-                        className="arrow-icon"
-                        onClick={() => handleContentClick(item.id)}
-                      />
-                      <h3 onClick={() => handleContentClick(item.id)}>
-                        {item.title}
-                      </h3>
-                      {activeContent === item.id && ( // Render text and image only when activeContent matches item.id
-                        <React.Fragment>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore Ut
-                            enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea commodo con
-                            duis aute irure orem ipsum dolor sit amet,
-                            consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore Ut enim
-                          </p>
-                        </React.Fragment>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="we-help-right">
-                <div className="content">
-                  {contentItems.map((item) => (
-                    <div
-                      className={`content-${item.id} ${
-                        activeContent === item.id ? "active" : ""
-                      }`}
-                      key={item.id}
-                    >
-                      <img src={item.image} alt={`Content ${item.id}`} />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* How I can help You */}
+        <HelpYou />
+        {/* End */}
         {/* Treatment QA */}
         <TreatmentQA qa={qa} />
 

@@ -25,6 +25,7 @@ const HospitalList = () => {
       .then((response) => {
         setHospital(response.data.hospital_list.hospital_list);
         setImages(response.data.hospital_list.hospital_gallery);
+        // setInfo(response.data.hospital_list.treatment_name);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -98,6 +99,36 @@ const HospitalList = () => {
   };
   return (
     <>
+      {/* <Helmet>
+        {info.hos_title ? (
+          <title>{info.hos_title}</title>
+        ) : (
+          showNotFoundMessage && <title>null</title>
+        )}
+        {info.doc_description ? (
+          <meta name="description" content={info.hos_description} />
+        ) : (
+          <meta name="description" content="null" />
+        )}
+        <link
+          rel="canonical"
+          href={`https://medflick.com/hospitals/speciality/${slug}/${country}`}
+        />
+        <meta property="og:title" content={info.hos_title} />
+
+        <meta property="og:description" content={info.hos_description} />
+
+        <meta
+          property="og:url"
+          content={`https://medflick.com/hospitals/speciality/${slug}/${country}`}
+        />
+
+        <meta property="og:type" content="website" />
+
+        <meta property="og:locale" content="en" />
+
+        <meta property="og:site_name" content="Medflick" />
+      </Helmet> */}
       <Homelayout>
         <section id="find-doctors">
           <div className="midbox-inner  wiki-mk">

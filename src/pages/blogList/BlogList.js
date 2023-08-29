@@ -3,11 +3,12 @@ import Homelayout from "../../components/Homelayout/Homelayout";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchHome } from "../../Api/action/HomeAction";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const BlogList = () => {
   const dispatch = useDispatch();
 
-  const { blog } = useSelector((state) => state.data);
+  const { blog, navigationheader } = useSelector((state) => state.data);
 
   const fetchHomedata = useCallback(() => {
     dispatch(fetchHome());
@@ -23,8 +24,29 @@ const BlogList = () => {
   const blog4 = blog?.slice(3, 4) ?? [];
   const blog5 = blog?.slice(0, 3) ?? [];
 
+  // for title
+  const navigation = navigationheader || [];
+  const itemWithId13 = navigation.find((e) => e.id === 13);
   return (
     <>
+      <Helmet>
+        <title>{itemWithId13.title}</title>
+        <meta name="description" content={itemWithId13.description} />
+
+        <meta property="og:title" content={itemWithId13.title} />
+
+        <meta property="og:description" content={itemWithId13.description} />
+
+        <meta property="og:url" content="https://medflick.com/blogs" />
+
+        <meta property="og:type" content="website" />
+
+        <meta property="og:locale" content="en" />
+
+        <meta property="og:site_name" content="Medflick" />
+
+        <link rel="canonical" href={`https://medflick.com/blog`} />
+      </Helmet>
       <Homelayout>
         <section id="bloglist-head">
           <div className="midbox-inner  wiki-mk">
@@ -350,7 +372,7 @@ const BlogList = () => {
                     </p>
                   </div> */}
                 </div>
-{/* 
+                {/* 
                 <div className="bloglist-itembottom">
                   <h3>Lorem ipsum dolor amet fugit</h3>
                   <div className="bloglist-itemmid">

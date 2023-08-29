@@ -3,6 +3,7 @@ import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import thunk from "redux-thunk";
 import HomeReducer from "./reducer/HomeReducer";
+import ComponentsReducer from "./reducer/ComponentsReducer";
 
 
 const persistConfig = {
@@ -12,6 +13,7 @@ const persistConfig = {
 
 export const rootReducers = combineReducers({
   data: HomeReducer,
+  Cdata: ComponentsReducer,
 
 });
 

@@ -13,7 +13,8 @@ import profileIcon from "../../assests/images/05/profile.png";
 import Select from "react-select";
 import { AiTwotoneStar } from "react-icons/ai";
 import { AiOutlineStar } from "react-icons/ai";
-import loadingImg from "../../assests/images/05/loading.png"
+import loadingImg from "../../assests/images/05/loading.png";
+import { Helmet } from "react-helmet";
 
 const responsive = {
   superLargeDesktop: {
@@ -117,6 +118,29 @@ const HospitalProfile = () => {
   };
   return (
     <>
+      <Helmet>
+        <title>{hospitalDetails.title}</title>
+        <meta name="description" content={hospitalDetails.description} />
+        <link
+          rel="canonical"
+          href={`https://medflick.com/hospital/speciality/${slug}/${country}`}
+        />
+
+        <meta property="og:title" content={hospitalDetails.title} />
+
+        <meta property="og:description" content={hospitalDetails.description} />
+
+        <meta
+          property="og:url"
+          content={`https://medflick.com/hospital/speciality/${slug}/${country}`}
+        />
+
+        <meta property="og:type" content="website" />
+
+        <meta property="og:locale" content="en" />
+
+        <meta property="og:site_name" content="Medflick" />
+      </Helmet>
       <Homelayout>
         <section id="hospitalprofile-section">
           <div className="midbox-inner  wiki-mk">
@@ -277,7 +301,9 @@ const HospitalProfile = () => {
                                 <AiTwotoneStar />
                               </i>
                             ) : (
-                              <i><AiOutlineStar /></i>
+                              <i>
+                                <AiOutlineStar />
+                              </i>
                             )}
                           </span>
                         ))}
@@ -712,7 +738,10 @@ const HospitalProfile = () => {
                   speciality.map((e) => (
                     <div className="specialists-boxitem" key={e.id}>
                       <div className="boxitem">
-                        <img src={`${process.env.REACT_APP_BASE_URL}/speciality/${e.icon}`} alt="speciality-icons" />
+                        <img
+                          src={`${process.env.REACT_APP_BASE_URL}/speciality/${e.icon}`}
+                          alt="speciality-icons"
+                        />
                         <h4>{e.name}</h4>
                       </div>
                     </div>
