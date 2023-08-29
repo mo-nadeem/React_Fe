@@ -157,7 +157,15 @@ const DoctorProfile = () => {
   return (
     <>
       <Helmet>
-        <title>{docotorDetails && docotorDetails.title}</title>
+        {treament.map((e) => (
+          <title>
+            {" "}
+            {docotorDetails.prefix} {docotorDetails.first_name}{" "}
+            {docotorDetails.last_name} | Best {e.name} in{" "}
+            {docotorDetails.location}, India | Medflick
+          </title>
+        ))}
+        {/* <title>{docotorDetails && docotorDetails.title}</title> */}
         <meta
           name="description"
           content={docotorDetails && docotorDetails.description}
@@ -172,16 +180,12 @@ const DoctorProfile = () => {
           property="og:description"
           content={docotorDetails && docotorDetails.description}
         />
-
         <meta
           property="og:url"
           content={`https://medflick.com/doctor/${slug}`}
         />
-
         <meta property="og:type" content="website" />
-
         <meta property="og:locale" content="en" />
-
         <meta property="og:site_name" content="Medflick" />
       </Helmet>
       <Homelayout>
