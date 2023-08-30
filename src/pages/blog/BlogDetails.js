@@ -5,22 +5,22 @@ import { useParams } from "react-router-dom";
 import icon1 from "../../assests/images/04/icon2.png";
 import icon2 from "../../assests/images/04/icon1.png";
 import arrowIcon from "../../assests/images/2023/01/arrow-c.png";
-import img1 from "../../assests/images/04/02/1.jpg";
-import img2 from "../../assests/images/04/02/2.jpg";
-import img3 from "../../assests/images/04/02/3.jpg";
 import arrowW from "../../assests/images/2023/01/arrow-w.png";
 import arrowC from "../../assests/images/2023/01/arrow-c.png";
-import relatedImg from "../../assests/images/04/01/1.jpg";
-
+import { Link } from "react-router-dom";
 
 const BlogDetails = () => {
   const { slug } = useParams();
   const [blogDetails, setBlogDetails] = useState([]);
+  const [relatedBlog, setRelatedBlog] = useState([]);
+  const [relatedArticles, setRelatedArticles] = useState([]);
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/api/blog/${slug}`)
       .then((response) => {
         setBlogDetails(response.data.data.blog_info);
+        setRelatedBlog(response.data.data.related_blog);
+        setRelatedArticles(response.data.data.related_article);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -210,18 +210,23 @@ const BlogDetails = () => {
                 <div className="articles-box">
                   Related Articles
                   <ul>
-                    <li>
+                    {relatedArticles.map((e) => (
+                      <li key={e.id}>
+                        <img
+                          src={`${process.env.REACT_APP_BASE_URL}/blog/${e.icon}`}
+                          alt="blog-related"
+                        />
+                        <Link to={`/blog/${e.slug}`}>{e.name}</Link>
+                      </li>
+                    ))}
+                    {/* <li>
                       <img src={relatedImg} alt="blog-related" /> Lorem ipsum
                       dolor sit amet lorem aliquia ex
                     </li>
                     <li>
                       <img src={relatedImg} alt="blog-related" /> Lorem ipsum
                       dolor sit amet lorem aliquia ex
-                    </li>
-                    <li>
-                      <img src={relatedImg} alt="blog-related" /> Lorem ipsum
-                      dolor sit amet lorem aliquia ex
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
               </div>
@@ -512,69 +517,33 @@ const BlogDetails = () => {
             </div>
 
             <ul>
-              <li>
-                <img src={img1} />
-                <h3>
-                  Lorem ipsum dolor sit amet volup aspernatur odit fugit sed
-                </h3>
-                <p>
-                  Nemo enim ipsam voluptatem quia volup aspern aut odit aut
-                  fugit, sed quia enim ipsam voluptatem quia volup
-                </p>
-                <div className="symptoms-nav">
-                  <a href="#" target="_self">
-                    Lorem Ipsum
-                  </a>
-                  <a href="#" target="_self">
-                    Lorem Ipsum
-                  </a>
-                  <a href="#" target="_self">
-                    Exceptur{" "}
-                  </a>
-                </div>
-              </li>
-              <li>
-                <img src={img2} />
-                <h3>
-                  Lorem ipsum dolor sit amet volup aspernatur odit fugit sed
-                </h3>
-                <p>
-                  Nemo enim ipsam voluptatem quia volup aspern aut odit aut
-                  fugit, sed quia enim ipsam voluptatem quia volup
-                </p>
-                <div className="symptoms-nav">
-                  <a href="#" target="_self">
-                    Lorem Ipsum
-                  </a>
-                  <a href="#" target="_self">
-                    Lorem Ipsum
-                  </a>
-                  <a href="#" target="_self">
-                    Exceptur{" "}
-                  </a>
-                </div>
-              </li>
-              <li>
-                <img src={img3} />
-                <h3>
-                  Lorem ipsum dolor sit amet volup aspernatur odit fugit sed
-                </h3>
-                <p>
-                  Nemo enim ipsam voluptatem quia volup aspern aut odit aut
-                  fugit, sed quia enim ipsam voluptatem quia volup
-                </p>
-                <div className="symptoms-nav">
-                  <a href="#" target="_self">
-                    Lorem Ipsum
-                  </a>
-                  <a href="#" target="_self">
-                    Lorem Ipsum
-                  </a>
-                  <a href="#" target="_self">
-                    Exceptur{" "}
-                  </a>
-                </div>
-              </li>
+              {relatedBlog.map((e) => (
+                <li key={e.id}>
+                  <img
+                    src={`${process.env.REACT_APP_BASE_URL}/blog/${e.icon}`}
+                    alt={e.name}
+                  />
+                  <Link to={`/blog/${e.slug}`}>
+                    <h3>{e.name}</h3>
+                  </Link>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: e.short_description,
+                    }}
+                  />
+                  {/* <div className="symptoms-nav">
+                    <a href="#" target="_self">
+                      Lorem Ipsum
+                    </a>
+                    <a href="#" target="_self">
+                      Lorem Ipsum
+                    </a>
+                    <a href="#" target="_self">
+                      Exceptur{" "}
+                    </a>
+                  </div> */}
+                </li>
+              ))}
             </ul>
           </div>
         </section>

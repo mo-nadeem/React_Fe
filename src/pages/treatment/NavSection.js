@@ -313,7 +313,7 @@ const NavSection = ({ doctor, hospital, info }) => {
                   />
 
                   <div className="consultation-box">
-                    <p>Lorem ipsum dolor sit amet quis</p>
+                    <p>Plan with the best</p>
                     <Link
                       className="consultation-button"
                       to="/free-consultation"
@@ -484,7 +484,7 @@ const NavSection = ({ doctor, hospital, info }) => {
                     }}
                   />
                   <div className="consultation-box">
-                    <p>Lorem ipsum dolor sit amet quis</p>
+                    <p>Plan your wellness journey with confidence</p>
                     <Link
                       className="consultation-button"
                       to="/free-consultation"
@@ -653,7 +653,10 @@ const NavSection = ({ doctor, hospital, info }) => {
                   />
 
                   <div className="consultation-box2">
-                    <p>Lorem ipsum dolor sit amet quis</p>
+                    <p>
+                      The journey doesn't end here We'll stay connected
+                      throughout your recovery.
+                    </p>
                     <Link
                       className="consultation-button"
                       to="/free-consultation"
@@ -944,7 +947,7 @@ const NavSection = ({ doctor, hospital, info }) => {
                 <Link to="/hospitals">
                   <h4>Hospitals</h4>
                 </Link>
-                <p>Explore MedFlick-accredited hospitals</p>
+                <p>Medflick Assured Hospitals</p>
               </div>
 
               <div className="navbox">
@@ -952,7 +955,7 @@ const NavSection = ({ doctor, hospital, info }) => {
                 <Link to="/doctors">
                   <h4>Doctors</h4>
                 </Link>
-                <p>Meet MedFlick-endorsed doctors </p>
+                <p>Medflick Assured Doctors </p>
               </div>
 
               <div className="navbox">

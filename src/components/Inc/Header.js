@@ -122,6 +122,40 @@ const Header = () => {
   const popupStyle = {
     display: isPopupOpen ? "block" : "none",
   };
+
+  // language translet
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
+
+  // Step 4: Event handler to update the selected language
+  const handleLanguageChange = (event) => {
+    const newLanguage = event.target.value;
+    setSelectedLanguage(newLanguage);
+
+    // You can also update other parts of your application based on the selected language here
+  };
+
+  // Step 5: Include the external script using useEffect
+
+
+  // useEffect(() => {
+  //   const script = document.createElement("script");
+  //   script.src = "https://cdn.gtranslate.net/widgets/latest/dropdown.js";
+  //   script.defer = true;
+  //   document.body.appendChild(script);
+
+  //   // Ensure that the script is loaded before attempting to change the language
+  //   script.onload = () => {
+  //     // Change the language using the global gtranslateSettings object
+  //     if (window.gtranslateSettings) {
+  //       window.gtranslateSettings.default_language = selectedLanguage;
+  //     }
+  //   };
+
+  //   return () => {
+  //     // Clean up: remove the script when the component unmounts
+  //     document.body.removeChild(script);
+  //   };
+  // }, [selectedLanguage]);
   return (
     <>
       <header className="header" id="header-id">
@@ -226,7 +260,7 @@ const Header = () => {
             {/* <Link className="navbar__buttons-login" to="/login">
               Log In
             </Link> */}
-            <div className="most-recent">
+            {/* <div className="most-recent">
               <select className="jdgm-sort-dropdown" aria-label="Sort dropdown">
                 <option value="select-language">Select Language</option>
                 <option value="English" selected>
@@ -234,7 +268,23 @@ const Header = () => {
                   English
                 </option>
               </select>
-            </div>
+            </div> */}
+            {/* <div className="gtranslate_wrapper">
+              <select
+                value={selectedLanguage}
+                onChange={handleLanguageChange}
+                label="Select Language"
+              >
+                <option value="en">English</option>
+                <option value="fr">French</option>
+                <option value="hi">Hindi</option>
+                <option value="ar">Arabic</option>
+                <option value="gu">Gujarati</option>
+                <option value="ta">Tamil</option>
+                <option value="mr">Marathi</option>
+                <option value="bn">Bengali</option>
+              </select>
+            </div> */}
 
             <Link className="qsk-question" to="/question-answer">
               Ask FREE Question <img src={arrow} alt="" />
