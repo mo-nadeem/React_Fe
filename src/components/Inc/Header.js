@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 import navIcon from "../../assests/images/nav/icon1.png";
 import queryImg from "../../assests/images/07/query-img.png";
 import axios from "axios";
+import ReCAPTCHA from "react-google-recaptcha";
+import { ThreeDots } from "react-loader-spinner";
 const Header = () => {
   const dispatch = useDispatch();
 
@@ -36,46 +38,105 @@ const Header = () => {
     setSelectedFile(event.target.files[0]);
   };
 
+  // State variables for error messages
+  const [nameError, setNameError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [captchaValue, setCaptchaValue] = useState(null);
+  const handleCaptchaChange = (value) => {
+    setCaptchaValue(value);
+  };
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
+    setNameError("");
+    setPhoneError("");
+    setEmailError("");
+
+    // Validation logic
+    let isValid = true;
+
+    if (!firstName) {
+      setNameError("Name is required");
+      isValid = false;
+    }
+    if (!captchaValue) {
+      alert("Please complete the CAPTCHA.");
+      return;
+    }
+
+    const phoneRegex = /^\d{10,}$/; // Matches 10 or more digits
+    if (!number || !number.match(phoneRegex)) {
+      setPhoneError("Phone must have at least 10 digits");
+      isValid = false;
+    }
+
     const fullName = `${firstName} ${lastName}`;
-    // Create the data object to be sent in the API request
-    const data = {
-      name: fullName,
-      file: selectedFile,
-      phone_code: pcode,
-      phone: number,
-      email: email,
-      messages: query,
-    };
+    if (isValid) {
+      // Create the data object to be sent in the API request
+      const data = {
+        name: fullName,
+        file: selectedFile,
+        phone_code: pcode,
+        phone: number,
+        email: email,
+        messages: query,
+      };
 
-    // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
-    const apiEndpoint = `${process.env.REACT_APP_BASE_URL}/api/personalized_offer`;
-    setIsLoading(true);
+      // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
+      const apiEndpoint = `${process.env.REACT_APP_BASE_URL}/api/personalized_offer`;
+      setIsLoading(true);
 
-    // Make the API call
-    axios
-      .post(apiEndpoint, data, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
-      .then((response) => {
-        // Handle the API response here if needed
-        console.log(response);
-        alert("Questions have been successfully submitted");
-      })
-      .catch((error) => {
-        // Handle any errors that occurred during the API call
-        console.error("Error:", error);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+      // Make the API call
+      axios
+        .post(apiEndpoint, data, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((response) => {
+          // Handle the API response here if needed
+          console.log(response);
+          alert("Questions have been successfully submitted");
+          clearFormFields();
+        })
+        .catch((error) => {
+          // Handle any errors that occurred during the API call
+          console.error("Error:", error);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }
+  };
+
+  const clearFormFields = () => {
+    setFirstName("");
+    setLastName("");
+    setNumber("");
+    setEmail("");
+    setQuery("");
+  };
+
+  const Formstyles = {
+    errorInput: {
+      border: "2px solid red",
+    },
+    errorMessage: {
+      color: "red",
+      fontSize: "0.85rem",
+      marginTop: "0.25rem",
+    },
+    loadingMessage: {
+      fontSize: "1.2rem",
+      color: "#333",
+      marginTop: "1rem",
+    },
   };
 
   // scroll
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -95,6 +156,7 @@ const Header = () => {
   };
 
   // FOR OFFCANVA
+
   const [isOffcanvas, setIsOffcanvas] = useState(false);
 
   const toggleOffcanvas = () => {
@@ -113,6 +175,8 @@ const Header = () => {
     clickedCollapsible.classList.toggle("active");
   };
 
+  // for popup form
+
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const togglePopup = () => {
@@ -124,6 +188,7 @@ const Header = () => {
   };
 
   // language translet
+
   const [selectedLanguage, setSelectedLanguage] = useState("en");
 
   // Step 4: Event handler to update the selected language
@@ -135,7 +200,6 @@ const Header = () => {
   };
 
   // Step 5: Include the external script using useEffect
-
 
   // useEffect(() => {
   //   const script = document.createElement("script");
@@ -453,6 +517,8 @@ const Header = () => {
                     required
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
+                    style={nameError ? Formstyles.errorInput : {}}
+                    autoComplete="off"
                   />
                 </div>
                 <div class="inputbox1">
@@ -463,6 +529,7 @@ const Header = () => {
                     required
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
+                    autoComplete="off"
                   />
                 </div>
               </div>
@@ -521,7 +588,12 @@ const Header = () => {
                         name="name"
                         required
                         value={number}
-                        onChange={(e) => setNumber(e.target.value)}
+                        onChange={(e) => {
+                          const phoneNumber = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+                          setNumber(phoneNumber);
+                        }}
+                        style={phoneError ? Formstyles.errorInput : {}}
+                        autoComplete="off"
                       />
                     </div>
                   </div>
@@ -529,12 +601,13 @@ const Header = () => {
                 <div class="inputbox1">
                   <label>Email Address</label>
                   <input
-                    type="text"
+                    type="email"
                     placeholder=""
                     name="name"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
+                    autoComplete="off"
                   />
                 </div>
               </div>
@@ -549,22 +622,50 @@ const Header = () => {
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     rows="2"
+                    autoComplete="off"
                   ></textarea>
                 </div>
               </div>
 
               <div class="home-form">
-                <div class="medical-report-all">
-                  <button class="medical-report-file">
-                    <img src="images/2023/07/upload-icon1.png" /> Uplod medical
-                    report
-                  </button>
-                  <input type="file" name="file" onChange={handleFileChange} />
+                <div class="inputbox1">
+                  <div class="home-form">
+                    <div class="medical-report-all">
+                      <button class="medical-report-file">
+                        <img src="images/2023/07/upload-icon1.png" /> Uplod
+                        medical report
+                      </button>
+                      <input
+                        type="file"
+                        name="file"
+                        onChange={handleFileChange}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="inputbox1">
+                  <ReCAPTCHA
+                    sitekey="6LcX6-YnAAAAAAjHasYD8EWemgKlDUxZ4ceSo8Eo" // Replace with your reCAPTCHA site key
+                    onChange={handleCaptchaChange}
+                  />
                 </div>
               </div>
 
               <button type="submit" name="en" class="home-button">
-                {isLoading ? "Submitting..." : "Submit Now"}
+                {isLoading ? (
+                  <ThreeDots
+                    height="27"
+                    width="80"
+                    radius="9"
+                    color="#ffffff"
+                    ariaLabel="three-dots-loading"
+                    wrapperStyle={{ marginLeft: "50rem" }}
+                    wrapperClassName=""
+                    visible={true}
+                  />
+                ) : (
+                  "Submit Now"
+                )}
               </button>
             </form>
           </div>
