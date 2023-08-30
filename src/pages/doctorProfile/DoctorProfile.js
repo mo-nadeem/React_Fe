@@ -176,17 +176,24 @@ const DoctorProfile = () => {
             </title>
           )
         )}
-
-        <meta
+        {hospitals.map((e) => (
+          <meta
+            name="description"
+            content={`Book an Appointment with ${docotorDetails.prefix} ${docotorDetails.first_name} ${docotorDetails.last_name}, ${docotorDetails.seo_keyword} in ${docotorDetails.location} with ${docotorDetails.experience_year}+ years of exceptional clinical expertise, associated with ${e.name}.   `}
+          />
+        ))}
+        {/* <meta
           name="description"
           content={docotorDetails && docotorDetails.description}
-        />
+        /> */}
         <link rel="canonical" href={`https://medflick.com/doctor/${slug}`} />
         <meta
           property="og:title"
           content={docotorDetails && docotorDetails.title}
         />
-
+        Book an Appointment with Dr. Ajay Kanbur, Nephrologist in Thane & Pune
+        with 10+ years of exceptional clinical expertise, associated with
+        Jupiter Hospital.
         <meta
           property="og:description"
           content={docotorDetails && docotorDetails.description}
