@@ -172,7 +172,7 @@ const DoctorProfile = () => {
         ) : (
           showNotFoundMessage && (
             <title>
-              {`${docotorDetails.prefix} ${docotorDetails.first_name} ${docotorDetails.last_name}| Best ${docotorDetails.seo_keyword} in ${docotorDetails.location}, India | Medflick`}
+              {`${docotorDetails.prefix} ${docotorDetails.first_name} ${docotorDetails.last_name} | Best ${docotorDetails.seo_keyword} Doctor in ${docotorDetails.location}, India | Medflick`}
             </title>
           )
         )}
