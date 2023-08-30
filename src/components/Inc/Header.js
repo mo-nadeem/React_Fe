@@ -12,6 +12,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { ThreeDots } from "react-loader-spinner";
 const Header = () => {
   const dispatch = useDispatch();
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const { speciality } = useSelector((state) => state.data);
 
@@ -100,6 +101,8 @@ const Header = () => {
           console.log(response);
           alert("Questions have been successfully submitted");
           clearFormFields();
+          setIsPopupOpen(false)
+       
         })
         .catch((error) => {
           // Handle any errors that occurred during the API call
@@ -177,7 +180,7 @@ const Header = () => {
 
   // for popup form
 
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+ 
 
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen);
