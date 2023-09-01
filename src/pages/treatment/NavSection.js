@@ -10,6 +10,8 @@ import icon2 from "../../assests/images/03/02/2.png";
 import icon3 from "../../assests/images/03/02/3.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { ThreeDots } from "react-loader-spinner";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const responsive = {
   superLargeDesktop: {
@@ -50,41 +52,97 @@ const NavSection = ({ doctor, hospital, info }) => {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  // State variables for error messages
+  const [nameError, setNameError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [emailError, setEmailError] = useState("");
+
+  const [captchaValue, setCaptchaValue] = useState(null);
+
+  const handleCaptchaChange = (value) => {
+    setCaptchaValue(value);
+  };
+  const clearFormFields = () => {
+    setName("");
+    setPhone("");
+    setEmail("");
+  };
+
+  const Formstyles = {
+    errorInput: {
+      border: "2px solid red",
+    },
+    errorMessage: {
+      color: "red",
+      fontSize: "0.85rem",
+      marginTop: "0.25rem",
+    },
+    loadingMessage: {
+      fontSize: "1.2rem",
+      color: "#333",
+      marginTop: "1rem",
+    },
+  };
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    // Create the data object to be sent in the API request
-    const data = {
-      name: name,
-      phone_code: pcode,
-      phone: phone,
-      email: email,
-      // messages: query,
-    };
+    setNameError("");
+    setPhoneError("");
+    setEmailError("");
 
-    // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
-    const apiEndpoint = `${process.env.REACT_APP_BASE_URL}/api/free_quote_treatment`;
+    // Validation logic
+    let isValid = true;
 
-    setIsLoading(true);
+    if (!name) {
+      setNameError("Name is required");
+      isValid = false;
+    }
+    if (!captchaValue) {
+      alert("Please complete the CAPTCHA.");
+      return;
+    }
 
-    // Make the API call
-    axios
-      .post(apiEndpoint, data)
-      .then((response) => {
-        // Handle the API response here if needed
-        console.log(response);
-        alert("questions is susscefull submitted");
-      })
-      .catch((error) => {
-        // Handle any errors that occurred during the API call
-        console.error("Error:", error);
-      })
-      .finally(() => {
-        // Set loading back to false after the API call is complete
-        setIsLoading(false);
-      });
+    const phoneRegex = /^\d{10,}$/; // Matches 10 or more digits
+    if (!phone || !phone.match(phoneRegex)) {
+      setPhoneError("Phone must have at least 10 digits");
+      isValid = false;
+    }
+
+    if (isValid) {
+      // Create the data object to be sent in the API request
+      const data = {
+        name: name,
+        phone_code: pcode,
+        phone: phone,
+        email: email,
+        // messages: query,
+      };
+
+      // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
+      const apiEndpoint = `${process.env.REACT_APP_BASE_URL}/api/free_quote_treatment`;
+
+      setIsLoading(true);
+
+      // Make the API call
+      axios
+        .post(apiEndpoint, data)
+        .then((response) => {
+          // Handle the API response here if needed
+          console.log(response);
+          alert("questions is susscefull submitted");
+          clearFormFields();
+        })
+        .catch((error) => {
+          // Handle any errors that occurred during the API call
+          console.error("Error:", error);
+        })
+        .finally(() => {
+          // Set loading back to false after the API call is complete
+          setIsLoading(false);
+        });
+    }
   };
-
 
   // form 2 post request
   const [name1, setName1] = useState("");
@@ -93,42 +151,82 @@ const NavSection = ({ doctor, hospital, info }) => {
   const [email1, setEmail1] = useState("");
   const [isLoading1, setIsLoading1] = useState(false);
 
+  const [nameError1, setNameError1] = useState("");
+  const [phoneError1, setPhoneError1] = useState("");
+  const [emailError1, setEmailError1] = useState("");
+  const [captchaValue1, setCaptchaValue1] = useState(null);
+
+  const handleCaptchaChange1 = (value) => {
+    setCaptchaValue1(value);
+  };
+
+  const clearFormFields1 = () => {
+    setName1("");
+    setPhone1("");
+    setEmail1("");
+    setPcode1("");
+  };
+
   const handleFormSubmit1 = (event) => {
     event.preventDefault();
 
-    // Create the data object to be sent in the API request
-    const data = {
-      name: name1,
-      phone_code: pcode1,
-      phone: phone1,
-      email: email1,
-      // messages: query,
-    };
+    setNameError1("");
+    setPhoneError1("");
+    setEmailError1("");
 
-    // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
-    const apiEndpoint = `${process.env.REACT_APP_BASE_URL}/api/free_quote_treatment`;
+    // Validation logic
+    let isValid = true;
 
-    setIsLoading1(true);
+    if (!name1) {
+      setNameError1("Name is required");
+      isValid = false;
+    }
+    if (!captchaValue1) {
+      alert("Please complete the CAPTCHA.");
+      return;
+    }
 
-    // Make the API call
-    axios
-      .post(apiEndpoint, data)
-      .then((response) => {
-        // Handle the API response here if needed
-        console.log(response);
-        alert("questions is susscefull submitted");
-      })
-      .catch((error) => {
-        // Handle any errors that occurred during the API call
-        console.error("Error:", error);
-      })
-      .finally(() => {
-        // Set loading back to false after the API call is complete
-        setIsLoading1(false);
-      });
+    const phoneRegex = /^\d{10,}$/; // Matches 10 or more digits
+    if (!phone1 || !phone1.match(phoneRegex)) {
+      setPhoneError1("Phone must have at least 10 digits");
+      isValid = false;
+    }
+
+    if (isValid) {
+      // Create the data object to be sent in the API request
+      const data = {
+        name: name1,
+        phone_code: pcode1,
+        phone: phone1,
+        email: email1,
+        // messages: query,
+      };
+
+      // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
+      const apiEndpoint = `${process.env.REACT_APP_BASE_URL}/api/free_quote_treatment`;
+
+      setIsLoading1(true);
+
+      // Make the API call
+      axios
+        .post(apiEndpoint, data)
+        .then((response) => {
+          // Handle the API response here if needed
+          console.log(response);
+          alert("questions is susscefull submitted");
+          clearFormFields1();
+        })
+        .catch((error) => {
+          // Handle any errors that occurred during the API call
+          console.error("Error:", error);
+        })
+        .finally(() => {
+          // Set loading back to false after the API call is complete
+          setIsLoading1(false);
+        });
+    }
   };
 
- 
   return (
     <>
       <section id="treatment-mid">
@@ -344,7 +442,7 @@ const NavSection = ({ doctor, hospital, info }) => {
 
                 <div className="assistance-form">
                   <h3>Provide your details</h3>
-                  <p>Our Health Experts will get back to you shortly</p>
+                  {/* <p>Our Health Experts will get back to you shortly</p> */}
                   <form onSubmit={handleFormSubmit1}>
                     <div className="assistance-box">
                       <div className="input-box1">
@@ -356,6 +454,8 @@ const NavSection = ({ doctor, hospital, info }) => {
                           required
                           value={name1}
                           onChange={(e) => setName1(e.target.value)}
+                          autoComplete="off"
+                          style={nameError1 ? Formstyles.errorInput : {}}
                         />
                       </div>
                     </div>
@@ -417,7 +517,15 @@ const NavSection = ({ doctor, hospital, info }) => {
                               name="name"
                               required
                               value={phone1}
-                              onChange={(e) => setPhone1(e.target.value)}
+                              onChange={(e) => {
+                                const phoneNumber = e.target.value.replace(
+                                  /\D/g,
+                                  ""
+                                ); // Remove non-numeric characters
+                                setPhone1(phoneNumber);
+                              }}
+                              style={phoneError1 ? Formstyles.errorInput : {}}
+                              autoComplete="off"
                             />
                           </div>
                         </div>
@@ -434,14 +542,37 @@ const NavSection = ({ doctor, hospital, info }) => {
                           required
                           value={email1}
                           onChange={(e) => setEmail1(e.target.value)}
+                          autoComplete="off"
                         />
                       </div>
                     </div>
+                    <ReCAPTCHA
+                      sitekey="6LcX6-YnAAAAAAjHasYD8EWemgKlDUxZ4ceSo8Eo" // Replace with your reCAPTCHA site key
+                      onChange={handleCaptchaChange1}
+                    />
 
                     <div className="assistance-box">
-                      <button type="submit" name="en" className="submit-now">
+                      <button
+                        type="submit"
+                        name="en"
+                        className="submit-now"
+                        disabled={isLoading1}
+                      >
                         {" "}
-                        {isLoading1 ? "Submitting..." : "Submit Now"}{" "}
+                        {isLoading1 ? (
+                          <ThreeDots
+                            height="27"
+                            width="80"
+                            radius="9"
+                            color="#ffffff"
+                            ariaLabel="three-dots-loading"
+                            wrapperStyle={{}}
+                            wrapperClassName=""
+                            visible={true}
+                          />
+                        ) : (
+                          "Submit Now"
+                        )}{" "}
                         <img src={arrowIcon} alt="" />
                       </button>
                     </div>
@@ -542,7 +673,7 @@ const NavSection = ({ doctor, hospital, info }) => {
 
                 <div className="assistance-form">
                   <h3>Provide your details</h3>
-                  <p>Our Health Experts will get back to you shortly</p>
+                  {/* <p>Our Health Experts will get back to you shortly</p> */}
 
                   <form onSubmit={handleFormSubmit}>
                     <div className="assistance-box">
@@ -555,6 +686,8 @@ const NavSection = ({ doctor, hospital, info }) => {
                           required
                           value={name}
                           onChange={(e) => setName(e.target.value)}
+                          autoComplete="off"
+                          style={nameError ? Formstyles.errorInput : {}}
                         />
                       </div>
                     </div>
@@ -616,7 +749,15 @@ const NavSection = ({ doctor, hospital, info }) => {
                               name="name"
                               required
                               value={phone}
-                              onChange={(e) => setPhone(e.target.value)}
+                              onChange={(e) => {
+                                const phoneNumber = e.target.value.replace(
+                                  /\D/g,
+                                  ""
+                                ); // Remove non-numeric characters
+                                setPhone(phoneNumber);
+                              }}
+                              style={phoneError ? Formstyles.errorInput : {}}
+                              autoComplete="off"
                             />
                           </div>
                         </div>
@@ -633,14 +774,37 @@ const NavSection = ({ doctor, hospital, info }) => {
                           required
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
+                          autoComplete="off"
                         />
                       </div>
                     </div>
+                    <ReCAPTCHA
+                      sitekey="6LcX6-YnAAAAAAjHasYD8EWemgKlDUxZ4ceSo8Eo" // Replace with your reCAPTCHA site key
+                      onChange={handleCaptchaChange}
+                    />
 
                     <div className="assistance-box">
-                      <button type="submit" name="en" className="submit-now">
+                      <button
+                        type="submit"
+                        name="en"
+                        className="submit-now"
+                        disabled={isLoading}
+                      >
                         {" "}
-                        {isLoading ? "Submitting..." : "Submit Now"}{" "}
+                        {isLoading ? (
+                          <ThreeDots
+                            height="27"
+                            width="80"
+                            radius="9"
+                            color="#ffffff"
+                            ariaLabel="three-dots-loading"
+                            wrapperStyle={{}}
+                            wrapperClassName=""
+                            visible={true}
+                          />
+                        ) : (
+                          "Submit Now"
+                        )}{" "}
                         <img src={arrowIcon} alt="" />
                       </button>
                     </div>
@@ -911,9 +1075,9 @@ const NavSection = ({ doctor, hospital, info }) => {
                             />
                             <div className="hospitals-treat">
                               <h3 style={{ textAlign: "left" }}>{e.name}</h3>
-                              <div className="hospitals-sub">
+                              {/* <div className="hospitals-sub">
                                 Lorem ipsum dolor sit amet
-                              </div>
+                              </div> */}
                               <Link
                                 to={`/hospital/${e.slug}/${e.country}`}
                                 className="contact-now"

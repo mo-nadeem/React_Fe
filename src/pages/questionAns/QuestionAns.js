@@ -215,9 +215,8 @@ const QuestionAns = () => {
   };
 
   const handleFormSubmit1 = (event) => {
-
     event.preventDefault();
-    
+
     setNameError1("");
     setPhoneError1("");
     setEmailError1("");
@@ -630,6 +629,7 @@ const QuestionAns = () => {
                             type="submit"
                             name="en"
                             className="home-button"
+                            disabled={isLoading}
                           >
                             {" "}
                             {isLoading ? (
@@ -1170,7 +1170,12 @@ const QuestionAns = () => {
                       onChange={handleCaptchaChange1}
                     />
 
-                    <button type="submit" name="en" className="home-button">
+                    <button
+                      type="submit"
+                      name="en"
+                      className="home-button"
+                      disabled={isLoading1}
+                    >
                       {" "}
                       {isLoading1 ? (
                         <ThreeDots

@@ -3812,6 +3812,7 @@ table strong {
   font-size: 16px;
   color: #fff;
   letter-spacing: 0px;
+  text-align: start;
 }
 #doctors-treatment .contact-now {
   padding: 6px 49px 6px 10px;
