@@ -494,7 +494,7 @@ const Section3 = () => {
                         sitekey="6LcX6-YnAAAAAAjHasYD8EWemgKlDUxZ4ceSo8Eo" // Replace with your reCAPTCHA site key
                         onChange={handleCaptchaChange}
                       />
-                      <button type="submit" name="en" className="home-button">
+                      <button type="submit" name="en" className="home-button" disabled={isLoading}>
                         {" "}
                         {isLoading ? (
                           <ThreeDots
