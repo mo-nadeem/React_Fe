@@ -50,6 +50,43 @@ const NavSection = ({ doctor, hospital, info }) => {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    // Create the data object to be sent in the API request
+    const data = {
+      name: name,
+      phone_code: pcode,
+      phone: phone,
+      email: email,
+      // messages: query,
+    };
+
+    // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
+    const apiEndpoint = `${process.env.REACT_APP_BASE_URL}/api/free_quote_treatment`;
+
+    setIsLoading(true);
+
+    // Make the API call
+    axios
+      .post(apiEndpoint, data)
+      .then((response) => {
+        // Handle the API response here if needed
+        console.log(response);
+        alert("questions is susscefull submitted");
+      })
+      .catch((error) => {
+        // Handle any errors that occurred during the API call
+        console.error("Error:", error);
+      })
+      .finally(() => {
+        // Set loading back to false after the API call is complete
+        setIsLoading(false);
+      });
+  };
+
+
+  // form 2 post request
   const [name1, setName1] = useState("");
   const [pcode1, setPcode1] = useState("");
   const [phone1, setPhone1] = useState("");
@@ -91,40 +128,7 @@ const NavSection = ({ doctor, hospital, info }) => {
       });
   };
 
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-
-    // Create the data object to be sent in the API request
-    const data = {
-      name: name,
-      phone_code: pcode,
-      phone: phone,
-      email: email,
-      // messages: query,
-    };
-
-    // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
-    const apiEndpoint = `${process.env.REACT_APP_BASE_URL}/api/free_quote_treatment`;
-
-    setIsLoading(true);
-
-    // Make the API call
-    axios
-      .post(apiEndpoint, data)
-      .then((response) => {
-        // Handle the API response here if needed
-        console.log(response);
-        alert("questions is susscefull submitted");
-      })
-      .catch((error) => {
-        // Handle any errors that occurred during the API call
-        console.error("Error:", error);
-      })
-      .finally(() => {
-        // Set loading back to false after the API call is complete
-        setIsLoading(false);
-      });
-  };
+ 
   return (
     <>
       <section id="treatment-mid">
