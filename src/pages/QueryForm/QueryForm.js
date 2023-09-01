@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Homelayout from "../../components/Homelayout/Homelayout";
 import axios from "axios";
+import { ThreeDots } from "react-loader-spinner";
+import ReCAPTCHA from "react-google-recaptcha";
+import arrowCIcon from "../../assests/images/2023/01/arrow-c.png";
 
 const QueryForm = () => {
   // form query post api
@@ -12,39 +15,97 @@ const QueryForm = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
+  const [nameError, setNameError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [emailError, setEmailError] = useState("");
+
+  const [captchaValue, setCaptchaValue] = useState(null);
+
+  const handleCaptchaChange = (value) => {
+    setCaptchaValue(value);
+  };
+
+  const clearFormFields = () => {
+    setName("");
+    setPhone("");
+    setEmail("");
+    setQuery("");
+  };
+
+  const Formstyles = {
+    errorInput: {
+      border: "2px solid red",
+    },
+    errorMessage: {
+      color: "red",
+      fontSize: "0.85rem",
+      marginTop: "0.25rem",
+    },
+    loadingMessage: {
+      fontSize: "1.2rem",
+      color: "#333",
+      marginTop: "1rem",
+    },
+  };
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    // Create the data object to be sent in the API request
-    const data = {
-      name: name,
-      phone_code: pcode,
-      phone: phone,
-      email: email,
-      messages: query,
-    };
+    setNameError("");
+    setPhoneError("");
+    setEmailError("");
 
-    // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
-    const apiEndpoint = `${process.env.REACT_APP_BASE_URL}/api/free_consultants`;
+    // Validation logic
+    let isValid = true;
 
-    setIsLoading(true);
+    if (!name) {
+      setNameError("Name is required");
+      isValid = false;
+    }
+    if (!captchaValue) {
+      alert("Please complete the CAPTCHA.");
+      return;
+    }
 
-    // Make the API call
-    axios
-      .post(apiEndpoint, data)
-      .then((response) => {
-        // Handle the API response here if needed
-        console.log(response);
-        alert("questions is susscefull submitted");
-      })
-      .catch((error) => {
-        // Handle any errors that occurred during the API call
-        console.error("Error:", error);
-      })
-      .finally(() => {
-        // Set loading back to false after the API call is complete
-        setIsLoading(false);
-      });
+    const phoneRegex = /^\d{10,}$/; // Matches 10 or more digits
+    if (!phone || !phone.match(phoneRegex)) {
+      setPhoneError("Phone must have at least 10 digits");
+      isValid = false;
+    }
+
+    if (isValid) {
+      // Create the data object to be sent in the API request
+      const data = {
+        name: name,
+        phone_code: pcode,
+        phone: phone,
+        email: email,
+        messages: query,
+      };
+
+      // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
+      const apiEndpoint = `${process.env.REACT_APP_BASE_URL}/api/free_consultants`;
+
+      setIsLoading(true);
+
+      // Make the API call
+      axios
+        .post(apiEndpoint, data)
+        .then((response) => {
+          // Handle the API response here if needed
+          console.log(response);
+          alert("questions is susscefull submitted");
+          clearFormFields();
+        })
+        .catch((error) => {
+          // Handle any errors that occurred during the API call
+          console.error("Error:", error);
+        })
+        .finally(() => {
+          // Set loading back to false after the API call is complete
+          setIsLoading(false);
+        });
+    }
   };
   return (
     <>
@@ -61,9 +122,12 @@ const QueryForm = () => {
 
               <div className="treatment-right">
                 <form onSubmit={handleFormSubmit}>
-                  <div className="treatment-form">
+                  <div
+                    className="treatment-form"
+                    style={nameError ? Formstyles.errorInput : {}}
+                  >
                     <div className="inputbox">
-                      <label>Full Name</label>
+                      <label>Name</label>
                       <input
                         type="text"
                         placeholder=""
@@ -71,13 +135,18 @@ const QueryForm = () => {
                         required
                         value={name}
                         onChange={(e) => setName(e.target.value)}
+                        autoComplete="off"
+                        style={nameError ? Formstyles.errorInput : {}}
                       />
+                      {nameError && (
+                        <span style={Formstyles.errorMessage}>{nameError}</span>
+                      )}
                     </div>
                   </div>
 
                   <div className="treatment-form">
                     <div className="inputbox">
-                      <label>Phone Number</label>
+                      <label>Phone</label>
                       <div className="phone-form">
                         <div className="phone-box1">
                           <select
@@ -127,13 +196,25 @@ const QueryForm = () => {
                         </div>
                         <div className="phone-box2">
                           <input
-                            type="text"
+                            type="tel"
                             placeholder=""
                             name="name"
-                            required
                             value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
+                            onChange={(e) => {
+                              const phoneNumber = e.target.value.replace(
+                                /\D/g,
+                                ""
+                              ); // Remove non-numeric characters
+                              setPhone(phoneNumber);
+                            }}
+                            style={phoneError ? Formstyles.errorInput : {}}
+                            autoComplete="off"
                           />
+                          {/* {phoneError && (
+                              <span style={Formstyles.errorMessage}>
+                                {phoneError}
+                              </span>
+                            )} */}
                         </div>
                       </div>
                     </div>
@@ -141,14 +222,14 @@ const QueryForm = () => {
 
                   <div className="treatment-form">
                     <div className="inputbox">
-                      <label>Email Address</label>
+                      <label>Email</label>
                       <input
-                        type="text"
+                        type="email"
                         placeholder=""
                         name="name"
-                        required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        autoComplete="off"
                       />
                     </div>
                   </div>
@@ -160,21 +241,44 @@ const QueryForm = () => {
                         className="querybox"
                         type="textarea"
                         name="query"
+                        placeholder=""
                         rows="2"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
+                        autoComplete="off"
                       ></textarea>
                     </div>
                   </div>
-
+                  <ReCAPTCHA
+                    sitekey="6LcX6-YnAAAAAAjHasYD8EWemgKlDUxZ4ceSo8Eo" // Replace with your reCAPTCHA site key
+                    onChange={handleCaptchaChange}
+                  />
                   <p>
                     I agree to the <a href="#">Terms of use Privacy policy</a>{" "}
                     and receive marketing letters that may be of interest.
                   </p>
-
-                  <button type="submit" name="en" className="home-button">
-                    {isLoading ? "Submitting..." : "Submit Now"}{" "}
-                    <img src="images/2023/01/arrow-c.png" alt="" />
+                  <button
+                    type="submit"
+                    name="en"
+                    className="home-button"
+                    disabled={isLoading}
+                  >
+                    {" "}
+                    {isLoading ? (
+                      <ThreeDots
+                        height="27"
+                        width="80"
+                        radius="9"
+                        color="#ffffff"
+                        ariaLabel="three-dots-loading"
+                        wrapperStyle={{}}
+                        wrapperClassName=""
+                        visible={true}
+                      />
+                    ) : (
+                      "Submit Now"
+                    )}
+                    <img src={arrowCIcon} alt="arrow-Icon" />
                   </button>
                 </form>
               </div>

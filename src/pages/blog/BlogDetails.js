@@ -115,6 +115,7 @@ const BlogDetails = () => {
           // Handle the API response here if needed
           console.log(response);
           alert("questions is susscefull submitted");
+          clearFormFields1();
         })
         .catch((error) => {
           // Handle any errors that occurred during the API call
@@ -559,7 +560,12 @@ const BlogDetails = () => {
                       onChange={handleCaptchaChange1}
                     />
 
-                    <button type="submit" name="en" className="home-button">
+                    <button
+                      type="submit"
+                      name="en"
+                      className="home-button"
+                      disabled={isLoading1}
+                    >
                       {" "}
                       {isLoading1 ? (
                         <ThreeDots

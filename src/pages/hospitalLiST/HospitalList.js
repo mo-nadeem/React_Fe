@@ -194,7 +194,6 @@ const HospitalList = () => {
     },
   };
 
-  console.log(pcode);
 
   // Filter the 'Hospital' based on the 'searchQuery'
   const [searchQuery, setSearchQuery] = useState("");

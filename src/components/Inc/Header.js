@@ -654,7 +654,7 @@ const Header = () => {
                 </div>
               </div>
 
-              <button type="submit" name="en" class="home-button">
+              <button type="submit" name="en" class="home-button" disabled={isLoading}>
                 {isLoading ? (
                   <ThreeDots
                     height="27"
