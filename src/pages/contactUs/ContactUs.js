@@ -1,5 +1,6 @@
 import React from "react";
 import Homelayout from "../../components/Homelayout/Homelayout";
+import { Link } from "react-router-dom";
 
 const ContactUs = () => {
   return (
@@ -14,9 +15,9 @@ const ContactUs = () => {
                 inquiries you might have
               </p>
 
-              <a href="get-free-consultation.html" class="learn">
+              <Link to="/free-consultation" class="learn">
                 Call me Back <img src="images/2023/01/arrow-w.png" alt="" />
-              </a>
+              </Link>
             </div>
           </div>
         </section>
