@@ -1,0 +1,12 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - sudo npm install
+      - sudo npm install react-scripts --save
+       - sudo npm i react-scripts
+      - sudo npm run build
+artifacts:
+  files:
+    - '**/*'
